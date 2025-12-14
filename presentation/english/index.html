@@ -1984,16 +1984,54 @@ body {
         width: 80px !important;
     }
 
-    /* Force all border-radius smaller */
-    [style*="border-radius: 25px"],
-    [style*="border-radius: 20px"],
-    [style*="border-radius: 18px"] {
+    /* Force all border-radius smaller - BUT NOT circles (50%) */
+    [style*="border-radius: 25px"]:not([style*="border-radius: 50%"]),
+    [style*="border-radius: 20px"]:not([style*="border-radius: 50%"]),
+    [style*="border-radius: 18px"]:not([style*="border-radius: 50%"]) {
         border-radius: 10px !important;
     }
 
-    [style*="border-radius: 15px"],
-    [style*="border-radius: 12px"] {
+    [style*="border-radius: 15px"]:not([style*="border-radius: 50%"]),
+    [style*="border-radius: 12px"]:not([style*="border-radius: 50%"]) {
         border-radius: 8px !important;
+    }
+
+    /* PRESERVE CIRCULAR IMAGES - profile photos, founder photos */
+    div[style*="border-radius: 50%"],
+    [style*="border-radius: 50%"] {
+        border-radius: 50% !important;
+        overflow: hidden !important;
+    }
+
+    /* Ensure images inside circular containers stay circular */
+    div[style*="border-radius: 50%"] img,
+    [style*="border-radius: 50%"] img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        border-radius: 0 !important;
+    }
+
+    /* Presenter photo in header */
+    .presenter-photo {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        border-radius: 0 !important;
+    }
+
+    /* Founder/profile photo containers - force circle */
+    div[style*="width: 90px"][style*="height: 90px"][style*="border-radius"],
+    div[style*="width: 80px"][style*="height: 80px"][style*="border-radius"],
+    div[style*="width: 70px"][style*="height: 70px"][style*="border-radius"],
+    div[style*="width: 60px"][style*="height: 60px"][style*="border-radius"],
+    div[style*="width: 55px"][style*="height: 55px"][style*="border-radius"],
+    div[style*="width: 50px"][style*="height: 50px"][style*="border-radius"],
+    div[style*="width: 45px"][style*="height: 45px"][style*="border-radius"],
+    div[style*="width: 40px"][style*="height: 40px"][style*="border-radius"] {
+        border-radius: 50% !important;
+        overflow: hidden !important;
+        flex-shrink: 0 !important;
     }
 }
 
@@ -2029,6 +2067,29 @@ body {
     .slide-counter {
         padding: 8px 12px;
         font-size: 11px;
+    }
+
+    /* Keep circular photos on very small screens */
+    div[style*="border-radius: 50%"] {
+        border-radius: 50% !important;
+        overflow: hidden !important;
+    }
+
+    /* Make founder photos smaller on tiny screens */
+    div[style*="width: 90px"][style*="height: 90px"] {
+        width: 60px !important;
+        height: 60px !important;
+        border-radius: 50% !important;
+        overflow: hidden !important;
+    }
+
+    /* Header presenter photo smaller */
+    div[style*="width: 50px"][style*="height: 50px"][style*="border-radius: 50%"],
+    div[style*="width: 55px"][style*="height: 55px"][style*="border-radius: 50%"] {
+        width: 35px !important;
+        height: 35px !important;
+        border-radius: 50% !important;
+        overflow: hidden !important;
     }
 }
 
