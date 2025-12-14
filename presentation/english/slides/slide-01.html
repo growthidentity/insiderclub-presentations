@@ -1,0 +1,204 @@
+<div class="slide title-slide" style="position: relative; overflow: visible; background: linear-gradient(135deg, rgba(15, 12, 8, 1) 0%, rgba(30, 25, 18, 1) 50%, rgba(15, 12, 8, 1) 100%); min-height: 100vh;">
+    <!-- Background Image -->
+    <div style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none;">
+        <img src="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=1920&q=95" alt="Crypto" style="width: 100%; height: 100%; object-fit: cover;">
+        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(15, 12, 8, 0.94) 0%, rgba(30, 25, 18, 0.90) 50%, rgba(15, 12, 8, 0.94) 100%);"></div>
+    </div>
+
+    <div style="position: relative; z-index: 2; display: flex; flex-direction: column; min-height: 100vh; color: white; text-align: center; padding: 40px 50px;">
+
+        <!-- Premium Header Bar -->
+        <div style="display: flex; justify-content: flex-end; align-items: center; margin-bottom: 20px;">
+            <div style="display: flex; align-items: center; gap: 12px;">
+                <div style="background: linear-gradient(135deg, rgba(201, 162, 39, 0.3), rgba(244, 208, 63, 0.2)); padding: 10px 20px; border-radius: 20px; border: 1px solid rgba(244, 208, 63, 0.5);">
+                    <span style="color: #f4d03f; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 12px; letter-spacing: 1px;" data-translate="INTRODUCTION">INTRODUCTION</span>
+                </div>
+                <div style="width: 45px; height: 45px; border-radius: 50%; overflow: hidden; border: 2px solid #f4d03f; box-shadow: 0 3px 15px rgba(244, 208, 63, 0.4);">
+                    <img class="presenter-photo" src="LOGOS/Vambola Tullus.jpg" style="width: 100%; height: 100%; object-fit: cover;" alt="Presenter">
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content Area -->
+        <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+
+        <!-- Top Gold Line -->
+        <div style="width: 120px; height: 4px; background: linear-gradient(90deg, #c9a227, #f4d03f, #c9a227); margin-bottom: 40px; border-radius: 2px; box-shadow: 0 2px 15px rgba(201, 162, 39, 0.5);"></div>
+
+        <!-- Main Title -->
+        <div class="fragment" style="font-family: 'Montserrat', sans-serif; font-size: 4.5em; font-weight: 800; letter-spacing: 8px; text-shadow: 0 4px 30px rgba(0,0,0,0.5); margin-bottom: 15px; background: linear-gradient(135deg, #ffffff, #f4d03f, #ffffff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+            CRYPQUE & MOBICRYP
+        </div>
+
+        <!-- Subtitle -->
+        <div class="fragment" style="font-family: 'Open Sans', sans-serif; font-size: 1.6em; font-weight: 300; color: rgba(255,255,255,0.9); letter-spacing: 4px; margin-bottom: 40px;" data-translate="An Opportunity to Grow Your Money Steadily">
+            An Opportunity to Grow Your Money Steadily
+        </div>
+
+        <!-- Rotating Quote Box -->
+        <div class="fragment" style="background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03)); backdrop-filter: blur(15px); border-radius: 20px; padding: 30px 50px; margin: 20px auto 35px; max-width: 900px; border: 1px solid rgba(244, 208, 63, 0.3); box-shadow: 0 15px 40px rgba(0,0,0,0.3);">
+            <div id="rotating-quote" style="font-size: 24px; line-height: 1.6; color: rgba(255,255,255,0.95); text-align: center; font-style: italic; transition: opacity 0.5s;">
+                "Money doesn't make you happy... but it makes being unhappy very comfortable."
+            </div>
+        </div>
+
+        <!-- Timer -->
+        <div class="fragment" id="countdown-timer" style="display: inline-flex; align-items: center; gap: 18px; background: linear-gradient(135deg, rgba(201, 162, 39, 0.2), rgba(244, 208, 63, 0.1)); padding: 20px 40px; border-radius: 60px; backdrop-filter: blur(15px); border: 2px solid rgba(244, 208, 63, 0.4); box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
+            <i class="fas fa-clock" style="font-size: 28px; color: #f4d03f;"></i>
+            <div style="font-family: 'Montserrat', sans-serif; font-size: 42px; font-weight: 900; letter-spacing: 4px; color: #f4d03f;" id="timer-display">10:00</div>
+        </div>
+
+        <!-- Bottom Gold Line -->
+        <div style="width: 120px; height: 4px; background: linear-gradient(90deg, #c9a227, #f4d03f, #c9a227); margin-top: 40px; border-radius: 2px; box-shadow: 0 2px 15px rgba(201, 162, 39, 0.5);"></div>
+        </div>
+    </div>
+
+            <script>
+            // 100 English quotes
+            const quotes = [
+                "Money doesn't make you happy... but it makes being unhappy very comfortable.",
+                "The most expensive investment is the one you never make.",
+                "If Plan A doesn't work, luckily there are 25 more letters in the alphabet.",
+                "Want to get rich quick? Go to sleep - everything happens fast there.",
+                "Success is simple: less complaining, more action.",
+                "I don't have a problem with risk, I have a problem with staying poor.",
+                "People want stability... until money is mentioned.",
+                "Money doesn't sleep - and that's why I don't sleep either.",
+                "Work smarter, not harder. More work just makes you more tired.",
+                "Everyone wants freedom, until someone says: do something for it.",
+                "The smart invest, the fool spends - and the average just talks.",
+                "If you don't have a plan, you're part of someone else's plan.",
+                "The most expensive sentence: 'I'll do it tomorrow.'",
+                "Everyone wants a better life, but few want better habits.",
+                "Money doesn't make you a better person - it just amplifies who you already are.",
+                "If you want to know who really supports you, start a business.",
+                "The best time to invest was yesterday. The second best time is today.",
+                "If you don't take risks, your salary is your ceiling.",
+                "Most people aren't lazy, they're just too comfortable.",
+                "Everyone likes talking about money, until it's time to move it.",
+                "Success isn't hard - being consistent is.",
+                "Everyone wants to be a millionaire, but nobody wants to think like one.",
+                "Those afraid to risk, risk working for someone else their whole life.",
+                "Business isn't hard, people make it hard.",
+                "If you need motivation, look at your bank account.",
+                "Results = work, not wishes.",
+                "Getting rich quick is easy - go to a casino. Success though... that's different.",
+                "If you have an excuse, you don't have a goal.",
+                "Money doesn't make you happy, but at least make it easy for yourself.",
+                "Every dollar that doesn't work just goes shopping.",
+                "Success starts where excuses end.",
+                "If you want something you've never had, do something you've never done.",
+                "Don't wait for the perfect moment. The perfect moment is born when you finally start.",
+                "Saving is nice, but investing is sexier.",
+                "If money isn't coming to you, you're running in the wrong direction.",
+                "Warren Buffett didn't get rich buying cappuccinos every day.",
+                "Crazy people don't take risks, smart people do.",
+                "Do fewer stupid things and you're already richer than yesterday.",
+                "Money doesn't grow on trees. But it grows in percentages.",
+                "If the goal is big, the work must be big too.",
+                "The wise learn from others. The foolish learn themselves. The super-foolish don't learn at all.",
+                "Talking doesn't make you rich.",
+                "Plan less, act more.",
+                "If you don't take care of your money, someone else will - at your expense.",
+                "Dreams are free. Action costs.",
+                "Small thinking gives a small life.",
+                "If you want to do something right, start now.",
+                "It's incredible how much people spend to appear more successful than they are.",
+                "Money isn't the problem. Lack of money is.",
+                "If you don't have time to invest, you don't have time to be free.",
+                "The most expensive thing is ignorance.",
+                "A bad decision is better than no decision.",
+                "Motivation is temporary. Discipline is forever.",
+                "If you have no goal, your life has no direction.",
+                "Everything you postpone today costs more tomorrow.",
+                "Money alone doesn't make you rich - intelligence does.",
+                "Be the person who puts money to work for you, not the other way around.",
+                "Don't talk about what you'll do. Do it and let results speak.",
+                "People don't have a money problem... they have a choices problem.",
+                "Don't complain that life is expensive - complain that income is small.",
+                "Success is boring - it's repetition, repetition, repetition.",
+                "Less drama, more numbers.",
+                "Want to know how seriously someone takes money? Look where they put it.",
+                "Business is simple: create value. Everything else is noise.",
+                "When someone says 'it's impossible', I translate it as: 'I don't know how'.",
+                "Success doesn't come from the comfort zone, but bankruptcy does.",
+                "Everyone thinks big... until work comes.",
+                "Don't ask how hard it is. Ask if it's worth it.",
+                "A regular job is cool, until you realize it doesn't belong to you.",
+                "If you don't ask, you don't get.",
+                "Most give up before they even start.",
+                "You don't have to be the best - you just have to keep going.",
+                "Habits shape your future.",
+                "Poverty isn't a condition - it's a habit.",
+                "You can't buy happiness, but you can buy freedom.",
+                "Everyone wants success. Few want to pay for it.",
+                "Life is too short to be poor.",
+                "Work so that the future thanks you.",
+                "Don't wait for motivation, just take the first step.",
+                "If the risk seems big, think about the risk of doing nothing.",
+                "Don't live off money - make money live for you.",
+                "Money isn't the most important thing. But it's very useful.",
+                "The greatest luxury is freedom.",
+                "You don't need to know everything. You need to start.",
+                "The most important investment is in your head.",
+                "Don't make decisions from fear. Make decisions from numbers.",
+                "If you're not embarrassed looking back at your start, you started too late.",
+                "Money doesn't come to negativists.",
+                "If you want more, do more.",
+                "People are afraid to risk, but not afraid of poverty.",
+                "Your future depends on what you do today.",
+                "Poverty is more expensive than investing.",
+                "Don't live for the weekend.",
+                "Success isn't luck - it's mathematics.",
+                "Dreams only work when you work.",
+                "If you do what everyone does, you get what everyone gets.",
+                "The wise don't ask: 'Does it work?' The wise ask: 'How do I make it work?'",
+                "Everything is possible... if you finally do something.",
+                "If you want results, stop making excuses.",
+                "Successful people aren't special - they just didn't give up."
+            ];
+
+            // Shuffle quotes randomly
+            function shuffleArray(array) {
+                const shuffled = [...array];
+                for (let i = shuffled.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+                }
+                return shuffled;
+            }
+
+            let shuffledQuotes = shuffleArray(quotes);
+            let currentQuoteIndex = 0;
+
+            // Rotate quotes every 6 seconds
+            setInterval(() => {
+                const quoteElement = document.getElementById('rotating-quote');
+                quoteElement.style.opacity = '0';
+
+                setTimeout(() => {
+                    currentQuoteIndex = (currentQuoteIndex + 1) % shuffledQuotes.length;
+                    quoteElement.textContent = `"${shuffledQuotes[currentQuoteIndex]}"`;
+                    quoteElement.style.opacity = '1';
+                }, 500);
+            }, 6000);
+
+            // 10 minute countdown timer
+            let slide1TimeLeft = 600; // 10 minutes in seconds
+
+            function updateSlide1Timer() {
+                const minutes = Math.floor(slide1TimeLeft / 60);
+                const seconds = slide1TimeLeft % 60;
+                document.getElementById('timer-display').textContent =
+                    `${minutes}:${seconds.toString().padStart(2, '0')}`;
+
+                if (slide1TimeLeft > 0) {
+                    slide1TimeLeft--;
+                } else {
+                    document.getElementById('timer-display').textContent = "0:00";
+                }
+            }
+
+            setInterval(updateSlide1Timer, 1000);
+            </script>
+        </div>

@@ -1,0 +1,261 @@
+<div class="slide premium-slide" style="position: relative; overflow: hidden;">
+    <!-- Background Image -->
+    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0;">
+        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1920&q=95" alt="Levels" style="width: 100%; height: 100%; object-fit: cover;">
+        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(15, 12, 8, 0.94) 0%, rgba(30, 25, 18, 0.90) 50%, rgba(15, 12, 8, 0.94) 100%);"></div>
+    </div>
+
+    <!-- Content -->
+    <div style="position: relative; z-index: 2; display: flex; flex-direction: column; height: 100%; padding: 30px 50px;">
+
+        <!-- Premium Header Bar -->
+        <div style="display: flex; justify-content: flex-end; align-items: center; margin-bottom: 15px;">
+            <div style="display: flex; align-items: center; gap: 15px;">
+                <div style="background: linear-gradient(135deg, rgba(201, 162, 39, 0.3), rgba(201, 162, 39, 0.2)); padding: 10px 25px; border-radius: 25px; border: 1px solid rgba(201, 162, 39, 0.5);">
+                    <span style="color: #c9a227; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 14px; letter-spacing: 2px;">3. KASUMI JAGAMINE</span>
+                </div>
+                <div style="width: 50px; height: 50px; border-radius: 50%; overflow: hidden; border: 3px solid #f4d03f; box-shadow: 0 5px 20px rgba(244, 208, 63, 0.4);">
+                    <img class="presenter-photo" src="LOGOS/Vambola Tullus.jpg" style="width: 100%; height: 100%; object-fit: cover;" alt="Esineja">
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content Area -->
+        <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; max-width: 1300px; margin: 0 auto; width: 100%;">
+
+            <!-- Title -->
+            <div style="font-family: 'Montserrat', sans-serif; font-size: 2em; font-weight: 700; color: white; margin-bottom: 5px; text-shadow: 0 4px 20px rgba(0,0,0,0.5);">
+                <i class="fas fa-chart-pie" style="color: #c9a227; margin-right: 12px;"></i>Profit Share Kalkulaator
+            </div>
+            <div style="font-family: 'Open Sans', sans-serif; font-size: 1em; font-weight: 300; color: rgba(255,255,255,0.7); margin-bottom: 20px;">
+                Teeni osa tiimi arbitraaži kasumist — 30% kokku 10 tasemelt
+            </div>
+
+            <!-- Calculator Section -->
+            <div style="display: flex; flex-direction: column; gap: 15px;">
+
+                <!-- 10 Levels Grid with Individual Inputs -->
+                <div class="fragment" style="display: grid; grid-template-columns: repeat(5, 1fr); grid-template-rows: repeat(2, 1fr); gap: 10px;">
+                    <!-- Level 1 (OTSENE) -->
+                    <div style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.25), rgba(16, 185, 129, 0.1)); border-radius: 12px; padding: 10px 6px; border: 2px solid rgba(16, 185, 129, 0.6); text-align: center;">
+                        <div style="font-size: 9px; color: #10b981; font-weight: 600;">TASE 1 • OTSENE</div>
+                        <div style="font-size: 20px; font-weight: 900; color: #10b981;">10%</div>
+                        <div style="display: flex; align-items: center; justify-content: center; gap: 2px; margin: 6px 0;">
+                            <span style="font-size: 14px; color: rgba(255,255,255,0.6);">$</span>
+                            <input type="number" id="psInput1" value="5000" min="0" step="100"
+                                style="font-size: 14px; font-weight: 700; color: white; border: none; border-bottom: 2px solid rgba(16,185,129,0.6); width: 70px; text-align: center; background: rgba(0,0,0,0.2); border-radius: 4px; padding: 4px 2px; outline: none;"
+                                onchange="updateProfitShare()" oninput="updateProfitShare()">
+                        </div>
+                        <div style="font-size: 11px; font-weight: 700; color: #10b981;" id="psL1">$50/kuu</div>
+                        <div style="font-size: 9px; color: #f4d03f;" id="psL1Total">$1,250</div>
+                    </div>
+                    <!-- Level 2 -->
+                    <div style="background: linear-gradient(135deg, rgba(201, 162, 39, 0.25), rgba(201, 162, 39, 0.1)); border-radius: 12px; padding: 10px 6px; border: 2px solid rgba(201, 162, 39, 0.5); text-align: center;">
+                        <div style="font-size: 9px; color: rgba(255,255,255,0.6);">TASE 2</div>
+                        <div style="font-size: 20px; font-weight: 900; color: #c9a227;">5%</div>
+                        <div style="display: flex; align-items: center; justify-content: center; gap: 2px; margin: 6px 0;">
+                            <span style="font-size: 14px; color: rgba(255,255,255,0.6);">$</span>
+                            <input type="number" id="psInput2" value="0" min="0" step="100"
+                                style="font-size: 14px; font-weight: 700; color: white; border: none; border-bottom: 2px solid rgba(201,162,39,0.5); width: 70px; text-align: center; background: rgba(0,0,0,0.2); border-radius: 4px; padding: 4px 2px; outline: none;"
+                                onchange="updateProfitShare()" oninput="updateProfitShare()">
+                        </div>
+                        <div style="font-size: 11px; font-weight: 700; color: #10b981;" id="psL2">$0/kuu</div>
+                        <div style="font-size: 9px; color: #f4d03f;" id="psL2Total">$0</div>
+                    </div>
+                    <!-- Level 3 -->
+                    <div style="background: linear-gradient(135deg, rgba(201, 162, 39, 0.2), rgba(201, 162, 39, 0.08)); border-radius: 12px; padding: 10px 6px; border: 2px solid rgba(201, 162, 39, 0.4); text-align: center;">
+                        <div style="font-size: 9px; color: rgba(255,255,255,0.6);">TASE 3</div>
+                        <div style="font-size: 20px; font-weight: 900; color: #f4d03f;">3%</div>
+                        <div style="display: flex; align-items: center; justify-content: center; gap: 2px; margin: 6px 0;">
+                            <span style="font-size: 14px; color: rgba(255,255,255,0.6);">$</span>
+                            <input type="number" id="psInput3" value="0" min="0" step="100"
+                                style="font-size: 14px; font-weight: 700; color: white; border: none; border-bottom: 2px solid rgba(201,162,39,0.4); width: 70px; text-align: center; background: rgba(0,0,0,0.2); border-radius: 4px; padding: 4px 2px; outline: none;"
+                                onchange="updateProfitShare()" oninput="updateProfitShare()">
+                        </div>
+                        <div style="font-size: 11px; font-weight: 700; color: #10b981;" id="psL3">$0/kuu</div>
+                        <div style="font-size: 9px; color: #f4d03f;" id="psL3Total">$0</div>
+                    </div>
+                    <!-- Level 4 -->
+                    <div style="background: linear-gradient(135deg, rgba(201, 162, 39, 0.18), rgba(201, 162, 39, 0.06)); border-radius: 12px; padding: 10px 6px; border: 2px solid rgba(201, 162, 39, 0.35); text-align: center;">
+                        <div style="font-size: 9px; color: rgba(255,255,255,0.6);">TASE 4</div>
+                        <div style="font-size: 20px; font-weight: 900; color: #f4d03f;">3%</div>
+                        <div style="display: flex; align-items: center; justify-content: center; gap: 2px; margin: 6px 0;">
+                            <span style="font-size: 14px; color: rgba(255,255,255,0.6);">$</span>
+                            <input type="number" id="psInput4" value="0" min="0" step="100"
+                                style="font-size: 14px; font-weight: 700; color: white; border: none; border-bottom: 2px solid rgba(201,162,39,0.35); width: 70px; text-align: center; background: rgba(0,0,0,0.2); border-radius: 4px; padding: 4px 2px; outline: none;"
+                                onchange="updateProfitShare()" oninput="updateProfitShare()">
+                        </div>
+                        <div style="font-size: 11px; font-weight: 700; color: #10b981;" id="psL4">$0/kuu</div>
+                        <div style="font-size: 9px; color: #f4d03f;" id="psL4Total">$0</div>
+                    </div>
+                    <!-- Level 5 -->
+                    <div style="background: linear-gradient(135deg, rgba(201, 162, 39, 0.15), rgba(201, 162, 39, 0.05)); border-radius: 12px; padding: 10px 6px; border: 2px solid rgba(201, 162, 39, 0.3); text-align: center;">
+                        <div style="font-size: 9px; color: rgba(255,255,255,0.6);">TASE 5</div>
+                        <div style="font-size: 20px; font-weight: 900; color: #f4d03f;">2%</div>
+                        <div style="display: flex; align-items: center; justify-content: center; gap: 2px; margin: 6px 0;">
+                            <span style="font-size: 14px; color: rgba(255,255,255,0.6);">$</span>
+                            <input type="number" id="psInput5" value="0" min="0" step="100"
+                                style="font-size: 14px; font-weight: 700; color: white; border: none; border-bottom: 2px solid rgba(201,162,39,0.3); width: 70px; text-align: center; background: rgba(0,0,0,0.2); border-radius: 4px; padding: 4px 2px; outline: none;"
+                                onchange="updateProfitShare()" oninput="updateProfitShare()">
+                        </div>
+                        <div style="font-size: 11px; font-weight: 700; color: #10b981;" id="psL5">$0/kuu</div>
+                        <div style="font-size: 9px; color: #f4d03f;" id="psL5Total">$0</div>
+                    </div>
+                    <!-- Level 6 -->
+                    <div style="background: linear-gradient(135deg, rgba(201, 162, 39, 0.12), rgba(201, 162, 39, 0.04)); border-radius: 12px; padding: 10px 6px; border: 2px solid rgba(201, 162, 39, 0.25); text-align: center;">
+                        <div style="font-size: 9px; color: rgba(255,255,255,0.6);">TASE 6</div>
+                        <div style="font-size: 20px; font-weight: 900; color: #f4d03f;">2%</div>
+                        <div style="display: flex; align-items: center; justify-content: center; gap: 2px; margin: 6px 0;">
+                            <span style="font-size: 14px; color: rgba(255,255,255,0.6);">$</span>
+                            <input type="number" id="psInput6" value="0" min="0" step="100"
+                                style="font-size: 14px; font-weight: 700; color: white; border: none; border-bottom: 2px solid rgba(201,162,39,0.25); width: 70px; text-align: center; background: rgba(0,0,0,0.2); border-radius: 4px; padding: 4px 2px; outline: none;"
+                                onchange="updateProfitShare()" oninput="updateProfitShare()">
+                        </div>
+                        <div style="font-size: 11px; font-weight: 700; color: #10b981;" id="psL6">$0/kuu</div>
+                        <div style="font-size: 9px; color: #f4d03f;" id="psL6Total">$0</div>
+                    </div>
+                    <!-- Level 7 -->
+                    <div style="background: linear-gradient(135deg, rgba(201, 162, 39, 0.1), rgba(201, 162, 39, 0.03)); border-radius: 12px; padding: 10px 6px; border: 2px solid rgba(201, 162, 39, 0.2); text-align: center;">
+                        <div style="font-size: 9px; color: rgba(255,255,255,0.6);">TASE 7</div>
+                        <div style="font-size: 20px; font-weight: 900; color: #f4d03f;">2%</div>
+                        <div style="display: flex; align-items: center; justify-content: center; gap: 2px; margin: 6px 0;">
+                            <span style="font-size: 14px; color: rgba(255,255,255,0.6);">$</span>
+                            <input type="number" id="psInput7" value="0" min="0" step="100"
+                                style="font-size: 14px; font-weight: 700; color: white; border: none; border-bottom: 2px solid rgba(201,162,39,0.2); width: 70px; text-align: center; background: rgba(0,0,0,0.2); border-radius: 4px; padding: 4px 2px; outline: none;"
+                                onchange="updateProfitShare()" oninput="updateProfitShare()">
+                        </div>
+                        <div style="font-size: 11px; font-weight: 700; color: #10b981;" id="psL7">$0/kuu</div>
+                        <div style="font-size: 9px; color: #f4d03f;" id="psL7Total">$0</div>
+                    </div>
+                    <!-- Level 8 -->
+                    <div style="background: linear-gradient(135deg, rgba(201, 162, 39, 0.08), rgba(201, 162, 39, 0.02)); border-radius: 12px; padding: 10px 6px; border: 2px solid rgba(201, 162, 39, 0.18); text-align: center;">
+                        <div style="font-size: 9px; color: rgba(255,255,255,0.6);">TASE 8</div>
+                        <div style="font-size: 20px; font-weight: 900; color: #f4d03f;">1%</div>
+                        <div style="display: flex; align-items: center; justify-content: center; gap: 2px; margin: 6px 0;">
+                            <span style="font-size: 14px; color: rgba(255,255,255,0.6);">$</span>
+                            <input type="number" id="psInput8" value="0" min="0" step="100"
+                                style="font-size: 14px; font-weight: 700; color: white; border: none; border-bottom: 2px solid rgba(201,162,39,0.18); width: 70px; text-align: center; background: rgba(0,0,0,0.2); border-radius: 4px; padding: 4px 2px; outline: none;"
+                                onchange="updateProfitShare()" oninput="updateProfitShare()">
+                        </div>
+                        <div style="font-size: 11px; font-weight: 700; color: #10b981;" id="psL8">$0/kuu</div>
+                        <div style="font-size: 9px; color: #f4d03f;" id="psL8Total">$0</div>
+                    </div>
+                    <!-- Level 9 -->
+                    <div style="background: linear-gradient(135deg, rgba(201, 162, 39, 0.06), rgba(201, 162, 39, 0.01)); border-radius: 12px; padding: 10px 6px; border: 2px solid rgba(201, 162, 39, 0.15); text-align: center;">
+                        <div style="font-size: 9px; color: rgba(255,255,255,0.6);">TASE 9</div>
+                        <div style="font-size: 20px; font-weight: 900; color: #f4d03f;">1%</div>
+                        <div style="display: flex; align-items: center; justify-content: center; gap: 2px; margin: 6px 0;">
+                            <span style="font-size: 14px; color: rgba(255,255,255,0.6);">$</span>
+                            <input type="number" id="psInput9" value="0" min="0" step="100"
+                                style="font-size: 14px; font-weight: 700; color: white; border: none; border-bottom: 2px solid rgba(201,162,39,0.15); width: 70px; text-align: center; background: rgba(0,0,0,0.2); border-radius: 4px; padding: 4px 2px; outline: none;"
+                                onchange="updateProfitShare()" oninput="updateProfitShare()">
+                        </div>
+                        <div style="font-size: 11px; font-weight: 700; color: #10b981;" id="psL9">$0/kuu</div>
+                        <div style="font-size: 9px; color: #f4d03f;" id="psL9Total">$0</div>
+                    </div>
+                    <!-- Level 10 -->
+                    <div style="background: linear-gradient(135deg, rgba(201, 162, 39, 0.05), rgba(201, 162, 39, 0.01)); border-radius: 12px; padding: 10px 6px; border: 2px solid rgba(201, 162, 39, 0.12); text-align: center;">
+                        <div style="font-size: 9px; color: rgba(255,255,255,0.6);">TASE 10</div>
+                        <div style="font-size: 20px; font-weight: 900; color: #f4d03f;">1%</div>
+                        <div style="display: flex; align-items: center; justify-content: center; gap: 2px; margin: 6px 0;">
+                            <span style="font-size: 14px; color: rgba(255,255,255,0.6);">$</span>
+                            <input type="number" id="psInput10" value="0" min="0" step="100"
+                                style="font-size: 14px; font-weight: 700; color: white; border: none; border-bottom: 2px solid rgba(201,162,39,0.12); width: 70px; text-align: center; background: rgba(0,0,0,0.2); border-radius: 4px; padding: 4px 2px; outline: none;"
+                                onchange="updateProfitShare()" oninput="updateProfitShare()">
+                        </div>
+                        <div style="font-size: 11px; font-weight: 700; color: #10b981;" id="psL10">$0/kuu</div>
+                        <div style="font-size: 9px; color: #f4d03f;" id="psL10Total">$0</div>
+                    </div>
+                </div>
+
+                <!-- Totals Row -->
+                <div class="fragment" style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                    <div style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(16, 185, 129, 0.08)); border-radius: 12px; padding: 15px; border: 2px solid rgba(16, 185, 129, 0.5); text-align: center;">
+                        <div style="font-size: 10px; color: rgba(255,255,255,0.6); margin-bottom: 4px;">OTSENE TIIMILIIGE (Tase 1) — 25 kuud</div>
+                        <div style="font-size: 28px; font-weight: 900; color: #10b981;" id="psDirectTotal">$1,250</div>
+                        <div style="font-size: 11px; color: rgba(255,255,255,0.7);" id="psDirectMonthly">$50/kuu × 25 = $1,250</div>
+                    </div>
+                    <div style="background: linear-gradient(135deg, rgba(244, 208, 63, 0.2), rgba(244, 208, 63, 0.08)); border-radius: 12px; padding: 15px; border: 2px solid rgba(244, 208, 63, 0.5); text-align: center;">
+                        <div style="font-size: 10px; color: rgba(255,255,255,0.6); margin-bottom: 4px;">KÕIK TASEMED KOKKU — 25 kuud</div>
+                        <div style="font-size: 28px; font-weight: 900; color: #f4d03f;" id="psTotalAll">$1,250</div>
+                        <div style="font-size: 11px; color: rgba(255,255,255,0.7);" id="psTotalMonthly">$50/kuu × 25 = $1,250</div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Bottom Info -->
+            <div class="fragment" style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 15px;">
+                <div style="background: rgba(255,255,255,0.06); border-radius: 10px; padding: 12px 15px; border: 1px solid rgba(201, 162, 39, 0.2);">
+                    <div style="font-size: 11px; color: rgba(255,255,255,0.8);">
+                        <i class="fas fa-info-circle" style="color: #c9a227; margin-right: 6px;"></i>
+                        <strong style="color: #c9a227;">Tasemete avamine:</strong> Business Owner: 1, Beginner: 1-2, Star: 1-3, Iron: 1-4, Bronze: 1-5, Copper: 1-6, Silver: 1-8, Gold+: 1-10
+                    </div>
+                </div>
+                <div style="background: rgba(255,255,255,0.06); border-radius: 10px; padding: 12px 15px; border: 1px solid rgba(244, 208, 63, 0.2);">
+                    <div style="font-size: 11px; color: rgba(255,255,255,0.8);">
+                        <i class="fas fa-shield-alt" style="color: #f4d03f; margin-right: 6px;"></i>
+                        <strong style="color: #f4d03f;">5X reegel:</strong> Töötulu max 5× sinu Capital at work summast. Limiit täis? Lisa täiendust!
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Bottom Line -->
+        <div style="width: 80px; height: 3px; background: linear-gradient(90deg, #c9a227, #f4d03f, #c9a227); margin: 10px auto 0; border-radius: 2px;"></div>
+    </div>
+
+    <script>
+    window.updateProfitShare = function() {
+        // Protsendid tasemete kaupa
+        const rates = [0.10, 0.05, 0.03, 0.03, 0.02, 0.02, 0.02, 0.01, 0.01, 0.01];
+        const fmt = (n) => n.toLocaleString('en-US', {maximumFractionDigits: 0});
+
+        let totalAllMonthly = 0;
+        let totalAll25 = 0;
+        let directMonthly = 0;
+        let direct25 = 0;
+
+        // Uuenda iga taseme
+        for (let i = 1; i <= 10; i++) {
+            const input = document.getElementById('psInput' + i);
+            if (!input) continue;
+
+            const capital = parseFloat(input.value) || 0;
+            const monthlyArbitrage = capital * 0.10;  // ~10% kuus arbitraaži tulust
+            const rate = rates[i-1];
+            const monthlyBonus = monthlyArbitrage * rate;
+            const totalBonus = monthlyBonus * 25;
+
+            totalAllMonthly += monthlyBonus;
+            totalAll25 += totalBonus;
+
+            // Tase 1 = otsene
+            if (i === 1) {
+                directMonthly = monthlyBonus;
+                direct25 = totalBonus;
+            }
+
+            const elMonth = document.getElementById('psL' + i);
+            const elTotal = document.getElementById('psL' + i + 'Total');
+            if (elMonth) elMonth.textContent = '$' + fmt(monthlyBonus) + '/kuu';
+            if (elTotal) elTotal.textContent = '$' + fmt(totalBonus);
+        }
+
+        // Uuenda kokkuvõtted
+        const elDirectTotal = document.getElementById('psDirectTotal');
+        const elDirectMonthly = document.getElementById('psDirectMonthly');
+        const elTotalAll = document.getElementById('psTotalAll');
+        const elTotalMonthly = document.getElementById('psTotalMonthly');
+
+        if (elDirectTotal) elDirectTotal.textContent = '$' + fmt(direct25);
+        if (elDirectMonthly) elDirectMonthly.textContent = '$' + fmt(directMonthly) + '/kuu × 25 = $' + fmt(direct25);
+        if (elTotalAll) elTotalAll.textContent = '$' + fmt(totalAll25);
+        if (elTotalMonthly) elTotalMonthly.textContent = '$' + fmt(totalAllMonthly) + '/kuu × 25 = $' + fmt(totalAll25);
+    };
+
+    // Käivita kohe
+    updateProfitShare();
+    </script>
+</div>

@@ -1,0 +1,187 @@
+<div class="slide premium-slide" style="position: relative; overflow: visible; background: linear-gradient(135deg, rgba(15, 12, 8, 1) 0%, rgba(30, 25, 18, 1) 50%, rgba(15, 12, 8, 1) 100%); min-height: 100vh;">
+    <!-- Background Image -->
+    <div style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none;">
+        <img src="https://images.unsplash.com/photo-1633158829585-23ba8f7c8caf?w=1920&q=95" alt="Money Growth" style="width: 100%; height: 100%; object-fit: cover;">
+        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(15, 12, 8, 0.94) 0%, rgba(30, 25, 18, 0.90) 50%, rgba(15, 12, 8, 0.94) 100%);"></div>
+    </div>
+
+    <!-- Content -->
+    <div style="position: relative; z-index: 2; display: flex; flex-direction: column; min-height: 100vh; padding: 30px 40px;">
+
+        <!-- Premium Header Bar -->
+        <div style="display: flex; justify-content: flex-end; align-items: center; margin-bottom: 15px;">
+            <div style="display: flex; align-items: center; gap: 10px;">
+                <div style="background: linear-gradient(135deg, rgba(201, 162, 39, 0.3), rgba(244, 208, 63, 0.2)); padding: 8px 20px; border-radius: 20px; border: 1px solid rgba(244, 208, 63, 0.5);">
+                    <span style="color: #f4d03f; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 12px; letter-spacing: 1px;" data-translate="MULTIPLICACIÓN DE RIQUEZA">MULTIPLICACIÓN DE RIQUEZA</span>
+                </div>
+                <div style="width: 45px; height: 45px; border-radius: 50%; overflow: hidden; border: 2px solid #f4d03f; box-shadow: 0 3px 15px rgba(244, 208, 63, 0.4);">
+                    <img class="presenter-photo" src="LOGOS/Vambola Tullus.jpg" style="width: 100%; height: 100%; object-fit: cover;" alt="Presenter">
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content Area -->
+        <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; max-width: 1200px; margin: 0 auto; width: 100%;">
+
+            <!-- Gold Accent Line -->
+            <div style="width: 60px; height: 2px; background: linear-gradient(90deg, #c9a227, #f4d03f, #c9a227); margin-bottom: 10px; border-radius: 2px;"></div>
+
+            <!-- Title -->
+            <div style="font-family: 'Montserrat', sans-serif; font-size: 1.8em; font-weight: 700; color: white; margin-bottom: 5px; text-shadow: 0 3px 15px rgba(0,0,0,0.5);">
+                <i class="fas fa-rocket" style="color: #f4d03f; margin-right: 10px;"></i><span data-translate="Mentalidad de Multiplicación de Riqueza">Mentalidad de Multiplicación de Riqueza</span>
+            </div>
+            <div style="font-family: 'Open Sans', sans-serif; font-size: 1em; font-weight: 300; color: rgba(255,255,255,0.8); margin-bottom: 15px; letter-spacing: 0.5px;">
+                <span data-translate="Si tienes">Si tienes</span> <span id="leverageAmount" style="color: #f4d03f; font-weight: 700;">10,000 THB</span> - <span data-translate="¿Qué haces?">¿Qué haces?</span>
+            </div>
+
+            <!-- Two Column Comparison -->
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 15px;">
+                <!-- Left - Bad Way -->
+                <div class="fragment" style="background: linear-gradient(135deg, rgba(239, 68, 68, 0.15), rgba(239, 68, 68, 0.05)); backdrop-filter: blur(15px); border-radius: 15px; padding: 18px; border: 2px solid rgba(239, 68, 68, 0.4); box-shadow: 0 10px 25px rgba(0,0,0,0.3);">
+                    <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 10px;">
+                        <i class="fas fa-times-circle" style="font-size: 20px; color: #ef4444;"></i>
+                        <span style="font-family: 'Montserrat', sans-serif; font-size: 1em; font-weight: 600; color: #ef4444;" data-translate="La Forma Normal">La Forma Normal</span>
+                    </div>
+                    <div style="color: rgba(255,255,255,0.95); font-size: 13px; line-height: 1.5;">
+                        <div style="font-size: 14px; font-weight: 600; color: #ef4444; margin-bottom: 8px;"><span data-translate="Tienes:">Tienes:</span> <span id="badWayAmount">10,000 THB</span></div>
+                        <div style="margin-bottom: 4px;">→ <span data-translate="Gastar">Gastar</span> <span id="badWayMonthly">1,000 THB</span>/<span data-translate="por mes">mes</span></div>
+                        <div style="margin-bottom: 4px;">→ <span data-translate="Después de">Después de</span> <span id="badWayMonths">10</span> <span data-translate="meses">meses</span></div>
+                        <div style="font-family: 'Montserrat', sans-serif; font-size: 1.8em; font-weight: 900; color: #ef4444; margin: 8px 0;"><span id="zeroLeft">0 THB</span> <span data-translate="restante">restante</span></div>
+                        <div style="opacity: 0.7; font-size: 11px;" data-translate="El dinero se fue para siempre">El dinero se fue para siempre.</div>
+                    </div>
+                </div>
+
+                <!-- Right - Good Way -->
+                <div class="fragment" style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(16, 185, 129, 0.05)); backdrop-filter: blur(15px); border-radius: 15px; padding: 18px; border: 2px solid rgba(16, 185, 129, 0.4); box-shadow: 0 10px 25px rgba(0,0,0,0.3);">
+                    <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 10px;">
+                        <i class="fas fa-check-circle" style="font-size: 20px; color: #10b981;"></i>
+                        <span style="font-family: 'Montserrat', sans-serif; font-size: 1em; font-weight: 600; color: #10b981;" data-translate="La Forma de Multiplicar">La Forma de Multiplicar</span>
+                    </div>
+                    <div style="color: rgba(255,255,255,0.95); font-size: 12px; line-height: 1.4;">
+                        <div style="font-size: 14px; font-weight: 600; color: #10b981; margin-bottom: 8px;"><span data-translate="Tienes:">Tienes:</span> <span id="goodWayAmount">10,000 THB</span></div>
+                        <div style="font-size: 12px; color: #3b82f6; font-weight: 600; margin-bottom: 8px;" data-translate="Ponlo en un contrato para crecer">Ponlo en un contrato para crecer</div>
+                        <div style="background: rgba(16, 185, 129, 0.2); padding: 5px 8px; border-radius: 6px; margin-bottom: 4px; border-left: 2px solid #10b981;">
+                            <strong style="color: #10b981;" data-translate="INVERSIÓN">INVERSIÓN:</strong> <span id="goodWayInvest">10,000 THB</span>
+                        </div>
+                        <div style="background: rgba(59, 130, 246, 0.2); padding: 5px 8px; border-radius: 6px; margin-bottom: 4px; border-left: 2px solid #3b82f6;">
+                            <strong style="color: #3b82f6;" data-translate="PAGO">PAGO:</strong> <span id="goodWayMonthlyProfit">566 THB</span>/<span data-translate="por mes">mes</span> (neto)
+                        </div>
+                        <div style="background: rgba(245, 158, 11, 0.2); padding: 5px 8px; border-radius: 6px; margin-bottom: 4px; border-left: 2px solid #f59e0b;">
+                            <strong style="color: #f59e0b;">25 <span data-translate="MESES">MESES</span>:</strong> <span id="goodWay25months">25,000 THB</span>
+                        </div>
+                        <div style="margin-top: 6px;"><span data-translate="GANANCIA NETA">GANANCIA NETA:</span> <strong style="font-size: 15px; color: #10b981;" id="goodWayNetProfit">15,000 THB</strong></div>
+                        <div style="font-family: 'Montserrat', sans-serif; font-size: 1.1em; font-weight: 700; color: #10b981; margin-top: 2px;"><span data-translate="Total">Total:</span> <span id="goodWayTotal">25,000 THB</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Highlight Box -->
+            <div class="fragment" style="background: linear-gradient(135deg, rgba(201, 162, 39, 0.15), rgba(244, 208, 63, 0.08)); backdrop-filter: blur(15px); border-radius: 12px; padding: 12px 20px; border: 1px solid rgba(244, 208, 63, 0.3); box-shadow: 0 8px 20px rgba(0,0,0,0.2); text-align: center;">
+                <div style="display: flex; align-items: center; gap: 8px; justify-content: center; margin-bottom: 6px; flex-wrap: wrap;">
+                    <i class="fas fa-sync-alt" style="font-size: 14px; color: #f4d03f;"></i>
+                    <span style="font-family: 'Montserrat', sans-serif; font-size: 0.9em; font-weight: 600; color: #f4d03f;" data-translate="Las Ganancias Se Pueden Reinvertir En:">Las Ganancias Se Pueden Reinvertir En:</span>
+                </div>
+                <div style="font-size: 13px; color: rgba(255,255,255,0.95); margin-bottom: 5px; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px;">
+                    <span><i class="fab fa-bitcoin" style="color: #f7931a; margin-right: 3px;"></i><strong data-translate="Crypto">Crypto</strong></span>
+                    <span><i class="fas fa-coins" style="color: #ffd700; margin-right: 3px;"></i><strong data-translate="Oro y Plata">Oro y Plata</strong></span>
+                    <span><i class="fas fa-chart-line" style="color: #10b981; margin-right: 3px;"></i><strong data-translate="Acciones">Acciones</strong></span>
+                    <span><i class="fas fa-home" style="color: #3b82f6; margin-right: 3px;"></i><strong data-translate="Bienes Raíces">Bienes Raíces</strong></span>
+                </div>
+                <div style="font-size: 13px; font-weight: 700; color: #f4d03f;" data-translate="¡El dinero trabaja para ti, no tú para el dinero!">¡El dinero trabaja para ti, no tú para el dinero!</div>
+            </div>
+
+            <!-- Interactive Analysis Link -->
+            <div style="text-align: center; margin-top: 12px;">
+                <a id="analysisLink" href="wealth-multiplier-analysis.html?amount=7800" target="_blank" style="display: inline-block; background: linear-gradient(135deg, #c9a227, #f4d03f); color: #0f0c08; padding: 10px 20px; border-radius: 40px; text-decoration: none; font-size: 12px; font-weight: 700; box-shadow: 0 8px 20px rgba(201, 162, 39, 0.4); transition: all 0.3s;">
+                    <i class="fas fa-chart-line" style="margin-right: 8px;"></i>
+                    <span data-translate="Ver Análisis Detallado de 25 Meses">Ver Análisis Detallado de 25 Meses</span>
+                    <i class="fas fa-external-link-alt" style="margin-left: 8px; font-size: 10px;"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- Bottom Gold Line -->
+        <div style="width: 60px; height: 2px; background: linear-gradient(90deg, #c9a227, #f4d03f, #c9a227); margin: 12px auto 0; border-radius: 2px;"></div>
+    </div>
+
+    <script>
+    // Update wealth multiplication slide with localized currency
+    window.updateLeverageSlide = function() {
+        // Get calculator value if exists
+        const calcInput = document.getElementById('calcTotal');
+        let totalInvestment = 7800; // Default in USD
+
+        if (calcInput && calcInput.value) {
+            totalInvestment = parseFloat(calcInput.value);
+        }
+
+        // Get currency info from localization
+        let symbol = '€';
+        let code = 'EUR';
+        let rate = 0.92; // USD to EUR
+
+        if (window.MarketLocalization) {
+            const currencyInfo = window.MarketLocalization.getCurrencyInfo();
+            symbol = currencyInfo.symbol;
+            code = currencyInfo.code;
+            // Convert USD to local: USD * 0.92 (to EUR) * localRate
+            if (currencyInfo.code === 'EUR') {
+                rate = 0.92;
+            } else if (currencyInfo.code === 'USD') {
+                rate = 1;
+            } else {
+                rate = 0.92 * currencyInfo.rate;
+            }
+        }
+
+        // Convert to local currency
+        const totalLocal = Math.round(totalInvestment * rate);
+
+        // Calculate returns (same as calculator) - exact ratio from price table
+        const contract = totalInvestment / (17750 / 2750);  // = total / 6.454545...
+        const kapital = contract * (15000 / 2750);          // = contract * 5.454545...
+        const brutoTagastus = kapital * 2.5;
+        const withdrawalFee = brutoTagastus * 0.03 + 25;
+        const netoTagastus = brutoTagastus - withdrawalFee;
+
+        const monthlyProfit = Math.round((netoTagastus / 25) * rate);
+        const total25months = Math.round(netoTagastus * rate);
+        const netProfit = total25months - totalLocal;
+        const monthlySpend = Math.round(totalLocal / 10);
+
+        // Format numbers
+        const fmt = (n) => n.toLocaleString();
+
+        // Update elements
+        const updateEl = (id, text) => { const el = document.getElementById(id); if(el) el.textContent = text; };
+
+        updateEl('leverageAmount', symbol + fmt(totalLocal) + ' ' + code);
+        updateEl('badWayAmount', symbol + fmt(totalLocal) + ' ' + code);
+        updateEl('badWayMonthly', symbol + fmt(monthlySpend) + ' ' + code);
+        updateEl('badWayMonths', '10');
+        updateEl('zeroLeft', '0 ' + code);
+        updateEl('goodWayAmount', symbol + fmt(totalLocal) + ' ' + code);
+        updateEl('goodWayInvest', symbol + fmt(totalLocal) + ' ' + code);
+        updateEl('goodWayMonthlyProfit', symbol + fmt(monthlyProfit) + ' ' + code);
+        updateEl('goodWay25months', symbol + fmt(total25months) + ' ' + code);
+        updateEl('goodWayNetProfit', symbol + fmt(netProfit) + ' ' + code);
+        updateEl('goodWayTotal', symbol + fmt(total25months) + ' ' + code);
+
+        // Update analysis link
+        const analysisLink = document.getElementById('analysisLink');
+        if (analysisLink) analysisLink.href = 'wealth-multiplier-analysis.html?amount=' + totalInvestment;
+    };
+
+    // Run when slide loads
+    document.addEventListener('DOMContentLoaded', function() {
+        updateLeverageSlide();
+    });
+
+    // Listen to calculator changes
+    const calcTotal = document.getElementById('calcTotal');
+    if (calcTotal) {
+        calcTotal.addEventListener('input', updateLeverageSlide);
+        calcTotal.addEventListener('change', updateLeverageSlide);
+    }
+    </script>
+</div>

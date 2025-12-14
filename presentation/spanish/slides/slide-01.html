@@ -1,0 +1,204 @@
+<div class="slide title-slide" style="position: relative; overflow: visible; background: linear-gradient(135deg, rgba(15, 12, 8, 1) 0%, rgba(30, 25, 18, 1) 50%, rgba(15, 12, 8, 1) 100%); min-height: 100vh;">
+    <!-- Background Image -->
+    <div style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none;">
+        <img src="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=1920&q=95" alt="Crypto" style="width: 100%; height: 100%; object-fit: cover;">
+        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(15, 12, 8, 0.94) 0%, rgba(30, 25, 18, 0.90) 50%, rgba(15, 12, 8, 0.94) 100%);"></div>
+    </div>
+
+    <div style="position: relative; z-index: 2; display: flex; flex-direction: column; min-height: 100vh; color: white; text-align: center; padding: 40px 50px;">
+
+        <!-- Premium Header Bar -->
+        <div style="display: flex; justify-content: flex-end; align-items: center; margin-bottom: 20px;">
+            <div style="display: flex; align-items: center; gap: 12px;">
+                <div style="background: linear-gradient(135deg, rgba(201, 162, 39, 0.3), rgba(244, 208, 63, 0.2)); padding: 10px 20px; border-radius: 20px; border: 1px solid rgba(244, 208, 63, 0.5);">
+                    <span style="color: #f4d03f; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 12px; letter-spacing: 1px;">INTRODUCCIÓN</span>
+                </div>
+                <div style="width: 45px; height: 45px; border-radius: 50%; overflow: hidden; border: 2px solid #f4d03f; box-shadow: 0 3px 15px rgba(244, 208, 63, 0.4);">
+                    <img class="presenter-photo" src="LOGOS/Vambola Tullus.jpg" style="width: 100%; height: 100%; object-fit: cover;" alt="Presentador">
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content Area -->
+        <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+
+        <!-- Top Gold Line -->
+        <div class="fragment" style="width: 120px; height: 4px; background: linear-gradient(90deg, #c9a227, #f4d03f, #c9a227); margin-bottom: 40px; border-radius: 2px; box-shadow: 0 2px 15px rgba(201, 162, 39, 0.5);"></div>
+
+        <!-- Main Title -->
+        <div class="fragment" style="font-family: 'Montserrat', sans-serif; font-size: 4.5em; font-weight: 800; letter-spacing: 8px; text-shadow: 0 4px 30px rgba(0,0,0,0.5); margin-bottom: 15px; background: linear-gradient(135deg, #ffffff, #f4d03f, #ffffff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+            CRYPQUE & MOBICRYP
+        </div>
+
+        <!-- Subtitle -->
+        <div class="fragment" style="font-family: 'Open Sans', sans-serif; font-size: 1.6em; font-weight: 300; color: rgba(255,255,255,0.9); letter-spacing: 4px; margin-bottom: 40px;">
+            Una Oportunidad para Hacer Crecer tu Dinero de Forma Constante
+        </div>
+
+        <!-- Rotating Quote Box -->
+        <div class="fragment" style="background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03)); backdrop-filter: blur(15px); border-radius: 20px; padding: 30px 50px; margin: 20px auto 35px; max-width: 900px; border: 1px solid rgba(244, 208, 63, 0.3); box-shadow: 0 15px 40px rgba(0,0,0,0.3);">
+            <div id="rotating-quote" style="font-size: 24px; line-height: 1.6; color: rgba(255,255,255,0.95); text-align: center; font-style: italic; transition: opacity 0.5s;">
+                "El dinero no te hace feliz... pero hace que ser infeliz sea muy cómodo."
+            </div>
+        </div>
+
+        <!-- Timer -->
+        <div class="fragment" id="countdown-timer" style="display: inline-flex; align-items: center; gap: 18px; background: linear-gradient(135deg, rgba(201, 162, 39, 0.2), rgba(244, 208, 63, 0.1)); padding: 20px 40px; border-radius: 60px; backdrop-filter: blur(15px); border: 2px solid rgba(244, 208, 63, 0.4); box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
+            <i class="fas fa-clock" style="font-size: 28px; color: #f4d03f;"></i>
+            <div style="font-family: 'Montserrat', sans-serif; font-size: 42px; font-weight: 900; letter-spacing: 4px; color: #f4d03f;" id="timer-display">10:00</div>
+        </div>
+
+        <!-- Bottom Gold Line -->
+        <div class="fragment" style="width: 120px; height: 4px; background: linear-gradient(90deg, #c9a227, #f4d03f, #c9a227); margin-top: 40px; border-radius: 2px; box-shadow: 0 2px 15px rgba(201, 162, 39, 0.5);"></div>
+        </div>
+    </div>
+
+            <script>
+            // 100 Spanish quotes
+            const quotes = [
+                "El dinero no te hace feliz... pero hace que ser infeliz sea muy cómodo.",
+                "La inversión más cara es la que nunca haces.",
+                "Si el Plan A no funciona, por suerte hay 25 letras más en el alfabeto.",
+                "¿Quieres hacerte rico rápido? Ve a dormir - allí todo pasa rápido.",
+                "El éxito es simple: menos quejas, más acción.",
+                "No tengo problema con el riesgo, tengo problema con seguir siendo pobre.",
+                "La gente quiere estabilidad... hasta que se menciona el dinero.",
+                "El dinero no duerme - y por eso yo tampoco duermo.",
+                "Trabaja más inteligentemente, no más duro. Más trabajo solo te cansa más.",
+                "Todos quieren libertad, hasta que alguien dice: haz algo por ella.",
+                "El inteligente invierte, el tonto gasta - y el promedio solo habla.",
+                "Si no tienes un plan, eres parte del plan de otro.",
+                "La frase más cara: 'Lo haré mañana.'",
+                "Todos quieren una vida mejor, pero pocos quieren mejores hábitos.",
+                "El dinero no te hace mejor persona - solo amplifica quien ya eres.",
+                "Si quieres saber quién realmente te apoya, empieza un negocio.",
+                "El mejor momento para invertir fue ayer. El segundo mejor momento es hoy.",
+                "Si no tomas riesgos, tu salario es tu techo.",
+                "La mayoría de la gente no es perezosa, solo está demasiado cómoda.",
+                "A todos les gusta hablar de dinero, hasta que es hora de moverlo.",
+                "El éxito no es difícil - ser consistente lo es.",
+                "Todos quieren ser millonarios, pero nadie quiere pensar como uno.",
+                "Los que tienen miedo de arriesgar, arriesgan trabajar para otro toda su vida.",
+                "Los negocios no son difíciles, la gente los hace difíciles.",
+                "Si necesitas motivación, mira tu cuenta bancaria.",
+                "Resultados = trabajo, no deseos.",
+                "Hacerse rico rápido es fácil - ve a un casino. El éxito, sin embargo... es diferente.",
+                "Si tienes una excusa, no tienes un objetivo.",
+                "El dinero no te hace feliz, pero al menos hazlo fácil para ti mismo.",
+                "Cada dólar que no trabaja solo va de compras.",
+                "El éxito comienza donde terminan las excusas.",
+                "Si quieres algo que nunca has tenido, haz algo que nunca hayas hecho.",
+                "No esperes el momento perfecto. El momento perfecto nace cuando finalmente comienzas.",
+                "Ahorrar está bien, pero invertir es más sexy.",
+                "Si el dinero no viene a ti, estás corriendo en la dirección equivocada.",
+                "Warren Buffett no se hizo rico comprando capuchinos todos los días.",
+                "Los locos no toman riesgos, los inteligentes sí.",
+                "Haz menos cosas estúpidas y ya serás más rico que ayer.",
+                "El dinero no crece en los árboles. Pero crece en porcentajes.",
+                "Si el objetivo es grande, el trabajo también debe ser grande.",
+                "El sabio aprende de otros. El tonto aprende solo. El super-tonto no aprende nada.",
+                "Hablar no te hace rico.",
+                "Planifica menos, actúa más.",
+                "Si no cuidas tu dinero, alguien más lo hará - a tu costa.",
+                "Los sueños son gratis. La acción cuesta.",
+                "Pensar en pequeño da una vida pequeña.",
+                "Si quieres hacer algo bien, comienza ahora.",
+                "Es increíble cuánto gasta la gente para parecer más exitosa de lo que es.",
+                "El dinero no es el problema. La falta de dinero lo es.",
+                "Si no tienes tiempo para invertir, no tienes tiempo para ser libre.",
+                "Lo más caro es la ignorancia.",
+                "Una mala decisión es mejor que ninguna decisión.",
+                "La motivación es temporal. La disciplina es para siempre.",
+                "Si no tienes objetivo, tu vida no tiene dirección.",
+                "Todo lo que pospones hoy cuesta más mañana.",
+                "El dinero solo no te hace rico - la inteligencia sí.",
+                "Sé la persona que pone el dinero a trabajar para ti, no al revés.",
+                "No hables de lo que harás. Hazlo y deja que los resultados hablen.",
+                "La gente no tiene un problema de dinero... tiene un problema de decisiones.",
+                "No te quejes de que la vida es cara - quéjate de que los ingresos son pequeños.",
+                "El éxito es aburrido - es repetición, repetición, repetición.",
+                "Menos drama, más números.",
+                "¿Quieres saber qué tan en serio toma alguien el dinero? Mira dónde lo pone.",
+                "Los negocios son simples: crea valor. Todo lo demás es ruido.",
+                "Cuando alguien dice 'es imposible', lo traduzco como: 'no sé cómo'.",
+                "El éxito no viene de la zona de confort, pero la bancarrota sí.",
+                "Todos piensan en grande... hasta que llega el trabajo.",
+                "No preguntes qué tan difícil es. Pregunta si vale la pena.",
+                "Un trabajo regular está bien, hasta que te das cuenta de que no te pertenece.",
+                "Si no preguntas, no obtienes.",
+                "La mayoría se rinde antes de empezar.",
+                "No tienes que ser el mejor - solo tienes que seguir adelante.",
+                "Los hábitos moldean tu futuro.",
+                "La pobreza no es una condición - es un hábito.",
+                "No puedes comprar la felicidad, pero puedes comprar la libertad.",
+                "Todos quieren éxito. Pocos quieren pagarlo.",
+                "La vida es muy corta para ser pobre.",
+                "Trabaja para que el futuro te lo agradezca.",
+                "No esperes motivación, solo da el primer paso.",
+                "Si el riesgo parece grande, piensa en el riesgo de no hacer nada.",
+                "No vivas del dinero - haz que el dinero viva para ti.",
+                "El dinero no es lo más importante. Pero es muy útil.",
+                "El mayor lujo es la libertad.",
+                "No necesitas saberlo todo. Necesitas empezar.",
+                "La inversión más importante es en tu cabeza.",
+                "No tomes decisiones desde el miedo. Toma decisiones desde los números.",
+                "Si no te avergüenza mirar hacia atrás a tu comienzo, empezaste muy tarde.",
+                "El dinero no llega a los negativos.",
+                "Si quieres más, haz más.",
+                "La gente tiene miedo de arriesgar, pero no tiene miedo de la pobreza.",
+                "Tu futuro depende de lo que hagas hoy.",
+                "La pobreza es más cara que invertir.",
+                "No vivas para el fin de semana.",
+                "El éxito no es suerte - son matemáticas.",
+                "Los sueños solo funcionan cuando tú trabajas.",
+                "Si haces lo que todos hacen, obtienes lo que todos obtienen.",
+                "El sabio no pregunta: '¿Funciona?' El sabio pregunta: '¿Cómo lo hago funcionar?'",
+                "Todo es posible... si finalmente haces algo.",
+                "Si quieres resultados, deja de poner excusas.",
+                "Las personas exitosas no son especiales - simplemente no se rindieron."
+            ];
+
+            // Shuffle quotes randomly
+            function shuffleArray(array) {
+                const shuffled = [...array];
+                for (let i = shuffled.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+                }
+                return shuffled;
+            }
+
+            let shuffledQuotes = shuffleArray(quotes);
+            let currentQuoteIndex = 0;
+
+            // Rotate quotes every 6 seconds
+            setInterval(() => {
+                const quoteElement = document.getElementById('rotating-quote');
+                quoteElement.style.opacity = '0';
+
+                setTimeout(() => {
+                    currentQuoteIndex = (currentQuoteIndex + 1) % shuffledQuotes.length;
+                    quoteElement.textContent = `"${shuffledQuotes[currentQuoteIndex]}"`;
+                    quoteElement.style.opacity = '1';
+                }, 500);
+            }, 6000);
+
+            // 10 minute countdown timer
+            let slide1TimeLeft = 600; // 10 minutes in seconds
+
+            function updateSlide1Timer() {
+                const minutes = Math.floor(slide1TimeLeft / 60);
+                const seconds = slide1TimeLeft % 60;
+                document.getElementById('timer-display').textContent =
+                    `${minutes}:${seconds.toString().padStart(2, '0')}`;
+
+                if (slide1TimeLeft > 0) {
+                    slide1TimeLeft--;
+                } else {
+                    document.getElementById('timer-display').textContent = "0:00";
+                }
+            }
+
+            setInterval(updateSlide1Timer, 1000);
+            </script>
+        </div>
