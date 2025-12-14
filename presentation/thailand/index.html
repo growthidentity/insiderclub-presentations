@@ -5485,12 +5485,17 @@ function showSlide(n, direction = 'forward') {
     }
 }
 
-function nextSlide() {
-    showSlide(currentSlide + 1, 'forward');
+function nextSlide(showFragments = false) {
+    showSlide(currentSlide + 1, showFragments ? 'backward' : 'forward');
 }
 
 function prevSlide() {
     showSlide(currentSlide - 1, 'backward');
+}
+
+// Next slide with all fragments visible (for arrow key navigation)
+function nextSlideFullView() {
+    showSlide(currentSlide + 1, 'backward'); // 'backward' shows all fragments
 }
 
 // Advance: show next fragment, or if none, go to next slide
@@ -5535,11 +5540,11 @@ document.addEventListener('keydown', (e) => {
         // Space bar: reveal next fragment, or go to next slide
         e.preventDefault();
         advance();
-    } else if (e.key === 'ArrowRight') {
-        // Right arrow: always go to next slide (skip fragments)
+    } else if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+        // Right/Down arrow: go to next slide with ALL content visible
         e.preventDefault();
-        nextSlide();
-    } else if (e.key === 'ArrowLeft') {
+        nextSlideFullView();
+    } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
         // Left arrow: go to previous slide
         e.preventDefault();
         prevSlide();
@@ -5594,12 +5599,12 @@ function handleTouchEnd(e) {
             advance();
         }
     } else {
-        // Handle as swipe
+        // Handle as swipe - swipes show full slide content
         if (deltaX > 50 && deltaX > deltaY) {
             if (touchEndX < touchStartX - 50) {
-                nextSlide();
+                nextSlideFullView(); // Swipe left = next slide with all content
             } else if (touchEndX > touchStartX + 50) {
-                prevSlide();
+                prevSlide(); // Swipe right = previous slide with all content
             }
         }
     }
