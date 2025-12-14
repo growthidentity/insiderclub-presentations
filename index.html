@@ -2,7 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="color-scheme" content="dark">
+    <meta name="theme-color" content="#0f0c08">
     <title>Insider Club - Presentations</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
@@ -11,18 +13,24 @@
             padding: 0;
             box-sizing: border-box;
         }
+        html, body {
+            background-color: #0f0c08 !important;
+            color-scheme: dark;
+        }
         body {
             font-family: 'Montserrat', sans-serif;
-            background: linear-gradient(135deg, #0f0c08 0%, #1e1912 50%, #0f0c08 100%);
+            background: linear-gradient(135deg, #0f0c08 0%, #1e1912 50%, #0f0c08 100%) !important;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             padding: 40px 20px;
+            -webkit-text-size-adjust: 100%;
         }
         .container {
-            max-width: 800px;
+            max-width: 1000px;
+            width: 100%;
             text-align: center;
         }
         h1 {
@@ -38,17 +46,18 @@
         }
         .presentations {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
             width: 100%;
         }
         .card {
-            background: linear-gradient(135deg, rgba(201, 162, 39, 0.15), rgba(244, 208, 63, 0.08));
+            background: linear-gradient(135deg, rgba(201, 162, 39, 0.15), rgba(244, 208, 63, 0.08)) !important;
             border: 1px solid rgba(244, 208, 63, 0.3);
             border-radius: 20px;
-            padding: 35px 25px;
+            padding: 30px 20px;
             text-decoration: none;
             transition: all 0.3s ease;
+            display: block;
         }
         .card:hover {
             transform: translateY(-5px);
@@ -58,15 +67,16 @@
         .flag {
             font-size: 3em;
             margin-bottom: 15px;
+            line-height: 1;
         }
         .card h3 {
-            color: #f4d03f;
-            font-size: 1.3em;
+            color: #f4d03f !important;
+            font-size: 1.2em;
             margin-bottom: 8px;
         }
         .card p {
-            color: rgba(255,255,255,0.6);
-            font-size: 0.9em;
+            color: rgba(255,255,255,0.6) !important;
+            font-size: 0.85em;
         }
         .gold-line {
             width: 80px;
@@ -78,6 +88,64 @@
         .footer {
             color: rgba(255,255,255,0.4);
             font-size: 0.85em;
+        }
+
+        /* Tablet */
+        @media (max-width: 900px) {
+            .presentations {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Mobile */
+        @media (max-width: 500px) {
+            body {
+                padding: 30px 15px;
+            }
+            h1 {
+                font-size: 1.8em;
+            }
+            .subtitle {
+                font-size: 1em;
+                margin-bottom: 30px;
+            }
+            .presentations {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+            .card {
+                padding: 20px 15px;
+                border-radius: 15px;
+            }
+            .flag {
+                font-size: 2.2em;
+                margin-bottom: 10px;
+            }
+            .card h3 {
+                font-size: 1em;
+            }
+            .card p {
+                font-size: 0.75em;
+            }
+            .gold-line {
+                margin: 30px auto 15px;
+            }
+        }
+
+        /* Force dark mode colors */
+        @media (prefers-color-scheme: dark) {
+            html, body {
+                background-color: #0f0c08 !important;
+            }
+            .card {
+                background: linear-gradient(135deg, rgba(201, 162, 39, 0.15), rgba(244, 208, 63, 0.08)) !important;
+            }
+            .card h3 {
+                color: #f4d03f !important;
+            }
+            .card p {
+                color: rgba(255,255,255,0.6) !important;
+            }
         }
     </style>
 </head>
