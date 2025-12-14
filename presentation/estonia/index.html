@@ -917,6 +917,94 @@ body {
     }
 }
 
+/* ==================== BACKGROUND IMAGE FIX FOR MOBILE ==================== */
+/* Fix position:fixed backgrounds breaking on mobile */
+@media screen and (max-width: 768px) {
+    /* AGGRESSIVE FIX: Target ALL fixed positioned elements within slides */
+    .slide div[style*="position: fixed"],
+    .slide div[style*="position:fixed"],
+    .premium-slide div[style*="position: fixed"],
+    .premium-slide div[style*="position:fixed"],
+    .title-slide div[style*="position: fixed"],
+    .title-slide div[style*="position:fixed"] {
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        min-height: 100vh !important;
+    }
+
+    /* Background image containers - first child of slide */
+    .slide > div:first-child,
+    .premium-slide > div:first-child,
+    .title-slide > div:first-child {
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        min-height: 100vh !important;
+        z-index: 0 !important;
+        overflow: hidden !important;
+    }
+
+    /* Ensure background images cover properly */
+    .slide img[src*="unsplash"],
+    .premium-slide img[src*="unsplash"],
+    .title-slide img[src*="unsplash"] {
+        width: 100% !important;
+        height: 100% !important;
+        min-height: 100vh !important;
+        object-fit: cover !important;
+        object-position: center center !important;
+    }
+
+    /* Ensure overlay gradient covers the image */
+    .slide > div:first-child > div,
+    .premium-slide > div:first-child > div,
+    .title-slide > div:first-child > div {
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        min-height: 100vh !important;
+        z-index: 1 !important;
+    }
+
+    /* Make sure slide container clips the background */
+    .slide,
+    .premium-slide,
+    .title-slide,
+    .setup-slide {
+        position: relative !important;
+        overflow: hidden !important;
+        min-height: 100vh !important;
+    }
+
+    /* Ensure content stays above background */
+    .slide > div:last-child,
+    .slide > div[style*="z-index: 2"],
+    .premium-slide > div:last-child,
+    .premium-slide > div[style*="z-index: 2"],
+    .title-slide > div:last-child,
+    .title-slide > div[style*="z-index: 2"] {
+        position: relative !important;
+        z-index: 2 !important;
+    }
+
+    /* Fallback: Apply background color to slides in case image fails */
+    .slide,
+    .premium-slide,
+    .title-slide {
+        background-color: #0f0c08 !important;
+        background: linear-gradient(135deg, rgba(15, 12, 8, 1) 0%, rgba(30, 25, 18, 1) 50%, rgba(15, 12, 8, 1) 100%) !important;
+    }
+}
+
 /* Tablet and smaller */
 @media screen and (max-width: 1024px) {
     .slide-content-wrapper {
