@@ -20,6 +20,23 @@
 html {
     color-scheme: dark !important;
     background-color: #0f0c08 !important;
+    /* Prevent double-tap zoom on mobile while allowing pinch-to-zoom */
+    touch-action: manipulation;
+}
+
+/* Disable double-tap zoom on all interactive elements */
+body, .slide, .presentation, button, a, div {
+    touch-action: manipulation;
+}
+
+/* Prevent text selection on slides during fast taps */
+.slide, .presentation {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+    -webkit-tap-highlight-color: transparent;
 }
 
 :root {
