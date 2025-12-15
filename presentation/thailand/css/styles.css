@@ -2020,6 +2020,24 @@ body {
         position: relative !important;
         z-index: 2 !important;
     }
+
+    /* PROTECT CIRCULAR PROFILE IMAGES */
+    div[style*="border-radius: 50%"],
+    div[style*="border-radius:50%"] {
+        border-radius: 50% !important;
+        overflow: hidden !important;
+        position: relative !important;
+    }
+
+    div[style*="border-radius: 50%"] img,
+    div[style*="border-radius:50%"] img,
+    .presenter-photo {
+        position: relative !important;
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        border-radius: 0 !important;
+    }
 }
 
 /* ==================== DARK MODE FIX (Android) ==================== */
