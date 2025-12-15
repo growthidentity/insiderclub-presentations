@@ -1,0 +1,1727 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light only">
+    <title>Koolitus: Kuidas Luua Tulemusi - Crypque & Mobicryp</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    background: #000;
+    overflow: hidden;
+}
+
+.presentation {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}
+
+.slide {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+    overflow: hidden;
+}
+
+.slide.active {
+    display: flex;
+    flex-direction: column;
+    opacity: 1;
+    transform: scale(1);
+}
+
+.slide.fade-out {
+    opacity: 0;
+    transform: scale(0.98);
+}
+
+/* Fragment animations */
+.fragment {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fragment.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Navigation controls */
+.nav-controls {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 20px;
+    z-index: 1000;
+}
+
+.nav-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(201, 162, 39, 0.3), rgba(244, 208, 63, 0.2));
+    border: 2px solid rgba(244, 208, 63, 0.5);
+    color: #f4d03f;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.nav-btn:hover {
+    background: linear-gradient(135deg, rgba(201, 162, 39, 0.5), rgba(244, 208, 63, 0.4));
+    transform: scale(1.1);
+    box-shadow: 0 5px 20px rgba(244, 208, 63, 0.4);
+}
+
+/* Progress bar */
+.progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #c9a227, #f4d03f);
+    z-index: 1000;
+    transition: width 0.3s ease;
+    box-shadow: 0 0 10px rgba(244, 208, 63, 0.5);
+}
+
+/* Slide counter */
+.slide-counter {
+    position: fixed;
+    bottom: 30px;
+    right: 40px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    color: rgba(244, 208, 63, 0.8);
+    letter-spacing: 2px;
+    z-index: 1000;
+}
+
+/* Common slide styles */
+.slide-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.slide-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.slide-bg-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(15, 12, 8, 0.94) 0%, rgba(30, 25, 18, 0.90) 50%, rgba(15, 12, 8, 0.94) 100%);
+}
+
+.slide-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 50px 70px;
+    color: white;
+}
+
+/* Gold accent line */
+.gold-line {
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, #c9a227, #f4d03f, #c9a227);
+    border-radius: 2px;
+    box-shadow: 0 2px 10px rgba(201, 162, 39, 0.5);
+}
+
+.gold-line-center {
+    margin: 0 auto;
+}
+
+/* Section badge */
+.section-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(135deg, rgba(201, 162, 39, 0.3), rgba(244, 208, 63, 0.2));
+    padding: 10px 25px;
+    border-radius: 25px;
+    border: 1px solid rgba(244, 208, 63, 0.5);
+    margin-bottom: 25px;
+}
+
+.section-badge span {
+    color: #f4d03f;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 2px;
+}
+
+/* Main title */
+.main-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3em;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 15px;
+    text-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    line-height: 1.2;
+}
+
+.main-title-large {
+    font-size: 3.5em;
+}
+
+/* Subtitle */
+.subtitle {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.3em;
+    font-weight: 300;
+    color: rgba(255,255,255,0.85);
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+    line-height: 1.5;
+}
+
+/* Content box */
+.content-box {
+    background: linear-gradient(135deg, rgba(201, 162, 39, 0.15), rgba(244, 208, 63, 0.08));
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    padding: 25px 30px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(244, 208, 63, 0.3);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+}
+
+/* Highlight box */
+.highlight-box {
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(16, 185, 129, 0.08));
+    border: 1px solid rgba(16, 185, 129, 0.4);
+}
+
+/* Warning box */
+.warning-box {
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.15), rgba(245, 158, 11, 0.08));
+    border: 1px solid rgba(245, 158, 11, 0.4);
+}
+
+/* Info box - blue */
+.info-box {
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(59, 130, 246, 0.08));
+    border: 1px solid rgba(59, 130, 246, 0.4);
+}
+
+/* List items */
+.list-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 15px;
+    color: rgba(255,255,255,0.95);
+    font-size: 1.05em;
+    line-height: 1.5;
+}
+
+.list-item i {
+    color: #f4d03f;
+    font-size: 18px;
+    margin-top: 4px;
+    flex-shrink: 0;
+}
+
+.list-item.green i {
+    color: #10b981;
+}
+
+.list-item.blue i {
+    color: #3b82f6;
+}
+
+/* Quote box */
+.quote-box {
+    background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
+    backdrop-filter: blur(15px);
+    border-radius: 15px;
+    padding: 20px 25px;
+    border-left: 4px solid #f4d03f;
+    margin: 15px 0;
+}
+
+.quote-text {
+    font-size: 1.1em;
+    font-style: italic;
+    color: rgba(255,255,255,0.95);
+    line-height: 1.6;
+}
+
+/* Number highlight */
+.number-highlight {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    background: linear-gradient(135deg, #c9a227, #f4d03f);
+    border-radius: 50%;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.3em;
+    font-weight: 700;
+    color: #0f0c08;
+    margin-right: 15px;
+    flex-shrink: 0;
+}
+
+/* Grid layout */
+.two-column {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    margin-top: 15px;
+}
+
+.three-column {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 15px;
+}
+
+/* CTA button style */
+.cta-box {
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+    background: linear-gradient(135deg, #c9a227, #f4d03f);
+    padding: 18px 35px;
+    border-radius: 50px;
+    margin-top: 20px;
+}
+
+.cta-box span {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1.1em;
+    color: #0f0c08;
+    letter-spacing: 1px;
+}
+
+.cta-box i {
+    font-size: 20px;
+    color: #0f0c08;
+}
+
+/* Icon circle */
+.icon-circle {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(201, 162, 39, 0.3), rgba(244, 208, 63, 0.2));
+    border: 2px solid rgba(244, 208, 63, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.icon-circle i {
+    font-size: 28px;
+    color: #f4d03f;
+}
+
+/* Stats grid */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 25px;
+}
+
+.stat-card {
+    background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
+    backdrop-filter: blur(15px);
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    border: 1px solid rgba(244, 208, 63, 0.2);
+}
+
+.stat-number {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.2em;
+    font-weight: 800;
+    color: #f4d03f;
+    margin-bottom: 8px;
+}
+
+.stat-label {
+    font-size: 0.9em;
+    color: rgba(255,255,255,0.8);
+}
+
+/* Pulse animation for key elements */
+@keyframes pulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(244, 208, 63, 0.4); }
+    50% { box-shadow: 0 0 0 15px rgba(244, 208, 63, 0); }
+}
+
+.pulse {
+    animation: pulse 2s infinite;
+}
+
+/* Floating animation */
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.float {
+    animation: float 3s ease-in-out infinite;
+}
+
+/* Presenter photo */
+.presenter-badge {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.presenter-photo {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    border: 3px solid #f4d03f;
+    object-fit: cover;
+    box-shadow: 0 5px 20px rgba(244, 208, 63, 0.4);
+}
+
+/* Formula display */
+.formula-box {
+    background: linear-gradient(135deg, rgba(201, 162, 39, 0.25), rgba(244, 208, 63, 0.15));
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    padding: 30px 40px;
+    text-align: center;
+    border: 2px solid rgba(244, 208, 63, 0.5);
+    margin: 25px auto;
+    max-width: 800px;
+}
+
+.formula-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.8em;
+    font-weight: 700;
+    color: white;
+    letter-spacing: 2px;
+}
+
+.formula-text span {
+    color: #f4d03f;
+}
+
+/* Estonian flag colors accent */
+.estonia-accent {
+    background: linear-gradient(90deg, #0072ce 33%, #000000 33%, #000000 66%, #ffffff 66%);
+    height: 4px;
+    border-radius: 2px;
+    margin: 15px 0;
+}
+
+/* Psychology technique card */
+.technique-card {
+    background: linear-gradient(135deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+    border-radius: 15px;
+    padding: 20px;
+    border: 1px solid rgba(244, 208, 63, 0.2);
+    text-align: center;
+}
+
+.technique-card h4 {
+    color: #f4d03f;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1em;
+    margin-bottom: 10px;
+}
+
+.technique-card p {
+    color: rgba(255,255,255,0.85);
+    font-size: 0.9em;
+    line-height: 1.4;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+    .slide-content {
+        padding: 40px 50px;
+    }
+    .main-title {
+        font-size: 2.3em;
+    }
+    .main-title-large {
+        font-size: 2.8em;
+    }
+}
+
+@media (max-width: 768px) {
+    .slide-content {
+        padding: 30px;
+    }
+    .main-title {
+        font-size: 1.8em;
+    }
+    .two-column, .three-column {
+        grid-template-columns: 1fr;
+    }
+    .stats-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+    </style>
+</head>
+<body>
+    <div class="progress-bar" id="progressBar"></div>
+    <div class="slide-counter" id="slideCounter">1 / 18</div>
+
+    <div class="presentation" id="presentation">
+
+        <!-- SLIDE 1: TITLE SLIDE -->
+        <div class="slide active" id="slide-1">
+            <div class="slide-bg">
+                <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=1920&q=95" alt="Team Training">
+                <div class="slide-bg-overlay"></div>
+            </div>
+            <div class="slide-content" style="justify-content: center; align-items: center; text-align: center;">
+                <div class="gold-line gold-line-center fragment" style="width: 120px; margin-bottom: 40px;"></div>
+
+                <div class="fragment" style="font-family: 'Montserrat', sans-serif; font-size: 1.1em; color: #f4d03f; letter-spacing: 4px; margin-bottom: 20px;">
+                    CRYPQUE & MOBICRYP KOOLITUS
+                </div>
+
+                <h1 class="main-title main-title-large fragment" style="background: linear-gradient(135deg, #ffffff, #f4d03f, #ffffff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 25px;">
+                    KUIDAS LUUA TULEMUSI<br>LÄBI TURUNDUSE
+                </h1>
+
+                <p class="subtitle fragment" style="max-width: 700px; margin: 0 auto 30px;">
+                    Praktiline juhend järjepidevaks eduks<br>
+                    Eesti Kogukonna Koolitus 2025
+                </p>
+
+                <div class="estonia-accent fragment" style="width: 200px; margin: 20px auto;"></div>
+
+                <div class="fragment" style="display: flex; align-items: center; gap: 20px; margin-top: 20px;">
+                    <img src="LOGOS/Vambola Tullus.jpg" class="presenter-photo" style="width: 70px; height: 70px;" alt="Esineja">
+                    <div style="text-align: left;">
+                        <div style="color: white; font-weight: 600; font-size: 1.1em;">Vambola Tullus</div>
+                        <div style="color: rgba(255,255,255,0.7); font-size: 0.9em;">Tiimijuht & Koolitaja</div>
+                    </div>
+                </div>
+
+                <div class="gold-line gold-line-center fragment" style="width: 120px; margin-top: 40px;"></div>
+            </div>
+        </div>
+
+        <!-- SLIDE 2: MIKS SEE KOOLITUS ON OLULINE - EESTI KONTEKST -->
+        <div class="slide" id="slide-2">
+            <div class="slide-bg">
+                <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&q=95" alt="Estonia Digital">
+                <div class="slide-bg-overlay"></div>
+            </div>
+            <div class="slide-content">
+                <div class="presenter-badge">
+                    <img src="LOGOS/Vambola Tullus.jpg" class="presenter-photo" alt="Esineja">
+                </div>
+
+                <div class="section-badge fragment">
+                    <i class="fas fa-globe-europe"></i>
+                    <span>EESTI KONTEKST</span>
+                </div>
+
+                <h2 class="main-title fragment">Miks Just Praegu?</h2>
+                <p class="subtitle fragment">Eesti turg 2025, võimaluste aken on avatud</p>
+
+                <div class="stats-grid fragment">
+                    <div class="stat-card">
+                        <div class="stat-number">93%</div>
+                        <div class="stat-label">Eestlastest kasutab internetti</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">57%</div>
+                        <div class="stat-label">Maksetest on digitaalsed</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">36%</div>
+                        <div class="stat-label">Otsivad lisasissetulekut</div>
+                    </div>
+                </div>
+
+                <div class="two-column fragment" style="margin-top: 25px;">
+                    <div class="content-box info-box">
+                        <div class="list-item blue">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Keskmine palk: <strong>€2,126</strong> kuus</span>
+                        </div>
+                        <div class="list-item blue">
+                            <i class="fas fa-home"></i>
+                            <span>Elamiskulud Tallinnas: <strong>~€1,500</strong></span>
+                        </div>
+                        <div class="list-item blue">
+                            <i class="fas fa-balance-scale"></i>
+                            <span>Vahe on <strong>minimaalne</strong></span>
+                        </div>
+                    </div>
+
+                    <div class="content-box highlight-box">
+                        <div style="text-align: center;">
+                            <i class="fas fa-lightbulb" style="font-size: 35px; color: #10b981; margin-bottom: 12px;"></i>
+                            <p style="color: rgba(255,255,255,0.95); font-size: 1em; line-height: 1.5;">
+                                <strong>77% Gen Z-st</strong> ja <strong>52% millennialidest</strong> on alustanud kõrvaltegevusega viimase 2 aasta jooksul
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 3: AVASÕNAD - EESTI STIILIS -->
+        <div class="slide" id="slide-3">
+            <div class="slide-bg">
+                <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?w=1920&q=95" alt="Welcome">
+                <div class="slide-bg-overlay"></div>
+            </div>
+            <div class="slide-content">
+                <div class="presenter-badge">
+                    <img src="LOGOS/Vambola Tullus.jpg" class="presenter-photo" alt="Esineja">
+                </div>
+
+                <div class="section-badge fragment">
+                    <i class="fas fa-door-open"></i>
+                    <span>AUSALT ALGUSEST</span>
+                </div>
+
+                <h2 class="main-title fragment">Tere Tulemast!</h2>
+                <p class="subtitle fragment">Räägime otse ja ausalt, nii nagu eestlased armastavad.</p>
+
+                <div class="content-box fragment">
+                    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 15px;">
+                        <i class="fas fa-times-circle" style="font-size: 22px; color: #ef4444;"></i>
+                        <span style="font-family: 'Montserrat', sans-serif; font-size: 1.1em; font-weight: 600; color: #ef4444;">Mida see EI OLE:</span>
+                    </div>
+                    <div class="list-item">
+                        <i class="fas fa-times" style="color: #ef4444;"></i>
+                        <span>Kiirraha skeem, tulemused tulevad <strong>tööga</strong></span>
+                    </div>
+                    <div class="list-item">
+                        <i class="fas fa-times" style="color: #ef4444;"></i>
+                        <span>Ime või lotovõit, see on <strong>süsteem</strong></span>
+                    </div>
+                    <div class="list-item">
+                        <i class="fas fa-times" style="color: #ef4444;"></i>
+                        <span>Hype ja tühja juttu, ainult <strong>faktid ja numbrid</strong></span>
+                    </div>
+                </div>
+
+                <div class="content-box highlight-box fragment">
+                    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 15px;">
+                        <i class="fas fa-check-circle" style="font-size: 22px; color: #10b981;"></i>
+                        <span style="font-family: 'Montserrat', sans-serif; font-size: 1.1em; font-weight: 600; color: #10b981;">Mida see ON:</span>
+                    </div>
+                    <div class="list-item green">
+                        <i class="fas fa-check"></i>
+                        <span>Lihtne, õpitav ja <strong>duplitseeritav</strong> süsteem</span>
+                    </div>
+                    <div class="list-item green">
+                        <i class="fas fa-check"></i>
+                        <span>Toimib tavalistele inimestele, kes <strong>järjepidevalt tegutsevad</strong></span>
+                    </div>
+                    <div class="list-item green">
+                        <i class="fas fa-check"></i>
+                        <span>Usaldus tuleb <strong>tegude läbi</strong>, mitte lubaduste</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 4: EESTI MENTALITEET - TUGEVUSED -->
+        <div class="slide" id="slide-4">
+            <div class="slide-bg">
+                <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=1920&q=95" alt="Estonian Culture">
+                <div class="slide-bg-overlay"></div>
+            </div>
+            <div class="slide-content">
+                <div class="presenter-badge">
+                    <img src="LOGOS/Vambola Tullus.jpg" class="presenter-photo" alt="Esineja">
+                </div>
+
+                <div class="section-badge fragment">
+                    <i class="fas fa-users"></i>
+                    <span>MEIE TUGEVUSED</span>
+                </div>
+
+                <h2 class="main-title fragment">Eestlase Superpower</h2>
+                <p class="subtitle fragment">Meie kultuurilised omadused on selles äris tegelikult eelised!</p>
+
+                <div class="three-column fragment">
+                    <div class="technique-card">
+                        <i class="fas fa-search" style="font-size: 35px; color: #f4d03f; margin-bottom: 15px;"></i>
+                        <h4>Skeptitsism</h4>
+                        <p>Me analüüsime põhjalikult enne otsust. See tähendab, et kui eestlane ütleb JAH, siis ta on tõsiselt pühendunud</p>
+                    </div>
+                    <div class="technique-card">
+                        <i class="fas fa-comment-dots" style="font-size: 35px; color: #f4d03f; margin-bottom: 15px;"></i>
+                        <h4>Otsekohesus</h4>
+                        <p>Me ei räägi ümber nurga. Aus ja selge kommunikatsioon loob usaldust kiiremini</p>
+                    </div>
+                    <div class="technique-card">
+                        <i class="fas fa-handshake" style="font-size: 35px; color: #f4d03f; margin-bottom: 15px;"></i>
+                        <h4>Usaldusväärsus</h4>
+                        <p>Kui usaldus on loodud, on see tugev ja püsiv. Lojaalsed partnerid ja tiim</p>
+                    </div>
+                </div>
+
+                <div class="quote-box fragment" style="margin-top: 25px;">
+                    <p class="quote-text">
+                        <i class="fas fa-lightbulb" style="margin-right: 10px; color: #f4d03f;"></i>
+                        "Eestlased on pragmaatilised ja andmetepõhised. Näita numbreid, ole aus ja usaldus tuleb <strong>tegude läbi, mitte sõnadega</strong>."
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 5: SINU LUGU & OTSUS -->
+        <div class="slide" id="slide-5">
+            <div class="slide-bg">
+                <img src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=1920&q=95" alt="Decision">
+                <div class="slide-bg-overlay"></div>
+            </div>
+            <div class="slide-content">
+                <div class="presenter-badge">
+                    <img src="LOGOS/Vambola Tullus.jpg" class="presenter-photo" alt="Esineja">
+                </div>
+
+                <div class="section-badge fragment">
+                    <i class="fas fa-fire"></i>
+                    <span>SAMM 1</span>
+                </div>
+
+                <h2 class="main-title fragment">Sinu Lugu & Sinu Otsus</h2>
+                <p class="subtitle fragment">Iga inimene siin ruumis on erinevast kohast. Räägi ausalt, ilma liialdamata.</p>
+
+                <div class="quote-box fragment">
+                    <p class="quote-text">"Kui mina alustasin, olin olukorras, kus töötasin palju, aga raha ei jäänud alles. Aeg ei olnud minu kontrolli all. Ühel hetkel sain aru – kui mina ei tee otsust, siis mitte miski ei muutu."</p>
+                </div>
+
+                <div class="content-box fragment" style="margin-top: 20px;">
+                    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 15px;">
+                        <i class="fas fa-key" style="font-size: 26px; color: #f4d03f;"></i>
+                        <span style="font-family: 'Montserrat', sans-serif; font-size: 1.2em; font-weight: 600; color: #f4d03f;">OTSUS ON VÕTMEKOHT</span>
+                    </div>
+                    <div class="list-item">
+                        <i class="fas fa-arrow-right"></i>
+                        <span>Mitte info (seda on piisavalt)</span>
+                    </div>
+                    <div class="list-item">
+                        <i class="fas fa-arrow-right"></i>
+                        <span>Mitte motivatsioon (see on ajutine)</span>
+                    </div>
+                    <div class="list-item">
+                        <i class="fas fa-arrow-right"></i>
+                        <span>Vaid <strong>otsus + distsipliin</strong> ka siis, kui on ebamugav</span>
+                    </div>
+                </div>
+
+                <div class="formula-box fragment">
+                    <p class="formula-text" style="font-size: 1.4em;">
+                        <span>Motivatsioon</span> on ajutine. <span>Distsipliin</span> on igavene.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 6: EESMÄRK - EESTI KONTEKSTIS -->
+        <div class="slide" id="slide-6">
+            <div class="slide-bg">
+                <img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=1920&q=95" alt="Target">
+                <div class="slide-bg-overlay"></div>
+            </div>
+            <div class="slide-content">
+                <div class="presenter-badge">
+                    <img src="LOGOS/Vambola Tullus.jpg" class="presenter-photo" alt="Esineja">
+                </div>
+
+                <div class="section-badge fragment">
+                    <i class="fas fa-bullseye"></i>
+                    <span>SAMM 2</span>
+                </div>
+
+                <h2 class="main-title fragment">Konkreetne Eesmärk</h2>
+                <p class="subtitle fragment">Eestlased armastavad konkreetsust. "Tahan rohkem raha" ei tööta.</p>
+
+                <div class="two-column">
+                    <div class="content-box fragment">
+                        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 15px;">
+                            <i class="fas fa-clipboard-check" style="font-size: 22px; color: #f4d03f;"></i>
+                            <span style="font-family: 'Montserrat', sans-serif; font-size: 1em; font-weight: 600; color: #f4d03f;">SMART eesmärk:</span>
+                        </div>
+                        <div class="list-item green">
+                            <i class="fas fa-check-circle"></i>
+                            <span><strong>S</strong>petsifiline, täpne number</span>
+                        </div>
+                        <div class="list-item green">
+                            <i class="fas fa-check-circle"></i>
+                            <span><strong>M</strong>õõdetav, saad kontrollida</span>
+                        </div>
+                        <div class="list-item green">
+                            <i class="fas fa-check-circle"></i>
+                            <span><strong>A</strong>jaliselt paigas, 30/60/90 päeva</span>
+                        </div>
+                        <div class="list-item green">
+                            <i class="fas fa-check-circle"></i>
+                            <span><strong>R</strong>ealistlik, mitte unistus</span>
+                        </div>
+                        <div class="list-item green">
+                            <i class="fas fa-check-circle"></i>
+                            <span><strong>T</strong>ähtajaline, deadline!</span>
+                        </div>
+                    </div>
+
+                    <div class="content-box fragment">
+                        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 15px;">
+                            <i class="fas fa-euro-sign" style="font-size: 22px; color: #f4d03f;"></i>
+                            <span style="font-family: 'Montserrat', sans-serif; font-size: 1em; font-weight: 600; color: #f4d03f;">Eesti kontekstis näited:</span>
+                        </div>
+                        <div class="list-item">
+                            <i class="fas fa-car"></i>
+                            <span>+€500/kuu = autolising kaetud</span>
+                        </div>
+                        <div class="list-item">
+                            <i class="fas fa-home"></i>
+                            <span>+€800/kuu = kommunaalid + säästud</span>
+                        </div>
+                        <div class="list-item">
+                            <i class="fas fa-plane"></i>
+                            <span>+€1500/kuu = vabadus ja valikud</span>
+                        </div>
+                        <div class="list-item">
+                            <i class="fas fa-user-plus"></i>
+                            <span>1. aktiivne partner 30 päevaga</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 7: AEG - REALISTLIK LÄHENEMINE -->
+        <div class="slide" id="slide-7">
+            <div class="slide-bg">
+                <img src="https://images.unsplash.com/photo-1495364141860-b0d03eccd065?w=1920&q=95" alt="Time">
+                <div class="slide-bg-overlay"></div>
+            </div>
+            <div class="slide-content">
+                <div class="presenter-badge">
+                    <img src="LOGOS/Vambola Tullus.jpg" class="presenter-photo" alt="Esineja">
+                </div>
+
+                <div class="section-badge fragment">
+                    <i class="fas fa-clock"></i>
+                    <span>SAMM 3</span>
+                </div>
+
+                <h2 class="main-title fragment">Aeg: Ole Realistlik</h2>
+                <p class="subtitle fragment">Kui palju sa päriselt panustad? Eestlane hindab ausust.</p>
+
+                <div class="stats-grid fragment">
+                    <div class="stat-card">
+                        <div class="stat-number">5h</div>
+                        <div class="stat-label">nädalas = aeglane, kuid kindel</div>
+                    </div>
+                    <div class="stat-card" style="border-color: rgba(16, 185, 129, 0.5);">
+                        <div class="stat-number" style="color: #10b981;">10h</div>
+                        <div class="stat-label">nädalas = hea tempo</div>
+                    </div>
+                    <div class="stat-card" style="border-color: rgba(244, 208, 63, 0.5);">
+                        <div class="stat-number">20h</div>
+                        <div class="stat-label">nädalas = kiired tulemused</div>
+                    </div>
+                </div>
+
+                <div class="formula-box fragment" style="margin-top: 30px;">
+                    <p class="formula-text" style="font-size: 1.4em;">
+                        <span>30 min</span> iga päev > 5 tundi kord nädalas
+                    </p>
+                </div>
+
+                <div class="two-column fragment" style="margin-top: 20px;">
+                    <div class="content-box">
+                        <div class="list-item">
+                            <i class="fas fa-coffee"></i>
+                            <span>Hommikukohvi ajal = kontaktide läbivaatamine</span>
+                        </div>
+                        <div class="list-item">
+                            <i class="fas fa-bus"></i>
+                            <span>Tööle sõites = audio koolitused</span>
+                        </div>
+                        <div class="list-item">
+                            <i class="fas fa-moon"></i>
+                            <span>Õhtul 30 min = järeltegevus</span>
+                        </div>
+                    </div>
+                    <div class="quote-box" style="margin: 0; display: flex; align-items: center;">
+                        <p class="quote-text" style="font-size: 1em;">
+                            <i class="fas fa-trophy" style="margin-right: 10px; color: #f4d03f;"></i>
+                            <strong>Järjepidevus</strong> võidab ALATI motivatsiooni
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 8: TEGEVUSKAVA -->
+        <div class="slide" id="slide-8">
+            <div class="slide-bg">
+                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1920&q=95" alt="Action Plan">
+                <div class="slide-bg-overlay"></div>
+            </div>
+            <div class="slide-content">
+                <div class="presenter-badge">
+                    <img src="LOGOS/Vambola Tullus.jpg" class="presenter-photo" alt="Esineja">
+                </div>
+
+                <div class="section-badge fragment">
+                    <i class="fas fa-tasks"></i>
+                    <span>SAMM 4</span>
+                </div>
+
+                <h2 class="main-title fragment">Tegevuskava</h2>
+                <p class="subtitle fragment">Tulemused tulevad tegevusest. Ära asenda õppimist tegutsemisega!</p>
+
+                <div class="two-column">
+                    <div class="content-box fragment">
+                        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 15px;">
+                            <i class="fas fa-list-check" style="font-size: 22px; color: #f4d03f;"></i>
+                            <span style="font-family: 'Montserrat', sans-serif; font-size: 1em; font-weight: 600; color: #f4d03f;">Igapäevased ITT-d:</span>
+                        </div>
+                        <p style="color: rgba(255,255,255,0.7); font-size: 0.85em; margin-bottom: 12px;">(Income-Producing Tasks)</p>
+                        <div class="list-item green">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Vestlused potentsiaalsete partneritega</span>
+                        </div>
+                        <div class="list-item green">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Zoom esitlused</span>
+                        </div>
+                        <div class="list-item green">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Järeltegevus (follow-up)</span>
+                        </div>
+                        <div class="list-item green">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Tiimiliikmete toetamine</span>
+                        </div>
+                    </div>
+
+                    <div class="content-box warning-box fragment">
+                        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 15px;">
+                            <i class="fas fa-exclamation-triangle" style="font-size: 22px; color: #f59e0b;"></i>
+                            <span style="font-family: 'Montserrat', sans-serif; font-size: 1em; font-weight: 600; color: #f59e0b;">Levinud viga:</span>
+                        </div>
+                        <p style="color: rgba(255,255,255,0.95); line-height: 1.5; font-size: 0.95em;">
+                            Enamik ebaõnnestub, sest nad <strong>õpivad liiga palju</strong> ja <strong>tegutsevad liiga vähe</strong>.
+                        </p>
+                        <div style="margin-top: 15px; padding: 12px; background: rgba(0,0,0,0.2); border-radius: 10px;">
+                            <p style="color: #f59e0b; font-weight: 600; font-size: 0.95em;">
+                                Parim aeg õppida = "surnud aeg" (trennis, sõites, kodutööde ajal)
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="quote-box fragment" style="margin-top: 20px;">
+                    <p class="quote-text"><i class="fas fa-lightbulb" style="margin-right: 10px; color: #f4d03f;"></i> Sa ei pea olema perfektne. Sa pead olema <strong>kohal</strong> ja <strong>tegus</strong>.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 9: SINU MIKS -->
+        <div class="slide" id="slide-9">
+            <div class="slide-bg">
+                <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1920&q=95" alt="Why">
+                <div class="slide-bg-overlay"></div>
+            </div>
+            <div class="slide-content">
+                <div class="presenter-badge">
+                    <img src="LOGOS/Vambola Tullus.jpg" class="presenter-photo" alt="Esineja">
+                </div>
+
+                <div class="section-badge fragment">
+                    <i class="fas fa-heart"></i>
+                    <span>SAMM 5</span>
+                </div>
+
+                <h2 class="main-title fragment">Sinu MIKS</h2>
+                <p class="subtitle fragment">Mitte "rohkem raha", vaid mida see raha sulle annab?</p>
+
+                <div class="content-box fragment">
+                    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 15px;">
+                        <i class="fas fa-shield-alt" style="font-size: 22px; color: #f4d03f;"></i>
+                        <span style="font-family: 'Montserrat', sans-serif; font-size: 1em; font-weight: 600; color: #f4d03f;">Tugev MIKS aitab sul läbi minna:</span>
+                    </div>
+                    <div class="list-item">
+                        <i class="fas fa-times"></i>
+                        <span>Kui keegi ütleb "ei" (ja nad ütlevad!)</span>
+                    </div>
+                    <div class="list-item">
+                        <i class="fas fa-ghost"></i>
+                        <span>Kui keegi kaob ära vastamata</span>
+                    </div>
+                    <div class="list-item">
+                        <i class="fas fa-hourglass-half"></i>
+                        <span>Kui tulemused ei tule kohe esimesel kuul</span>
+                    </div>
+                </div>
+
+                <div class="three-column fragment" style="margin-top: 20px;">
+                    <div class="technique-card">
+                        <i class="fas fa-users" style="font-size: 30px; color: #f4d03f; margin-bottom: 10px;"></i>
+                        <h4>Pere</h4>
+                        <p>Rohkem aega lastega, turvalisus perele</p>
+                    </div>
+                    <div class="technique-card">
+                        <i class="fas fa-clock" style="font-size: 30px; color: #f4d03f; margin-bottom: 10px;"></i>
+                        <h4>Vabadus</h4>
+                        <p>Ise otsustad, millal ja kus töötad</p>
+                    </div>
+                    <div class="technique-card">
+                        <i class="fas fa-shield-alt" style="font-size: 30px; color: #f4d03f; margin-bottom: 10px;"></i>
+                        <h4>Turvalisus</h4>
+                        <p>Teine sissetulek, mis ei sõltu ühest tööandjast</p>
+                    </div>
+                </div>
+
+                <div class="formula-box fragment" style="margin-top: 25px;">
+                    <p class="formula-text" style="font-size: 1.3em;">
+                        Kui <span>MIKS</span> on tugev, siis KUIDAS tuleb ajaga
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 10: VEENMISE PSÜHHOLOOGIA -->
+        <div class="slide" id="slide-10">
+            <div class="slide-bg">
+                <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=1920&q=95" alt="Psychology">
+                <div class="slide-bg-overlay"></div>
+            </div>
+            <div class="slide-content">
+                <div class="presenter-badge">
+                    <img src="LOGOS/Vambola Tullus.jpg" class="presenter-photo" alt="Esineja">
+                </div>
+
+                <div class="section-badge fragment">
+                    <i class="fas fa-brain"></i>
+                    <span>PSÜHHOLOOGIA</span>
+                </div>
+
+                <h2 class="main-title fragment">Mõjutamise 6 Põhimõtet</h2>
+                <p class="subtitle fragment">Robert Cialdini teaduspõhised meetodid, eetiliselt ja ausalt kasutades</p>
+
+                <div class="stats-grid fragment" style="grid-template-columns: repeat(3, 1fr);">
+                    <div class="technique-card">
+                        <i class="fas fa-gift" style="font-size: 28px; color: #f4d03f; margin-bottom: 10px;"></i>
+                        <h4>Vastastikkus</h4>
+                        <p>Anna väärtust enne küsimist. Jagasid infot, aitasid</p>
+                    </div>
+                    <div class="technique-card">
+                        <i class="fas fa-handshake" style="font-size: 28px; color: #f4d03f; margin-bottom: 10px;"></i>
+                        <h4>Pühendumus</h4>
+                        <p>Väike JAH viib suurema JAH-ni (tuli Zoomile = võib alustada)</p>
+                    </div>
+                    <div class="technique-card">
+                        <i class="fas fa-users" style="font-size: 28px; color: #f4d03f; margin-bottom: 10px;"></i>
+                        <h4>Sotsiaalne Tõend</h4>
+                        <p>"Vaata, mida teised saavutavad". Lood, numbrid, näited</p>
+                    </div>
+                </div>
+
+                <div class="stats-grid fragment" style="grid-template-columns: repeat(3, 1fr); margin-top: 15px;">
+                    <div class="technique-card">
+                        <i class="fas fa-heart" style="font-size: 28px; color: #f4d03f; margin-bottom: 10px;"></i>
+                        <h4>Meeldivus</h4>
+                        <p>Inimesed ostavad inimestelt, kes neile meeldivad. Ole sina ise</p>
+                    </div>
+                    <div class="technique-card">
+                        <i class="fas fa-certificate" style="font-size: 28px; color: #f4d03f; margin-bottom: 10px;"></i>
+                        <h4>Autoriteet</h4>
+                        <p>Näita ettevõtte tausta, oma tulemusi, tiimi edu</p>
+                    </div>
+                    <div class="technique-card">
+                        <i class="fas fa-hourglass-end" style="font-size: 28px; color: #f4d03f; margin-bottom: 10px;"></i>
+                        <h4>Nappus</h4>
+                        <p>Piiratud aeg, koht tiimis. Aga AINULT kui see on tõsi!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 11: KUTSUMISE REAALSUS -->
+        <div class="slide" id="slide-11">
+            <div class="slide-bg">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1920&q=95" alt="Numbers">
+                <div class="slide-bg-overlay"></div>
+            </div>
+            <div class="slide-content">
+                <div class="presenter-badge">
+                    <img src="LOGOS/Vambola Tullus.jpg" class="presenter-photo" alt="Esineja">
+                </div>
+
+                <div class="section-badge fragment">
+                    <i class="fas fa-calculator"></i>
+                    <span>SAMM 6</span>
+                </div>
+
+                <h2 class="main-title fragment">Kutsumise Numbrid</h2>
+                <p class="subtitle fragment">See on matemaatika, mitte emotsioonide mäng. Eestlased armastavad fakte.</p>
+
+                <div class="stats-grid fragment">
+                    <div class="stat-card">
+                        <div class="stat-number">10</div>
+                        <div class="stat-label">Kutsud inimest</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" style="color: rgba(255,255,255,0.6);">3-5</div>
+                        <div class="stat-label">Vaatavad esitlust</div>
+                    </div>
+                    <div class="stat-card" style="border-color: rgba(16, 185, 129, 0.5);">
+                        <div class="stat-number" style="color: #10b981;">1-2</div>
+                        <div class="stat-label">Alustavad</div>
+                    </div>
+                </div>
+
+                <div class="two-column fragment" style="margin-top: 25px;">
+                    <div class="content-box">
+                        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 15px;">
+                            <i class="fas fa-chart-pie" style="font-size: 22px; color: #f4d03f;"></i>
+                            <span style="font-family: 'Montserrat', sans-serif; font-size: 1em; font-weight: 600; color: #f4d03f;">Reaalne jaotus:</span>
+                        </div>
+                        <div class="list-item">
+                            <i class="fas fa-bolt" style="color: #10b981;"></i>
+                            <span><strong>10%</strong> alustab kohe</span>
+                        </div>
+                        <div class="list-item">
+                            <i class="fas fa-clock" style="color: #f59e0b;"></i>
+                            <span><strong>30%</strong> vajab aega ja infot</span>
+                        </div>
+                        <div class="list-item">
+                            <i class="fas fa-times" style="color: #ef4444;"></i>
+                            <span><strong>60%</strong> ei ole nende jaoks</span>
+                        </div>
+                    </div>
+
+                    <div class="content-box highlight-box">
+                        <div style="text-align: center;">
+                            <i class="fas fa-exclamation-circle" style="font-size: 35px; color: #10b981; margin-bottom: 12px;"></i>
+                            <p style="color: rgba(255,255,255,0.95); font-size: 1em; line-height: 1.5;">
+                                <strong>See on NORMAALNE!</strong><br>
+                                "Ei" ei ole isiklik.<br>
+                                See on lihtsalt <strong>nende ajastus</strong>.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="formula-box fragment" style="margin-top: 20px;">
+                    <p class="formula-text" style="font-size: 1.3em;">
+                        <span>100</span> kontakti = <span>10</span> esitlust = <span>1-2</span> partnerit
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 12: PARIMAD KANALID - EESTI STIIL -->
+        <div class="slide" id="slide-12">
+            <div class="slide-bg">
+                <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1920&q=95" alt="Communication">
+                <div class="slide-bg-overlay"></div>
+            </div>
+            <div class="slide-content">
+                <div class="presenter-badge">
+                    <img src="LOGOS/Vambola Tullus.jpg" class="presenter-photo" alt="Esineja">
+                </div>
+
+                <div class="section-badge fragment">
+                    <i class="fas fa-comments"></i>
+                    <span>SAMM 7</span>
+                </div>
+
+                <h2 class="main-title fragment">Kuidas Rääkida Eestlasega</h2>
+                <p class="subtitle fragment">Meie kultuuris töötab otsekohesus ja faktipõhisus, mitte hype.</p>
+
+                <div class="three-column fragment">
+                    <div class="stat-card" style="background: linear-gradient(135deg, rgba(201, 162, 39, 0.25), rgba(244, 208, 63, 0.15)); border-color: rgba(244, 208, 63, 0.5);">
+                        <div class="number-highlight" style="margin: 0 auto 12px;">1</div>
+                        <i class="fas fa-user-friends" style="font-size: 35px; color: #f4d03f; margin-bottom: 12px;"></i>
+                        <div class="stat-label" style="font-size: 1em; color: white;"><strong>Näost näkku</strong></div>
+                        <div class="stat-label" style="margin-top: 8px;">Parim usalduse loomine</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="number-highlight" style="margin: 0 auto 12px; background: linear-gradient(135deg, #c0c0c0, #e0e0e0); color: #333;">2</div>
+                        <i class="fas fa-video" style="font-size: 35px; color: #f4d03f; margin-bottom: 12px;"></i>
+                        <div class="stat-label" style="font-size: 1em; color: white;"><strong>Zoom / Video</strong></div>
+                        <div class="stat-label" style="margin-top: 8px;">93% eestlastest on online</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="number-highlight" style="margin: 0 auto 12px; background: linear-gradient(135deg, #cd7f32, #e8a854); color: #333;">3</div>
+                        <i class="fas fa-phone" style="font-size: 35px; color: #f4d03f; margin-bottom: 12px;"></i>
+                        <div class="stat-label" style="font-size: 1em; color: white;"><strong>Telefon</strong></div>
+                        <div class="stat-label" style="margin-top: 8px;">Lühike, otsene vestlus</div>
+                    </div>
+                </div>
+
+                <div class="content-box fragment" style="margin-top: 25px;">
+                    <div class="list-item">
+                        <i class="fas fa-times-circle" style="color: #ef4444;"></i>
+                        <span>Ära seleta kõike tekstis, <strong>eestlane tahab aega mõtlemiseks</strong></span>
+                    </div>
+                    <div class="list-item">
+                        <i class="fas fa-times-circle" style="color: #ef4444;"></i>
+                        <span>Ära kasuta hype-keelt: "MEGA võimalus!!!", see ei tööta</span>
+                    </div>
+                    <div class="list-item green">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Kutsu <strong>vestlusele</strong>: "Tahan sulle midagi näidata, mis mind huvitab"</span>
+                    </div>
+                    <div class="list-item green">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Anna aega otsustada, <strong>ära suru</strong></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 13: ARVAMUSED VS FAKTID - VASTUVÄITED -->
+        <div class="slide" id="slide-13">
+            <div class="slide-bg">
+                <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1920&q=95" alt="Facts">
+                <div class="slide-bg-overlay"></div>
+            </div>
+            <div class="slide-content">
+                <div class="presenter-badge">
+                    <img src="LOGOS/Vambola Tullus.jpg" class="presenter-photo" alt="Esineja">
+                </div>
+
+                <div class="section-badge fragment">
+                    <i class="fas fa-balance-scale"></i>
+                    <span>SAMM 8</span>
+                </div>
+
+                <h2 class="main-title fragment">Vastuväidete Käsitlemine</h2>
+                <p class="subtitle fragment">Eestlane on skeptiline ja see on HEA asi! Kuula, mõista, vasta faktidega.</p>
+
+                <div class="two-column">
+                    <div class="content-box fragment" style="border-color: rgba(239, 68, 68, 0.4);">
+                        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 15px;">
+                            <i class="fas fa-comment-slash" style="font-size: 20px; color: #ef4444;"></i>
+                            <span style="font-family: 'Montserrat', sans-serif; font-size: 1em; font-weight: 600; color: #ef4444;">Tüüpilised vastuväited:</span>
+                        </div>
+                        <div class="list-item">
+                            <i class="fas fa-quote-left" style="color: rgba(255,255,255,0.5); font-size: 14px;"></i>
+                            <span style="font-style: italic; font-size: 0.95em;">"See on püramiidskeem"</span>
+                        </div>
+                        <div class="list-item">
+                            <i class="fas fa-quote-left" style="color: rgba(255,255,255,0.5); font-size: 14px;"></i>
+                            <span style="font-style: italic; font-size: 0.95em;">"Mul pole aega"</span>
+                        </div>
+                        <div class="list-item">
+                            <i class="fas fa-quote-left" style="color: rgba(255,255,255,0.5); font-size: 14px;"></i>
+                            <span style="font-style: italic; font-size: 0.95em;">"Ma ei oska müüa"</span>
+                        </div>
+                        <div class="list-item">
+                            <i class="fas fa-quote-left" style="color: rgba(255,255,255,0.5); font-size: 14px;"></i>
+                            <span style="font-style: italic; font-size: 0.95em;">"See ei tööta"</span>
+                        </div>
+                    </div>
+
+                    <div class="content-box highlight-box fragment">
+                        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 15px;">
+                            <i class="fas fa-lightbulb" style="font-size: 20px; color: #10b981;"></i>
+                            <span style="font-family: 'Montserrat', sans-serif; font-size: 1em; font-weight: 600; color: #10b981;">Feel-Felt-Found meetod:</span>
+                        </div>
+                        <div class="list-item green">
+                            <i class="fas fa-heart"></i>
+                            <span><strong>Tunnen</strong>: "Ma saan aru, miks sa nii arvad..."</span>
+                        </div>
+                        <div class="list-item green">
+                            <i class="fas fa-users"></i>
+                            <span><strong>Teised</strong>: "Paljud mõtlesid algul sama..."</span>
+                        </div>
+                        <div class="list-item green">
+                            <i class="fas fa-chart-line"></i>
+                            <span><strong>Avastasid</strong>: "Aga nad leidsid, et..."</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="formula-box fragment" style="margin-top: 20px; background: linear-gradient(135deg, rgba(239, 68, 68, 0.15), rgba(239, 68, 68, 0.08)); border-color: rgba(239, 68, 68, 0.5);">
+                    <p class="formula-text" style="font-size: 1.2em; color: #fff;">
+                        <i class="fas fa-exclamation-circle" style="color: #ef4444; margin-right: 12px;"></i>
+                        Teiste arvamused <span style="color: #ef4444;">EI MAKSA</span> sinu arveid.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 14: JÄRELTEGEVUS -->
+        <div class="slide" id="slide-14">
+            <div class="slide-bg">
+                <img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=1920&q=95" alt="Follow-up">
+                <div class="slide-bg-overlay"></div>
+            </div>
+            <div class="slide-content">
+                <div class="presenter-badge">
+                    <img src="LOGOS/Vambola Tullus.jpg" class="presenter-photo" alt="Esineja">
+                </div>
+
+                <div class="section-badge fragment">
+                    <i class="fas fa-redo"></i>
+                    <span>SAMM 9</span>
+                </div>
+
+                <h2 class="main-title fragment">Järeltegevus = Raha</h2>
+                <p class="subtitle fragment">80% rahast tuleb järeltegevusest. Enamik annab liiga vara alla!</p>
+
+                <div class="content-box fragment">
+                    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px;">
+                        <div style="text-align: center; padding: 15px; background: rgba(255,255,255,0.05); border-radius: 12px;">
+                            <div class="number-highlight" style="margin: 0 auto 10px; width: 40px; height: 40px; font-size: 1.1em;">1</div>
+                            <i class="fas fa-eye" style="font-size: 25px; color: #f4d03f; margin-bottom: 8px;"></i>
+                            <p style="color: rgba(255,255,255,0.95); font-size: 0.85em;">Esimene<br>esitlus</p>
+                        </div>
+                        <div style="text-align: center; padding: 15px; background: rgba(255,255,255,0.05); border-radius: 12px;">
+                            <div class="number-highlight" style="margin: 0 auto 10px; width: 40px; height: 40px; font-size: 1.1em;">2</div>
+                            <i class="fas fa-phone" style="font-size: 25px; color: #f4d03f; margin-bottom: 8px;"></i>
+                            <p style="color: rgba(255,255,255,0.95); font-size: 0.85em;">Järelkõne<br>2-3 päeva</p>
+                        </div>
+                        <div style="text-align: center; padding: 15px; background: rgba(255,255,255,0.05); border-radius: 12px;">
+                            <div class="number-highlight" style="margin: 0 auto 10px; width: 40px; height: 40px; font-size: 1.1em;">3</div>
+                            <i class="fas fa-calendar" style="font-size: 25px; color: #f4d03f; margin-bottom: 8px;"></i>
+                            <p style="color: rgba(255,255,255,0.95); font-size: 0.85em;">Uus kontakt<br>1-2 nädalat</p>
+                        </div>
+                        <div style="text-align: center; padding: 15px; background: rgba(16, 185, 129, 0.15); border-radius: 12px; border: 1px solid rgba(16, 185, 129, 0.3);">
+                            <div class="number-highlight" style="margin: 0 auto 10px; width: 40px; height: 40px; font-size: 1.1em; background: linear-gradient(135deg, #10b981, #34d399);">4</div>
+                            <i class="fas fa-users" style="font-size: 25px; color: #10b981; margin-bottom: 8px;"></i>
+                            <p style="color: rgba(255,255,255,0.95); font-size: 0.85em;">Kutsu<br>sündmustele</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="two-column fragment" style="margin-top: 20px;">
+                    <div class="content-box warning-box">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <i class="fas fa-exclamation-triangle" style="font-size: 30px; color: #f59e0b;"></i>
+                            <div>
+                                <p style="color: #f59e0b; font-weight: 600; font-size: 1em;">Statistika:</p>
+                                <p style="color: rgba(255,255,255,0.9); font-size: 0.95em;">48% müügiinimestest ei tee kunagi järeltegevust. Sina teed!</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="quote-box" style="margin: 0;">
+                        <p class="quote-text" style="font-size: 0.95em;">
+                            <i class="fas fa-lightbulb" style="margin-right: 8px; color: #f4d03f;"></i>
+                            "Fortune is in the follow-up", <strong>Raha on järeltegevuses</strong>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 15: PRAKTILINE HARJUTUS -->
+        <div class="slide" id="slide-15">
+            <div class="slide-bg">
+                <img src="https://images.unsplash.com/photo-1552581234-26160f608093?w=1920&q=95" alt="Practice">
+                <div class="slide-bg-overlay"></div>
+            </div>
+            <div class="slide-content">
+                <div class="presenter-badge">
+                    <img src="LOGOS/Vambola Tullus.jpg" class="presenter-photo" alt="Esineja">
+                </div>
+
+                <div class="section-badge fragment">
+                    <i class="fas fa-pencil-alt"></i>
+                    <span>HARJUTUS</span>
+                </div>
+
+                <h2 class="main-title fragment">Praktiline Harjutus</h2>
+                <p class="subtitle fragment">Tee KOHE ära! Mitte homme, eestlane teab: "homme" ei tule kunagi.</p>
+
+                <div class="two-column">
+                    <div class="content-box fragment" style="background: linear-gradient(135deg, rgba(201, 162, 39, 0.25), rgba(244, 208, 63, 0.15)); border-color: rgba(244, 208, 63, 0.5);">
+                        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 15px;">
+                            <i class="fas fa-list-ol" style="font-size: 22px; color: #f4d03f;"></i>
+                            <span style="font-family: 'Montserrat', sans-serif; font-size: 1.1em; font-weight: 600; color: #f4d03f;">Kirjuta täna üles:</span>
+                        </div>
+                        <div class="stat-number" style="font-size: 3.5em; text-align: center; margin: 15px 0;">20</div>
+                        <p style="text-align: center; color: rgba(255,255,255,0.95); font-size: 1em;">inimest</p>
+                        <div style="margin-top: 15px; padding: 12px; background: rgba(0,0,0,0.2); border-radius: 10px;">
+                            <p style="color: rgba(255,255,255,0.8); font-size: 0.9em; text-align: center;">
+                                Sõbrad, kolleegid, tuttavad,<br>endised klassikaaslased
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="content-box fragment">
+                        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 15px;">
+                            <i class="fas fa-comment-dots" style="font-size: 22px; color: #f4d03f;"></i>
+                            <span style="font-family: 'Montserrat', sans-serif; font-size: 1.1em; font-weight: 600; color: #f4d03f;">Eesti stiilis kutse:</span>
+                        </div>
+                        <div class="quote-box" style="background: rgba(16, 185, 129, 0.1); border-left-color: #10b981; margin-bottom: 15px;">
+                            <p class="quote-text" style="font-size: 0.95em;">
+                                "Tere! Mul on üks asi, mida tahan sulle näidata. Ei müü midagi, lihtsalt info. Kas sul on homme 20 min Zoomiks?"
+                            </p>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 10px;">
+                            <i class="fas fa-check" style="color: #10b981;"></i>
+                            <span style="color: rgba(255,255,255,0.8); font-size: 0.9em;">Lihtne, otsene, aus</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 10px; margin-top: 8px;">
+                            <i class="fas fa-check" style="color: #10b981;"></i>
+                            <span style="color: rgba(255,255,255,0.8); font-size: 0.9em;">Ilma surveta ja hype'ita</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 16: 30-60-90 PÄEVA PLAAN -->
+        <div class="slide" id="slide-16">
+            <div class="slide-bg">
+                <img src="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=1920&q=95" alt="Plan">
+                <div class="slide-bg-overlay"></div>
+            </div>
+            <div class="slide-content">
+                <div class="presenter-badge">
+                    <img src="LOGOS/Vambola Tullus.jpg" class="presenter-photo" alt="Esineja">
+                </div>
+
+                <div class="section-badge fragment">
+                    <i class="fas fa-road"></i>
+                    <span>TEEKOND</span>
+                </div>
+
+                <h2 class="main-title fragment">Sinu 90 Päeva Plaan</h2>
+                <p class="subtitle fragment">Konkreetsed sammud, nii nagu eestlane armastab</p>
+
+                <div class="three-column fragment">
+                    <div class="content-box" style="border-color: rgba(59, 130, 246, 0.5);">
+                        <div style="text-align: center; margin-bottom: 15px;">
+                            <div class="stat-number" style="color: #3b82f6; font-size: 2em;">30</div>
+                            <div class="stat-label">PÄEVA</div>
+                        </div>
+                        <div class="list-item blue" style="font-size: 0.9em;">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Õpi süsteem selgeks</span>
+                        </div>
+                        <div class="list-item blue" style="font-size: 0.9em;">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Kontakteeru 50 inimesega</span>
+                        </div>
+                        <div class="list-item blue" style="font-size: 0.9em;">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Osale kõigil koolitustel</span>
+                        </div>
+                        <div style="margin-top: 12px; padding: 10px; background: rgba(59, 130, 246, 0.15); border-radius: 8px; text-align: center;">
+                            <span style="color: #3b82f6; font-weight: 600; font-size: 0.85em;">Eesmärk: 1-2 partnerit</span>
+                        </div>
+                    </div>
+
+                    <div class="content-box" style="border-color: rgba(245, 158, 11, 0.5);">
+                        <div style="text-align: center; margin-bottom: 15px;">
+                            <div class="stat-number" style="color: #f59e0b; font-size: 2em;">60</div>
+                            <div class="stat-label">PÄEVA</div>
+                        </div>
+                        <div class="list-item" style="font-size: 0.9em;">
+                            <i class="fas fa-check-circle" style="color: #f59e0b;"></i>
+                            <span>Aita tiimiliikmetel alustada</span>
+                        </div>
+                        <div class="list-item" style="font-size: 0.9em;">
+                            <i class="fas fa-check-circle" style="color: #f59e0b;"></i>
+                            <span>Tee 3-way calls</span>
+                        </div>
+                        <div class="list-item" style="font-size: 0.9em;">
+                            <i class="fas fa-check-circle" style="color: #f59e0b;"></i>
+                            <span>Jätka kontakteerimist</span>
+                        </div>
+                        <div style="margin-top: 12px; padding: 10px; background: rgba(245, 158, 11, 0.15); border-radius: 8px; text-align: center;">
+                            <span style="color: #f59e0b; font-weight: 600; font-size: 0.85em;">Eesmärk: 3-5 partnerit</span>
+                        </div>
+                    </div>
+
+                    <div class="content-box" style="border-color: rgba(16, 185, 129, 0.5);">
+                        <div style="text-align: center; margin-bottom: 15px;">
+                            <div class="stat-number" style="color: #10b981; font-size: 2em;">90</div>
+                            <div class="stat-label">PÄEVA</div>
+                        </div>
+                        <div class="list-item green" style="font-size: 0.9em;">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Juhenda oma tiimi</span>
+                        </div>
+                        <div class="list-item green" style="font-size: 0.9em;">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Loo duplikatsiooni</span>
+                        </div>
+                        <div class="list-item green" style="font-size: 0.9em;">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Skaleeriv süsteem</span>
+                        </div>
+                        <div style="margin-top: 12px; padding: 10px; background: rgba(16, 185, 129, 0.15); border-radius: 8px; text-align: center;">
+                            <span style="color: #10b981; font-weight: 600; font-size: 0.85em;">Eesmärk: Esimene rank</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 17: KOKKUVÕTE -->
+        <div class="slide" id="slide-17">
+            <div class="slide-bg">
+                <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=1920&q=95" alt="Summary">
+                <div class="slide-bg-overlay"></div>
+            </div>
+            <div class="slide-content" style="justify-content: center; align-items: center;">
+                <div class="presenter-badge">
+                    <img src="LOGOS/Vambola Tullus.jpg" class="presenter-photo" alt="Esineja">
+                </div>
+
+                <div class="section-badge fragment">
+                    <i class="fas fa-flag-checkered"></i>
+                    <span>KOKKUVÕTE</span>
+                </div>
+
+                <h2 class="main-title main-title-large fragment" style="text-align: center;">Edu Valem</h2>
+
+                <div class="formula-box fragment pulse" style="margin: 30px auto; padding: 40px 50px;">
+                    <p class="formula-text" style="font-size: 1.8em;">
+                        <span>OTSUS</span> + <span>TEGEVUS</span> + <span>JÄRJEPIDEVUS</span> = TULEMUSED
+                    </p>
+                </div>
+
+                <div class="content-box fragment" style="max-width: 800px; margin: 0 auto;">
+                    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px;">
+                        <div class="list-item green">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Sa ei ole üksi, tiim aitab</span>
+                        </div>
+                        <div class="list-item green">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Süsteem on olemas, kasuta seda</span>
+                        </div>
+                        <div class="list-item green">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Küsi alati, kui midagi ei tea</span>
+                        </div>
+                        <div class="list-item green">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Ole järjepidev, see on võti</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="estonia-accent fragment" style="width: 200px; margin: 25px auto;"></div>
+            </div>
+        </div>
+
+        <!-- SLIDE 18: LÕPP -->
+        <div class="slide" id="slide-18">
+            <div class="slide-bg">
+                <img src="https://images.unsplash.com/photo-1533227268428-f9ed0900fb3b?w=1920&q=95" alt="End">
+                <div class="slide-bg-overlay"></div>
+            </div>
+            <div class="slide-content" style="justify-content: center; align-items: center; text-align: center;">
+                <div class="gold-line gold-line-center fragment" style="width: 120px; margin-bottom: 40px;"></div>
+
+                <div class="icon-circle fragment float" style="width: 90px; height: 90px; margin: 0 auto 25px;">
+                    <i class="fas fa-trophy" style="font-size: 40px;"></i>
+                </div>
+
+                <h2 class="main-title main-title-large fragment" style="background: linear-gradient(135deg, #ffffff, #f4d03f, #ffffff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+                    Tulemused tulevad neile,<br>kes ei lõpeta.
+                </h2>
+
+                <p class="subtitle fragment" style="max-width: 600px; margin: 25px auto;">
+                    Aitäh, et olid täna kohal!<br>
+                    Nüüd on aeg <strong>tegutseda</strong>.
+                </p>
+
+                <div class="cta-box fragment pulse" style="margin-top: 25px;">
+                    <i class="fas fa-rocket"></i>
+                    <span>ALUSTA TÄNA</span>
+                </div>
+
+                <div class="fragment" style="display: flex; align-items: center; gap: 20px; margin-top: 40px;">
+                    <img src="LOGOS/Vambola Tullus.jpg" class="presenter-photo" style="width: 60px; height: 60px;" alt="Esineja">
+                    <div style="text-align: left;">
+                        <div style="color: white; font-weight: 600;">Vambola Tullus</div>
+                        <div style="color: rgba(255,255,255,0.7); font-size: 0.9em;">Crypque & Mobicryp Tiim</div>
+                    </div>
+                </div>
+
+                <div class="estonia-accent fragment" style="width: 150px; margin: 30px auto;"></div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Navigation -->
+    <div class="nav-controls">
+        <button class="nav-btn" onclick="prevSlide()"><i class="fas fa-chevron-left"></i></button>
+        <button class="nav-btn" onclick="nextSlide()"><i class="fas fa-chevron-right"></i></button>
+    </div>
+
+    <script>
+        let currentSlide = 1;
+        const totalSlides = 18;
+        let fragmentIndex = {};
+
+        // Initialize fragment index for each slide
+        for (let i = 1; i <= totalSlides; i++) {
+            fragmentIndex[i] = 0;
+        }
+
+        function updateProgressBar() {
+            const progress = (currentSlide / totalSlides) * 100;
+            document.getElementById('progressBar').style.width = progress + '%';
+            document.getElementById('slideCounter').textContent = `${currentSlide} / ${totalSlides}`;
+        }
+
+        function showSlide(n) {
+            const slides = document.querySelectorAll('.slide');
+
+            if (n > totalSlides) currentSlide = 1;
+            if (n < 1) currentSlide = totalSlides;
+
+            slides.forEach((slide, index) => {
+                if (index + 1 === currentSlide) {
+                    slide.classList.add('active');
+                    // Auto-reveal fragments with delay
+                    const fragments = slide.querySelectorAll('.fragment');
+                    fragments.forEach((fragment, fragIndex) => {
+                        setTimeout(() => {
+                            fragment.classList.add('visible');
+                        }, (fragIndex + 1) * 300);
+                    });
+                    fragmentIndex[currentSlide] = fragments.length;
+                } else {
+                    slide.classList.remove('active');
+                    // Reset fragments
+                    const fragments = slide.querySelectorAll('.fragment');
+                    fragments.forEach(fragment => {
+                        fragment.classList.remove('visible');
+                    });
+                    fragmentIndex[index + 1] = 0;
+                }
+            });
+
+            updateProgressBar();
+        }
+
+        function nextSlide() {
+            const slide = document.getElementById(`slide-${currentSlide}`);
+            const fragments = slide.querySelectorAll('.fragment:not(.visible)');
+
+            if (fragments.length > 0) {
+                // Show next fragment
+                fragments[0].classList.add('visible');
+                fragmentIndex[currentSlide]++;
+            } else {
+                // Go to next slide
+                currentSlide++;
+                showSlide(currentSlide);
+            }
+        }
+
+        function prevSlide() {
+            currentSlide--;
+            showSlide(currentSlide);
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'Enter') {
+                e.preventDefault();
+                nextSlide();
+            } else if (e.key === 'ArrowLeft') {
+                e.preventDefault();
+                prevSlide();
+            } else if (e.key === 'Home') {
+                currentSlide = 1;
+                showSlide(currentSlide);
+            } else if (e.key === 'End') {
+                currentSlide = totalSlides;
+                showSlide(currentSlide);
+            }
+        });
+
+        // Touch/swipe support
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        document.addEventListener('touchstart', e => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+
+        document.addEventListener('touchend', e => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+
+        function handleSwipe() {
+            const diff = touchStartX - touchEndX;
+            if (Math.abs(diff) > 50) {
+                if (diff > 0) {
+                    nextSlide();
+                } else {
+                    prevSlide();
+                }
+            }
+        }
+
+        // Click anywhere to advance (except on nav buttons)
+        document.querySelector('.presentation').addEventListener('click', function(e) {
+            if (!e.target.closest('.nav-controls')) {
+                nextSlide();
+            }
+        });
+
+        // Initialize
+        showSlide(currentSlide);
+    </script>
+</body>
+</html>
