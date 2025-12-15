@@ -2031,13 +2031,16 @@ body {
     }
 
     /* PROTECT CIRCULAR PROFILE IMAGES - Multiple selectors for safety */
-    /* Target by dimensions (90px founder, 50px/45px presenter) */
+    /* Target by dimensions (180px setup, 90px founder, 50px/45px/55px presenter) */
+    div[style*="width: 180px"][style*="height: 180px"],
     div[style*="width: 90px"][style*="height: 90px"],
     div[style*="width: 50px"][style*="height: 50px"],
     div[style*="width: 45px"][style*="height: 45px"],
     div[style*="width: 55px"][style*="height: 55px"],
+    div[style*="width: 40px"][style*="height: 40px"],
     div[style*="border-radius: 50%"],
-    div[style*="border-radius:50%"] {
+    div[style*="border-radius:50%"],
+    #presenterPhotoPreview {
         border-radius: 50% !important;
         overflow: hidden !important;
         position: relative !important;
@@ -2045,12 +2048,16 @@ body {
     }
 
     /* Images inside circular containers */
+    div[style*="width: 180px"][style*="height: 180px"] img,
     div[style*="width: 90px"][style*="height: 90px"] img,
     div[style*="width: 50px"][style*="height: 50px"] img,
     div[style*="width: 45px"][style*="height: 45px"] img,
     div[style*="width: 55px"][style*="height: 55px"] img,
+    div[style*="width: 40px"][style*="height: 40px"] img,
     div[style*="border-radius: 50%"] img,
     div[style*="border-radius:50%"] img,
+    #presenterPhotoPreview img,
+    #presenterPhotoImg,
     .presenter-photo {
         position: static !important;
         width: 100% !important;
