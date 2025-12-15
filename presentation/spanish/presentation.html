@@ -13,29 +13,6 @@
     box-sizing: border-box;
 }
 
-/* Force dark color scheme to prevent Android dark mode issues */
-html {
-    color-scheme: dark !important;
-    background-color: #0f0c08 !important;
-    /* Prevent double-tap zoom on mobile while allowing pinch-to-zoom */
-    touch-action: manipulation;
-}
-
-/* Disable double-tap zoom on all interactive elements */
-body, .slide, .presentation, button, a, div {
-    touch-action: manipulation;
-}
-
-/* Prevent text selection on slides during fast taps */
-.slide, .presentation {
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    -webkit-touch-callout: none;
-    -webkit-tap-highlight-color: transparent;
-}
-
 :root {
     --primary-color: #1a237e;
     --secondary-color: #0d47a1;
@@ -928,94 +905,6 @@ body {
     .premium-slide > div[style*="height: 100%"] {
         min-height: 100vh;
         height: auto !important;
-    }
-}
-
-/* ==================== BACKGROUND IMAGE FIX FOR MOBILE ==================== */
-/* Fix position:fixed backgrounds breaking on mobile */
-@media screen and (max-width: 768px) {
-    /* AGGRESSIVE FIX: Target ALL fixed positioned elements within slides */
-    .slide div[style*="position: fixed"],
-    .slide div[style*="position:fixed"],
-    .premium-slide div[style*="position: fixed"],
-    .premium-slide div[style*="position:fixed"],
-    .title-slide div[style*="position: fixed"],
-    .title-slide div[style*="position:fixed"] {
-        position: absolute !important;
-        top: 0 !important;
-        left: 0 !important;
-        right: 0 !important;
-        bottom: 0 !important;
-        width: 100% !important;
-        height: 100% !important;
-        min-height: 100vh !important;
-    }
-
-    /* Background image containers - first child of slide */
-    .slide > div:first-child,
-    .premium-slide > div:first-child,
-    .title-slide > div:first-child {
-        position: absolute !important;
-        top: 0 !important;
-        left: 0 !important;
-        width: 100% !important;
-        height: 100% !important;
-        min-height: 100vh !important;
-        z-index: 0 !important;
-        overflow: hidden !important;
-    }
-
-    /* Ensure background images cover properly */
-    .slide img[src*="unsplash"],
-    .premium-slide img[src*="unsplash"],
-    .title-slide img[src*="unsplash"] {
-        width: 100% !important;
-        height: 100% !important;
-        min-height: 100vh !important;
-        object-fit: cover !important;
-        object-position: center center !important;
-    }
-
-    /* Ensure overlay gradient covers the image */
-    .slide > div:first-child > div,
-    .premium-slide > div:first-child > div,
-    .title-slide > div:first-child > div {
-        position: absolute !important;
-        top: 0 !important;
-        left: 0 !important;
-        width: 100% !important;
-        height: 100% !important;
-        min-height: 100vh !important;
-        z-index: 1 !important;
-    }
-
-    /* Make sure slide container clips the background */
-    .slide,
-    .premium-slide,
-    .title-slide,
-    .setup-slide {
-        position: relative !important;
-        overflow: hidden !important;
-        min-height: 100vh !important;
-    }
-
-    /* Ensure content stays above background */
-    .slide > div:last-child,
-    .slide > div[style*="z-index: 2"],
-    .premium-slide > div:last-child,
-    .premium-slide > div[style*="z-index: 2"],
-    .title-slide > div:last-child,
-    .title-slide > div[style*="z-index: 2"] {
-        position: relative !important;
-        z-index: 2 !important;
-    }
-
-    /* Fallback: Apply background color to slides in case image fails */
-    .slide,
-    .premium-slide,
-    .title-slide {
-        background-color: #0f0c08 !important;
-        background: linear-gradient(135deg, rgba(15, 12, 8, 1) 0%, rgba(30, 25, 18, 1) 50%, rgba(15, 12, 8, 1) 100%) !important;
     }
 }
 
@@ -1984,86 +1873,16 @@ body {
         width: 80px !important;
     }
 
-    /* Force all border-radius smaller - BUT NOT circles (50%) */
-    [style*="border-radius: 25px"]:not([style*="border-radius: 50%"]),
-    [style*="border-radius: 20px"]:not([style*="border-radius: 50%"]),
-    [style*="border-radius: 18px"]:not([style*="border-radius: 50%"]) {
+    /* Force all border-radius smaller */
+    [style*="border-radius: 25px"],
+    [style*="border-radius: 20px"],
+    [style*="border-radius: 18px"] {
         border-radius: 10px !important;
     }
 
-    [style*="border-radius: 15px"]:not([style*="border-radius: 50%"]),
-    [style*="border-radius: 12px"]:not([style*="border-radius: 50%"]) {
+    [style*="border-radius: 15px"],
+    [style*="border-radius: 12px"] {
         border-radius: 8px !important;
-    }
-
-    /* ==================== CIRCULAR PROFILE PHOTOS FIX ==================== */
-    /* PRESERVE ALL CIRCULAR IMAGES - profile photos, founder photos, presenter photos */
-
-    /* Any element with border-radius: 50% must stay circular */
-    div[style*="border-radius: 50%"],
-    [style*="border-radius: 50%"],
-    div[style*="border-radius:50%"] {
-        border-radius: 50% !important;
-        overflow: hidden !important;
-        aspect-ratio: 1 / 1 !important;
-    }
-
-    /* Images inside circular containers */
-    div[style*="border-radius: 50%"] img,
-    [style*="border-radius: 50%"] img,
-    div[style*="border-radius:50%"] img {
-        width: 100% !important;
-        height: 100% !important;
-        object-fit: cover !important;
-        border-radius: 0 !important;
-        display: block !important;
-    }
-
-    /* Presenter photo class - always fill container */
-    .presenter-photo {
-        width: 100% !important;
-        height: 100% !important;
-        object-fit: cover !important;
-        border-radius: 0 !important;
-        display: block !important;
-    }
-
-    /* Header presenter photo containers */
-    div[style*="width: 55px"][style*="height: 55px"],
-    div[style*="width: 50px"][style*="height: 50px"],
-    div[style*="width: 45px"][style*="height: 45px"],
-    div[style*="width: 40px"][style*="height: 40px"] {
-        width: 40px !important;
-        height: 40px !important;
-        min-width: 40px !important;
-        min-height: 40px !important;
-        border-radius: 50% !important;
-        overflow: hidden !important;
-        flex-shrink: 0 !important;
-    }
-
-    /* Founder photo containers (90px circles) */
-    div[style*="width: 90px"][style*="height: 90px"] {
-        width: 65px !important;
-        height: 65px !important;
-        min-width: 65px !important;
-        min-height: 65px !important;
-        border-radius: 50% !important;
-        overflow: hidden !important;
-        flex-shrink: 0 !important;
-    }
-
-    /* Medium photo containers */
-    div[style*="width: 80px"][style*="height: 80px"],
-    div[style*="width: 70px"][style*="height: 70px"],
-    div[style*="width: 60px"][style*="height: 60px"] {
-        width: 55px !important;
-        height: 55px !important;
-        min-width: 55px !important;
-        min-height: 55px !important;
-        border-radius: 50% !important;
-        overflow: hidden !important;
-        flex-shrink: 0 !important;
     }
 }
 
@@ -2099,125 +1918,6 @@ body {
     .slide-counter {
         padding: 8px 12px;
         font-size: 11px;
-    }
-
-    /* Keep circular photos on very small screens */
-    div[style*="border-radius: 50%"] {
-        border-radius: 50% !important;
-        overflow: hidden !important;
-    }
-
-    /* Make founder photos smaller on tiny screens */
-    div[style*="width: 90px"][style*="height: 90px"] {
-        width: 60px !important;
-        height: 60px !important;
-        border-radius: 50% !important;
-        overflow: hidden !important;
-    }
-
-    /* Header presenter photo smaller */
-    div[style*="width: 50px"][style*="height: 50px"][style*="border-radius: 50%"],
-    div[style*="width: 55px"][style*="height: 55px"][style*="border-radius: 50%"] {
-        width: 35px !important;
-        height: 35px !important;
-        border-radius: 50% !important;
-        overflow: hidden !important;
-    }
-}
-
-/* ==================== CAREER RANKS SLIDE MOBILE FIX ==================== */
-/* Slide 25 has 13 horizontal bars that need horizontal scroll on mobile */
-@media screen and (max-width: 768px) {
-    /* Career ranks bars container - make it horizontally scrollable */
-    div[style*="display: flex"][style*="height: 340px"],
-    div[style*="display: flex"][style*="height: 300px"],
-    div[style*="gap: 6px"][style*="height: 340px"] {
-        overflow-x: auto !important;
-        overflow-y: visible !important;
-        justify-content: flex-start !important;
-        padding: 10px !important;
-        -webkit-overflow-scrolling: touch !important;
-        scroll-snap-type: x mandatory !important;
-        max-width: 100vw !important;
-    }
-
-    /* Scale down the individual rank bars on mobile */
-    div[style*="width: 80px"][style*="border-radius: 6px"] {
-        width: 55px !important;
-        min-width: 55px !important;
-        flex-shrink: 0 !important;
-        scroll-snap-align: start !important;
-    }
-
-    /* Scale down the rank name labels */
-    div[style*="width: 80px"][style*="text-align: center"] span[style*="font-size: 7px"] {
-        font-size: 6px !important;
-    }
-
-    /* Scale down the bonus row boxes */
-    div[style*="width: 80px"][style*="height: 32px"] {
-        width: 55px !important;
-        min-width: 55px !important;
-        height: 28px !important;
-        flex-shrink: 0 !important;
-    }
-
-    /* Scale down prize row items */
-    div[style*="width: 80px"][style*="height: 24px"] {
-        width: 55px !important;
-        min-width: 55px !important;
-        flex-shrink: 0 !important;
-    }
-
-    /* Parent flex containers for rank names and bonuses - make scrollable too */
-    div[style*="display: flex"][style*="gap: 6px"][style*="margin-top: 6px"],
-    div[style*="display: flex"][style*="gap: 6px"][style*="margin-top: 8px"] {
-        overflow-x: auto !important;
-        justify-content: flex-start !important;
-        padding: 5px !important;
-        -webkit-overflow-scrolling: touch !important;
-        max-width: 100vw !important;
-    }
-
-    /* Add scroll hint gradient */
-    div[style*="height: 340px"]::after {
-        content: '';
-        position: absolute;
-        right: 0;
-        top: 0;
-        bottom: 0;
-        width: 40px;
-        background: linear-gradient(90deg, transparent, rgba(15, 12, 8, 0.9));
-        pointer-events: none;
-    }
-}
-
-/* Very small phones - extra scale down for career ranks */
-@media screen and (max-width: 480px) {
-    div[style*="width: 80px"][style*="border-radius: 6px"] {
-        width: 45px !important;
-        min-width: 45px !important;
-    }
-
-    div[style*="width: 80px"][style*="height: 32px"] {
-        width: 45px !important;
-        min-width: 45px !important;
-        height: 24px !important;
-    }
-
-    div[style*="width: 80px"][style*="height: 24px"] {
-        width: 45px !important;
-        min-width: 45px !important;
-    }
-
-    /* Make volume text smaller */
-    div[style*="font-size: 14px"][style*="font-weight: 700"] {
-        font-size: 11px !important;
-    }
-
-    /* Make bonus text smaller */
-    div[style*="font-size: 12px"][style*="font-weight: 800"] {
-        font-size: 10px !important;
     }
 }
 
@@ -2283,90 +1983,6 @@ body {
     transform: none;
 }
 
-/* ==================== DARK MODE / ANDROID FIX ==================== */
-/* Prevent Android Chrome dark mode from inverting colors */
-@media (prefers-color-scheme: dark) {
-    html, body {
-        background-color: #0f0c08 !important;
-        color-scheme: dark !important;
-    }
-
-    body {
-        background: #0f0c08 !important;
-    }
-
-    .slide,
-    .premium-slide,
-    .title-slide,
-    .setup-slide {
-        background-color: #0f0c08 !important;
-    }
-
-    /* Force gold text to stay gold */
-    [style*="color: #f4d03f"],
-    [style*="color:#f4d03f"] {
-        color: #f4d03f !important;
-    }
-
-    /* Force white text to stay white */
-    [style*="color: white"],
-    [style*="color: #fff"],
-    [style*="color: rgba(255,255,255"] {
-        color: white !important;
-    }
-
-    /* Force backgrounds to stay dark */
-    [style*="background: linear-gradient(135deg, rgba(15, 12, 8"],
-    [style*="background:linear-gradient(135deg, rgba(15, 12, 8"] {
-        background: linear-gradient(135deg, rgba(15, 12, 8, 1) 0%, rgba(30, 25, 18, 1) 50%, rgba(15, 12, 8, 1) 100%) !important;
-    }
-
-    /* Card backgrounds */
-    div[style*="backdrop-filter: blur"] {
-        background-color: rgba(30, 25, 18, 0.9) !important;
-    }
-
-    /* Green elements */
-    [style*="color: #10b981"],
-    [style*="color:#10b981"] {
-        color: #10b981 !important;
-    }
-
-    /* Red elements */
-    [style*="color: #ef4444"],
-    [style*="color:#ef4444"] {
-        color: #ef4444 !important;
-    }
-
-    /* Orange/amber elements */
-    [style*="color: #f59e0b"],
-    [style*="color:#f59e0b"] {
-        color: #f59e0b !important;
-    }
-
-    /* Images should not be inverted */
-    img {
-        filter: none !important;
-    }
-
-    /* Prevent any forced color inversion */
-    * {
-        forced-color-adjust: none !important;
-    }
-}
-
-/* Additional Android WebView / Chrome fix */
-@supports (-webkit-touch-callout: none) {
-    html {
-        color-scheme: dark !important;
-    }
-}
-
-/* Force no inversion for all elements with inline backgrounds */
-div[style*="background"] {
-    filter: none !important;
-    -webkit-filter: none !important;
-}
 
     </style>
 </head>
@@ -6977,9 +6593,6 @@ const totalSlides = slides.length;
 
 document.getElementById('totalSlides').textContent = totalSlides;
 
-// Detect mobile device
-const isMobile = window.innerWidth <= 768 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-
 // Fragment (reveal) system - elements with class "fragment" appear one by one
 function getFragments(slideIndex) {
     return slides[slideIndex].querySelectorAll('.fragment:not(.visible)');
@@ -7003,22 +6616,9 @@ function hideAllFragments(slideIndex) {
     fragments.forEach(f => f.classList.remove('visible'));
 }
 
-function showAllFragments(slideIndex, instant = false) {
+function showAllFragments(slideIndex) {
     const fragments = slides[slideIndex].querySelectorAll('.fragment');
-    if (instant) {
-        // Disable transitions for instant display
-        fragments.forEach(f => {
-            f.style.transition = 'none';
-            f.classList.add('visible');
-        });
-        // Force reflow then restore transitions
-        void slides[slideIndex].offsetHeight;
-        setTimeout(() => {
-            fragments.forEach(f => f.style.transition = '');
-        }, 50);
-    } else {
-        fragments.forEach(f => f.classList.add('visible'));
-    }
+    fragments.forEach(f => f.classList.add('visible'));
 }
 
 function showSlide(n, direction = 'forward') {
@@ -7031,10 +6631,9 @@ function showSlide(n, direction = 'forward') {
     slides[currentSlide].classList.add('active');
     document.getElementById('currentSlide').textContent = currentSlide + 1;
 
-    // On mobile: ALWAYS show all content instantly (no fragments)
-    // On desktop: only show all if going backward (arrows/swipes)
-    if (isMobile || direction === 'backward') {
-        showAllFragments(currentSlide, true); // true = instant, no animation
+    // If going backward, show all fragments immediately
+    if (direction === 'backward') {
+        showAllFragments(currentSlide);
     }
 
     // Update presenter photos from localStorage
@@ -7054,17 +6653,12 @@ function showSlide(n, direction = 'forward') {
     }
 }
 
-function nextSlide(showFragments = false) {
-    showSlide(currentSlide + 1, showFragments ? 'backward' : 'forward');
+function nextSlide() {
+    showSlide(currentSlide + 1, 'forward');
 }
 
 function prevSlide() {
     showSlide(currentSlide - 1, 'backward');
-}
-
-// Next slide with all fragments visible (for arrow key navigation)
-function nextSlideFullView() {
-    showSlide(currentSlide + 1, 'backward'); // 'backward' shows all fragments
 }
 
 // Advance: show next fragment, or if none, go to next slide
@@ -7109,11 +6703,11 @@ document.addEventListener('keydown', (e) => {
         // Space bar: reveal next fragment, or go to next slide
         e.preventDefault();
         advance();
-    } else if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
-        // Right/Down arrow: go to next slide with ALL content visible
+    } else if (e.key === 'ArrowRight') {
+        // Right arrow: always go to next slide (skip fragments)
         e.preventDefault();
-        nextSlideFullView();
-    } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+        nextSlide();
+    } else if (e.key === 'ArrowLeft') {
         // Left arrow: go to previous slide
         e.preventDefault();
         prevSlide();
@@ -7168,16 +6762,17 @@ function handleTouchEnd(e) {
             advance();
         }
     } else {
-        // Handle as swipe - swipes show full slide content
+        // Handle as swipe
         if (deltaX > 50 && deltaX > deltaY) {
             if (touchEndX < touchStartX - 50) {
-                nextSlideFullView(); // Swipe left = next slide with all content
+                nextSlide();
             } else if (touchEndX > touchStartX + 50) {
-                prevSlide(); // Swipe right = previous slide with all content
+                prevSlide();
             }
         }
     }
 }
+
 
     </script>
 </body>

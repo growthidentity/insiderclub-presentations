@@ -4,9 +4,6 @@ const totalSlides = slides.length;
 
 document.getElementById('totalSlides').textContent = totalSlides;
 
-// Detect mobile device
-const isMobile = window.innerWidth <= 768 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-
 // Fragment (reveal) system - elements with class "fragment" appear one by one
 function getFragments(slideIndex) {
     return slides[slideIndex].querySelectorAll('.fragment:not(.visible)');
@@ -30,22 +27,9 @@ function hideAllFragments(slideIndex) {
     fragments.forEach(f => f.classList.remove('visible'));
 }
 
-function showAllFragments(slideIndex, instant = false) {
+function showAllFragments(slideIndex) {
     const fragments = slides[slideIndex].querySelectorAll('.fragment');
-    if (instant) {
-        // Disable transitions for instant display
-        fragments.forEach(f => {
-            f.style.transition = 'none';
-            f.classList.add('visible');
-        });
-        // Force reflow then restore transitions
-        void slides[slideIndex].offsetHeight;
-        setTimeout(() => {
-            fragments.forEach(f => f.style.transition = '');
-        }, 50);
-    } else {
-        fragments.forEach(f => f.classList.add('visible'));
-    }
+    fragments.forEach(f => f.classList.add('visible'));
 }
 
 function showSlide(n, direction = 'forward') {
@@ -58,10 +42,9 @@ function showSlide(n, direction = 'forward') {
     slides[currentSlide].classList.add('active');
     document.getElementById('currentSlide').textContent = currentSlide + 1;
 
-    // On mobile: ALWAYS show all content instantly (no fragments)
-    // On desktop: only show all if going backward (arrows/swipes)
-    if (isMobile || direction === 'backward') {
-        showAllFragments(currentSlide, true); // true = instant, no animation
+    // If going backward, show all fragments immediately
+    if (direction === 'backward') {
+        showAllFragments(currentSlide);
     }
 
     // Update presenter photos from localStorage
@@ -81,17 +64,12 @@ function showSlide(n, direction = 'forward') {
     }
 }
 
-function nextSlide(showFragments = false) {
-    showSlide(currentSlide + 1, showFragments ? 'backward' : 'forward');
+function nextSlide() {
+    showSlide(currentSlide + 1, 'forward');
 }
 
 function prevSlide() {
     showSlide(currentSlide - 1, 'backward');
-}
-
-// Next slide with all fragments visible (for arrow key navigation)
-function nextSlideFullView() {
-    showSlide(currentSlide + 1, 'backward'); // 'backward' shows all fragments
 }
 
 // Advance: show next fragment, or if none, go to next slide
@@ -136,11 +114,11 @@ document.addEventListener('keydown', (e) => {
         // Space bar: reveal next fragment, or go to next slide
         e.preventDefault();
         advance();
-    } else if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
-        // Right/Down arrow: go to next slide with ALL content visible
+    } else if (e.key === 'ArrowRight') {
+        // Right arrow: always go to next slide (skip fragments)
         e.preventDefault();
-        nextSlideFullView();
-    } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+        nextSlide();
+    } else if (e.key === 'ArrowLeft') {
         // Left arrow: go to previous slide
         e.preventDefault();
         prevSlide();
@@ -195,13 +173,14 @@ function handleTouchEnd(e) {
             advance();
         }
     } else {
-        // Handle as swipe - swipes show full slide content
+        // Handle as swipe
         if (deltaX > 50 && deltaX > deltaY) {
             if (touchEndX < touchStartX - 50) {
-                nextSlideFullView(); // Swipe left = next slide with all content
+                nextSlide();
             } else if (touchEndX > touchStartX + 50) {
-                prevSlide(); // Swipe right = previous slide with all content
+                prevSlide();
             }
         }
     }
 }
+
