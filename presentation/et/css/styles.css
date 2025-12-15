@@ -1324,9 +1324,45 @@ body {
         gap: 10px !important;
     }
 
+    /* Keep 3-column grids as 3 columns on mobile (revenue bars, etc.) */
     [style*="grid-template-columns: repeat(3, 1fr)"] {
-        grid-template-columns: 1fr !important;
-        gap: 10px !important;
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 6px !important;
+    }
+
+    /* 3-column content - make text and elements smaller */
+    [style*="grid-template-columns: repeat(3, 1fr)"] > div {
+        padding: 8px !important;
+    }
+
+    [style*="grid-template-columns: repeat(3, 1fr)"] [style*="font-size: 3.5em"],
+    [style*="grid-template-columns: repeat(3, 1fr)"] [style*="font-size: 3em"],
+    [style*="grid-template-columns: repeat(3, 1fr)"] [style*="font-size: 2.5em"] {
+        font-size: 1.2em !important;
+    }
+
+    [style*="grid-template-columns: repeat(3, 1fr)"] [style*="font-size: 1.2em"] {
+        font-size: 0.7em !important;
+    }
+
+    [style*="grid-template-columns: repeat(3, 1fr)"] [style*="font-size: 42px"],
+    [style*="grid-template-columns: repeat(3, 1fr)"] [style*="font-size: 40px"] {
+        font-size: 18px !important;
+    }
+
+    /* Make revenue bar heights smaller on mobile */
+    [style*="grid-template-columns: repeat(3, 1fr)"] [style*="height: 180px"] {
+        height: 80px !important;
+    }
+
+    [style*="grid-template-columns: repeat(3, 1fr)"] [style*="height: 120px"] {
+        height: 60px !important;
+        margin-top: 20px !important;
+    }
+
+    [style*="grid-template-columns: repeat(3, 1fr)"] [style*="height: 80px"][style*="margin-top: 100px"] {
+        height: 40px !important;
+        margin-top: 40px !important;
     }
 
     [style*="grid-template-columns: 1fr 1fr"] {
@@ -1526,13 +1562,19 @@ body {
         line-height: 1.4 !important;
     }
 
-    /* Stats grid force single column */
-    div[style*="display: grid"][style*="repeat(3, 1fr)"],
+    /* Stats grid - keep 3-column, collapse others to 2 columns */
     div[style*="display: grid"][style*="repeat(4, 1fr)"],
     div[style*="display: grid"][style*="repeat(5, 1fr)"] {
         display: grid !important;
         grid-template-columns: 1fr 1fr !important;
         gap: 10px !important;
+    }
+
+    /* Keep 3-column grids as 3 columns */
+    div[style*="display: grid"][style*="repeat(3, 1fr)"] {
+        display: grid !important;
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 6px !important;
     }
 
     /* Two column grids to single column */
@@ -1678,10 +1720,18 @@ body {
         font-size: 0.95em !important;
     }
 
-    /* Force ALL grids to 1 or 2 columns */
-    div[style*="grid-template-columns"] {
+    /* Force most grids to 1 or 2 columns, but KEEP 3-column grids */
+    div[style*="grid-template-columns: repeat(4"],
+    div[style*="grid-template-columns: repeat(5"],
+    div[style*="grid-template-columns: repeat(6"] {
         grid-template-columns: 1fr 1fr !important;
         gap: 8px !important;
+    }
+
+    /* Keep 3-column grids as 3 columns */
+    div[style*="grid-template-columns: repeat(3, 1fr)"] {
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 6px !important;
     }
 
     div[style*="grid-template-columns: 1fr 1fr"]:not([style*="repeat"]) {
