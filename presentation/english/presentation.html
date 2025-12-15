@@ -1984,6 +1984,42 @@ body {
 }
 
 
+/* ==================== MOBILE BACKGROUND FIX ==================== */
+@media screen and (max-width: 768px) {
+    /* Fix position:fixed backgrounds on mobile - convert to absolute */
+    .slide > div[style*="position: fixed"],
+    .slide > div[style*="position:fixed"] {
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        min-height: 100vh !important;
+    }
+
+    /* Ensure background images cover properly */
+    .slide > div[style*="position: fixed"] img,
+    .slide > div[style*="position:fixed"] img,
+    .slide > div:first-child img {
+        width: 100% !important;
+        height: 100% !important;
+        min-height: 100vh !important;
+        object-fit: cover !important;
+    }
+
+    /* Ensure overlay/gradient covers properly */
+    .slide > div[style*="position: fixed"] > div,
+    .slide > div[style*="position:fixed"] > div,
+    .slide > div:first-child > div {
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        min-height: 100vh !important;
+    }
+}
+
 /* ==================== DARK MODE FIX (Android) ==================== */
 html {
     color-scheme: dark light;
