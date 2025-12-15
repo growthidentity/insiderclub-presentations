@@ -2277,6 +2277,351 @@ body {
     }
 }
 
+/* ==================== RANK SLIDE MOBILE FIXES ==================== */
+@media screen and (max-width: 768px) {
+    /* Rank bars container - horizontal scroll */
+    div[style*="display: flex"][style*="justify-content: center"][style*="align-items: flex-end"][style*="gap: 6px"] {
+        overflow-x: auto !important;
+        overflow-y: visible !important;
+        justify-content: flex-start !important;
+        padding: 10px !important;
+        -webkit-overflow-scrolling: touch !important;
+        scroll-snap-type: x mandatory !important;
+        scroll-behavior: smooth !important;
+    }
+
+    /* Each rank bar column - fixed small width for mobile scroll */
+    div[style*="display: flex"][style*="justify-content: center"][style*="align-items: flex-end"] > div[style*="display: flex"][style*="flex-direction: column"] {
+        flex-shrink: 0 !important;
+        scroll-snap-align: start !important;
+    }
+
+    /* Rank bar items smaller */
+    div[style*="width: 80px"][style*="border-radius: 6px"] {
+        width: 55px !important;
+    }
+
+    /* Rank names row - horizontal scroll */
+    div[style*="display: flex"][style*="justify-content: center"][style*="gap: 6px"][style*="margin-top: 6px"] {
+        overflow-x: auto !important;
+        justify-content: flex-start !important;
+        padding: 5px 10px !important;
+        -webkit-overflow-scrolling: touch !important;
+    }
+
+    /* Rank name boxes smaller */
+    div[style*="width: 80px"][style*="text-align: center"] {
+        width: 55px !important;
+        flex-shrink: 0 !important;
+    }
+
+    div[style*="width: 80px"][style*="text-align: center"] span {
+        font-size: 5px !important;
+    }
+
+    /* Bonus row - horizontal scroll */
+    div[style*="display: flex"][style*="justify-content: center"][style*="gap: 6px"][style*="margin-top: 8px"] {
+        overflow-x: auto !important;
+        justify-content: flex-start !important;
+        padding: 5px 10px !important;
+        -webkit-overflow-scrolling: touch !important;
+    }
+
+    /* Bonus boxes smaller */
+    div[style*="width: 80px"][style*="height: 32px"][style*="background: linear-gradient(180deg, #f4d03f"] {
+        width: 55px !important;
+        height: 26px !important;
+        flex-shrink: 0 !important;
+    }
+
+    div[style*="width: 80px"][style*="height: 32px"] div[style*="font-size: 12px"] {
+        font-size: 9px !important;
+    }
+
+    div[style*="width: 80px"][style*="height: 32px"] div[style*="font-size: 6px"] {
+        font-size: 5px !important;
+    }
+
+    /* Prize row - horizontal scroll */
+    div[style*="display: flex"][style*="justify-content: center"][style*="gap: 6px"] div[style*="width: 80px"][style*="height: 24px"] {
+        width: 55px !important;
+        height: 20px !important;
+        flex-shrink: 0 !important;
+    }
+
+    div[style*="width: 80px"][style*="height: 24px"] div[style*="font-size: 10px"] {
+        font-size: 8px !important;
+    }
+
+    div[style*="width: 80px"][style*="height: 24px"] div[style*="font-size: 6px"] {
+        font-size: 5px !important;
+    }
+
+    /* Rank bar heights - scale down proportionally */
+    div[style*="height: 310px"] { height: 180px !important; }
+    div[style*="height: 290px"] { height: 170px !important; }
+    div[style*="height: 270px"] { height: 160px !important; }
+    div[style*="height: 250px"] { height: 150px !important; }
+    div[style*="height: 230px"] { height: 140px !important; }
+    div[style*="height: 210px"] { height: 130px !important; }
+    div[style*="height: 190px"] { height: 120px !important; }
+    div[style*="height: 170px"] { height: 110px !important; }
+    div[style*="height: 150px"] { height: 100px !important; }
+    div[style*="height: 130px"] { height: 90px !important; }
+    div[style*="height: 110px"] { height: 80px !important; }
+    div[style*="height: 90px"] { height: 70px !important; }
+    div[style*="height: 70px"]:not([style*="border-radius: 50%"]) { height: 60px !important; }
+
+    /* Inner bar text smaller */
+    div[style*="border-radius: 6px"] div[style*="font-size: 14px"] {
+        font-size: 10px !important;
+    }
+
+    div[style*="border-radius: 6px"] div[style*="font-size: 8px"] {
+        font-size: 6px !important;
+    }
+
+    div[style*="border-radius: 6px"] div[style*="font-size: 7px"] {
+        font-size: 5px !important;
+    }
+
+    /* Scroll indicator hint - swipe text */
+    div[style*="display: flex"][style*="justify-content: center"][style*="align-items: flex-end"][style*="gap: 6px"]::after {
+        content: "← swipe →";
+        position: absolute;
+        bottom: -20px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 10px;
+        color: rgba(255,255,255,0.4);
+        white-space: nowrap;
+    }
+}
+
+/* ==================== CALCULATOR SLIDE MOBILE FIXES ==================== */
+@media screen and (max-width: 768px) {
+    /* Calculator main container - stack vertically */
+    .calculator-premium-slide div[style*="display: flex"][style*="gap: 25px"],
+    .calculator-premium-slide div[style*="display: flex"][style*="gap: 30px"] {
+        flex-direction: column !important;
+        gap: 15px !important;
+    }
+
+    /* Calculator left/right sections - full width */
+    .calculator-premium-slide div[style*="flex: 1"],
+    .calculator-premium-slide div[style*="flex: 1.2"],
+    .calculator-premium-slide div[style*="flex: 0.8"] {
+        flex: none !important;
+        width: 100% !important;
+    }
+
+    /* Calculator header */
+    .calculator-premium-slide div[style*="font-size: 38px"],
+    .calculator-premium-slide div[style*="font-size: 36px"] {
+        font-size: 20px !important;
+    }
+
+    /* Investment input amount */
+    #calcTotal {
+        font-size: 22px !important;
+        width: 70px !important;
+        padding: 8px !important;
+    }
+
+    /* Monthly/yearly values */
+    .calculator-premium-slide div[style*="font-size: 44px"],
+    .calculator-premium-slide div[style*="font-size: 42px"] {
+        font-size: 24px !important;
+    }
+
+    .calculator-premium-slide div[style*="font-size: 52px"],
+    .calculator-premium-slide div[style*="font-size: 48px"] {
+        font-size: 28px !important;
+    }
+
+    /* Green profit box - compact */
+    .calculator-premium-slide div[style*="background: linear-gradient(135deg, #1a3a2a"] {
+        padding: 12px !important;
+        min-height: auto !important;
+    }
+
+    /* Breakdown items in calculator */
+    .calculator-premium-slide div[style*="display: flex"][style*="justify-content: space-between"][style*="padding: 8px"] {
+        padding: 5px 0 !important;
+    }
+
+    .calculator-premium-slide div[style*="display: flex"][style*="justify-content: space-between"] span[style*="font-size: 14px"],
+    .calculator-premium-slide div[style*="display: flex"][style*="justify-content: space-between"] span[style*="font-size: 16px"] {
+        font-size: 11px !important;
+    }
+
+    /* ROI percentage - smaller */
+    .calculator-premium-slide span[style*="font-size: 18px"],
+    .calculator-premium-slide span[style*="font-size: 20px"] {
+        font-size: 14px !important;
+    }
+
+    /* Slider container */
+    .calculator-premium-slide input[type="range"] {
+        width: 100% !important;
+    }
+
+    /* Contract options grid - 2 columns */
+    .calculator-premium-slide div[style*="display: grid"][style*="grid-template-columns: repeat(4"] {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 8px !important;
+    }
+
+    /* Contract option buttons */
+    .calculator-premium-slide div[style*="padding: 10px"][style*="border-radius: 10px"][style*="cursor: pointer"] {
+        padding: 8px !important;
+    }
+
+    .calculator-premium-slide div[style*="padding: 10px"] div[style*="font-size: 14px"] {
+        font-size: 11px !important;
+    }
+
+    .calculator-premium-slide div[style*="padding: 10px"] div[style*="font-size: 20px"] {
+        font-size: 16px !important;
+    }
+}
+
+/* ==================== PROFIT SHARE CALCULATOR MOBILE ==================== */
+@media screen and (max-width: 768px) {
+    /* Profit share table - horizontal scroll */
+    div[style*="overflow-x: auto"] {
+        -webkit-overflow-scrolling: touch !important;
+    }
+
+    /* Level table cells smaller */
+    div[style*="min-width: 70px"] {
+        min-width: 50px !important;
+    }
+
+    div[style*="min-width: 80px"] {
+        min-width: 55px !important;
+    }
+
+    /* Table header text */
+    div[style*="font-size: 9px"][style*="font-weight: 600"] {
+        font-size: 7px !important;
+    }
+
+    /* Table value text */
+    div[style*="font-size: 11px"][style*="font-weight: 700"] {
+        font-size: 9px !important;
+    }
+
+    div[style*="font-size: 10px"][style*="color: rgba"] {
+        font-size: 8px !important;
+    }
+}
+
+/* ==================== INCOME BOOSTER SLIDE MOBILE ==================== */
+@media screen and (max-width: 768px) {
+    /* Booster level table - horizontal scroll */
+    div[style*="grid-template-columns: repeat(8, 1fr)"],
+    div[style*="grid-template-columns: repeat(9, 1fr)"],
+    div[style*="grid-template-columns: repeat(10, 1fr)"] {
+        display: flex !important;
+        overflow-x: auto !important;
+        gap: 5px !important;
+        padding: 5px !important;
+        -webkit-overflow-scrolling: touch !important;
+    }
+
+    div[style*="grid-template-columns: repeat(8, 1fr)"] > div,
+    div[style*="grid-template-columns: repeat(9, 1fr)"] > div,
+    div[style*="grid-template-columns: repeat(10, 1fr)"] > div {
+        flex-shrink: 0 !important;
+        min-width: 60px !important;
+    }
+
+    /* Booster multiplier text */
+    div[style*="font-size: 20px"][style*="font-weight: 800"][style*="color: #f4d03f"] {
+        font-size: 14px !important;
+    }
+}
+
+/* ==================== WEALTH LEVERAGE SLIDE MOBILE ==================== */
+@media screen and (max-width: 768px) {
+    /* Two comparison boxes - stack vertically */
+    div[style*="display: grid"][style*="grid-template-columns: 1fr 1fr"][style*="gap: 20px"],
+    div[style*="display: grid"][style*="grid-template-columns: 1fr 1fr"][style*="gap: 25px"] {
+        grid-template-columns: 1fr !important;
+        gap: 12px !important;
+    }
+
+    /* Good/bad way header */
+    div[style*="font-size: 1.2em"][style*="font-weight: 700"],
+    div[style*="font-size: 18px"][style*="font-weight: 700"] {
+        font-size: 14px !important;
+    }
+
+    /* Amount in comparison boxes */
+    div[style*="font-size: 2.2em"][style*="font-weight: 900"],
+    div[style*="font-size: 2em"][style*="font-weight: 900"] {
+        font-size: 1.3em !important;
+    }
+
+    /* Breakdown rows in leverage */
+    div[style*="background: rgba(16, 185, 129"][style*="padding: 7px 10px"],
+    div[style*="background: rgba(239, 68, 68"][style*="padding: 7px 10px"],
+    div[style*="background: rgba(59, 130, 246"][style*="padding: 7px 10px"] {
+        padding: 5px 8px !important;
+        margin-bottom: 3px !important;
+    }
+
+    div[style*="background: rgba"][style*="padding: 7px 10px"] span[style*="font-size: 13px"],
+    div[style*="background: rgba"][style*="padding: 7px 10px"] span[style*="font-size: 14px"] {
+        font-size: 10px !important;
+    }
+
+    /* Analysis link button */
+    a[style*="padding: 12px 30px"][style*="border-radius: 50px"] {
+        padding: 10px 18px !important;
+        font-size: 11px !important;
+    }
+}
+
+/* ==================== GENERAL VISUAL IMPROVEMENTS FOR MOBILE ==================== */
+@media screen and (max-width: 768px) {
+    /* Make all text more readable on mobile */
+    .slide {
+        font-size: 14px !important;
+    }
+
+    /* Ensure cards have good contrast */
+    div[style*="backdrop-filter: blur"] {
+        background: rgba(0, 0, 0, 0.5) !important;
+    }
+
+    /* Nice rounded corners on mobile */
+    div[style*="border-radius: 20px"],
+    div[style*="border-radius: 25px"] {
+        border-radius: 12px !important;
+    }
+
+    /* Ensure touch targets are big enough (44px min) */
+    button, a, input[type="button"], .nav-btn {
+        min-height: 44px !important;
+        min-width: 44px !important;
+    }
+
+    /* Better spacing between sections */
+    .fragment {
+        margin-bottom: 10px !important;
+    }
+
+    /* Ensure gold lines are visible but subtle */
+    div[style*="height: 4px"][style*="background: linear-gradient(90deg, #c9a227"],
+    div[style*="height: 3px"][style*="background: linear-gradient(90deg, #c9a227"] {
+        width: 40px !important;
+        height: 2px !important;
+        margin-bottom: 12px !important;
+    }
+}
+
 /* ==================== DARK MODE FIX (Android) ==================== */
 html {
     color-scheme: dark light;
