@@ -1324,56 +1324,58 @@ body {
         gap: 10px !important;
     }
 
-    /* Keep 3-column grids as 3 columns on mobile (revenue bars, etc.) */
+    /* === COMPREHENSIVE MOBILE GRID FIXES === */
+
+    /* 3-column grids - STACK VERTICALLY for better mobile experience */
     [style*="grid-template-columns: repeat(3, 1fr)"] {
-        grid-template-columns: repeat(3, 1fr) !important;
-        gap: 6px !important;
-    }
-
-    /* 3-column content - make text and elements smaller */
-    [style*="grid-template-columns: repeat(3, 1fr)"] > div {
-        padding: 8px !important;
-    }
-
-    [style*="grid-template-columns: repeat(3, 1fr)"] [style*="font-size: 3.5em"],
-    [style*="grid-template-columns: repeat(3, 1fr)"] [style*="font-size: 3em"],
-    [style*="grid-template-columns: repeat(3, 1fr)"] [style*="font-size: 2.5em"] {
-        font-size: 1.2em !important;
-    }
-
-    [style*="grid-template-columns: repeat(3, 1fr)"] [style*="font-size: 1.2em"] {
-        font-size: 0.7em !important;
-    }
-
-    [style*="grid-template-columns: repeat(3, 1fr)"] [style*="font-size: 42px"],
-    [style*="grid-template-columns: repeat(3, 1fr)"] [style*="font-size: 40px"] {
-        font-size: 18px !important;
-    }
-
-    /* Make revenue bar heights smaller on mobile */
-    [style*="grid-template-columns: repeat(3, 1fr)"] [style*="height: 180px"] {
-        height: 80px !important;
-    }
-
-    [style*="grid-template-columns: repeat(3, 1fr)"] [style*="height: 120px"] {
-        height: 60px !important;
-        margin-top: 20px !important;
-    }
-
-    [style*="grid-template-columns: repeat(3, 1fr)"] [style*="height: 80px"][style*="margin-top: 100px"] {
-        height: 40px !important;
-        margin-top: 40px !important;
-    }
-
-    [style*="grid-template-columns: 1fr 1fr"] {
         grid-template-columns: 1fr !important;
-        gap: 12px !important;
+        gap: 10px !important;
     }
 
-    /* Calculator slide specific fixes */
+    /* 3-column content - smaller padding */
+    [style*="grid-template-columns: repeat(3, 1fr)"] > div {
+        padding: 12px !important;
+    }
+
+    /* Revenue bar heights - compact for stacked layout */
+    [style*="grid-template-columns: repeat(3, 1fr)"] [style*="height: 180px"],
+    [style*="grid-template-columns: repeat(3, 1fr)"] [style*="height: 120px"],
+    [style*="grid-template-columns: repeat(3, 1fr)"] [style*="height: 80px"] {
+        height: 50px !important;
+        margin-top: 0 !important;
+    }
+
+    /* 4-column grids (process steps) - 2x2 grid */
+    [style*="grid-template-columns: repeat(4, 1fr)"] {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 8px !important;
+    }
+
+    /* 5-column grids (investor steps) - 2+2+1 or 3+2 */
+    [style*="grid-template-columns: repeat(5, 1fr)"] {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 8px !important;
+    }
+
+    /* Make step numbers smaller in grids */
+    [style*="grid-template-columns"] [style*="width: 50px"][style*="height: 50px"],
+    [style*="grid-template-columns"] [style*="width: 40px"][style*="height: 40px"] {
+        width: 30px !important;
+        height: 30px !important;
+        font-size: 14px !important;
+        margin-bottom: 8px !important;
+    }
+
+    /* 2-column grids - stack vertically */
+    [style*="grid-template-columns: 1fr 1fr"]:not([style*="repeat"]) {
+        grid-template-columns: 1fr !important;
+        gap: 10px !important;
+    }
+
+    /* === CALCULATOR SLIDE FIXES === */
     .calculator-premium-slide [style*="display: flex"][style*="gap: 25px"] {
         flex-direction: column !important;
-        gap: 15px !important;
+        gap: 12px !important;
     }
 
     .calculator-premium-slide [style*="flex: 1"] {
@@ -1381,10 +1383,144 @@ body {
         width: 100% !important;
     }
 
-    /* Smaller input on calculator */
-    #calcTotal {
-        width: 100px !important;
+    /* Green profit box - compact height */
+    .calculator-premium-slide [style*="background: linear-gradient(135deg, #1a3a2a"] {
+        padding: 15px !important;
+        min-height: auto !important;
+        height: auto !important;
+    }
+
+    /* Profit number smaller */
+    .calculator-premium-slide [style*="font-size: 44px"] {
         font-size: 28px !important;
+    }
+
+    /* ROI number smaller */
+    .calculator-premium-slide [style*="font-size: 52px"] {
+        font-size: 32px !important;
+    }
+
+    /* Calculator input smaller */
+    #calcTotal {
+        width: 90px !important;
+        font-size: 24px !important;
+    }
+
+    /* Calculator header text */
+    .calculator-premium-slide [style*="font-size: 38px"] {
+        font-size: 22px !important;
+    }
+
+    /* === TIMELINE/HORIZONTAL FLEX FIXES === */
+    /* Timeline visual - stack vertically */
+    [style*="display: flex"][style*="justify-content: center"][style*="align-items: center"][style*="gap: 0"] {
+        flex-direction: column !important;
+        gap: 5px !important;
+    }
+
+    /* Timeline circles smaller */
+    [style*="width: 60px"][style*="height: 60px"][style*="border-radius: 50%"] {
+        width: 40px !important;
+        height: 40px !important;
+    }
+
+    [style*="width: 60px"][style*="height: 60px"] i {
+        font-size: 16px !important;
+    }
+
+    /* Timeline arrows - hide or make vertical */
+    [style*="width: 60px"][style*="height: 3px"][style*="background: linear-gradient"] {
+        width: 3px !important;
+        height: 20px !important;
+    }
+
+    /* === MOROCCO/TRIP OPTIONS FIXES === */
+    /* Trip options - 3 columns to 1 column stacked */
+    [style*="grid-template-columns: 1fr 1fr 1fr"] {
+        grid-template-columns: 1fr !important;
+        gap: 12px !important;
+    }
+
+    /* Trip option cards - more compact */
+    [style*="grid-template-columns: 1fr 1fr 1fr"] > div {
+        padding: 15px !important;
+    }
+
+    /* Trip option amounts smaller */
+    [style*="grid-template-columns: 1fr 1fr 1fr"] [style*="font-size: 36px"] {
+        font-size: 24px !important;
+    }
+
+    [style*="grid-template-columns: 1fr 1fr 1fr"] [style*="font-size: 22px"] {
+        font-size: 16px !important;
+    }
+
+    /* Best badge position fix */
+    [style*="position: absolute"][style*="top: -12px"][style*="transform: translateX(-50%)"] {
+        font-size: 8px !important;
+        padding: 4px 10px !important;
+    }
+
+    /* === STATS GRID FIXES === */
+    /* Stats in 3 columns - stack to 1 */
+    .premium-slide [style*="grid-template-columns: repeat(3, 1fr)"][style*="gap: 25px"] {
+        grid-template-columns: 1fr !important;
+        gap: 10px !important;
+    }
+
+    /* Stat card icons */
+    .premium-slide [style*="font-size: 36px"][style*="margin-bottom: 10px"] {
+        font-size: 24px !important;
+        margin-bottom: 5px !important;
+    }
+
+    /* Stat numbers */
+    [style*="font-size: 2.2em"][style*="font-weight: 800"] {
+        font-size: 1.4em !important;
+    }
+
+    /* === INFO CARD FIXES === */
+    /* Info cards with flex items */
+    [style*="display: flex"][style*="justify-content: center"][style*="gap: 30px"][style*="flex-wrap: wrap"] {
+        flex-direction: column !important;
+        gap: 8px !important;
+        align-items: flex-start !important;
+    }
+
+    /* === COMPARISON COLUMNS FIXES === */
+    /* Two column comparison (good/bad way) */
+    [style*="display: grid"][style*="gap: 25px"]:not([style*="repeat(3"]):not([style*="repeat(4"]):not([style*="repeat(5"]) {
+        gap: 10px !important;
+    }
+
+    /* Comparison boxes - more compact */
+    [style*="background: linear-gradient"][style*="border: 2px solid"][style*="border-radius: 20px"] {
+        padding: 12px !important;
+    }
+
+    /* Comparison headers */
+    [style*="font-size: 1.2em"][style*="font-weight: 600"] {
+        font-size: 1em !important;
+    }
+
+    /* Comparison amounts */
+    [style*="font-size: 2.2em"][style*="font-weight: 900"] {
+        font-size: 1.5em !important;
+    }
+
+    /* === LEVERAGE SLIDE SPECIFIC === */
+    /* Good/Bad way boxes internal spacing */
+    [style*="background: rgba(16, 185, 129"][style*="padding: 7px 10px"],
+    [style*="background: rgba(59, 130, 246"][style*="padding: 7px 10px"],
+    [style*="background: rgba(245, 158, 11"][style*="padding: 7px 10px"] {
+        padding: 5px 8px !important;
+        margin-bottom: 4px !important;
+    }
+
+    /* Analysis link button smaller */
+    [style*="display: inline-block"][style*="padding: 12px 30px"][style*="border-radius: 50px"] {
+        padding: 10px 20px !important;
+        font-size: 12px !important;
     }
 
     /* Setup slide card */
@@ -1562,19 +1698,19 @@ body {
         line-height: 1.4 !important;
     }
 
-    /* Stats grid - keep 3-column, collapse others to 2 columns */
+    /* Stats grid - collapse to 2 columns */
     div[style*="display: grid"][style*="repeat(4, 1fr)"],
     div[style*="display: grid"][style*="repeat(5, 1fr)"] {
         display: grid !important;
-        grid-template-columns: 1fr 1fr !important;
-        gap: 10px !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 8px !important;
     }
 
-    /* Keep 3-column grids as 3 columns */
+    /* 3-column grids stack vertically */
     div[style*="display: grid"][style*="repeat(3, 1fr)"] {
         display: grid !important;
-        grid-template-columns: repeat(3, 1fr) !important;
-        gap: 6px !important;
+        grid-template-columns: 1fr !important;
+        gap: 10px !important;
     }
 
     /* Two column grids to single column */
@@ -1720,22 +1856,29 @@ body {
         font-size: 0.95em !important;
     }
 
-    /* Force most grids to 1 or 2 columns, but KEEP 3-column grids */
+    /* Force grids for mobile - already handled above, these are fallbacks */
     div[style*="grid-template-columns: repeat(4"],
     div[style*="grid-template-columns: repeat(5"],
     div[style*="grid-template-columns: repeat(6"] {
-        grid-template-columns: 1fr 1fr !important;
+        grid-template-columns: repeat(2, 1fr) !important;
         gap: 8px !important;
     }
 
-    /* Keep 3-column grids as 3 columns */
+    /* 3-column grids stack vertically on mobile */
     div[style*="grid-template-columns: repeat(3, 1fr)"] {
-        grid-template-columns: repeat(3, 1fr) !important;
-        gap: 6px !important;
+        grid-template-columns: 1fr !important;
+        gap: 10px !important;
     }
 
+    /* 2-column grids stack vertically */
     div[style*="grid-template-columns: 1fr 1fr"]:not([style*="repeat"]) {
         grid-template-columns: 1fr !important;
+    }
+
+    /* 3-column explicit (1fr 1fr 1fr) also stack */
+    div[style*="grid-template-columns: 1fr 1fr 1fr"] {
+        grid-template-columns: 1fr !important;
+        gap: 10px !important;
     }
 
     /* Force all padding values smaller */
