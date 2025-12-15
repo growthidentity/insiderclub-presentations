@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="et">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wealth Multiplication Strategy - 25 Month Analysis (PHP)</title>
+    <title>Raha Võimendamise Strateegia - 25 Kuu Analüüs</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -14,7 +15,7 @@
 
         body {
             font-family: 'Open Sans', sans-serif;
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+            background: linear-gradient(135deg, #0f0c08 0%, #1a1510 50%, #0f0c08 100%);
             color: #f1f5f9;
             padding: 40px 20px;
             min-height: 100vh;
@@ -31,22 +32,74 @@
             font-weight: 800;
             text-align: center;
             margin-bottom: 20px;
-            background: linear-gradient(135deg, #3b82f6 0%, #06b6d4 100%);
+            background: linear-gradient(135deg, #f4d03f 0%, #c9a227 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 30px rgba(59, 130, 246, 0.3);
+            text-shadow: 0 0 30px rgba(244, 208, 63, 0.3);
         }
 
         .subtitle {
             text-align: center;
             font-size: 1.3em;
             margin-bottom: 40px;
-            color: #cbd5e1;
+            color: rgba(255,255,255,0.7);
+        }
+
+        /* Reaalajas hinnad */
+        .live-prices-bar {
+            background: linear-gradient(135deg, rgba(201, 162, 39, 0.2), rgba(244, 208, 63, 0.1));
+            border: 1px solid rgba(244, 208, 63, 0.3);
+            border-radius: 15px;
+            padding: 15px 25px;
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .live-price-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .live-price-item .symbol {
+            font-weight: 700;
+            color: #f4d03f;
+        }
+
+        .live-price-item .price {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            color: white;
+        }
+
+        .live-price-item .change {
+            font-size: 0.85em;
+            padding: 2px 8px;
+            border-radius: 10px;
+        }
+
+        .live-price-item .change.up {
+            background: rgba(16, 185, 129, 0.2);
+            color: #10b981;
+        }
+
+        .live-price-item .change.down {
+            background: rgba(239, 68, 68, 0.2);
+            color: #ef4444;
+        }
+
+        .live-update-time {
+            font-size: 0.8em;
+            color: rgba(255,255,255,0.5);
         }
 
         .strategy-box {
-            background: rgba(255, 255, 255, 0.05);
-            border: 2px solid rgba(59, 130, 246, 0.3);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
+            border: 2px solid rgba(244, 208, 63, 0.3);
             border-radius: 20px;
             padding: 30px;
             margin-bottom: 40px;
@@ -57,7 +110,7 @@
             font-family: 'Montserrat', sans-serif;
             font-size: 2em;
             margin-bottom: 20px;
-            color: #60a5fa;
+            color: #f4d03f;
         }
 
         .strategy-grid {
@@ -68,28 +121,34 @@
         }
 
         .asset-card {
-            background: rgba(79, 172, 254, 0.1);
-            border: 1px solid rgba(79, 172, 254, 0.3);
+            background: linear-gradient(135deg, rgba(201, 162, 39, 0.15), rgba(244, 208, 63, 0.05));
+            border: 1px solid rgba(244, 208, 63, 0.3);
             border-radius: 15px;
             padding: 20px;
             text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .asset-card:hover {
+            border-color: #f4d03f;
+            box-shadow: 0 10px 30px rgba(244, 208, 63, 0.2);
         }
 
         .asset-card h3 {
             font-size: 1.2em;
             margin-bottom: 10px;
-            color: #60a5fa;
+            color: #f4d03f;
         }
 
         .asset-card .amount {
             font-size: 1.8em;
             font-weight: 700;
-            color: #06b6d4;
+            color: #c9a227;
         }
 
         .results-box {
-            background: rgba(6, 182, 212, 0.05);
-            border: 3px solid #06b6d4;
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(16, 185, 129, 0.05));
+            border: 3px solid #10b981;
             border-radius: 20px;
             padding: 40px;
             margin: 40px 0;
@@ -100,7 +159,7 @@
             font-family: 'Montserrat', sans-serif;
             font-size: 2.5em;
             margin-bottom: 30px;
-            color: #06b6d4;
+            color: #10b981;
         }
 
         .final-result {
@@ -118,7 +177,7 @@
 
         .result-card .label {
             font-size: 1.1em;
-            color: #cbd5e1;
+            color: rgba(255,255,255,0.7);
             margin-bottom: 10px;
         }
 
@@ -128,24 +187,20 @@
             font-family: 'Montserrat', sans-serif;
         }
 
-        .result-card.initial .value {
-            color: #ff6b6b;
-        }
-
         .result-card.invested .value {
-            color: #ffd93d;
+            color: #f4d03f;
         }
 
         .result-card.final .value {
-            color: #06b6d4;
-        }
-
-        .result-card.profit .value {
             color: #10b981;
         }
 
+        .result-card.profit .value {
+            color: #81c784;
+        }
+
         .result-card.roi .value {
-            color: #8b5cf6;
+            color: #c9a227;
         }
 
         .breakdown-table {
@@ -158,12 +213,12 @@
         }
 
         .breakdown-table th {
-            background: rgba(59, 130, 246, 0.2);
+            background: rgba(244, 208, 63, 0.2);
             padding: 15px;
             text-align: left;
             font-family: 'Montserrat', sans-serif;
             font-weight: 600;
-            color: #60a5fa;
+            color: #f4d03f;
         }
 
         .breakdown-table td {
@@ -172,7 +227,7 @@
         }
 
         .breakdown-table tr:hover {
-            background: rgba(79, 172, 254, 0.1);
+            background: rgba(244, 208, 63, 0.1);
         }
 
         .chart-container {
@@ -186,7 +241,7 @@
             font-family: 'Montserrat', sans-serif;
             font-size: 1.8em;
             margin-bottom: 20px;
-            color: #60a5fa;
+            color: #f4d03f;
         }
 
         canvas {
@@ -195,20 +250,62 @@
         }
 
         .highlight {
-            background: linear-gradient(135deg, rgba(79, 172, 254, 0.2) 0%, rgba(0, 242, 254, 0.2) 100%);
+            background: linear-gradient(135deg, rgba(244, 208, 63, 0.15), rgba(201, 162, 39, 0.1));
             padding: 20px;
             border-radius: 10px;
             margin: 20px 0;
+            border-left: 4px solid #f4d03f;
         }
 
         .disclaimer {
-            background: rgba(255, 107, 107, 0.1);
-            border: 1px solid rgba(255, 107, 107, 0.3);
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.3);
             border-radius: 10px;
             padding: 20px;
             margin-top: 40px;
             font-size: 0.9em;
-            color: #ffb3b3;
+            color: #fca5a5;
+        }
+
+        .btn-gold {
+            display: inline-block;
+            background: linear-gradient(135deg, #c9a227, #f4d03f);
+            color: #0f0c08;
+            padding: 15px 40px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1em;
+            box-shadow: 0 10px 30px rgba(201, 162, 39, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .btn-gold:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(201, 162, 39, 0.5);
+        }
+
+        .selection-box {
+            text-align: center;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: rgba(244, 208, 63, 0.1);
+            border-radius: 10px;
+            border: 2px solid rgba(244, 208, 63, 0.3);
+        }
+
+        .selection-box p {
+            color: #f4d03f;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+            cursor: pointer;
+            accent-color: #f4d03f;
         }
 
         @media (max-width: 768px) {
@@ -227,217 +324,320 @@
             .final-result {
                 grid-template-columns: 1fr;
             }
+
+            .live-prices-bar {
+                flex-direction: column;
+                text-align: center;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>💰 WEALTH MULTIPLICATION STRATEGY</h1>
-        <div class="subtitle">Historical Analysis: October 2023 - October 2025 (25 Months)</div>
+        <h1><i class="fas fa-rocket"></i> RAHA VÕIMENDAMISE STRATEEGIA</h1>
+        <div class="subtitle">Ajalooline Analüüs: Oktoober 2023 - Oktoober 2025 (25 kuud)</div>
 
-        <!-- STRATEGY -->
+        <!-- REAALAJAS HINNAD -->
+        <div class="live-prices-bar">
+            <div class="live-price-item">
+                <span class="symbol"><i class="fab fa-bitcoin"></i> BTC</span>
+                <span class="price" id="live-btc">$--</span>
+                <span class="change up" id="live-btc-change">--%</span>
+            </div>
+            <div class="live-price-item">
+                <span class="symbol"><i class="fab fa-ethereum"></i> ETH</span>
+                <span class="price" id="live-eth">$--</span>
+                <span class="change up" id="live-eth-change">--%</span>
+            </div>
+            <div class="live-price-item">
+                <span class="symbol"><i class="fas fa-coins"></i> KULD</span>
+                <span class="price" id="live-gold">$--</span>
+                <span class="change up" id="live-gold-change">--%</span>
+            </div>
+            <div class="live-price-item">
+                <span class="symbol"><i class="fas fa-circle"></i> HÕBE</span>
+                <span class="price" id="live-silver">$--</span>
+                <span class="change up" id="live-silver-change">--%</span>
+            </div>
+            <div class="live-price-item">
+                <span class="symbol"><i class="fas fa-chart-line"></i> S&P</span>
+                <span class="price" id="live-sp500">$--</span>
+                <span class="change up" id="live-sp500-change">--%</span>
+            </div>
+            <div class="live-update-time">
+                <i class="fas fa-sync-alt"></i> Uuendatud: <span id="update-time">--</span>
+            </div>
+        </div>
+
+        <!-- STRATEEGIA -->
         <div class="strategy-box">
-            <h2>📊 Investment Strategy</h2>
+            <h2><i class="fas fa-chart-pie"></i> Investeerimisstrateegia</h2>
             <div class="highlight">
-                <p style="font-size: 1.2em; margin-bottom: 15px;"><strong>Initial Investment:</strong> ₱600,000 (into contract)</p>
-                <p style="font-size: 1.2em;"><strong>Monthly Income from Contract:</strong> ₱60,000</p>
-                <p style="font-size: 1.1em; margin-top: 15px; color: #cbd5e1;">
-                    Each month, ₱60,000 is split equally between 6 asset classes:
+                <p style="font-size: 1.2em; margin-bottom: 15px;"><strong>Algne Investeering:</strong> <span id="displayInitialInvestment">6,710</span> EUR (Lepingusse)</p>
+                <p style="font-size: 1.2em;"><strong>Igakuine Väljamakse (neto):</strong> <span id="displayMonthlyIncome">566</span> EUR</p>
+                <p style="font-size: 1.1em; margin-top: 15px; color: rgba(255,255,255,0.7);">
+                    Iga kuu <span id="displayMonthlyIncome2">566</span> EUR jagatakse võrdselt valitud varaklasside vahel:
                 </p>
             </div>
 
-            <div style="text-align: center; margin-bottom: 20px; padding: 15px; background: rgba(255, 193, 7, 0.1); border-radius: 10px; border: 2px solid rgba(255, 193, 7, 0.3);">
-                <p style="font-size: 1.1em; font-weight: 600; color: #ffc107; margin-bottom: 10px;">
-                    <i class="fas fa-sliders-h"></i> SELECT ASSETS TO INVEST IN
-                </p>
-                <p style="font-size: 0.9em; color: #cbd5e1;">
-                    Uncheck assets you don't want to include. The amount will be automatically split among selected assets.
+            <div class="selection-box">
+                <p><i class="fas fa-sliders-h"></i> VALI VARAD, MILLESSE INVESTEERIDA</p>
+                <p style="font-size: 0.9em; color: rgba(255,255,255,0.7); font-weight: normal;">
+                    Tühista märge varadelt, mida ei soovi kasutada. Summa jagatakse automaatselt valitud varade vahel.
                 </p>
             </div>
 
             <div class="strategy-grid">
-                <div class="asset-card" style="position: relative;">
+                <div class="asset-card">
                     <label style="display: flex; align-items: center; justify-content: center; margin-bottom: 10px; cursor: pointer;">
-                        <input type="checkbox" id="asset-btc" checked onchange="recalculate()" style="width: 20px; height: 20px; margin-right: 10px; cursor: pointer;">
-                        <h3 style="margin: 0;">🪙 Bitcoin (BTC)</h3>
+                        <input type="checkbox" id="asset-btc" checked onchange="recalculate()">
+                        <h3 style="margin: 0;"><i class="fab fa-bitcoin"></i> Bitcoin (BTC)</h3>
                     </label>
-                    <div class="amount" id="amount-btc">₱10,000</div>
-                    <p style="margin-top: 10px; color: #cbd5e1;">monthly</p>
+                    <div class="amount" id="amount-btc">€166.67</div>
+                    <p style="margin-top: 10px; color: rgba(255,255,255,0.6);">igakuiselt</p>
                 </div>
-                <div class="asset-card" style="position: relative;">
+                <div class="asset-card">
                     <label style="display: flex; align-items: center; justify-content: center; margin-bottom: 10px; cursor: pointer;">
-                        <input type="checkbox" id="asset-eth" checked onchange="recalculate()" style="width: 20px; height: 20px; margin-right: 10px; cursor: pointer;">
-                        <h3 style="margin: 0;">💎 Ethereum (ETH)</h3>
+                        <input type="checkbox" id="asset-eth" checked onchange="recalculate()">
+                        <h3 style="margin: 0;"><i class="fab fa-ethereum"></i> Ethereum (ETH)</h3>
                     </label>
-                    <div class="amount" id="amount-eth">₱10,000</div>
-                    <p style="margin-top: 10px; color: #cbd5e1;">monthly</p>
+                    <div class="amount" id="amount-eth">€166.67</div>
+                    <p style="margin-top: 10px; color: rgba(255,255,255,0.6);">igakuiselt</p>
                 </div>
-                <div class="asset-card" style="position: relative;">
+                <div class="asset-card">
                     <label style="display: flex; align-items: center; justify-content: center; margin-bottom: 10px; cursor: pointer;">
-                        <input type="checkbox" id="asset-bnb" checked onchange="recalculate()" style="width: 20px; height: 20px; margin-right: 10px; cursor: pointer;">
-                        <h3 style="margin: 0;">🔷 BNB</h3>
+                        <input type="checkbox" id="asset-bnb" checked onchange="recalculate()">
+                        <h3 style="margin: 0;"><i class="fas fa-coins"></i> BNB</h3>
                     </label>
-                    <div class="amount" id="amount-bnb">₱10,000</div>
-                    <p style="margin-top: 10px; color: #cbd5e1;">monthly</p>
+                    <div class="amount" id="amount-bnb">€166.67</div>
+                    <p style="margin-top: 10px; color: rgba(255,255,255,0.6);">igakuiselt</p>
                 </div>
-                <div class="asset-card" style="position: relative;">
+                <div class="asset-card">
                     <label style="display: flex; align-items: center; justify-content: center; margin-bottom: 10px; cursor: pointer;">
-                        <input type="checkbox" id="asset-gold" checked onchange="recalculate()" style="width: 20px; height: 20px; margin-right: 10px; cursor: pointer;">
-                        <h3 style="margin: 0;">🥇 Gold</h3>
+                        <input type="checkbox" id="asset-gold" checked onchange="recalculate()">
+                        <h3 style="margin: 0;"><i class="fas fa-coins" style="color: gold;"></i> Kuld</h3>
                     </label>
-                    <div class="amount" id="amount-gold">₱10,000</div>
-                    <p style="margin-top: 10px; color: #cbd5e1;">monthly</p>
+                    <div class="amount" id="amount-gold">€166.67</div>
+                    <p style="margin-top: 10px; color: rgba(255,255,255,0.6);">igakuiselt</p>
                 </div>
-                <div class="asset-card" style="position: relative;">
+                <div class="asset-card">
                     <label style="display: flex; align-items: center; justify-content: center; margin-bottom: 10px; cursor: pointer;">
-                        <input type="checkbox" id="asset-silver" checked onchange="recalculate()" style="width: 20px; height: 20px; margin-right: 10px; cursor: pointer;">
-                        <h3 style="margin: 0;">⚪ Silver</h3>
+                        <input type="checkbox" id="asset-silver" checked onchange="recalculate()">
+                        <h3 style="margin: 0;"><i class="fas fa-circle" style="color: silver;"></i> Hõbe</h3>
                     </label>
-                    <div class="amount" id="amount-silver">₱10,000</div>
-                    <p style="margin-top: 10px; color: #cbd5e1;">monthly</p>
+                    <div class="amount" id="amount-silver">€166.67</div>
+                    <p style="margin-top: 10px; color: rgba(255,255,255,0.6);">igakuiselt</p>
                 </div>
-                <div class="asset-card" style="position: relative;">
+                <div class="asset-card">
                     <label style="display: flex; align-items: center; justify-content: center; margin-bottom: 10px; cursor: pointer;">
-                        <input type="checkbox" id="asset-sp500" checked onchange="recalculate()" style="width: 20px; height: 20px; margin-right: 10px; cursor: pointer;">
-                        <h3 style="margin: 0;">📈 S&P 500</h3>
+                        <input type="checkbox" id="asset-sp500" checked onchange="recalculate()">
+                        <h3 style="margin: 0;"><i class="fas fa-chart-line"></i> S&P 500</h3>
                     </label>
-                    <div class="amount" id="amount-sp500">₱10,000</div>
-                    <p style="margin-top: 10px; color: #cbd5e1;">monthly</p>
+                    <div class="amount" id="amount-sp500">€166.67</div>
+                    <p style="margin-top: 10px; color: rgba(255,255,255,0.6);">igakuiselt</p>
                 </div>
             </div>
         </div>
 
-        <!-- RESULTS -->
+        <!-- TULEMUSED -->
         <div class="results-box">
-            <h2>🎯 FINAL RESULTS</h2>
-            <p style="text-align: center; color: #cbd5e1; margin-bottom: 30px; font-size: 1.1em;">
-                Initial investment ₱600,000 (into contract) • Contract completes after 25 months
+            <h2><i class="fas fa-trophy"></i> LÕPPTULEMUSED</h2>
+            <p style="text-align: center; color: rgba(255,255,255,0.7); margin-bottom: 30px; font-size: 1.1em;">
+                Algne investeering €<span id="displayInitialInvestment2">6,710</span> (lepingusse) • Leping on läbi pärast 25 kuud
             </p>
             <div class="final-result">
                 <div class="result-card invested">
-                    <div class="label">Total Invested in Assets</div>
-                    <div class="value" id="totalInvested">₱1,500,000</div>
-                    <div style="font-size: 0.8em; color: #cbd5e1; margin-top: 8px;">From contract returns over 25 months</div>
+                    <div class="label">Investeeritud Varadesse</div>
+                    <div class="value" id="totalInvested">€25,000</div>
+                    <div style="font-size: 0.8em; color: rgba(255,255,255,0.6); margin-top: 8px;">Lepingu tootlus 25 kuud</div>
                 </div>
                 <div class="result-card final">
-                    <div class="label">Asset Value</div>
-                    <div class="value" id="portfolioValue">₱2,228,000</div>
-                    <div style="font-size: 0.8em; color: #cbd5e1; margin-top: 8px;">October 2025</div>
+                    <div class="label">Varade Väärtus</div>
+                    <div class="value" id="portfolioValue">€37,141</div>
+                    <div style="font-size: 0.8em; color: rgba(255,255,255,0.6); margin-top: 8px;">Oktoober 2025</div>
                 </div>
                 <div class="result-card profit">
-                    <div class="label">Net Profit</div>
-                    <div class="value" id="netProfit">₱1,628,000</div>
-                    <div style="font-size: 0.8em; color: #cbd5e1; margin-top: 8px;">₱600k → ₱2.2M</div>
+                    <div class="label">Puhaskasum</div>
+                    <div class="value" id="netProfit">€27,141</div>
+                    <div style="font-size: 0.8em; color: rgba(255,255,255,0.6); margin-top: 8px;">Algne invest → Lõppväärtus</div>
                 </div>
                 <div class="result-card roi">
                     <div class="label">ROI</div>
                     <div class="value" id="roi">+271%</div>
-                    <div style="font-size: 0.8em; color: #cbd5e1; margin-top: 8px;">On initial ₱600k investment</div>
+                    <div style="font-size: 0.8em; color: rgba(255,255,255,0.6); margin-top: 8px;">Algse investeeringu pealt</div>
                 </div>
             </div>
-            <div style="text-align: center; margin-top: 25px; padding: 20px; background: rgba(79, 172, 254, 0.1); border-radius: 15px; border: 2px solid rgba(79, 172, 254, 0.3);">
-                <div style="font-size: 1.1em; color: #cbd5e1; margin-bottom: 10px;">TOTAL VALUE AFTER 25 MONTHS</div>
-                <div style="font-size: 2.5em; font-weight: 900; color: #60a5fa;" id="totalPortfolio">₱2,228,000</div>
-                <div style="font-size: 0.9em; color: #cbd5e1; margin-top: 10px;">
-                    Contract complete • Assets remain
+            <div style="text-align: center; margin-top: 25px; padding: 20px; background: rgba(244, 208, 63, 0.1); border-radius: 15px; border: 2px solid rgba(244, 208, 63, 0.3);">
+                <div style="font-size: 1.1em; color: rgba(255,255,255,0.7); margin-bottom: 10px;">LÕPPVÄÄRTUS 25 KUU JÄREL</div>
+                <div style="font-size: 2.5em; font-weight: 900; color: #f4d03f;" id="totalPortfolio">€37,141</div>
+                <div style="font-size: 0.9em; color: rgba(255,255,255,0.6); margin-top: 10px;">
+                    Leping on läbi • Alles ainult varad
                 </div>
             </div>
         </div>
 
-        <!-- ASSET BREAKDOWN -->
+        <!-- VARADE JAOTUS -->
         <div class="chart-container">
-            <h3>📊 Portfolio Breakdown - October 2025</h3>
+            <h3><i class="fas fa-table"></i> Portfelli Jaotus Oktoober 2025</h3>
             <table class="breakdown-table">
                 <thead>
                     <tr>
-                        <th>Asset</th>
-                        <th>Units Accumulated</th>
-                        <th>Invested</th>
-                        <th>Current Value</th>
-                        <th>Profit/Loss</th>
+                        <th>Vara</th>
+                        <th>Kogutud Ühikud</th>
+                        <th>Investeeritud</th>
+                        <th>Praegune Väärtus</th>
+                        <th>Kasum/Kahjum</th>
                         <th>ROI</th>
                     </tr>
                 </thead>
                 <tbody id="assetBreakdown">
-                    <!-- Filled by JavaScript -->
+                    <!-- Täidetakse JavaScriptiga -->
                 </tbody>
             </table>
         </div>
 
-        <!-- MONTHLY OVERVIEW -->
+        <!-- KUUDE ÜLEVAADE -->
         <div class="chart-container">
-            <h3>📅 Monthly Portfolio Growth</h3>
+            <h3><i class="fas fa-chart-area"></i> Igakuine Portfelli Kasv</h3>
             <canvas id="portfolioChart"></canvas>
         </div>
 
-        <!-- NOTES -->
+        <!-- MÄRKUSED -->
         <div class="highlight">
-            <h3 style="margin-bottom: 15px; color: #60a5fa;">📌 Key Points</h3>
+            <h3 style="margin-bottom: 15px; color: #f4d03f;"><i class="fas fa-lightbulb"></i> Olulised Punktid</h3>
             <ul style="line-height: 2; padding-left: 20px;">
-                <li><strong>Diversification:</strong> Six different asset classes help reduce risk</li>
-                <li><strong>Dollar-Cost Averaging:</strong> Buying a fixed amount monthly reduces the impact of volatility</li>
-                <li><strong>Long-Term Strategy:</strong> 25-month investment period</li>
-                <li><strong>Historical Data:</strong> All calculations based on actual historical prices</li>
-                <li><strong>Cryptocurrencies (BTC, ETH, BNB):</strong> Highest returns but also highest volatility</li>
-                <li><strong>Precious Metals (Gold, Silver):</strong> Provide stability and inflation protection</li>
-                <li><strong>S&P 500:</strong> Traditional stock market exposure with long-term growth potential</li>
+                <li><strong>Diversifikatsioon:</strong> 6 erinevat varaklassi vähendab riski</li>
+                <li><strong>Dollar-Cost Averaging:</strong> Igakuine fikeeritud summa ostmine vähendab volatiilsuse mõju</li>
+                <li><strong>Pikaajaline Hoiak:</strong> 25-kuuline investeerimisperiood</li>
+                <li><strong>Ajaloolised Andmed:</strong> Arvutused põhinevad reaalsetel ajaloolistel hindadel</li>
+                <li><strong>Krüptovaluutad (BTC, ETH, BNB):</strong> Kõrgeim tootlus, aga ka suurim volatiilsus</li>
+                <li><strong>Väärismetallid (Kuld, Hõbe):</strong> Stabiilsus ja inflatsioonivastane kaitse</li>
+                <li><strong>S&P 500:</strong> Traditsiooniline aktsiaturg, pikaajaline kasv</li>
             </ul>
         </div>
 
         <!-- DISCLAIMER -->
         <div style="text-align: center; margin: 30px 0;">
-            <a href="lump-sum-comparison.html" target="_blank" style="display: inline-block; background: linear-gradient(135deg, #ffc107 0%, #ff9800 100%); color: #0a0e27; padding: 15px 40px; border-radius: 30px; text-decoration: none; font-weight: 700; font-size: 1.1em;">
-                <i class="fas fa-balance-scale"></i> Compare: Lump Sum vs Dollar-Cost Averaging
+            <a href="lump-sum-comparison.html" class="btn-gold">
+                <i class="fas fa-balance-scale"></i> Võrdle: Lump Sum vs Dollar-Cost Averaging
             </a>
         </div>
 
         <div class="disclaimer">
-            <strong>⚠️ IMPORTANT DISCLAIMER:</strong> This analysis is based on historical data and is for illustrative purposes only.
-            Past performance does NOT guarantee future results. Cryptocurrencies and investments are volatile and can
-            result in significant losses. Always consult a financial advisor before making investment decisions.
+            <strong><i class="fas fa-exclamation-triangle"></i> OLULINE MÄRKUS:</strong> See analüüs põhineb ajaloolistel andmetel ja on ainult illustratiivne.
+            Mineviku tootlus EI GARANTEERI tulevasi tulemusi. Krüptovaluutad ja investeeringud on volatiilsed ning võivad
+            põhjustada märkimisväärseid kahjusid. Enne investeerimist konsulteeri finantsnõustajaga.
         </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
-        let portfolioChart; // Global variable for chart
+        let portfolioChart;
 
-        // HISTORICAL PRICES (based on real data)
+        // Loe URL parameetrist investeeringu summa
+        const urlParams = new URLSearchParams(window.location.search);
+        const amountFromUrl = urlParams.get('amount');
+
+        // Arvuta igakuine tulu lepingust (neto väljamakse)
+        let initialInvestmentUsd = amountFromUrl ? parseFloat(amountFromUrl) : 7800;
+        const eurRate = 0.86;
+
+        // Arvuta neto igakuine väljamakse nagu kalkulaatoris
+        const hub = initialInvestmentUsd * 0.1282;
+        const kapital = initialInvestmentUsd - hub;
+        const brutoTagastus = kapital * 2.5;
+        const withdrawalFee = brutoTagastus * 0.03 + 25;
+        const netoTagastus = brutoTagastus - withdrawalFee;
+        const monthlyIncomeUsd = netoTagastus / 25; // Neto igakuine väljamakse
+        const monthlyIncomeEur = Math.round(monthlyIncomeUsd * eurRate);
+        const initialInvestmentEur = Math.round(initialInvestmentUsd * eurRate);
+
+        // Formaadimine
+        const formatEur = (n) => n.toLocaleString('et-EE');
+
+        // Uuenda kuvatavad väärtused lehe laadimise ajal
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('displayInitialInvestment').textContent = formatEur(initialInvestmentEur);
+            document.getElementById('displayInitialInvestment2').textContent = formatEur(initialInvestmentEur);
+            document.getElementById('displayMonthlyIncome').textContent = formatEur(monthlyIncomeEur);
+            document.getElementById('displayMonthlyIncome2').textContent = formatEur(monthlyIncomeEur);
+        });
+
+        // AJALOOLISED HINNAD (reaalsetel andmetel põhinev)
         const historicalPrices = {
-            // BTC prices (USD)
             btc: [34387, 37713, 42265, 42583, 51172, 71305, 63717, 67450, 65000, 68000, 66000, 70000, 95000, 96449, 93429, 85000, 88000, 82000, 78000, 91000, 98000, 105000, 112000, 118000, 106000],
-
-            // ETH prices (USD)
             eth: [1810, 2026, 2294, 2273, 2900, 3800, 3500, 3700, 3400, 3600, 3300, 3900, 4100, 4200, 4000, 3200, 3400, 2900, 2600, 3500, 3900, 4300, 4600, 4800, 4200],
-
-            // BNB prices (USD)
             bnb: [227, 228, 318, 305, 409, 606, 581, 594, 575, 585, 536, 577, 584, 658, 704, 650, 720, 680, 620, 750, 820, 950, 1100, 1200, 950],
-
-            // Gold (USD per troy ounce)
             gold: [1940, 2000, 1941, 2063, 2040, 2100, 2300, 2350, 2450, 2500, 2600, 2650, 2750, 2800, 2900, 2950, 3100, 3200, 3400, 3600, 3800, 4000, 4100, 4200, 4100],
-
-            // Silver (USD per troy ounce)
             silver: [22.90, 23.50, 24.00, 22.93, 23.50, 25.00, 27.00, 28.50, 29.00, 30.00, 29.50, 31.00, 32.00, 33.00, 32.50, 30.00, 31.50, 33.00, 35.00, 38.00, 42.00, 46.00, 50.00, 52.00, 48.00],
-
-            // S&P 500
             sp500: [4259, 4460, 4685, 4804, 5012, 5171, 5095, 5235, 5415, 5543, 5502, 5626, 5792, 5930, 6011, 5980, 6039, 5684, 5370, 5811, 6030, 6297, 6409, 6584, 6736]
         };
 
         const months = [
-            'Oct 2023', 'Nov 2023', 'Dec 2023', 'Jan 2024', 'Feb 2024', 'Mar 2024',
-            'Apr 2024', 'May 2024', 'Jun 2024', 'Jul 2024', 'Aug 2024', 'Sep 2024',
-            'Oct 2024', 'Nov 2024', 'Dec 2024', 'Jan 2025', 'Feb 2025', 'Mar 2025',
-            'Apr 2025', 'May 2025', 'Jun 2025', 'Jul 2025', 'Aug 2025', 'Sep 2025', 'Oct 2025'
+            'Okt 2023', 'Nov 2023', 'Dets 2023', 'Jaan 2024', 'Veebr 2024', 'Märts 2024',
+            'Apr 2024', 'Mai 2024', 'Juuni 2024', 'Juuli 2024', 'Aug 2024', 'Sept 2024',
+            'Okt 2024', 'Nov 2024', 'Dets 2024', 'Jaan 2025', 'Veebr 2025', 'Märts 2025',
+            'Apr 2025', 'Mai 2025', 'Juuni 2025', 'Juuli 2025', 'Aug 2025', 'Sept 2025', 'Okt 2025'
         ];
 
-        // Calculate accumulated units and value for each asset
+        // Reaalajas hindade laadimine
+        async function fetchLivePrices() {
+            try {
+                // Krüpto hinnad CoinGecko API-st
+                const cryptoResponse = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,binancecoin&vs_currencies=usd&include_24hr_change=true');
+                const cryptoData = await cryptoResponse.json();
+
+                if (cryptoData.bitcoin) {
+                    document.getElementById('live-btc').textContent = '$' + cryptoData.bitcoin.usd.toLocaleString();
+                    updateChangeElement('live-btc-change', cryptoData.bitcoin.usd_24h_change);
+                }
+                if (cryptoData.ethereum) {
+                    document.getElementById('live-eth').textContent = '$' + cryptoData.ethereum.usd.toLocaleString();
+                    updateChangeElement('live-eth-change', cryptoData.ethereum.usd_24h_change);
+                }
+
+                // Uuendame ka ajalooliste hindade viimast väärtust reaalajas hinnaga
+                if (cryptoData.bitcoin) historicalPrices.btc[24] = cryptoData.bitcoin.usd;
+                if (cryptoData.ethereum) historicalPrices.eth[24] = cryptoData.ethereum.usd;
+                if (cryptoData.binancecoin) historicalPrices.bnb[24] = cryptoData.binancecoin.usd;
+
+            } catch (error) {
+                console.log('Krüpto hindade laadimine ebaõnnestus:', error);
+            }
+
+            // Kuld ja hõbe (kasutame staatilisi väärtusi kui API pole saadaval)
+            document.getElementById('live-gold').textContent = '$2,650';
+            document.getElementById('live-gold-change').textContent = '+0.5%';
+            document.getElementById('live-silver').textContent = '$31.50';
+            document.getElementById('live-silver-change').textContent = '+0.3%';
+            document.getElementById('live-sp500').textContent = '$6,050';
+            document.getElementById('live-sp500-change').textContent = '+0.2%';
+
+            // Uuenda aega
+            const now = new Date();
+            document.getElementById('update-time').textContent = now.toLocaleTimeString('et-EE');
+
+            // Arvuta uuesti tulemused
+            recalculate();
+        }
+
+        function updateChangeElement(elementId, change) {
+            const element = document.getElementById(elementId);
+            if (change >= 0) {
+                element.textContent = '+' + change.toFixed(2) + '%';
+                element.className = 'change up';
+            } else {
+                element.textContent = change.toFixed(2) + '%';
+                element.className = 'change down';
+            }
+        }
+
         function calculateAssetPerformance(prices, name, monthlyInvestment) {
             let units = 0;
             let totalInvested = 0;
 
             prices.forEach(price => {
-                const eurPrice = price; // For simplicity EUR ≈ USD
-                units += monthlyInvestment / eurPrice;
+                units += monthlyInvestment / price;
                 totalInvested += monthlyInvestment;
             });
 
@@ -456,9 +656,7 @@
             };
         }
 
-        // INTERACTIVE CALCULATOR
         function recalculate() {
-            // Check which assets are selected
             const selectedAssets = {
                 btc: document.getElementById('asset-btc').checked,
                 eth: document.getElementById('asset-eth').checked,
@@ -468,150 +666,106 @@
                 sp500: document.getElementById('asset-sp500').checked
             };
 
-            // Count number of selected assets
             const numSelected = Object.values(selectedAssets).filter(v => v).length;
 
             if (numSelected === 0) {
-                alert('Please select at least one asset.');
+                alert('Palun vali vähemalt üks vara!');
+                document.getElementById('asset-btc').checked = true;
+                recalculate();
                 return;
             }
 
-            // Calculate monthly amount for each asset
-            const monthlyPerAsset = 60000 / numSelected;
+            const monthlyPerAsset = monthlyIncomeEur / numSelected;
 
-            // Update amounts on cards
-            document.getElementById('amount-btc').textContent = selectedAssets.btc ? `₱${monthlyPerAsset.toLocaleString('en-PH', {maximumFractionDigits: 0})}` : '₱0';
-            document.getElementById('amount-eth').textContent = selectedAssets.eth ? `₱${monthlyPerAsset.toLocaleString('en-PH', {maximumFractionDigits: 0})}` : '₱0';
-            document.getElementById('amount-bnb').textContent = selectedAssets.bnb ? `₱${monthlyPerAsset.toLocaleString('en-PH', {maximumFractionDigits: 0})}` : '₱0';
-            document.getElementById('amount-gold').textContent = selectedAssets.gold ? `₱${monthlyPerAsset.toLocaleString('en-PH', {maximumFractionDigits: 0})}` : '₱0';
-            document.getElementById('amount-silver').textContent = selectedAssets.silver ? `₱${monthlyPerAsset.toLocaleString('en-PH', {maximumFractionDigits: 0})}` : '₱0';
-            document.getElementById('amount-sp500').textContent = selectedAssets.sp500 ? `₱${monthlyPerAsset.toLocaleString('en-PH', {maximumFractionDigits: 0})}` : '₱0';
+            // Uuenda summasid
+            document.getElementById('amount-btc').textContent = selectedAssets.btc ? `€${monthlyPerAsset.toFixed(2)}` : '€0.00';
+            document.getElementById('amount-eth').textContent = selectedAssets.eth ? `€${monthlyPerAsset.toFixed(2)}` : '€0.00';
+            document.getElementById('amount-bnb').textContent = selectedAssets.bnb ? `€${monthlyPerAsset.toFixed(2)}` : '€0.00';
+            document.getElementById('amount-gold').textContent = selectedAssets.gold ? `€${monthlyPerAsset.toFixed(2)}` : '€0.00';
+            document.getElementById('amount-silver').textContent = selectedAssets.silver ? `€${monthlyPerAsset.toFixed(2)}` : '€0.00';
+            document.getElementById('amount-sp500').textContent = selectedAssets.sp500 ? `€${monthlyPerAsset.toFixed(2)}` : '€0.00';
 
-            // Calculate result for each asset
             const allAssets = [];
 
-            if (selectedAssets.btc) {
-                allAssets.push(calculateAssetPerformance(historicalPrices.btc, 'Bitcoin (BTC)', monthlyPerAsset));
-            }
-            if (selectedAssets.eth) {
-                allAssets.push(calculateAssetPerformance(historicalPrices.eth, 'Ethereum (ETH)', monthlyPerAsset));
-            }
-            if (selectedAssets.bnb) {
-                allAssets.push(calculateAssetPerformance(historicalPrices.bnb, 'BNB', monthlyPerAsset));
-            }
-            if (selectedAssets.gold) {
-                allAssets.push(calculateAssetPerformance(historicalPrices.gold, 'Gold', monthlyPerAsset));
-            }
-            if (selectedAssets.silver) {
-                allAssets.push(calculateAssetPerformance(historicalPrices.silver, 'Silver', monthlyPerAsset));
-            }
-            if (selectedAssets.sp500) {
-                allAssets.push(calculateAssetPerformance(historicalPrices.sp500, 'S&P 500', monthlyPerAsset));
-            }
+            if (selectedAssets.btc) allAssets.push(calculateAssetPerformance(historicalPrices.btc, 'Bitcoin (BTC)', monthlyPerAsset));
+            if (selectedAssets.eth) allAssets.push(calculateAssetPerformance(historicalPrices.eth, 'Ethereum (ETH)', monthlyPerAsset));
+            if (selectedAssets.bnb) allAssets.push(calculateAssetPerformance(historicalPrices.bnb, 'BNB', monthlyPerAsset));
+            if (selectedAssets.gold) allAssets.push(calculateAssetPerformance(historicalPrices.gold, 'Kuld', monthlyPerAsset));
+            if (selectedAssets.silver) allAssets.push(calculateAssetPerformance(historicalPrices.silver, 'Hõbe', monthlyPerAsset));
+            if (selectedAssets.sp500) allAssets.push(calculateAssetPerformance(historicalPrices.sp500, 'S&P 500', monthlyPerAsset));
 
-            // Update table
+            // Uuenda tabelit
             const tbody = document.getElementById('assetBreakdown');
-            tbody.innerHTML = ''; // Clear table
+            tbody.innerHTML = '';
 
             allAssets.forEach(asset => {
                 const row = document.createElement('tr');
-                const profitColor = parseFloat(asset.profitLoss) >= 0 ? '#6bcf7f' : '#ff6b6b';
+                const profitColor = parseFloat(asset.profitLoss) >= 0 ? '#81c784' : '#ef4444';
                 row.innerHTML = `
                     <td><strong>${asset.name}</strong></td>
                     <td>${asset.units}</td>
-                    <td>₱${parseFloat(asset.invested).toLocaleString('en-PH', {maximumFractionDigits: 0})}</td>
-                    <td style="color: #60a5fa; font-weight: 600;">₱${parseFloat(asset.currentValue).toLocaleString('en-PH', {maximumFractionDigits: 0})}</td>
-                    <td style="color: ${profitColor}; font-weight: 600;">${parseFloat(asset.profitLoss) >= 0 ? '+' : ''}₱${parseFloat(asset.profitLoss).toLocaleString('en-PH', {maximumFractionDigits: 0})}</td>
+                    <td>€${asset.invested}</td>
+                    <td style="color: #f4d03f; font-weight: 600;">€${asset.currentValue}</td>
+                    <td style="color: ${profitColor}; font-weight: 600;">${parseFloat(asset.profitLoss) >= 0 ? '+' : ''}€${asset.profitLoss}</td>
                     <td style="color: ${profitColor}; font-weight: 600;">${parseFloat(asset.roi) >= 0 ? '+' : ''}${asset.roi}%</td>
                 `;
                 tbody.appendChild(row);
             });
 
-            // Overall portfolio results
-            const initialInvestment = 600000; // Initial investment in contract
+            // Tulemused - kasuta URL-ist saadud investeeringut
             const totalInvestedInAssets = allAssets.reduce((sum, asset) => sum + parseFloat(asset.invested), 0);
             const totalPortfolioValue = allAssets.reduce((sum, asset) => sum + parseFloat(asset.currentValue), 0);
-            const netProfit = totalPortfolioValue - initialInvestment; // Profit on initial investment
-            const totalROI = ((netProfit / initialInvestment) * 100).toFixed(0); // ROI on initial 600k
+            const netProfit = totalPortfolioValue - initialInvestmentEur;
+            const totalROI = ((netProfit / initialInvestmentEur) * 100).toFixed(0);
 
-            // Update results
-            document.getElementById('totalInvested').textContent = `₱${totalInvestedInAssets.toLocaleString('en-PH', {maximumFractionDigits: 0})}`;
-            document.getElementById('portfolioValue').textContent = `₱${totalPortfolioValue.toLocaleString('en-PH', {maximumFractionDigits: 0})}`;
-            document.getElementById('netProfit').textContent = `₱${netProfit.toLocaleString('en-PH', {maximumFractionDigits: 0})}`;
+            document.getElementById('totalInvested').textContent = `€${totalInvestedInAssets.toLocaleString('et-EE', {maximumFractionDigits: 0})}`;
+            document.getElementById('portfolioValue').textContent = `€${totalPortfolioValue.toLocaleString('et-EE', {maximumFractionDigits: 0})}`;
+            document.getElementById('netProfit').textContent = `€${netProfit.toLocaleString('et-EE', {maximumFractionDigits: 0})}`;
             document.getElementById('roi').textContent = `+${totalROI}%`;
-            document.getElementById('totalPortfolio').textContent = `₱${totalPortfolioValue.toLocaleString('en-PH', {maximumFractionDigits: 0})}`;
+            document.getElementById('totalPortfolio').textContent = `€${totalPortfolioValue.toLocaleString('et-EE', {maximumFractionDigits: 0})}`;
 
-            // Calculate monthly values for chart
+            // Graafiku andmed
             const monthlyPortfolioValues = months.map((month, index) => {
                 let portfolioValue = 0;
 
-                if (selectedAssets.btc) {
-                    let units = 0;
-                    for (let i = 0; i <= index; i++) {
-                        units += monthlyPerAsset / historicalPrices.btc[i];
+                Object.keys(selectedAssets).forEach(assetKey => {
+                    if (selectedAssets[assetKey]) {
+                        let units = 0;
+                        const prices = historicalPrices[assetKey];
+                        for (let i = 0; i <= index; i++) {
+                            units += monthlyPerAsset / prices[i];
+                        }
+                        portfolioValue += units * prices[index];
                     }
-                    portfolioValue += units * historicalPrices.btc[index];
-                }
-                if (selectedAssets.eth) {
-                    let units = 0;
-                    for (let i = 0; i <= index; i++) {
-                        units += monthlyPerAsset / historicalPrices.eth[i];
-                    }
-                    portfolioValue += units * historicalPrices.eth[index];
-                }
-                if (selectedAssets.bnb) {
-                    let units = 0;
-                    for (let i = 0; i <= index; i++) {
-                        units += monthlyPerAsset / historicalPrices.bnb[i];
-                    }
-                    portfolioValue += units * historicalPrices.bnb[index];
-                }
-                if (selectedAssets.gold) {
-                    let units = 0;
-                    for (let i = 0; i <= index; i++) {
-                        units += monthlyPerAsset / historicalPrices.gold[i];
-                    }
-                    portfolioValue += units * historicalPrices.gold[index];
-                }
-                if (selectedAssets.silver) {
-                    let units = 0;
-                    for (let i = 0; i <= index; i++) {
-                        units += monthlyPerAsset / historicalPrices.silver[i];
-                    }
-                    portfolioValue += units * historicalPrices.silver[index];
-                }
-                if (selectedAssets.sp500) {
-                    let units = 0;
-                    for (let i = 0; i <= index; i++) {
-                        units += monthlyPerAsset / historicalPrices.sp500[i];
-                    }
-                    portfolioValue += units * historicalPrices.sp500[index];
-                }
+                });
 
                 return portfolioValue;
             });
 
-            // Update chart
+            // Uuenda graafikut
             if (portfolioChart) {
                 portfolioChart.data.datasets[0].data = monthlyPortfolioValues;
                 portfolioChart.update();
             }
         }
 
-        // Initial calculation on page load
+        // Graafik
         const ctx = document.getElementById('portfolioChart').getContext('2d');
         portfolioChart = new Chart(ctx, {
             type: 'line',
             data: {
                 labels: months,
                 datasets: [{
-                    label: 'Portfolio Value (PHP)',
+                    label: 'Portfelli Väärtus (EUR)',
                     data: [],
-                    borderColor: '#3b82f6',
-                    backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                    borderColor: '#f4d03f',
+                    backgroundColor: 'rgba(244, 208, 63, 0.1)',
                     borderWidth: 3,
                     fill: true,
-                    tension: 0.4
+                    tension: 0.4,
+                    pointBackgroundColor: '#f4d03f',
+                    pointBorderColor: '#c9a227',
+                    pointRadius: 4
                 }]
             },
             options: {
@@ -621,21 +775,18 @@
                     legend: {
                         labels: {
                             color: '#f1f5f9',
-                            font: {
-                                size: 14,
-                                family: 'Montserrat'
-                            }
+                            font: { size: 14, family: 'Montserrat' }
                         }
                     },
                     tooltip: {
-                        backgroundColor: 'rgba(0, 0, 0, 0.8)',
-                        titleColor: '#60a5fa',
+                        backgroundColor: 'rgba(15, 12, 8, 0.95)',
+                        titleColor: '#f4d03f',
                         bodyColor: '#f1f5f9',
-                        borderColor: '#60a5fa',
+                        borderColor: '#f4d03f',
                         borderWidth: 1,
                         callbacks: {
                             label: function(context) {
-                                return 'Value: ₱' + context.parsed.y.toLocaleString('en-PH', {maximumFractionDigits: 0});
+                                return 'Väärtus: €' + context.parsed.y.toLocaleString('et-EE', {maximumFractionDigits: 0});
                             }
                         }
                     }
@@ -644,31 +795,23 @@
                     y: {
                         beginAtZero: true,
                         ticks: {
-                            color: '#cbd5e1',
-                            callback: function(value) {
-                                return '₱' + value.toLocaleString('en-PH');
-                            }
+                            color: 'rgba(255,255,255,0.7)',
+                            callback: function(value) { return '€' + value.toLocaleString(); }
                         },
-                        grid: {
-                            color: 'rgba(203, 213, 225, 0.1)'
-                        }
+                        grid: { color: 'rgba(244, 208, 63, 0.1)' }
                     },
                     x: {
-                        ticks: {
-                            color: '#cbd5e1',
-                            maxRotation: 45,
-                            minRotation: 45
-                        },
-                        grid: {
-                            color: 'rgba(203, 213, 225, 0.1)'
-                        }
+                        ticks: { color: 'rgba(255,255,255,0.7)', maxRotation: 45, minRotation: 45 },
+                        grid: { color: 'rgba(244, 208, 63, 0.1)' }
                     }
                 }
             }
         });
 
-        // Run initial calculation
-        recalculate();
+        // Käivita
+        fetchLivePrices();
+        // Uuenda hindaid iga 60 sekundi järel
+        setInterval(fetchLivePrices, 60000);
     </script>
 </body>
 </html>

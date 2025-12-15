@@ -9,18 +9,20 @@
     <div style="position: relative; z-index: 2; display: flex; flex-direction: column; justify-content: center; align-items: center; min-height: 100vh; padding: 40px;">
 
         <!-- Gold Line -->
-        <div class="fragment" style="width: 120px; height: 4px; background: linear-gradient(90deg, #c9a227, #f4d03f, #c9a227); margin-bottom: 30px; border-radius: 2px; box-shadow: 0 2px 15px rgba(201, 162, 39, 0.5);"></div>
+        <div style="width: 120px; height: 4px; background: linear-gradient(90deg, #c9a227, #f4d03f, #c9a227); margin-bottom: 30px; border-radius: 2px; box-shadow: 0 2px 15px rgba(201, 162, 39, 0.5);"></div>
 
         <!-- Title -->
-        <div class="fragment" style="font-family: 'Montserrat', sans-serif; font-size: 2.5em; font-weight: 700; color: white; text-align: center; margin-bottom: 10px; text-shadow: 0 4px 20px rgba(0,0,0,0.5);">
-            <i class="fas fa-user-circle" style="color: #f4d03f; margin-right: 15px;"></i>Presenter Setup
+        <div style="font-family: 'Montserrat', sans-serif; font-size: 2.5em; font-weight: 700; color: white; text-align: center; margin-bottom: 5px; text-shadow: 0 4px 20px rgba(0,0,0,0.5);">
+            <i class="fas fa-user-circle" style="color: #f4d03f; margin-right: 15px;"></i>ตั้งค่าผู้นำเสนอ
         </div>
-        <div class="fragment" style="font-family: 'Open Sans', sans-serif; font-size: 1.2em; color: rgba(255,255,255,0.7); text-align: center; margin-bottom: 40px;">
-            Add your photo that will be displayed throughout the presentation
+        <div style="font-size: 0.9em; color: rgba(255,255,255,0.5); text-align: center; margin-bottom: 10px;">Presenter Setup</div>
+        <div style="font-family: 'Open Sans', sans-serif; font-size: 1.1em; color: rgba(255,255,255,0.7); text-align: center; margin-bottom: 40px;">
+            เพิ่มรูปภาพของคุณที่จะแสดงตลอดการนำเสนอ
+            <div style="font-size: 0.8em; color: rgba(255,255,255,0.4); margin-top: 5px;">Add your photo that will be displayed throughout the presentation</div>
         </div>
 
         <!-- Setup Card -->
-        <div class="fragment" style="background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05)); backdrop-filter: blur(20px); border-radius: 25px; padding: 50px; border: 2px solid rgba(244, 208, 63, 0.3); box-shadow: 0 20px 60px rgba(0,0,0,0.4); max-width: 600px; width: 100%;">
+        <div style="background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05)); backdrop-filter: blur(20px); border-radius: 25px; padding: 50px; border: 2px solid rgba(244, 208, 63, 0.3); box-shadow: 0 20px 60px rgba(0,0,0,0.4); max-width: 600px; width: 100%;">
 
             <!-- Photo Preview -->
             <div style="text-align: center; margin-bottom: 30px;">
@@ -28,46 +30,46 @@
                     <img id="presenterPhotoImg" src="LOGOS/Vambola Tullus.jpg" style="width: 100%; height: 100%; object-fit: cover; display: block;" alt="Presenter">
                 </div>
                 <div id="presenterName" style="font-family: 'Montserrat', sans-serif; font-size: 1.3em; font-weight: 600; color: #f4d03f; margin-bottom: 5px;">Vambola Tullus</div>
-                <div style="font-size: 0.9em; color: rgba(255,255,255,0.6);">Current presenter</div>
+                <div style="font-size: 0.9em; color: rgba(255,255,255,0.6);">ผู้นำเสนอปัจจุบัน <span style="font-size: 0.8em; opacity: 0.7;">(Current presenter)</span></div>
             </div>
 
             <!-- Upload Section -->
             <div style="text-align: center;">
                 <label for="presenterPhotoInput" style="display: inline-block; background: linear-gradient(135deg, #c9a227, #f4d03f); color: #0f0c08; padding: 15px 40px; border-radius: 50px; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 1em; cursor: pointer; box-shadow: 0 10px 30px rgba(201, 162, 39, 0.4); transition: all 0.3s; border: none;">
-                    <i class="fas fa-camera" style="margin-right: 10px;"></i>Choose New Photo
+                    <i class="fas fa-camera" style="margin-right: 10px;"></i>เลือกรูปใหม่
                 </label>
                 <input type="file" id="presenterPhotoInput" accept="image/*" style="display: none;" onchange="handlePhotoUpload(event)">
 
-                <!-- Confirmation Button (appears after upload) -->
+                <!-- Confirmation Button -->
                 <div id="confirmSection" style="display: none; margin-top: 20px;">
                     <button onclick="confirmPhoto()" style="background: linear-gradient(135deg, #10b981, #059669); color: white; padding: 12px 30px; border-radius: 30px; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 0.95em; cursor: pointer; box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4); border: none;">
-                        <i class="fas fa-check" style="margin-right: 8px;"></i>Confirm Photo
+                        <i class="fas fa-check" style="margin-right: 8px;"></i>ยืนยันรูปภาพ
                     </button>
                 </div>
 
                 <!-- Status Message -->
                 <div id="statusMessage" style="margin-top: 15px; font-size: 0.9em; color: #10b981; display: none;">
                     <i class="fas fa-check-circle" style="margin-right: 5px;"></i>
-                    <span id="statusText">Photo updated!</span>
+                    <span id="statusText">อัพเดทรูปแล้ว!</span>
                 </div>
 
                 <div style="margin-top: 15px; font-size: 0.85em; color: rgba(255,255,255,0.5);">
-                    <i class="fas fa-info-circle" style="margin-right: 5px;"></i>Recommended: square photo (min 200x200px)
+                    <i class="fas fa-info-circle" style="margin-right: 5px;"></i>แนะนำ: รูปสี่เหลี่ยมจัตุรัส (ขั้นต่ำ 200x200px)
                 </div>
             </div>
 
             <!-- Name Input -->
             <div style="margin-top: 30px; padding-top: 25px; border-top: 1px solid rgba(244, 208, 63, 0.2);">
                 <label style="display: block; font-size: 0.9em; color: rgba(255,255,255,0.7); margin-bottom: 10px;">
-                    <i class="fas fa-user" style="margin-right: 8px; color: #f4d03f;"></i>Presenter Name
+                    <i class="fas fa-user" style="margin-right: 8px; color: #f4d03f;"></i>ชื่อผู้นำเสนอ <span style="font-size: 0.8em; opacity: 0.7;">(Presenter Name)</span>
                 </label>
-                <input type="text" id="presenterNameInput" placeholder="Your name" value="Vambola Tullus" style="width: 100%; padding: 15px 20px; border-radius: 15px; border: 2px solid rgba(244, 208, 63, 0.3); background: rgba(255,255,255,0.05); color: white; font-size: 1.1em; font-family: 'Open Sans', sans-serif; outline: none; transition: border-color 0.3s;" onfocus="this.style.borderColor='#f4d03f'" onblur="this.style.borderColor='rgba(244, 208, 63, 0.3)'" oninput="updatePresenterName()">
+                <input type="text" id="presenterNameInput" placeholder="ชื่อของคุณ" value="Vambola Tullus" style="width: 100%; padding: 15px 20px; border-radius: 15px; border: 2px solid rgba(244, 208, 63, 0.3); background: rgba(255,255,255,0.05); color: white; font-size: 1.1em; font-family: 'Open Sans', sans-serif; outline: none; transition: border-color 0.3s;" onfocus="this.style.borderColor='#f4d03f'" onblur="this.style.borderColor='rgba(244, 208, 63, 0.3)'" oninput="updatePresenterName()">
             </div>
 
             <!-- Preset Photos -->
             <div style="margin-top: 25px; padding-top: 25px; border-top: 1px solid rgba(244, 208, 63, 0.2);">
                 <div style="font-size: 0.9em; color: rgba(255,255,255,0.7); margin-bottom: 15px; text-align: center;">
-                    <i class="fas fa-users" style="margin-right: 8px; color: #f4d03f;"></i>Or select an existing presenter:
+                    <i class="fas fa-users" style="margin-right: 8px; color: #f4d03f;"></i>หรือเลือกผู้นำเสนอที่มีอยู่:
                 </div>
                 <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
                     <div onclick="selectPresetPresenter('LOGOS/Vambola Tullus.jpg', 'Vambola Tullus')" style="cursor: pointer; text-align: center; transition: transform 0.3s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
@@ -80,16 +82,17 @@
         </div>
 
         <!-- Start Button -->
-        <div class="fragment" style="margin-top: 40px;">
+        <div style="margin-top: 40px;">
             <button onclick="startPresentation()" style="background: linear-gradient(135deg, #10b981, #059669); color: white; padding: 20px 60px; border-radius: 50px; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 1.3em; cursor: pointer; box-shadow: 0 15px 40px rgba(16, 185, 129, 0.4); border: none; transition: all 0.3s;">
-                <i class="fas fa-play" style="margin-right: 15px;"></i>Start Presentation
+                <i class="fas fa-play" style="margin-right: 15px;"></i>เริ่มการนำเสนอ
             </button>
+            <div style="font-size: 0.8em; color: rgba(255,255,255,0.4); margin-top: 8px; text-align: center;">Start Presentation</div>
         </div>
 
         <!-- Skip Link -->
         <div style="margin-top: 20px;">
             <a href="javascript:void(0)" onclick="skipSetup()" style="color: rgba(255,255,255,0.5); font-size: 0.9em; text-decoration: none;">
-                <i class="fas fa-forward" style="margin-right: 5px;"></i>Skip (use defaults)
+                <i class="fas fa-forward" style="margin-right: 5px;"></i>ข้าม (ใช้ค่าเริ่มต้น)
             </a>
         </div>
 
@@ -98,11 +101,9 @@
     </div>
 
     <script>
-    // Lae salvestatud foto localStorage-ist
     document.addEventListener('DOMContentLoaded', function() {
         const savedPhoto = localStorage.getItem('presenterPhoto');
         const savedName = localStorage.getItem('presenterName');
-
         if (savedPhoto) {
             document.getElementById('presenterPhotoImg').src = savedPhoto;
         }
@@ -112,10 +113,8 @@
         }
     });
 
-    // Ajutine foto andmed
     let pendingPhotoData = null;
 
-    // Vähenda pildi suurust (compress)
     function compressImage(file, maxWidth, maxHeight, quality) {
         return new Promise((resolve) => {
             const reader = new FileReader();
@@ -125,8 +124,6 @@
                     const canvas = document.createElement('canvas');
                     let width = img.width;
                     let height = img.height;
-
-                    // Arvuta uus suurus, säilitades proportsiooni
                     if (width > height) {
                         if (width > maxWidth) {
                             height = Math.round((height * maxWidth) / width);
@@ -138,14 +135,10 @@
                             height = maxHeight;
                         }
                     }
-
                     canvas.width = width;
                     canvas.height = height;
-
                     const ctx = canvas.getContext('2d');
                     ctx.drawImage(img, 0, 0, width, height);
-
-                    // Tagasta kompresseeritud pilt
                     resolve(canvas.toDataURL('image/jpeg', quality));
                 };
                 img.src = e.target.result;
@@ -154,56 +147,37 @@
         });
     }
 
-    // Käitle foto üleslaadimist
     async function handlePhotoUpload(event) {
         const file = event.target.files[0];
         if (file) {
-            // Näita laadimise teadet
             document.getElementById('statusMessage').style.display = 'block';
-            document.getElementById('statusText').textContent = 'Processing image...';
+            document.getElementById('statusText').textContent = 'กำลังประมวลผลภาพ...';
             document.getElementById('statusMessage').style.color = '#f4d03f';
-
             try {
-                // Kompresseeri pilt (max 400x400, 80% kvaliteet)
                 pendingPhotoData = await compressImage(file, 400, 400, 0.8);
-
                 document.getElementById('presenterPhotoImg').src = pendingPhotoData;
-                // Näita kinnitamise nuppu
                 document.getElementById('confirmSection').style.display = 'block';
                 document.getElementById('statusMessage').style.display = 'none';
             } catch (error) {
-                document.getElementById('statusText').textContent = 'Error processing image!';
+                document.getElementById('statusText').textContent = 'เกิดข้อผิดพลาดในการประมวลผลภาพ!';
                 document.getElementById('statusMessage').style.color = '#ef4444';
-                console.error('Pildi töötlemise viga:', error);
             }
         }
     }
 
-    // Kinnita foto ja uuenda kõik slaidid
     function confirmPhoto() {
         if (pendingPhotoData) {
             localStorage.setItem('presenterPhoto', pendingPhotoData);
-
-            // Uuenda KÕIK presenter-photo klassiga pildid
             const allPhotos = document.querySelectorAll('.presenter-photo');
-            console.log('Leitud ' + allPhotos.length + ' esineja fotot');
-
-            allPhotos.forEach(img => {
-                img.src = pendingPhotoData;
-            });
-
-            // Näita edu teadet
+            allPhotos.forEach(img => { img.src = pendingPhotoData; });
             document.getElementById('confirmSection').style.display = 'none';
             document.getElementById('statusMessage').style.display = 'block';
-            document.getElementById('statusText').textContent = 'Foto uuendatud ' + allPhotos.length + ' kohas!';
-
+            document.getElementById('statusText').textContent = 'อัพเดทรูปแล้ว ' + allPhotos.length + ' ตำแหน่ง!';
             pendingPhotoData = null;
         }
     }
 
-    // Vali eelseadistatud esineja
     function selectPresetPresenter(photoUrl, name) {
-        // Lae pilt esmalt, et saada base64 versioon
         fetch(photoUrl)
             .then(response => response.blob())
             .then(blob => {
@@ -212,65 +186,42 @@
                     const photoData = e.target.result;
                     document.getElementById('presenterPhotoImg').src = photoData;
                     localStorage.setItem('presenterPhoto', photoData);
-                    // Uuenda kohe kõik fotod
-                    document.querySelectorAll('.presenter-photo').forEach(img => {
-                        img.src = photoData;
-                    });
+                    document.querySelectorAll('.presenter-photo').forEach(img => { img.src = photoData; });
                 };
                 reader.readAsDataURL(blob);
             })
             .catch(() => {
-                // Fallback: kasuta otse URL-i
                 document.getElementById('presenterPhotoImg').src = photoUrl;
                 localStorage.setItem('presenterPhoto', photoUrl);
             });
-
         document.getElementById('presenterName').textContent = name;
         document.getElementById('presenterNameInput').value = name;
         localStorage.setItem('presenterName', name);
     }
 
-    // Uuenda esineja nime
     function updatePresenterName() {
         const name = document.getElementById('presenterNameInput').value;
-        document.getElementById('presenterName').textContent = name || 'Presenter';
+        document.getElementById('presenterName').textContent = name || 'ผู้นำเสนอ';
         localStorage.setItem('presenterName', name);
     }
 
-    // Alusta esitlust
     function startPresentation() {
-        // Kui on kinnitamata foto, kinnita see esmalt
-        if (pendingPhotoData) {
-            confirmPhoto();
-        }
-
-        // Salvesta viimased väärtused
+        if (pendingPhotoData) { confirmPhoto(); }
         const name = document.getElementById('presenterNameInput').value;
         localStorage.setItem('presenterName', name);
-
-        // Uuenda kõik fotod enne slaidi vahetust
         const savedPhoto = localStorage.getItem('presenterPhoto');
         if (savedPhoto) {
-            document.querySelectorAll('.presenter-photo').forEach(img => {
-                img.src = savedPhoto;
-            });
+            document.querySelectorAll('.presenter-photo').forEach(img => { img.src = savedPhoto; });
         }
-
-        // Mine järgmisele slaidile
         if (typeof goToSlide === 'function') {
             goToSlide(1);
         } else {
-            // Fallback: otse järgmine slaid
             const slides = document.querySelectorAll('.slide');
             slides[0].classList.remove('active');
             slides[1].classList.add('active');
         }
     }
 
-    // Jäta seadistamine vahele
-    function skipSetup() {
-        startPresentation();
-    }
-
+    function skipSetup() { startPresentation(); }
     </script>
 </div>

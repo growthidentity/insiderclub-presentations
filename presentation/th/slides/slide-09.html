@@ -1,6 +1,6 @@
-<div class="slide premium-slide" style="position: relative; overflow: visible; background: linear-gradient(135deg, rgba(15, 12, 8, 1) 0%, rgba(30, 25, 18, 1) 50%, rgba(15, 12, 8, 1) 100%); min-height: 100vh;">
+<div class="slide premium-slide" style="position: relative; overflow: hidden;">
     <!-- Background Image -->
-    <div style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none;">
+    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0;">
         <img src="https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?w=1920&q=95" alt="World Map" style="width: 100%; height: 100%; object-fit: cover;">
         <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(15, 12, 8, 0.94) 0%, rgba(30, 25, 18, 0.90) 50%, rgba(15, 12, 8, 0.94) 100%);"></div>
     </div>
@@ -12,10 +12,13 @@
         <div style="display: flex; justify-content: flex-end; align-items: center; margin-bottom: 30px;">
             <div style="display: flex; align-items: center; gap: 15px;">
                 <div style="background: linear-gradient(135deg, rgba(201, 162, 39, 0.3), rgba(244, 208, 63, 0.2)); padding: 12px 30px; border-radius: 25px; border: 1px solid rgba(244, 208, 63, 0.5);">
-                    <span style="color: #f4d03f; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 16px; letter-spacing: 2px;" data-translate="PRICE DIFFERENCES">PRICE DIFFERENCES</span>
+                    <span style="color: #f4d03f; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 16px; letter-spacing: 2px;">
+                        ความแตกต่างของราคา
+                        <div style="font-size: 0.7em; opacity: 0.7; margin-top: 2px;">PRICE DIFFERENCES</div>
+                    </span>
                 </div>
                 <div style="width: 55px; height: 55px; border-radius: 50%; overflow: hidden; border: 3px solid #f4d03f; box-shadow: 0 5px 20px rgba(244, 208, 63, 0.4);">
-                    <img class="presenter-photo" src="LOGOS/Vambola Tullus.jpg" style="width: 100%; height: 100%; object-fit: cover;" alt="Presenter">
+                    <img class="presenter-photo" src="LOGOS/Vambola Tullus.jpg" style="width: 100%; height: 100%; object-fit: cover;" alt="Esineja">
                 </div>
             </div>
         </div>
@@ -28,43 +31,86 @@
 
             <!-- Title -->
             <div class="fragment" style="font-family: 'Montserrat', sans-serif; font-size: 2.8em; font-weight: 700; color: white; margin-bottom: 8px; text-shadow: 0 4px 20px rgba(0,0,0,0.5);">
-                <span data-translate="USDT Price Differences">USDT Price Differences</span>
+                ความแตกต่างของราคา USDT
+                <div style="font-size: 0.5em; opacity: 0.7; margin-top: 8px; font-weight: 400;">USDT Price Differences</div>
             </div>
-            <div class="fragment" style="font-family: 'Open Sans', sans-serif; font-size: 1.2em; font-weight: 300; color: rgba(255,255,255,0.8); margin-bottom: 35px; letter-spacing: 1px;" data-translate="Illustrative example - price differences between countries">
-                Illustrative example - price differences between countries
+            <div class="fragment" style="font-family: 'Open Sans', sans-serif; font-size: 1.2em; font-weight: 300; color: rgba(255,255,255,0.8); margin-bottom: 35px; letter-spacing: 1px;">
+                ตัวอย่างประกอบ - ความแตกต่างของราคาระหว่างประเทศ
+                <div style="font-size: 0.75em; opacity: 0.7; margin-top: 4px;">Illustrative example - price differences between countries</div>
             </div>
 
             <!-- Price Table -->
             <div class="fragment" style="background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05)); backdrop-filter: blur(15px); border-radius: 20px; padding: 30px; border: 1px solid rgba(244, 208, 63, 0.25); box-shadow: 0 15px 40px rgba(0,0,0,0.3); margin-bottom: 30px;">
                 <!-- Table Header -->
                 <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; padding-bottom: 15px; border-bottom: 2px solid rgba(244, 208, 63, 0.3); margin-bottom: 15px;">
-                    <div style="font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: 700; color: #f4d03f; letter-spacing: 1px;" data-translate="COUNTRY">COUNTRY</div>
-                    <div style="font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: 700; color: #f4d03f; letter-spacing: 1px; text-align: center;" data-translate="USDT PRICE">USDT PRICE</div>
-                    <div style="font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: 700; color: #f4d03f; letter-spacing: 1px; text-align: right;" data-translate="DIFFERENCE">DIFFERENCE</div>
+                    <div style="font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: 700; color: #f4d03f; letter-spacing: 1px;">
+                        ประเทศ
+                        <div style="font-size: 0.85em; opacity: 0.8; margin-top: 2px;">COUNTRY</div>
+                    </div>
+                    <div style="font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: 700; color: #f4d03f; letter-spacing: 1px; text-align: center;">
+                        ราคา USDT
+                        <div style="font-size: 0.85em; opacity: 0.8; margin-top: 2px;">USDT PRICE</div>
+                    </div>
+                    <div style="font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: 700; color: #f4d03f; letter-spacing: 1px; text-align: right;">
+                        ส่วนต่าง
+                        <div style="font-size: 0.85em; opacity: 0.8; margin-top: 2px;">DIFFERENCE</div>
+                    </div>
                 </div>
                 <!-- Row 1 -->
                 <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; padding: 15px 0; border-bottom: 1px solid rgba(255,255,255,0.1);">
-                    <div style="display: flex; align-items: center; gap: 10px; color: white; font-size: 16px;"><i class="fas fa-map-marker-alt" style="color: #f4d03f;"></i> Philippines / Dubai</div>
+                    <div style="display: flex; align-items: center; gap: 10px; color: white; font-size: 16px;">
+                        <i class="fas fa-map-marker-alt" style="color: #f4d03f;"></i> ฟิลิปปินส์ / ดูไบ
+                        <div style="font-size: 0.8em; opacity: 0.7; margin-left: 22px;">Philippines / Dubai</div>
+                    </div>
                     <div style="color: white; font-size: 18px; font-weight: 600; text-align: center;">$1.00</div>
-                    <div style="text-align: right;"><span style="background: #10b981; color: white; padding: 5px 15px; border-radius: 20px; font-size: 14px; font-weight: 600;">BUY HERE</span></div>
+                    <div style="text-align: right;">
+                        <span style="background: #10b981; color: white; padding: 5px 15px; border-radius: 20px; font-size: 14px; font-weight: 600;">
+                            ซื้อที่นี่
+                            <div style="font-size: 0.8em; opacity: 0.9;">BUY HERE</div>
+                        </span>
+                    </div>
                 </div>
                 <!-- Row 2 -->
                 <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; padding: 15px 0; border-bottom: 1px solid rgba(255,255,255,0.1);">
-                    <div style="display: flex; align-items: center; gap: 10px; color: white; font-size: 16px;"><i class="fas fa-map-marker-alt" style="color: #ef4444;"></i> India</div>
+                    <div style="display: flex; align-items: center; gap: 10px; color: white; font-size: 16px;">
+                        <i class="fas fa-map-marker-alt" style="color: #ef4444;"></i> อินเดีย
+                        <div style="font-size: 0.8em; opacity: 0.7; margin-left: 22px;">India</div>
+                    </div>
                     <div style="color: white; font-size: 18px; font-weight: 600; text-align: center;">$1.05</div>
-                    <div style="text-align: right;"><span style="background: #ef4444; color: white; padding: 5px 15px; border-radius: 20px; font-size: 14px; font-weight: 600;">SELL +5%</span></div>
+                    <div style="text-align: right;">
+                        <span style="background: #ef4444; color: white; padding: 5px 15px; border-radius: 20px; font-size: 14px; font-weight: 600;">
+                            ขาย +5%
+                            <div style="font-size: 0.8em; opacity: 0.9;">SELL +5%</div>
+                        </span>
+                    </div>
                 </div>
                 <!-- Row 3 -->
                 <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; padding: 15px 0; border-bottom: 1px solid rgba(255,255,255,0.1);">
-                    <div style="display: flex; align-items: center; gap: 10px; color: white; font-size: 16px;"><i class="fas fa-map-marker-alt" style="color: #ef4444;"></i> Nepal</div>
+                    <div style="display: flex; align-items: center; gap: 10px; color: white; font-size: 16px;">
+                        <i class="fas fa-map-marker-alt" style="color: #ef4444;"></i> เนปาล
+                        <div style="font-size: 0.8em; opacity: 0.7; margin-left: 22px;">Nepal</div>
+                    </div>
                     <div style="color: white; font-size: 18px; font-weight: 600; text-align: center;">$1.10</div>
-                    <div style="text-align: right;"><span style="background: #ef4444; color: white; padding: 5px 15px; border-radius: 20px; font-size: 14px; font-weight: 600;">SELL +10%</span></div>
+                    <div style="text-align: right;">
+                        <span style="background: #ef4444; color: white; padding: 5px 15px; border-radius: 20px; font-size: 14px; font-weight: 600;">
+                            ขาย +10%
+                            <div style="font-size: 0.8em; opacity: 0.9;">SELL +10%</div>
+                        </span>
+                    </div>
                 </div>
                 <!-- Row 4 -->
                 <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; padding: 15px 0;">
-                    <div style="display: flex; align-items: center; gap: 10px; color: white; font-size: 16px;"><i class="fas fa-map-marker-alt" style="color: #ef4444;"></i> Bangladesh</div>
+                    <div style="display: flex; align-items: center; gap: 10px; color: white; font-size: 16px;">
+                        <i class="fas fa-map-marker-alt" style="color: #ef4444;"></i> บังกลาเทศ
+                        <div style="font-size: 0.8em; opacity: 0.7; margin-left: 22px;">Bangladesh</div>
+                    </div>
                     <div style="color: white; font-size: 18px; font-weight: 600; text-align: center;">$1.15</div>
-                    <div style="text-align: right;"><span style="background: linear-gradient(135deg, #ef4444, #f97316); color: white; padding: 5px 15px; border-radius: 20px; font-size: 14px; font-weight: 600;">SELL +15%</span></div>
+                    <div style="text-align: right;">
+                        <span style="background: linear-gradient(135deg, #ef4444, #f97316); color: white; padding: 5px 15px; border-radius: 20px; font-size: 14px; font-weight: 600;">
+                            ขาย +15%
+                            <div style="font-size: 0.8em; opacity: 0.9;">SELL +15%</div>
+                        </span>
+                    </div>
                 </div>
             </div>
 
@@ -73,11 +119,15 @@
                 <div style="display: flex; align-items: flex-start; gap: 15px;">
                     <i class="fas fa-lightbulb" style="font-size: 24px; color: #10b981; margin-top: 2px;"></i>
                     <div>
-                        <div style="font-family: 'Montserrat', sans-serif; font-size: 16px; font-weight: 600; color: #10b981; margin-bottom: 8px;" data-translate="Illustrative Example">Illustrative Example</div>
+                        <div style="font-family: 'Montserrat', sans-serif; font-size: 16px; font-weight: 600; color: #10b981; margin-bottom: 8px;">
+                            ตัวอย่างประกอบ
+                            <div style="font-size: 0.8em; opacity: 0.8; margin-top: 2px;">Illustrative Example</div>
+                        </div>
                         <div style="color: rgba(255,255,255,0.9); font-size: 16px; line-height: 1.6;">
-                            <span data-translate="Buy in Dubai $1.00 → Sell in Bangladesh $1.15 = 15% profit">Buy in Dubai $1.00 → Sell in Bangladesh $1.15 = <strong style="color: #f4d03f;">15% profit</strong></span><br>
-                            <span data-translate="Repeat this daily with large volumes = stable income">Repeat this daily with large volumes = stable income</span><br>
-                            <em style="font-size: 14px; opacity: 0.7;" data-translate="*Illustrative example, actual prices may vary">*Illustrative example, actual prices may vary</em>
+                            ซื้อที่ดูไบ $1.00 → ขายที่บังกลาเทศ $1.15 = <strong style="color: #f4d03f;">15% กำไร</strong><br>
+                            ทำซ้ำทุกวันด้วยปริมาณมาก = รายได้ที่มั่นคง<br>
+                            <em style="font-size: 14px; opacity: 0.7;">*ตัวอย่างประกอบ ราคาจริงอาจแตกต่างกัน</em>
+                            <div style="font-size: 0.85em; opacity: 0.7; margin-top: 4px;">Buy in Dubai $1.00 → Sell in Bangladesh $1.15 = 15% profit<br>Repeat daily with large volumes = stable income<br>*Illustrative example, actual prices may vary</div>
                         </div>
                     </div>
                 </div>

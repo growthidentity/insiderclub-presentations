@@ -1,6 +1,6 @@
-<div class="slide calculator-premium-slide" style="position: relative; width: 100%; overflow: visible; background: linear-gradient(135deg, rgba(20, 15, 10, 1) 0%, rgba(40, 30, 20, 1) 50%, rgba(20, 15, 10, 1) 100%); min-height: 100vh;">
+<div class="slide calculator-premium-slide" style="position: relative; width: 100%; height: 100%; overflow: hidden;">
     <!-- Background -->
-    <div style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none;">
+    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0;">
         <img src="https://images.unsplash.com/photo-1551836022-4c4c79ecde51?w=1920&q=95" alt="Gold coins" style="width: 100%; height: 100%; object-fit: cover;">
         <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(20, 15, 10, 0.92) 0%, rgba(40, 30, 20, 0.88) 50%, rgba(20, 15, 10, 0.92) 100%);"></div>
     </div>
@@ -14,57 +14,71 @@
         <!-- Title -->
         <div class="fragment" style="text-align: center; margin-bottom: 25px;">
             <div style="font-family: 'Montserrat', sans-serif; font-size: 2.4em; font-weight: 700; color: white; letter-spacing: 4px; text-shadow: 0 4px 20px rgba(0,0,0,0.5); margin-bottom: 8px;">
-                <i class="fas fa-calculator" style="color: #f4d03f; margin-right: 15px;"></i><span data-translate="INVESTMENT CALCULATOR">INVESTMENT CALCULATOR</span>
+                <i class="fas fa-calculator" style="color: #f4d03f; margin-right: 15px;"></i>เครื่องคำนวณการลงทุน
+                <div style="font-size: 0.75em; opacity: 0.7; font-weight: 400; letter-spacing: 1px; margin-top: 5px;">Investment Calculator</div>
             </div>
-            <div style="font-family: 'Open Sans', sans-serif; font-size: 1.1em; font-weight: 300; color: rgba(255,255,255,0.8); letter-spacing: 2px;" data-translate="Drag slider to calculate">
-                Change the amount and see the result instantly - all numbers transparent
+            <div style="font-family: 'Open Sans', sans-serif; font-size: 1.1em; font-weight: 300; color: rgba(255,255,255,0.8); letter-spacing: 2px;">
+                เปลี่ยนจำนวนเงินและดูผลทันที — ตัวเลขทุกอย่างโปร่งใส
+                <div style="font-size: 0.75em; opacity: 0.7; margin-top: 3px;">Change the amount and see instant results — all numbers transparent</div>
             </div>
         </div>
 
         <!-- Calculator Container -->
-        <div style="max-width: 1300px; margin: 0 auto; width: 100%;">
+        <div class="fragment" style="max-width: 1300px; margin: 0 auto; width: 100%;">
             <div style="display: flex; gap: 25px; align-items: stretch;">
 
                 <!-- Left: Investment Input -->
-                <div class="fragment" style="flex: 1; background: linear-gradient(135deg, rgba(255,255,255,0.12), rgba(255,255,255,0.05)); backdrop-filter: blur(20px); border-radius: 20px; padding: 25px; border: 1px solid rgba(255,255,255,0.15); box-shadow: 0 15px 40px rgba(0,0,0,0.3);">
+                <div style="flex: 1; background: linear-gradient(135deg, rgba(255,255,255,0.12), rgba(255,255,255,0.05)); backdrop-filter: blur(20px); border-radius: 20px; padding: 25px; border: 1px solid rgba(255,255,255,0.15); box-shadow: 0 15px 40px rgba(0,0,0,0.3);">
 
                     <!-- Input Header -->
                     <div style="text-align: center; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid rgba(255,255,255,0.15);">
-                        <div style="font-size: 11px; color: rgba(255,255,255,0.6); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 3px;" data-translate="Total Investment">Total Investment</div>
+                        <div style="font-size: 11px; color: rgba(255,255,255,0.6); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 3px;">การลงทุนทั้งหมด
+                            <div style="font-size: 0.75em; opacity: 0.7;">Total Investment</div>
+                        </div>
                         <div style="display: flex; align-items: center; justify-content: center; gap: 5px;">
                             <span style="font-size: 38px; font-weight: 900; font-family: 'Montserrat', sans-serif; color: #f4d03f;">$</span>
                             <input type="number" id="calcTotal" value="7800" min="100" step="100"
                                 style="font-size: 38px; font-weight: 900; font-family: 'Montserrat', sans-serif; color: #f4d03f; border: none; border-bottom: 2px solid #f4d03f; width: 150px; text-align: center; background: transparent; outline: none;"
                                 onchange="updateCalculator()" oninput="updateCalculator()">
                         </div>
-                        <div style="font-size: 15px; color: rgba(255,255,255,0.7); margin-top: 5px;" id="calcTotalEur">~6,710 EUR</div>
-                        <div style="font-size: 10px; color: rgba(255,255,255,0.4); margin-top: 8px;"><i class="fas fa-hand-pointer" style="margin-right: 5px;"></i>Click the number to change</div>
+                        <div style="font-size: 15px; color: rgba(255,255,255,0.7); margin-top: 5px;" id="calcTotalEur">~6,710€</div>
+                        <div style="font-size: 10px; color: rgba(255,255,255,0.4); margin-top: 8px;"><i class="fas fa-hand-pointer" style="margin-right: 5px;"></i>คลิกที่ตัวเลขเพื่อเปลี่ยนแปลง
+                            <div style="font-size: 0.75em; opacity: 0.7;">Click number to change</div>
+                        </div>
                     </div>
 
-                    <!-- Hub -->
+                    <!-- Contract -->
                     <div style="background: rgba(255,255,255,0.08); padding: 14px 18px; border-radius: 12px; margin: 10px 0; border-left: 4px solid #c9a227;">
                         <div style="display: flex; justify-content: space-between; align-items: center;">
                             <div>
-                                <div style="font-size: 12px; color: rgba(255,255,255,0.7);" data-translate="Hub (contract)">Hub (contract)</div>
-                                <div style="font-size: 10px; color: rgba(255,255,255,0.4);" data-translate="Platform access">Platform access</div>
+                                <div style="font-size: 12px; color: rgba(255,255,255,0.7);">สัญญา (Contract)
+                                    <div style="font-size: 0.75em; opacity: 0.7;">Contract</div>
+                                </div>
+                                <div style="font-size: 10px; color: rgba(255,255,255,0.4);">เข้าถึงแพลตฟอร์ม
+                                    <div style="font-size: 0.75em; opacity: 0.7;">Platform access</div>
+                                </div>
                             </div>
                             <div style="text-align: right;">
-                                <div style="font-size: 20px; font-weight: 700; color: #f4d03f;" id="calcHub">$1,000</div>
-                                <div style="font-size: 11px; color: rgba(255,255,255,0.5);" id="calcHubEur">~860 EUR</div>
+                                <div style="font-size: 20px; font-weight: 700; color: #f4d03f;" id="calcLeping">$1,000</div>
+                                <div style="font-size: 11px; color: rgba(255,255,255,0.5);" id="calcLepingEur">~860€</div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Kapital -->
+                    <!-- Capital at work -->
                     <div style="background: rgba(76, 175, 80, 0.15); padding: 14px 18px; border-radius: 12px; margin: 10px 0; border-left: 4px solid #4caf50;">
                         <div style="display: flex; justify-content: space-between; align-items: center;">
                             <div>
-                                <div style="font-size: 12px; color: rgba(255,255,255,0.7);" data-translate="Working capital">Working capital</div>
-                                <div style="font-size: 10px; color: rgba(255,255,255,0.4);" data-translate="This earns returns">This earns returns</div>
+                                <div style="font-size: 12px; color: rgba(255,255,255,0.7);">ทุนที่ทำงาน (Capital at work)
+                                    <div style="font-size: 0.75em; opacity: 0.7;">Capital at work</div>
+                                </div>
+                                <div style="font-size: 10px; color: rgba(255,255,255,0.4);">~10% ต่อเดือน (5% กำไร + 5% ทุน)
+                                    <div style="font-size: 0.75em; opacity: 0.7;">~10% per month (5% profit + 5% capital)</div>
+                                </div>
                             </div>
                             <div style="text-align: right;">
                                 <div style="font-size: 20px; font-weight: 700; color: #81c784;" id="calcKapital">$6,800</div>
-                                <div style="font-size: 11px; color: rgba(255,255,255,0.5);" id="calcKapitalEur">~5,848 EUR</div>
+                                <div style="font-size: 11px; color: rgba(255,255,255,0.5);" id="calcKapitalEur">~5,848€</div>
                             </div>
                         </div>
                     </div>
@@ -75,35 +89,43 @@
                     <!-- Kokku sisse -->
                     <div style="background: rgba(33, 150, 243, 0.15); padding: 14px 18px; border-radius: 12px; border-left: 4px solid #64b5f6;">
                         <div style="display: flex; justify-content: space-between; align-items: center;">
-                            <div style="font-size: 12px; color: #90caf9; font-weight: 600;" data-translate="TOTAL IN">TOTAL IN</div>
+                            <div style="font-size: 12px; color: #90caf9; font-weight: 600;">รวมเงินเข้า
+                                <div style="font-size: 0.75em; opacity: 0.7;">Total In</div>
+                            </div>
                             <div style="text-align: right;">
                                 <div style="font-size: 22px; font-weight: 800; color: #64b5f6;" id="calcKokkuSisse">$7,800</div>
-                                <div style="font-size: 11px; color: rgba(255,255,255,0.5);" id="calcKokkuSisseEur">~6,710 EUR</div>
+                                <div style="font-size: 11px; color: rgba(255,255,255,0.5);" id="calcKokkuSisseEur">~6,710€</div>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Middle: Returns -->
-                <div class="fragment" style="flex: 1; background: linear-gradient(135deg, rgba(255,255,255,0.12), rgba(255,255,255,0.05)); backdrop-filter: blur(20px); border-radius: 20px; padding: 25px; border: 1px solid rgba(255,255,255,0.15); box-shadow: 0 15px 40px rgba(0,0,0,0.3);">
+                <div style="flex: 1; background: linear-gradient(135deg, rgba(255,255,255,0.12), rgba(255,255,255,0.05)); backdrop-filter: blur(20px); border-radius: 20px; padding: 25px; border: 1px solid rgba(255,255,255,0.15); box-shadow: 0 15px 40px rgba(0,0,0,0.3);">
 
                     <!-- Returns Header -->
                     <div style="text-align: center; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid rgba(255,255,255,0.15);">
-                        <div style="font-size: 11px; color: rgba(255,255,255,0.6); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 3px;" data-translate="Returns (25 months)">Returns (25 months)</div>
+                        <div style="font-size: 11px; color: rgba(255,255,255,0.6); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 3px;">ผลตอบแทน (25 เดือน)
+                            <div style="font-size: 0.75em; opacity: 0.7;">Returns (25 months)</div>
+                        </div>
                         <div style="font-size: 38px; font-weight: 900; font-family: 'Montserrat', sans-serif; color: #81c784;" id="calcBrutoTagastusHeader">$17,000</div>
-                        <div style="font-size: 15px; color: rgba(255,255,255,0.7); margin-top: 5px;" id="calcBrutoTagastusHeaderEur">~14,620 EUR</div>
+                        <div style="font-size: 15px; color: rgba(255,255,255,0.7); margin-top: 5px;" id="calcBrutoTagastusHeaderEur">~14,620€</div>
                     </div>
 
-                    <!-- Gross return -->
+                    <!-- Bruto tagastus -->
                     <div style="background: rgba(76, 175, 80, 0.15); padding: 14px 18px; border-radius: 12px; margin: 10px 0; border-left: 4px solid #4caf50;">
                         <div style="display: flex; justify-content: space-between; align-items: center;">
                             <div>
-                                <div style="font-size: 12px; color: rgba(255,255,255,0.7);" data-translate="Gross return">Gross return</div>
-                                <div style="font-size: 10px; color: rgba(255,255,255,0.4);">Capital x 2.5</div>
+                                <div style="font-size: 12px; color: rgba(255,255,255,0.7);">ผลตอบแทนรวม
+                                    <div style="font-size: 0.75em; opacity: 0.7;">Gross returns</div>
+                                </div>
+                                <div style="font-size: 10px; color: rgba(255,255,255,0.4);">ทุน × 2.5
+                                    <div style="font-size: 0.75em; opacity: 0.7;">Capital × 2.5</div>
+                                </div>
                             </div>
                             <div style="text-align: right;">
                                 <div style="font-size: 20px; font-weight: 700; color: #81c784;" id="calcBrutoTagastus">$17,000</div>
-                                <div style="font-size: 11px; color: rgba(255,255,255,0.5);" id="calcBrutoTagastusEur">~14,620 EUR</div>
+                                <div style="font-size: 11px; color: rgba(255,255,255,0.5);" id="calcBrutoTagastusEur">~14,620€</div>
                             </div>
                         </div>
                     </div>
@@ -112,12 +134,16 @@
                     <div style="background: rgba(244, 67, 54, 0.12); padding: 14px 18px; border-radius: 12px; margin: 10px 0; border-left: 4px solid #e57373;">
                         <div style="display: flex; justify-content: space-between; align-items: center;">
                             <div>
-                                <div style="font-size: 12px; color: rgba(255,255,255,0.7);" data-translate="Withdrawal fee">Withdrawal fee</div>
-                                <div style="font-size: 10px; color: rgba(255,255,255,0.4);">~3% + $1/tx</div>
+                                <div style="font-size: 12px; color: rgba(255,255,255,0.7);">ค่าธรรมเนียมถอน
+                                    <div style="font-size: 0.75em; opacity: 0.7;">Withdrawal fee</div>
+                                </div>
+                                <div style="font-size: 10px; color: rgba(255,255,255,0.4);">~3% + $1/ธุรกรรม
+                                    <div style="font-size: 0.75em; opacity: 0.7;">~3% + $1/transaction</div>
+                                </div>
                             </div>
                             <div style="text-align: right;">
                                 <div style="font-size: 20px; font-weight: 700; color: #e57373;" id="calcFee">-$510</div>
-                                <div style="font-size: 11px; color: rgba(255,255,255,0.5);" id="calcFeeEur">~-439 EUR</div>
+                                <div style="font-size: 11px; color: rgba(255,255,255,0.5);" id="calcFeeEur">~-439€</div>
                             </div>
                         </div>
                     </div>
@@ -128,32 +154,39 @@
                     <!-- Neto tagastus -->
                     <div style="background: rgba(255, 152, 0, 0.15); padding: 14px 18px; border-radius: 12px; border-left: 4px solid #ffb74d;">
                         <div style="display: flex; justify-content: space-between; align-items: center;">
-                            <div style="font-size: 12px; color: #ffcc80; font-weight: 600;" data-translate="NET RETURN">NET RETURN</div>
+                            <div style="font-size: 12px; color: #ffcc80; font-weight: 600;">ผลตอบแทนสุทธิ
+                                <div style="font-size: 0.75em; opacity: 0.7;">Net Returns</div>
+                            </div>
                             <div style="text-align: right;">
                                 <div style="font-size: 22px; font-weight: 800; color: #ffb74d;" id="calcNetoTagastus">~$16,490</div>
-                                <div style="font-size: 11px; color: rgba(255,255,255,0.5);" id="calcNetoTagastusEur">~14,181 EUR</div>
+                                <div style="font-size: 11px; color: rgba(255,255,255,0.5);" id="calcNetoTagastusEur">~14,181€</div>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Right: Final Profit -->
-                <div class="fragment" style="flex: 1;">
+                <div style="flex: 1;">
                     <div style="background: linear-gradient(135deg, #1a3a2a 0%, #0d2818 100%); border-radius: 20px; padding: 25px; border: 2px solid #4caf50; box-shadow: 0 15px 50px rgba(76, 175, 80, 0.25); height: 100%; display: flex; flex-direction: column; justify-content: center;">
 
-                        <!-- Net Profit -->
+                        <!-- Puhas Kasum -->
                         <div style="text-align: center; margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid rgba(76, 175, 80, 0.3);">
-                            <div style="font-size: 11px; color: rgba(255,255,255,0.6); margin-bottom: 10px; text-transform: uppercase; letter-spacing: 3px;" data-translate="Net Profit">Net Profit</div>
+                            <div style="font-size: 11px; color: rgba(255,255,255,0.6); margin-bottom: 10px; text-transform: uppercase; letter-spacing: 3px;">กำไรสุทธิ
+                                <div style="font-size: 0.75em; opacity: 0.7;">Net Profit</div>
+                            </div>
                             <div style="font-size: 44px; font-weight: 900; font-family: 'Montserrat', sans-serif; color: #81c784;" id="calcPuhasKasum">~$8,690</div>
-                            <div style="font-size: 18px; color: rgba(255,255,255,0.7); margin-top: 5px;" id="calcPuhasKasumEur">~7,473 EUR</div>
+                            <div style="font-size: 18px; color: rgba(255,255,255,0.7); margin-top: 5px;" id="calcPuhasKasumEur">~7,473€</div>
                         </div>
 
                         <!-- ROI -->
                         <div style="text-align: center;">
-                            <div style="font-size: 10px; color: rgba(255,255,255,0.5); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 2px;" data-translate="Return on Investment">Return on Investment</div>
+                            <div style="font-size: 10px; color: rgba(255,255,255,0.5); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 2px;">ผลตอบแทนจากการลงทุน
+                                <div style="font-size: 0.75em; opacity: 0.7;">Return on Investment</div>
+                            </div>
                             <div style="font-family: 'Montserrat', sans-serif; font-size: 52px; font-weight: 900; background: linear-gradient(135deg, #f4d03f, #c9a227); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;" id="calcROI">~111%</div>
                             <div style="margin-top: 15px; font-size: 13px; color: rgba(255,255,255,0.6);" id="calcKuus">
-                                <i class="fas fa-calendar-alt" style="margin-right: 8px; color: #f4d03f;"></i>25 months = ~4.4%/month
+                                <i class="fas fa-calendar-alt" style="margin-right: 8px; color: #f4d03f;"></i>25 เดือน = ~4.4%/เดือน
+                                <div style="font-size: 0.75em; opacity: 0.7;">25 months = ~4.4%/month</div>
                             </div>
                         </div>
 
@@ -164,12 +197,15 @@
         </div>
 
         <!-- Bottom Info -->
-        <div style="max-width: 1300px; margin: 20px auto 0; width: 100%;">
+        <div class="fragment" style="max-width: 1300px; margin: 20px auto 0; width: 100%;">
             <div style="background: rgba(255,255,255,0.08); backdrop-filter: blur(10px); border-radius: 12px; padding: 15px 25px; border: 1px solid rgba(255,255,255,0.1);">
                 <div style="text-align: center; font-size: 13px; color: rgba(255,255,255,0.7);">
                     <i class="fas fa-info-circle" style="margin-right: 10px; color: #f4d03f;"></i>
-                    <strong style="color: #f4d03f;">Important:</strong> Capital earns 2.5x back. Actual ROI on total investment is ~111% after fees.
-                    <span id="liveRateDisplay" style="margin-left: 15px; padding-left: 15px; border-left: 1px solid rgba(255,255,255,0.2);"><i class="fas fa-spinner fa-spin" style="margin-right: 5px;"></i>Loading rate...</span>
+                    <strong style="color: #f4d03f;">สำคัญ:</strong> ทุนได้ผลตอบแทน 2.5×. ผลตอบแทนรวมจากการลงทุนคือ ~111% หลังหักค่าธรรมเนียม
+                    <div style="font-size: 0.75em; opacity: 0.7; margin-top: 3px;">Important: Capital earns 2.5× returns. Total investment return is ~111% after fees</div>
+                    <span id="liveRateDisplay" style="margin-left: 15px; padding-left: 15px; border-left: 1px solid rgba(255,255,255,0.2);"><i class="fas fa-spinner fa-spin" style="margin-right: 5px;"></i>กำลังโหลดอัตราแลกเปลี่ยน...
+                        <span style="font-size: 0.75em; opacity: 0.7;">(Loading rate...)</span>
+                    </span>
                 </div>
             </div>
         </div>
@@ -181,7 +217,7 @@
 
     <script>
     // Reaalajas EUR kurss - vaikeväärtus
-    window.liveEurRate = 0.86;
+    window.liveEurRate = 0.85;
 
     // Laadi reaalajas kurss
     async function fetchExchangeRate() {
@@ -193,11 +229,18 @@
                 // Uuenda kursi kuvamine
                 const rateDisplay = document.getElementById('liveRateDisplay');
                 if (rateDisplay) {
-                    rateDisplay.innerHTML = '<i class="fas fa-sync-alt" style="color: #10b981; margin-right: 5px;"></i>Live: $1 = ' + window.liveEurRate.toFixed(4) + ' EUR';
+                    rateDisplay.innerHTML = '<i class="fas fa-sync-alt" style="color: #10b981; margin-right: 5px;"></i>อัตราปัจจุบัน: $1 = ' + window.liveEurRate.toFixed(4) + '€ <span style="font-size: 0.75em; opacity: 0.7;">(Live rate: $1 = ' + window.liveEurRate.toFixed(4) + '€)</span>';
                 }
                 // Uuenda kalkulaatorit uue kursiga
                 if (typeof updateCalculator === 'function') {
                     updateCalculator();
+                }
+                // Uuenda teisi slaide mis kasutavad EUR kurssi
+                if (typeof updateLeverageSlide === 'function') {
+                    updateLeverageSlide();
+                }
+                if (typeof updateMoroccoEur === 'function') {
+                    updateMoroccoEur();
                 }
             }
         } catch (error) {
@@ -210,67 +253,65 @@
     // Uuenda iga 5 minuti järel
     setInterval(fetchExchangeRate, 300000);
 
+    // Uuenda kõik EUR väärtused pärast lehe laadimist
+    window.addEventListener('load', function() {
+        // Oota veidi et kõik slaidide skriptid oleksid laetud
+        setTimeout(function() {
+            if (typeof updateLeverageSlide === 'function') updateLeverageSlide();
+            if (typeof updateMoroccoEur === 'function') updateMoroccoEur();
+        }, 100);
+        // Ja veel kord pärast kursi laadimist
+        setTimeout(function() {
+            if (typeof updateLeverageSlide === 'function') updateLeverageSlide();
+            if (typeof updateMoroccoEur === 'function') updateMoroccoEur();
+        }, 2000);
+    });
+
     // Kalkulaatori funktsioon - globaalne
     window.updateCalculator = function() {
         const totalInput = document.getElementById('calcTotal');
         if (!totalInput) return;
 
         const total = parseFloat(totalInput.value) || 0;
-        const eurRate = window.liveEurRate || 0.86;
+        const eurRate = window.liveEurRate || 0.85;
 
-        // Get market currency info
-        let localSymbol = '€';
-        let localCode = 'EUR';
-        let localRate = eurRate; // Convert from USD to local
-
-        if (window.MarketLocalization) {
-            const market = window.MarketLocalization.currentMarket;
-            const currencyInfo = window.MarketLocalization.currencyRates[market];
-            if (currencyInfo) {
-                localSymbol = currencyInfo.symbol;
-                localCode = currencyInfo.code;
-                // Convert USD to local via EUR: USD * 0.92 = EUR, EUR * localRate = local
-                localRate = 0.92 * currencyInfo.rate;
-            }
-        }
-
-        // Hub on ~12.82% kogu summast (1000/7800 = 0.1282)
-        const hub = total * 0.1282;
-        const kapital = total - hub;
+        // Leping × 5.45 = Capital (täpne suhe tabelist), ehk Leping on 1/6.45 kogusummast
+        const leping = total / 6.45;
+        const kapital = leping * 5.45;
         const brutoTagastus = kapital * 2.5;
         const fee = brutoTagastus * 0.03 + 25; // 3% + ~25 tehingut × $1
         const netoTagastus = brutoTagastus - fee;
         const puhasKasum = netoTagastus - total;
         const roi = (puhasKasum / total) * 100;
-        const monthReturn = roi / 25;
+        const kuuTootlus = roi / 25;
 
         // Format numbers
         const fmt = (n) => n.toLocaleString('en-US', {maximumFractionDigits: 0});
-        const fmtLocal = (n) => (n * localRate).toLocaleString('en-US', {maximumFractionDigits: 0});
+        const fmtEur = (n) => (n * eurRate).toLocaleString('en-US', {maximumFractionDigits: 0});
 
         // Update DOM - check each element exists
         const updateEl = (id, text) => { const el = document.getElementById(id); if(el) el.textContent = text; };
         const updateHTML = (id, html) => { const el = document.getElementById(id); if(el) el.innerHTML = html; };
 
-        updateEl('calcTotalEur', '~' + localSymbol + fmtLocal(total) + ' ' + localCode);
-        updateEl('calcHub', '$' + fmt(hub));
-        updateEl('calcHubEur', '~' + localSymbol + fmtLocal(hub) + ' ' + localCode);
+        updateEl('calcTotalEur', '~' + fmtEur(total) + '€');
+        updateEl('calcLeping', '$' + fmt(leping));
+        updateEl('calcLepingEur', '~' + fmtEur(leping) + '€');
         updateEl('calcKapital', '$' + fmt(kapital));
-        updateEl('calcKapitalEur', '~' + localSymbol + fmtLocal(kapital) + ' ' + localCode);
+        updateEl('calcKapitalEur', '~' + fmtEur(kapital) + '€');
         updateEl('calcKokkuSisse', '$' + fmt(total));
-        updateEl('calcKokkuSisseEur', '~' + localSymbol + fmtLocal(total) + ' ' + localCode);
+        updateEl('calcKokkuSisseEur', '~' + fmtEur(total) + '€');
         updateEl('calcBrutoTagastusHeader', '$' + fmt(brutoTagastus));
-        updateEl('calcBrutoTagastusHeaderEur', '~' + localSymbol + fmtLocal(brutoTagastus) + ' ' + localCode);
+        updateEl('calcBrutoTagastusHeaderEur', '~' + fmtEur(brutoTagastus) + '€');
         updateEl('calcBrutoTagastus', '$' + fmt(brutoTagastus));
-        updateEl('calcBrutoTagastusEur', '~' + localSymbol + fmtLocal(brutoTagastus) + ' ' + localCode);
+        updateEl('calcBrutoTagastusEur', '~' + fmtEur(brutoTagastus) + '€');
         updateEl('calcFee', '-$' + fmt(fee));
-        updateEl('calcFeeEur', '~-' + localSymbol + fmtLocal(fee) + ' ' + localCode);
+        updateEl('calcFeeEur', '~-' + fmtEur(fee) + '€');
         updateEl('calcNetoTagastus', '~$' + fmt(netoTagastus));
-        updateEl('calcNetoTagastusEur', '~' + localSymbol + fmtLocal(netoTagastus) + ' ' + localCode);
+        updateEl('calcNetoTagastusEur', '~' + fmtEur(netoTagastus) + '€');
         updateEl('calcPuhasKasum', '~$' + fmt(puhasKasum));
-        updateEl('calcPuhasKasumEur', '~' + localSymbol + fmtLocal(puhasKasum) + ' ' + localCode);
+        updateEl('calcPuhasKasumEur', '~' + fmtEur(puhasKasum) + '€');
         updateEl('calcROI', '~' + roi.toFixed(0) + '%');
-        updateHTML('calcKuus', '<i class="fas fa-calendar-alt" style="margin-right: 8px; color: #f4d03f;"></i>25 months = ~' + monthReturn.toFixed(1) + '%/month');
+        updateHTML('calcKuus', '<i class="fas fa-calendar-alt" style="margin-right: 8px; color: #f4d03f;"></i>25 เดือน = ~' + kuuTootlus.toFixed(1) + '%/เดือน<div style="font-size: 0.75em; opacity: 0.7;">25 months = ~' + kuuTootlus.toFixed(1) + '%/month</div>');
 
         // Uuenda ka raha võimendamise slaidi kui see eksisteerib
         if (typeof updateLeverageSlide === 'function') {
