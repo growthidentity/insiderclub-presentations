@@ -65,7 +65,7 @@ function showSlide(n, direction = 'forward') {
 }
 
 function nextSlide() {
-    showSlide(currentSlide + 1, 'forward');
+    showSlide(currentSlide + 1, 'backward'); // 'backward' shows all fragments
 }
 
 function prevSlide() {
