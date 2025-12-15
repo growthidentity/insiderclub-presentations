@@ -1939,48 +1939,142 @@ body {
     }
 }
 
-/* Fragment / Reveal Animation System */
-.fragment {
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(20px);
-    transition: opacity 0.5s ease, transform 0.5s ease, visibility 0s 0.5s;
-}
-
-.fragment.visible {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-    transition: opacity 0.5s ease, transform 0.5s ease, visibility 0s;
-}
-
-/* Different fragment animation styles */
-.fragment.fade-in {
-    transform: none;
-}
-
-.fragment.slide-up {
-    transform: translateY(30px);
-}
-
-.fragment.slide-left {
-    transform: translateX(30px);
-}
-
-.fragment.slide-right {
-    transform: translateX(-30px);
-}
-
+/* Fragment system DISABLED - all content visible like PDF */
+.fragment,
+.fragment.visible,
+.fragment.fade-in,
+.fragment.slide-up,
+.fragment.slide-left,
+.fragment.slide-right,
 .fragment.zoom-in {
-    transform: scale(0.8);
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+    transition: none !important;
 }
 
-.fragment.visible.fade-in,
-.fragment.visible.slide-up,
-.fragment.visible.slide-left,
-.fragment.visible.slide-right,
-.fragment.visible.zoom-in {
-    transform: none;
+/* ==================== DARK MODE SUPPORT ==================== */
+@media (prefers-color-scheme: dark) {
+    html, body {
+        background-color: #0a0a0a !important;
+        color-scheme: dark !important;
+    }
+
+    /* Prevent color inversion */
+    img, video, picture {
+        filter: none !important;
+    }
+
+    * {
+        forced-color-adjust: none !important;
+    }
+}
+
+/* Force dark scheme */
+html {
+    color-scheme: dark light;
+    background: #000;
+}
+
+/* ==================== MOBILE FIXES ==================== */
+@media screen and (max-width: 768px) {
+    /* Background images fix */
+    .slide div[style*="position: fixed"],
+    .slide div[style*="position:fixed"] {
+        position: absolute !important;
+    }
+
+    /* Ensure backgrounds cover properly */
+    .slide > div:first-child {
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        z-index: 0 !important;
+    }
+
+    /* Background images */
+    img[style*="object-fit: cover"],
+    img[style*="object-fit:cover"] {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+    }
+
+    /* Grids responsive */
+    div[style*="grid-template-columns: repeat(4"],
+    div[style*="grid-template-columns: repeat(5"] {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 10px !important;
+    }
+
+    div[style*="grid-template-columns: repeat(3"],
+    div[style*="grid-template-columns: 1fr 1fr"] {
+        grid-template-columns: 1fr !important;
+        gap: 10px !important;
+    }
+
+    /* Font sizes */
+    [style*="font-size: 4em"], [style*="font-size: 3.5em"], [style*="font-size: 3em"] {
+        font-size: 1.8em !important;
+    }
+
+    [style*="font-size: 2.8em"], [style*="font-size: 2.5em"], [style*="font-size: 2.4em"],
+    [style*="font-size: 2.2em"], [style*="font-size: 2em"] {
+        font-size: 1.3em !important;
+    }
+
+    [style*="font-size: 1.8em"], [style*="font-size: 1.6em"], [style*="font-size: 1.5em"],
+    [style*="font-size: 1.4em"], [style*="font-size: 1.3em"] {
+        font-size: 1em !important;
+    }
+
+    /* Padding */
+    [style*="padding: 50px"], [style*="padding: 40px"], [style*="padding: 35px"] {
+        padding: 15px !important;
+    }
+
+    /* Circular photos preserved */
+    div[style*="border-radius: 50%"] {
+        border-radius: 50% !important;
+        overflow: hidden !important;
+    }
+
+    div[style*="border-radius: 50%"] img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+    }
+
+    /* Founder photos smaller */
+    div[style*="width: 90px"][style*="height: 90px"] {
+        width: 60px !important;
+        height: 60px !important;
+    }
+
+    /* Header presenter photo */
+    div[style*="width: 55px"][style*="height: 55px"],
+    div[style*="width: 50px"][style*="height: 50px"] {
+        width: 38px !important;
+        height: 38px !important;
+    }
+
+    /* Max widths */
+    div[style*="max-width: 1300px"], div[style*="max-width: 1200px"],
+    div[style*="max-width: 1100px"], div[style*="max-width: 1000px"] {
+        max-width: 100% !important;
+    }
+
+    /* Gaps smaller */
+    [style*="gap: 30px"], [style*="gap: 25px"], [style*="gap: 20px"] {
+        gap: 10px !important;
+    }
+
+    /* Letter spacing */
+    [style*="letter-spacing: 8px"], [style*="letter-spacing: 5px"] {
+        letter-spacing: 1px !important;
+    }
 }
 
 
@@ -6593,48 +6687,11 @@ const totalSlides = slides.length;
 
 document.getElementById('totalSlides').textContent = totalSlides;
 
-// Fragment (reveal) system - elements with class "fragment" appear one by one
-function getFragments(slideIndex) {
-    return slides[slideIndex].querySelectorAll('.fragment:not(.visible)');
-}
-
-function getVisibleFragments(slideIndex) {
-    return slides[slideIndex].querySelectorAll('.fragment.visible');
-}
-
-function showNextFragment() {
-    const fragments = getFragments(currentSlide);
-    if (fragments.length > 0) {
-        fragments[0].classList.add('visible');
-        return true; // Fragment was shown
-    }
-    return false; // No more fragments
-}
-
-function hideAllFragments(slideIndex) {
-    const fragments = slides[slideIndex].querySelectorAll('.fragment');
-    fragments.forEach(f => f.classList.remove('visible'));
-}
-
-function showAllFragments(slideIndex) {
-    const fragments = slides[slideIndex].querySelectorAll('.fragment');
-    fragments.forEach(f => f.classList.add('visible'));
-}
-
-function showSlide(n, direction = 'forward') {
+function showSlide(n) {
     slides[currentSlide].classList.remove('active');
-
-    // Hide fragments on old slide when leaving
-    hideAllFragments(currentSlide);
-
     currentSlide = (n + totalSlides) % totalSlides;
     slides[currentSlide].classList.add('active');
     document.getElementById('currentSlide').textContent = currentSlide + 1;
-
-    // If going backward, show all fragments immediately
-    if (direction === 'backward') {
-        showAllFragments(currentSlide);
-    }
 
     // Update presenter photos from localStorage
     updateAllPresenterPhotos();
@@ -6644,33 +6701,22 @@ function showSlide(n, direction = 'forward') {
         window.MarketLocalization.applyFullLocalization();
     }
 
-    // Update calculator and leverage slides if they exist
+    // Update calculator if exists
     if (typeof window.updateCalculator === 'function') {
         window.updateCalculator();
-    }
-    if (typeof window.updateLeverageSlide === 'function') {
-        window.updateLeverageSlide();
     }
 }
 
 function nextSlide() {
-    showSlide(currentSlide + 1, 'forward');
+    showSlide(currentSlide + 1);
 }
 
 function prevSlide() {
-    showSlide(currentSlide - 1, 'backward');
+    showSlide(currentSlide - 1);
 }
 
-// Advance: show next fragment, or if none, go to next slide
-function advance() {
-    if (!showNextFragment()) {
-        nextSlide();
-    }
-}
-
-// Go to specific slide (for setup page)
 function goToSlide(n) {
-    showSlide(n, 'forward');
+    showSlide(n);
 }
 
 // Update all presenter photos from localStorage
@@ -6693,86 +6739,54 @@ window.addEventListener('load', function() {
     }
 });
 
+// Keyboard navigation
 document.addEventListener('keydown', (e) => {
-    // Don't change slides if typing in an input field
     if (document.activeElement.tagName === 'INPUT' || document.activeElement.tagName === 'TEXTAREA') {
         return;
     }
 
-    if (e.key === ' ') {
-        // Space bar: reveal next fragment, or go to next slide
-        e.preventDefault();
-        advance();
-    } else if (e.key === 'ArrowRight') {
-        // Right arrow: always go to next slide (skip fragments)
+    if (e.key === ' ' || e.key === 'ArrowRight' || e.key === 'ArrowDown') {
         e.preventDefault();
         nextSlide();
-    } else if (e.key === 'ArrowLeft') {
-        // Left arrow: go to previous slide
+    } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
         e.preventDefault();
         prevSlide();
     }
 });
 
+// Touch navigation
 let touchStartX = 0;
 let touchStartY = 0;
-let touchEndX = 0;
-let touchEndY = 0;
-let touchStartTime = 0;
 
 document.addEventListener('touchstart', (e) => {
     touchStartX = e.changedTouches[0].screenX;
     touchStartY = e.changedTouches[0].screenY;
-    touchStartTime = Date.now();
 });
 
 document.addEventListener('touchend', (e) => {
-    touchEndX = e.changedTouches[0].screenX;
-    touchEndY = e.changedTouches[0].screenY;
-    handleTouchEnd(e);
-});
-
-function handleTouchEnd(e) {
-    const touchDuration = Date.now() - touchStartTime;
-    const deltaX = Math.abs(touchEndX - touchStartX);
+    const touchEndX = e.changedTouches[0].screenX;
+    const touchEndY = e.changedTouches[0].screenY;
+    const deltaX = touchEndX - touchStartX;
     const deltaY = Math.abs(touchEndY - touchStartY);
 
-    // Skip if on setup slide (slide 0)
-    if (currentSlide === 0) {
-        return;
-    }
+    // Skip if on setup slide
+    if (currentSlide === 0) return;
 
-    // Check if it's a tap (not a swipe) - short duration and minimal movement
-    const isTap = touchDuration < 300 && deltaX < 30 && deltaY < 30;
+    // Skip if tapped on interactive element
+    if (e.target.closest('button, a, input, select, textarea, .market-option, [onclick]')) return;
 
-    // Check if tapped on interactive element (buttons, inputs, links, etc.)
-    const target = e.target;
-    const isInteractive = target.closest('button, a, input, select, textarea, .market-option, [onclick]');
-
-    if (isTap && !isInteractive) {
-        // Tap navigation - left half = back, right/center = advance (fragments then slide)
-        const screenWidth = window.innerWidth;
-        const tapX = touchEndX;
-
-        if (tapX < screenWidth * 0.25) {
-            // Tapped on left 25% - go back
-            prevSlide();
+    // Horizontal swipe detection
+    if (Math.abs(deltaX) > 50 && Math.abs(deltaX) > deltaY) {
+        if (deltaX < 0) {
+            nextSlide();
         } else {
-            // Tapped anywhere else - advance (fragment or next slide)
-            advance();
+            prevSlide();
         }
-    } else {
-        // Handle as swipe
-        if (deltaX > 50 && deltaX > deltaY) {
-            if (touchEndX < touchStartX - 50) {
-                nextSlide();
-            } else if (touchEndX > touchStartX + 50) {
-                prevSlide();
-            }
-        }
+    } else if (Math.abs(deltaX) < 30 && deltaY < 30) {
+        // Tap - go next
+        nextSlide();
     }
-}
-
+});
 
     </script>
 </body>

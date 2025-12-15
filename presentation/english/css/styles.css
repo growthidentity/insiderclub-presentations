@@ -1930,47 +1930,141 @@ body {
     }
 }
 
-/* Fragment / Reveal Animation System */
-.fragment {
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(20px);
-    transition: opacity 0.5s ease, transform 0.5s ease, visibility 0s 0.5s;
-}
-
-.fragment.visible {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-    transition: opacity 0.5s ease, transform 0.5s ease, visibility 0s;
-}
-
-/* Different fragment animation styles */
-.fragment.fade-in {
-    transform: none;
-}
-
-.fragment.slide-up {
-    transform: translateY(30px);
-}
-
-.fragment.slide-left {
-    transform: translateX(30px);
-}
-
-.fragment.slide-right {
-    transform: translateX(-30px);
-}
-
+/* Fragment system DISABLED - all content visible like PDF */
+.fragment,
+.fragment.visible,
+.fragment.fade-in,
+.fragment.slide-up,
+.fragment.slide-left,
+.fragment.slide-right,
 .fragment.zoom-in {
-    transform: scale(0.8);
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+    transition: none !important;
 }
 
-.fragment.visible.fade-in,
-.fragment.visible.slide-up,
-.fragment.visible.slide-left,
-.fragment.visible.slide-right,
-.fragment.visible.zoom-in {
-    transform: none;
+/* ==================== DARK MODE SUPPORT ==================== */
+@media (prefers-color-scheme: dark) {
+    html, body {
+        background-color: #0a0a0a !important;
+        color-scheme: dark !important;
+    }
+
+    /* Prevent color inversion */
+    img, video, picture {
+        filter: none !important;
+    }
+
+    * {
+        forced-color-adjust: none !important;
+    }
+}
+
+/* Force dark scheme */
+html {
+    color-scheme: dark light;
+    background: #000;
+}
+
+/* ==================== MOBILE FIXES ==================== */
+@media screen and (max-width: 768px) {
+    /* Background images fix */
+    .slide div[style*="position: fixed"],
+    .slide div[style*="position:fixed"] {
+        position: absolute !important;
+    }
+
+    /* Ensure backgrounds cover properly */
+    .slide > div:first-child {
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        z-index: 0 !important;
+    }
+
+    /* Background images */
+    img[style*="object-fit: cover"],
+    img[style*="object-fit:cover"] {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+    }
+
+    /* Grids responsive */
+    div[style*="grid-template-columns: repeat(4"],
+    div[style*="grid-template-columns: repeat(5"] {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 10px !important;
+    }
+
+    div[style*="grid-template-columns: repeat(3"],
+    div[style*="grid-template-columns: 1fr 1fr"] {
+        grid-template-columns: 1fr !important;
+        gap: 10px !important;
+    }
+
+    /* Font sizes */
+    [style*="font-size: 4em"], [style*="font-size: 3.5em"], [style*="font-size: 3em"] {
+        font-size: 1.8em !important;
+    }
+
+    [style*="font-size: 2.8em"], [style*="font-size: 2.5em"], [style*="font-size: 2.4em"],
+    [style*="font-size: 2.2em"], [style*="font-size: 2em"] {
+        font-size: 1.3em !important;
+    }
+
+    [style*="font-size: 1.8em"], [style*="font-size: 1.6em"], [style*="font-size: 1.5em"],
+    [style*="font-size: 1.4em"], [style*="font-size: 1.3em"] {
+        font-size: 1em !important;
+    }
+
+    /* Padding */
+    [style*="padding: 50px"], [style*="padding: 40px"], [style*="padding: 35px"] {
+        padding: 15px !important;
+    }
+
+    /* Circular photos preserved */
+    div[style*="border-radius: 50%"] {
+        border-radius: 50% !important;
+        overflow: hidden !important;
+    }
+
+    div[style*="border-radius: 50%"] img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+    }
+
+    /* Founder photos smaller */
+    div[style*="width: 90px"][style*="height: 90px"] {
+        width: 60px !important;
+        height: 60px !important;
+    }
+
+    /* Header presenter photo */
+    div[style*="width: 55px"][style*="height: 55px"],
+    div[style*="width: 50px"][style*="height: 50px"] {
+        width: 38px !important;
+        height: 38px !important;
+    }
+
+    /* Max widths */
+    div[style*="max-width: 1300px"], div[style*="max-width: 1200px"],
+    div[style*="max-width: 1100px"], div[style*="max-width: 1000px"] {
+        max-width: 100% !important;
+    }
+
+    /* Gaps smaller */
+    [style*="gap: 30px"], [style*="gap: 25px"], [style*="gap: 20px"] {
+        gap: 10px !important;
+    }
+
+    /* Letter spacing */
+    [style*="letter-spacing: 8px"], [style*="letter-spacing: 5px"] {
+        letter-spacing: 1px !important;
+    }
 }
 
