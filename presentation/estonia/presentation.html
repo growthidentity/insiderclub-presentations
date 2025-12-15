@@ -2033,22 +2033,34 @@ body {
         z-index: 2 !important;
     }
 
-    /* PROTECT CIRCULAR PROFILE IMAGES */
+    /* PROTECT CIRCULAR PROFILE IMAGES - Multiple selectors for safety */
+    /* Target by dimensions (90px founder, 50px/45px presenter) */
+    div[style*="width: 90px"][style*="height: 90px"],
+    div[style*="width: 50px"][style*="height: 50px"],
+    div[style*="width: 45px"][style*="height: 45px"],
+    div[style*="width: 55px"][style*="height: 55px"],
     div[style*="border-radius: 50%"],
     div[style*="border-radius:50%"] {
         border-radius: 50% !important;
         overflow: hidden !important;
         position: relative !important;
+        flex-shrink: 0 !important;
     }
 
+    /* Images inside circular containers */
+    div[style*="width: 90px"][style*="height: 90px"] img,
+    div[style*="width: 50px"][style*="height: 50px"] img,
+    div[style*="width: 45px"][style*="height: 45px"] img,
+    div[style*="width: 55px"][style*="height: 55px"] img,
     div[style*="border-radius: 50%"] img,
     div[style*="border-radius:50%"] img,
     .presenter-photo {
-        position: relative !important;
+        position: static !important;
         width: 100% !important;
         height: 100% !important;
         object-fit: cover !important;
         border-radius: 0 !important;
+        display: block !important;
     }
 }
 
