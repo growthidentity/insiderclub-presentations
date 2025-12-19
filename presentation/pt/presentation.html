@@ -1637,7 +1637,7 @@ body {
         font-size: 18px !important;
     }
 
-    /* Nãote text at bottom smaller */
+    /* Note text at bottom smaller */
     div[style*="font-size: 14px"][style*="color: rgba(255,255,255,0.7)"] {
         font-size: 11px !important;
     }
@@ -2135,7 +2135,7 @@ html {
             <i class="fas fa-user-circle" style="color: #f4d03f; margin-right: 15px;"></i>Configuração do Apresentador
         </div>
         <div style="font-family: 'Open Sans', sans-serif; font-size: 1.2em; color: rgba(255,255,255,0.7); text-align: center; margin-bottom: 40px;">
-            Adicione sua foto que será exibida durante toda a apresentação
+            Adicione a sua foto, que será exibida durante toda a apresentação
         </div>
 
         <!-- Setup Card -->
@@ -2153,7 +2153,7 @@ html {
             <!-- Carregar Section -->
             <div style="text-align: center;">
                 <label for="presenterPhotoInput" style="display: inline-block; background: linear-gradient(135deg, #c9a227, #f4d03f); color: #0f0c08; padding: 15px 40px; border-radius: 50px; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 1em; cursor: pointer; box-shadow: 0 10px 30px rgba(201, 162, 39, 0.4); transition: all 0.3s; border: none;">
-                    <i class="fas fa-camera" style="margin-right: 10px;"></i>Escolher Nãova Foto
+                    <i class="fas fa-camera" style="margin-right: 10px;"></i>Escolher nova foto
                 </label>
                 <input type="file" id="presenterPhotoInput" accept="image/*" style="display: none;" onchange="handlePhotoCarregar(event)">
 
@@ -2171,16 +2171,16 @@ html {
                 </div>
 
                 <div style="margin-top: 15px; font-size: 0.85em; color: rgba(255,255,255,0.5);">
-                    <i class="fas fa-info-circle" style="margin-right: 5px;"></i>Recomendado: foto quadrada (mín 200x200px)
+                    <i class="fas fa-info-circle" style="margin-right: 5px;"></i>Recomendado: foto quadrada (mín. 200×200 px)
                 </div>
             </div>
 
             <!-- Name Input -->
             <div style="margin-top: 30px; padding-top: 25px; border-top: 1px solid rgba(244, 208, 63, 0.2);">
                 <label style="display: block; font-size: 0.9em; color: rgba(255,255,255,0.7); margin-bottom: 10px;">
-                    <i class="fas fa-user" style="margin-right: 8px; color: #f4d03f;"></i>Nãome do Apresentador
+                    <i class="fas fa-user" style="margin-right: 8px; color: #f4d03f;"></i>Nome do Apresentador
                 </label>
-                <input type="text" id="presenterNameInput" placeholder="Seu nome" value="Vambola Tullus" style="width: 100%; padding: 15px 20px; border-radius: 15px; border: 2px solid rgba(244, 208, 63, 0.3); background: rgba(255,255,255,0.05); color: white; font-size: 1.1em; font-family: 'Open Sans', sans-serif; outline: none; transition: border-color 0.3s;" onfocus="this.style.borderColor='#f4d03f'" onblur="this.style.borderColor='rgba(244, 208, 63, 0.3)'" oninput="updatePresenterName()">
+                <input type="text" id="presenterNameInput" placeholder="O seu nome" value="Vambola Tullus" style="width: 100%; padding: 15px 20px; border-radius: 15px; border: 2px solid rgba(244, 208, 63, 0.3); background: rgba(255,255,255,0.05); color: white; font-size: 1.1em; font-family: 'Open Sans', sans-serif; outline: none; transition: border-color 0.3s;" onfocus="this.style.borderColor='#f4d03f'" onblur="this.style.borderColor='rgba(244, 208, 63, 0.3)'" oninput="updatePresenterName()">
             </div>
 
             <!-- Preset Photos -->
@@ -2200,14 +2200,14 @@ html {
         <!-- Start Button -->
         <div style="margin-top: 40px;">
             <button onclick="startPresentation()" style="background: linear-gradient(135deg, #10b981, #059669); color: white; padding: 20px 60px; border-radius: 50px; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 1.3em; cursor: pointer; box-shadow: 0 15px 40px rgba(16, 185, 129, 0.4); border: none; transition: all 0.3s;">
-                <i class="fas fa-play" style="margin-right: 15px;"></i>Iniciar Apresentação
+                <i class="fas fa-play" style="margin-right: 15px;"></i>Iniciar apresentação
             </button>
         </div>
 
         <!-- Skip Link -->
         <div style="margin-top: 20px;">
             <a href="javascript:void(0)" onclick="skipSetup()" style="color: rgba(255,255,255,0.5); font-size: 0.9em; text-decoration: none;">
-                <i class="fas fa-forward" style="margin-right: 5px;"></i>Skip (use defaults)
+                <i class="fas fa-forward" style="margin-right: 5px;"></i>Saltar (usar padrão)
             </a>
         </div>
 
@@ -2278,7 +2278,7 @@ html {
         if (file) {
             // Show loading message
             document.getElementById('statusMessage').style.display = 'block';
-            document.getElementById('statusText').textContent = 'Processing image...';
+            document.getElementById('statusText').textContent = 'A processar imagem...';
             document.getElementById('statusMessage').style.color = '#f4d03f';
 
             try {
@@ -2290,7 +2290,7 @@ html {
                 document.getElementById('confirmSection').style.display = 'block';
                 document.getElementById('statusMessage').style.display = 'none';
             } catch (error) {
-                document.getElementById('statusText').textContent = 'Erro processing image!';
+                document.getElementById('statusText').textContent = 'Erro ao processar imagem!';
                 document.getElementById('statusMessage').style.color = '#ef4444';
                 console.error('Image processing error:', error);
             }
@@ -2313,7 +2313,7 @@ html {
             // Show success message
             document.getElementById('confirmSection').style.display = 'none';
             document.getElementById('statusMessage').style.display = 'block';
-            document.getElementById('statusText').textContent = 'Photo updated in ' + allPhotos.length + ' places!';
+            document.getElementById('statusText').textContent = 'Foto atualizada em ' + allPhotos.length + ' locais!';
 
             pendingPhotoData = null;
         }
@@ -2662,7 +2662,7 @@ html {
                 <div style="display: flex; align-items: flex-start; gap: 15px;">
                     <i class="fas fa-exclamation-triangle" style="font-size: 22px; color: #f59e0b; margin-top: 2px;"></i>
                     <div>
-                        <div style="font-family: 'Montserrat', sans-serif; font-size: 16px; font-weight: 600; color: #f59e0b; margin-bottom: 8px;" data-translate="Nãota Importante">Nãota Importante</div>
+                        <div style="font-family: 'Montserrat', sans-serif; font-size: 16px; font-weight: 600; color: #f59e0b; margin-bottom: 8px;" data-translate="Nota Importante">Nota Importante</div>
                         <div style="color: rgba(255,255,255,0.9); font-size: 16px; line-height: 1.5;" data-translate="Isto não é aconselhamento financeiro">Isto não é aconselhamento financeiro - estou apenas compartilhando informações e cada um toma sua própria decisão.</div>
                     </div>
                 </div>
@@ -2771,7 +2771,7 @@ html {
             <!-- Quote Box -->
             <div class="fragment" style="background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03)); backdrop-filter: blur(15px); border-radius: 15px; padding: 25px 35px; border: 1px solid rgba(244, 208, 63, 0.3); box-shadow: 0 10px 30px rgba(0,0,0,0.2); text-align: center;">
                 <div style="font-size: 20px; color: rgba(255,255,255,0.95); line-height: 1.6; font-style: italic;">
-                    „Não final, você toma sua própria decisão.<br>
+                    „No final, você toma sua própria decisão.<br>
                     <span style="color: #f4d03f; font-weight: 600;">Essa é a forma mais justa.</span>"
                 </div>
             </div>
@@ -2797,7 +2797,7 @@ html {
         <div style="display: flex; justify-content: flex-end; align-items: center; margin-bottom: 30px;">
             <div style="display: flex; align-items: center; gap: 15px;">
                 <div style="background: linear-gradient(135deg, rgba(201, 162, 39, 0.3), rgba(244, 208, 63, 0.2)); padding: 12px 30px; border-radius: 25px; border: 1px solid rgba(244, 208, 63, 0.5);">
-                    <span style="color: #f4d03f; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 16px; letter-spacing: 2px;" data-translate="COMPANY BACKGROUND">COMPANY BACKGROUND</span>
+                    <span style="color: #f4d03f; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 16px; letter-spacing: 2px;" data-translate="HISTÓRICO DA EMPRESA">HISTÓRICO DA EMPRESA</span>
                 </div>
                 <div style="width: 55px; height: 55px; border-radius: 50%; overflow: hidden; border: 3px solid #f4d03f; box-shadow: 0 5px 20px rgba(244, 208, 63, 0.4);">
                     <img class="presenter-photo" src="LOGOS/Vambola Tullus.jpg" style="width: 100%; height: 100%; object-fit: cover;" alt="Presenter">
@@ -2812,11 +2812,11 @@ html {
             <div style="width: 80px; height: 3px; background: linear-gradient(90deg, #c9a227, #f4d03f, #c9a227); margin-bottom: 20px; border-radius: 2px; box-shadow: 0 2px 10px rgba(201, 162, 39, 0.5);"></div>
 
             <!-- Title -->
-            <div style="font-family: 'Montserrat', sans-serif; font-size: 2.8em; font-weight: 700; color: white; margin-bottom: 8px; text-shadow: 0 4px 20px rgba(0,0,0,0.5);" data-translate="Five Years of Real Business">
-                Five Years of Real Business
+            <div style="font-family: 'Montserrat', sans-serif; font-size: 2.8em; font-weight: 700; color: white; margin-bottom: 8px; text-shadow: 0 4px 20px rgba(0,0,0,0.5);" data-translate="Cinco Anos de Negócio Real">
+                Cinco Anos de Negócio Real
             </div>
-            <div style="font-family: 'Open Sans', sans-serif; font-size: 1.2em; font-weight: 300; color: rgba(255,255,255,0.8); margin-bottom: 35px; letter-spacing: 1px;" data-translate="The company operates with real offices, employees and activities">
-                The company operates with real offices, employees and activities
+            <div style="font-family: 'Open Sans', sans-serif; font-size: 1.2em; font-weight: 300; color: rgba(255,255,255,0.8); margin-bottom: 35px; letter-spacing: 1px;" data-translate="A empresa opera com escritórios reais, funcionários e atividades">
+                A empresa opera com escritórios reais, funcionários e atividades
             </div>
 
             <!-- Stats Grid - Row 1 -->
@@ -2826,21 +2826,21 @@ html {
                         <i class="fas fa-calendar-check"></i>
                     </div>
                     <div style="font-family: 'Montserrat', sans-serif; font-size: 2.8em; font-weight: 800; color: white; margin-bottom: 8px; text-shadow: 0 2px 10px rgba(0,0,0,0.3);">5</div>
-                    <div style="font-size: 14px; color: rgba(255,255,255,0.8); letter-spacing: 1px;" data-translate="Years in Operation">Years in Operation</div>
+                    <div style="font-size: 14px; color: rgba(255,255,255,0.8); letter-spacing: 1px;" data-translate="Anos em Operação">Anos em Operação</div>
                 </div>
                 <div class="fragment" style="background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05)); backdrop-filter: blur(15px); border-radius: 18px; padding: 25px 20px; text-align: center; border: 1px solid rgba(244, 208, 63, 0.2); box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
                     <div style="font-size: 36px; color: #f4d03f; margin-bottom: 12px;">
                         <i class="fas fa-users"></i>
                     </div>
                     <div style="font-family: 'Montserrat', sans-serif; font-size: 2.8em; font-weight: 800; color: white; margin-bottom: 8px; text-shadow: 0 2px 10px rgba(0,0,0,0.3);">100K+</div>
-                    <div style="font-size: 14px; color: rgba(255,255,255,0.8); letter-spacing: 1px;" data-translate="Clients Globally">Clients Globally</div>
+                    <div style="font-size: 14px; color: rgba(255,255,255,0.8); letter-spacing: 1px;" data-translate="Clientes Globais">Clientes Globais</div>
                 </div>
                 <div class="fragment" style="background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05)); backdrop-filter: blur(15px); border-radius: 18px; padding: 25px 20px; text-align: center; border: 1px solid rgba(244, 208, 63, 0.2); box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
                     <div style="font-size: 36px; color: #f4d03f; margin-bottom: 12px;">
                         <i class="fas fa-user-tie"></i>
                     </div>
                     <div style="font-family: 'Montserrat', sans-serif; font-size: 2.8em; font-weight: 800; color: white; margin-bottom: 8px; text-shadow: 0 2px 10px rgba(0,0,0,0.3);">180+</div>
-                    <div style="font-size: 14px; color: rgba(255,255,255,0.8); letter-spacing: 1px;" data-translate="Employees">Employees</div>
+                    <div style="font-size: 14px; color: rgba(255,255,255,0.8); letter-spacing: 1px;" data-translate="Funcionários">Funcionários</div>
                 </div>
                 <div class="fragment" style="background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05)); backdrop-filter: blur(15px); border-radius: 18px; padding: 25px 20px; text-align: center; border: 1px solid rgba(244, 208, 63, 0.2); box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
                     <div style="font-size: 36px; color: #f4d03f; margin-bottom: 12px;">
@@ -2865,21 +2865,21 @@ html {
                         <i class="fas fa-file-contract"></i>
                     </div>
                     <div style="font-family: 'Montserrat', sans-serif; font-size: 2.2em; font-weight: 800; color: #f4d03f; margin-bottom: 8px; text-shadow: 0 2px 10px rgba(0,0,0,0.3);">5</div>
-                    <div style="font-size: 14px; color: rgba(255,255,255,0.8); letter-spacing: 1px;">Dubai Licenses</div>
+                    <div style="font-size: 14px; color: rgba(255,255,255,0.8); letter-spacing: 1px;">Licenças Dubai</div>
                 </div>
                 <div class="fragment" style="background: linear-gradient(135deg, rgba(201, 162, 39, 0.15), rgba(244, 208, 63, 0.08)); backdrop-filter: blur(15px); border-radius: 18px; padding: 25px 20px; text-align: center; border: 1px solid rgba(244, 208, 63, 0.35); box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
                     <div style="font-size: 36px; color: #f4d03f; margin-bottom: 12px;">
                         <i class="fas fa-landmark"></i>
                     </div>
                     <div style="font-family: 'Montserrat', sans-serif; font-size: 2.2em; font-weight: 800; color: #f4d03f; margin-bottom: 8px; text-shadow: 0 2px 10px rgba(0,0,0,0.3);">NBFC</div>
-                    <div style="font-size: 14px; color: rgba(255,255,255,0.8); letter-spacing: 1px;">India Financial License</div>
+                    <div style="font-size: 14px; color: rgba(255,255,255,0.8); letter-spacing: 1px;">Licença Financeira Índia</div>
                 </div>
                 <div class="fragment" style="background: linear-gradient(135deg, rgba(201, 162, 39, 0.15), rgba(244, 208, 63, 0.08)); backdrop-filter: blur(15px); border-radius: 18px; padding: 25px 20px; text-align: center; border: 1px solid rgba(244, 208, 63, 0.35); box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
                     <div style="font-size: 36px; color: #f4d03f; margin-bottom: 12px;">
                         <i class="fas fa-trophy"></i>
                     </div>
-                    <div style="font-family: 'Montserrat', sans-serif; font-size: 1.8em; font-weight: 800; color: #f4d03f; margin-bottom: 8px; text-shadow: 0 2px 10px rgba(0,0,0,0.3);">Recognized</div>
-                    <div style="font-size: 14px; color: rgba(255,255,255,0.8); letter-spacing: 1px;">By Government</div>
+                    <div style="font-family: 'Montserrat', sans-serif; font-size: 1.8em; font-weight: 800; color: #f4d03f; margin-bottom: 8px; text-shadow: 0 2px 10px rgba(0,0,0,0.3);">Reconhecida</div>
+                    <div style="font-size: 14px; color: rgba(255,255,255,0.8); letter-spacing: 1px;">Pelo Governo</div>
                 </div>
             </div>
         </div>
@@ -2904,7 +2904,7 @@ html {
         <div style="display: flex; justify-content: flex-end; align-items: center; margin-bottom: 15px;">
             <div style="display: flex; align-items: center; gap: 15px;">
                 <div style="background: linear-gradient(135deg, rgba(201, 162, 39, 0.3), rgba(244, 208, 63, 0.2)); padding: 10px 25px; border-radius: 25px; border: 1px solid rgba(244, 208, 63, 0.5);">
-                    <span style="color: #f4d03f; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 13px; letter-spacing: 2px;" data-translate="FOUNDERS">FOUNDERS</span>
+                    <span style="color: #f4d03f; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 13px; letter-spacing: 2px;" data-translate="FUNDADORES">FUNDADORES</span>
                 </div>
                 <div style="width: 50px; height: 50px; border-radius: 50%; overflow: hidden; border: 3px solid #f4d03f; box-shadow: 0 5px 20px rgba(244, 208, 63, 0.4);">
                     <img class="presenter-photo" src="LOGOS/Vambola Tullus.jpg" style="width: 100%; height: 100%; object-fit: cover;" alt="Presenter">
@@ -2920,11 +2920,11 @@ html {
 
             <!-- Title -->
             <div style="text-align: center; margin-bottom: 20px;">
-                <div style="font-family: 'Montserrat', sans-serif; font-size: 2em; font-weight: 700; color: white; text-shadow: 0 4px 20px rgba(0,0,0,0.5); letter-spacing: 3px;" data-translate="THE TEAM BEHIND YOU">
-                    THE TEAM BEHIND YOU
+                <div style="font-family: 'Montserrat', sans-serif; font-size: 2em; font-weight: 700; color: white; text-shadow: 0 4px 20px rgba(0,0,0,0.5); letter-spacing: 3px;" data-translate="A EQUIPA POR TRÁS DE SI">
+                    A EQUIPA POR TRÁS DE SI
                 </div>
-                <div style="font-family: 'Open Sans', sans-serif; font-size: 1em; font-weight: 300; color: rgba(255,255,255,0.8); margin-top: 5px; letter-spacing: 1px;" data-translate="Experienced leaders dedicated to your success">
-                    Experienced leaders dedicated to your success
+                <div style="font-family: 'Open Sans', sans-serif; font-size: 1em; font-weight: 300; color: rgba(255,255,255,0.8); margin-top: 5px; letter-spacing: 1px;" data-translate="Líderes experientes dedicados ao seu sucesso">
+                    Líderes experientes dedicados ao seu sucesso
                 </div>
             </div>
 
@@ -2942,13 +2942,13 @@ html {
                     <!-- Name & Title -->
                     <div style="text-align: center; margin-bottom: 12px;">
                         <div style="font-family: 'Montserrat', sans-serif; font-size: 1em; font-weight: 700; color: white;">Dr. Abhishek Bhandari</div>
-                        <div style="font-family: 'Open Sans', sans-serif; font-size: 0.8em; color: #f4d03f; font-weight: 600;">Co-Founder & CMO</div>
+                        <div style="font-family: 'Open Sans', sans-serif; font-size: 0.8em; color: #f4d03f; font-weight: 600;">Cofundador & CMO</div>
                     </div>
                     <!-- Key Points -->
                     <div style="display: flex; flex-direction: column; gap: 6px; font-size: 11px;">
                         <div style="display: flex; align-items: flex-start; gap: 8px;">
                             <i class="fas fa-check-circle" style="color: #10b981; font-size: 10px; margin-top: 2px;"></i>
-                            <span style="color: rgba(255,255,255,0.9);">PhD in Web3 & Blockchain</span>
+                            <span style="color: rgba(255,255,255,0.9);">Doutorado em Web3 e Blockchain</span>
                         </div>
                         <div style="display: flex; align-items: flex-start; gap: 8px;">
                             <i class="fas fa-check-circle" style="color: #10b981; font-size: 10px; margin-top: 2px;"></i>
@@ -2972,7 +2972,7 @@ html {
                     <!-- Name & Title -->
                     <div style="text-align: center; margin-bottom: 12px;">
                         <div style="font-family: 'Montserrat', sans-serif; font-size: 1em; font-weight: 700; color: white;">Ankit Bhasin</div>
-                        <div style="font-family: 'Open Sans', sans-serif; font-size: 0.8em; color: #f4d03f; font-weight: 600;">Co-Founder & COO</div>
+                        <div style="font-family: 'Open Sans', sans-serif; font-size: 0.8em; color: #f4d03f; font-weight: 600;">Cofundador & COO</div>
                     </div>
                     <!-- Key Points -->
                     <div style="display: flex; flex-direction: column; gap: 6px; font-size: 11px;">
@@ -2982,11 +2982,11 @@ html {
                         </div>
                         <div style="display: flex; align-items: flex-start; gap: 8px;">
                             <i class="fas fa-check-circle" style="color: #10b981; font-size: 10px; margin-top: 2px;"></i>
-                            <span style="color: rgba(255,255,255,0.9);">Genpact VP HR - 18 anos</span>
+                            <span style="color: rgba(255,255,255,0.9);">VP RH Genpact - 18 anos</span>
                         </div>
                         <div style="display: flex; align-items: flex-start; gap: 8px;">
                             <i class="fas fa-check-circle" style="color: #10b981; font-size: 10px; margin-top: 2px;"></i>
-                            <span style="color: rgba(255,255,255,0.9);">Business strategy expert</span>
+                            <span style="color: rgba(255,255,255,0.9);">Especialista em estratégia de negócios</span>
                         </div>
                     </div>
                 </div>
@@ -3002,7 +3002,7 @@ html {
                     <!-- Name & Title -->
                     <div style="text-align: center; margin-bottom: 12px;">
                         <div style="font-family: 'Montserrat', sans-serif; font-size: 1em; font-weight: 700; color: white;">Sidharth Shukla</div>
-                        <div style="font-family: 'Open Sans', sans-serif; font-size: 0.8em; color: #f4d03f; font-weight: 600;">Co-Founder & CEO</div>
+                        <div style="font-family: 'Open Sans', sans-serif; font-size: 0.8em; color: #f4d03f; font-weight: 600;">Cofundador & CEO</div>
                     </div>
                     <!-- Key Points -->
                     <div style="display: flex; flex-direction: column; gap: 6px; font-size: 11px;">
@@ -3012,11 +3012,11 @@ html {
                         </div>
                         <div style="display: flex; align-items: flex-start; gap: 8px;">
                             <i class="fas fa-check-circle" style="color: #10b981; font-size: 10px; margin-top: 2px;"></i>
-                            <span style="color: rgba(255,255,255,0.9);">European portfolio manager</span>
+                            <span style="color: rgba(255,255,255,0.9);">Gerente de portfólio europeu</span>
                         </div>
                         <div style="display: flex; align-items: flex-start; gap: 8px;">
                             <i class="fas fa-check-circle" style="color: #10b981; font-size: 10px; margin-top: 2px;"></i>
-                            <span style="color: rgba(255,255,255,0.9);">Operations & Marketing</span>
+                            <span style="color: rgba(255,255,255,0.9);">Operações e Marketing</span>
                         </div>
                     </div>
                 </div>
@@ -3032,7 +3032,7 @@ html {
                     <!-- Name & Title -->
                     <div style="text-align: center; margin-bottom: 12px;">
                         <div style="font-family: 'Montserrat', sans-serif; font-size: 1em; font-weight: 700; color: white;">Mohit Shukla</div>
-                        <div style="font-family: 'Open Sans', sans-serif; font-size: 0.8em; color: #f4d03f; font-weight: 600;">Co-Founder & L&D</div>
+                        <div style="font-family: 'Open Sans', sans-serif; font-size: 0.8em; color: #f4d03f; font-weight: 600;">Cofundador & L&D</div>
                     </div>
                     <!-- Key Points -->
                     <div style="display: flex; flex-direction: column; gap: 6px; font-size: 11px;">
@@ -3042,11 +3042,11 @@ html {
                         </div>
                         <div style="display: flex; align-items: flex-start; gap: 8px;">
                             <i class="fas fa-check-circle" style="color: #10b981; font-size: 10px; margin-top: 2px;"></i>
-                            <span style="color: rgba(255,255,255,0.9);">Cripto education pioneer</span>
+                            <span style="color: rgba(255,255,255,0.9);">Cripto pioneiro em educação</span>
                         </div>
                         <div style="display: flex; align-items: flex-start; gap: 8px;">
                             <i class="fas fa-check-circle" style="color: #10b981; font-size: 10px; margin-top: 2px;"></i>
-                            <span style="color: rgba(255,255,255,0.9);">Masterclass presenter</span>
+                            <span style="color: rgba(255,255,255,0.9);">Apresentador de masterclass</span>
                         </div>
                     </div>
                 </div>
@@ -3082,7 +3082,7 @@ html {
         <div style="display: flex; justify-content: flex-end; align-items: center; margin-bottom: 20px;">
             <div style="display: flex; align-items: center; gap: 15px;">
                 <div style="background: linear-gradient(135deg, rgba(201, 162, 39, 0.3), rgba(244, 208, 63, 0.2)); padding: 12px 30px; border-radius: 25px; border: 1px solid rgba(244, 208, 63, 0.5);">
-                    <span style="color: #f4d03f; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 14px; letter-spacing: 2px;" data-translate="ECOSYSTEM">ECOSYSTEM</span>
+                    <span style="color: #f4d03f; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 14px; letter-spacing: 2px;" data-translate="ECOSSISTEMA">ECOSSISTEMA</span>
                 </div>
                 <div style="width: 55px; height: 55px; border-radius: 50%; overflow: hidden; border: 3px solid #f4d03f; box-shadow: 0 5px 20px rgba(244, 208, 63, 0.4);">
                     <img class="presenter-photo" src="LOGOS/Vambola Tullus.jpg" style="width: 100%; height: 100%; object-fit: cover;" alt="Presenter">
@@ -3098,8 +3098,8 @@ html {
 
             <!-- Title -->
             <div style="text-align: center; margin-bottom: 25px;">
-                <div style="font-family: 'Montserrat', sans-serif; font-size: 2.2em; font-weight: 700; color: white; text-shadow: 0 4px 20px rgba(0,0,0,0.5); letter-spacing: 3px;" data-translate="CRYPQUE ECOSYSTEM">
-                    CRYPQUE ECOSYSTEM
+                <div style="font-family: 'Montserrat', sans-serif; font-size: 2.2em; font-weight: 700; color: white; text-shadow: 0 4px 20px rgba(0,0,0,0.5); letter-spacing: 3px;" data-translate="CRYPQUE ECOSSISTEMA">
+                    CRYPQUE ECOSSISTEMA
                 </div>
                 <div style="font-family: 'Open Sans', sans-serif; font-size: 1.1em; font-weight: 300; color: rgba(255,255,255,0.8); margin-top: 8px; letter-spacing: 1px;" data-translate="Diverse Product Family and Services">
                     Diverse Product Family and Services
@@ -3115,7 +3115,7 @@ html {
                         <img src="LOGOS/Cryp pay.png" style="max-width: 100%; max-height: 100%; object-fit: contain;" alt="CrypPay">
                     </div>
                     <div style="font-family: 'Montserrat', sans-serif; font-size: 0.95em; font-weight: 700; color: white;">CRYP Pay</div>
-                    <div style="font-size: 0.75em; color: rgba(255,255,255,0.6); margin-top: 4px;">Digital Carteira</div>
+                    <div style="font-size: 0.75em; color: rgba(255,255,255,0.6); margin-top: 4px;">Carteira Digital</div>
                 </div>
 
                 <!-- Product 2: Cripto Barter -->
@@ -3145,13 +3145,13 @@ html {
                     <div style="font-size: 0.75em; color: rgba(255,255,255,0.6); margin-top: 4px;">TRDO token</div>
                 </div>
 
-                <!-- Product 5: Business Centers -->
+                <!-- Product 5: Centro de Negócioss -->
                 <div class="fragment" style="background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05)); backdrop-filter: blur(15px); border-radius: 16px; padding: 20px 15px; border: 1px solid rgba(244, 208, 63, 0.2); box-shadow: 0 10px 30px rgba(0,0,0,0.3); text-align: center;">
                     <div style="width: 60px; height: 60px; margin: 0 auto 12px; display: flex; align-items: center; justify-content: center;">
-                        <img src="LOGOS/Crypque Business Center.png" style="max-width: 100%; max-height: 100%; object-fit: contain;" alt="Business Center">
+                        <img src="LOGOS/Crypque Centro de Negócios.png" style="max-width: 100%; max-height: 100%; object-fit: contain;" alt="Centro de Negócios">
                     </div>
-                    <div style="font-family: 'Montserrat', sans-serif; font-size: 0.95em; font-weight: 700; color: white;">Business Centers</div>
-                    <div style="font-size: 0.75em; color: rgba(255,255,255,0.6); margin-top: 4px;">Office Spaces</div>
+                    <div style="font-family: 'Montserrat', sans-serif; font-size: 0.95em; font-weight: 700; color: white;">Centro de Negócioss</div>
+                    <div style="font-size: 0.75em; color: rgba(255,255,255,0.6); margin-top: 4px;">Espaços de Escritório</div>
                 </div>
 
                 <!-- Product 6: NBFC Finants -->
@@ -3160,7 +3160,7 @@ html {
                         <i class="fas fa-university" style="font-size: 40px; color: #f4d03f;"></i>
                     </div>
                     <div style="font-family: 'Montserrat', sans-serif; font-size: 0.95em; font-weight: 700; color: white;">NBFC Finants</div>
-                    <div style="font-size: 0.75em; color: rgba(255,255,255,0.6); margin-top: 4px;">Financial Services India</div>
+                    <div style="font-size: 0.75em; color: rgba(255,255,255,0.6); margin-top: 4px;">Serviços Financeiros Índia</div>
                 </div>
 
                 <!-- Product 7: Imóveis -->
@@ -3177,8 +3177,8 @@ html {
                     <div style="width: 60px; height: 60px; margin: 0 auto 12px; display: flex; align-items: center; justify-content: center;">
                         <i class="fas fa-graduation-cap" style="font-size: 40px; color: #f4d03f;"></i>
                     </div>
-                    <div style="font-family: 'Montserrat', sans-serif; font-size: 0.95em; font-weight: 700; color: white;">Training</div>
-                    <div style="font-size: 0.75em; color: rgba(255,255,255,0.6); margin-top: 4px;">Education & Mentoring</div>
+                    <div style="font-family: 'Montserrat', sans-serif; font-size: 0.95em; font-weight: 700; color: white;">Treinamento</div>
+                    <div style="font-size: 0.75em; color: rgba(255,255,255,0.6); margin-top: 4px;">Educação e Mentoria</div>
                 </div>
 
             </div>
@@ -3212,7 +3212,7 @@ html {
         <div style="display: flex; justify-content: flex-end; align-items: center; margin-bottom: 30px;">
             <div style="display: flex; align-items: center; gap: 15px;">
                 <div style="background: linear-gradient(135deg, rgba(201, 162, 39, 0.3), rgba(244, 208, 63, 0.2)); padding: 12px 30px; border-radius: 25px; border: 1px solid rgba(244, 208, 63, 0.5);">
-                    <span style="color: #f4d03f; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 16px; letter-spacing: 2px;" data-translate="INCOME SOURCES">INCOME SOURCES</span>
+                    <span style="color: #f4d03f; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 16px; letter-spacing: 2px;" data-translate="FONTES DE RECEITA">FONTES DE RECEITA</span>
                 </div>
                 <div style="width: 55px; height: 55px; border-radius: 50%; overflow: hidden; border: 3px solid #f4d03f; box-shadow: 0 5px 20px rgba(244, 208, 63, 0.4);">
                     <img class="presenter-photo" src="LOGOS/Vambola Tullus.jpg" style="width: 100%; height: 100%; object-fit: cover;" alt="Presenter">
@@ -3228,10 +3228,10 @@ html {
 
             <!-- Title -->
             <div style="font-family: 'Montserrat', sans-serif; font-size: 2.8em; font-weight: 700; color: white; margin-bottom: 8px; text-shadow: 0 4px 20px rgba(0,0,0,0.5);">
-                <i class="fas fa-chart-line" style="color: #f4d03f; margin-right: 15px;"></i><span data-translate="Where Does Company Receita Come From?">Where Does Company Receita Come From?</span>
+                <i class="fas fa-chart-line" style="color: #f4d03f; margin-right: 15px;"></i><span data-translate="De Onde Vem a Receita da Empresa?">De Onde Vem a Receita da Empresa?</span>
             </div>
-            <div style="font-family: 'Open Sans', sans-serif; font-size: 1.3em; font-weight: 300; color: rgba(255,255,255,0.8); margin-bottom: 35px; letter-spacing: 1px;" data-translate="Three Strong Receita Streams">
-                Three Strong Receita Streams
+            <div style="font-family: 'Open Sans', sans-serif; font-size: 1.3em; font-weight: 300; color: rgba(255,255,255,0.8); margin-bottom: 35px; letter-spacing: 1px;" data-translate="Três Fontes de Receita Sólidas">
+                Três Fontes de Receita Sólidas
             </div>
 
             <!-- Receita Bars -->
@@ -3244,7 +3244,7 @@ html {
                     <div style="font-size: 42px; color: #f4d03f; margin-bottom: 10px;">
                         <i class="fas fa-exchange-alt"></i>
                     </div>
-                    <div style="font-family: 'Montserrat', sans-serif; font-size: 1.2em; font-weight: 600; color: white;" data-translate="Arbitrage">Arbitrage</div>
+                    <div style="font-family: 'Montserrat', sans-serif; font-size: 1.2em; font-weight: 600; color: white;" data-translate="Arbitrage">Arbitragem</div>
                 </div>
 
                 <!-- Mitmekesistamine 30% -->
@@ -3255,7 +3255,7 @@ html {
                     <div style="font-size: 42px; color: rgba(255,255,255,0.8); margin-bottom: 10px;">
                         <i class="fas fa-project-diagram"></i>
                     </div>
-                    <div style="font-family: 'Montserrat', sans-serif; font-size: 1.2em; font-weight: 600; color: white;" data-translate="Diversification">Diversification</div>
+                    <div style="font-family: 'Montserrat', sans-serif; font-size: 1.2em; font-weight: 600; color: white;" data-translate="Diversification">Diversificação</div>
                 </div>
 
                 <!-- Krüpto Uuringud 20% -->
@@ -3266,7 +3266,7 @@ html {
                     <div style="font-size: 42px; color: rgba(255,255,255,0.7); margin-bottom: 10px;">
                         <i class="fas fa-search-dollar"></i>
                     </div>
-                    <div style="font-family: 'Montserrat', sans-serif; font-size: 1.2em; font-weight: 600; color: white;" data-translate="Cripto Research">Cripto Research</div>
+                    <div style="font-family: 'Montserrat', sans-serif; font-size: 1.2em; font-weight: 600; color: white;" data-translate="Pesquisa Cripto">Pesquisa Cripto</div>
                 </div>
             </div>
 
@@ -3315,15 +3315,15 @@ html {
 
             <!-- Title -->
             <div style="font-family: 'Montserrat', sans-serif; font-size: 2.8em; font-weight: 700; color: white; margin-bottom: 8px; text-shadow: 0 4px 20px rgba(0,0,0,0.5);">
-                <i class="fas fa-sync-alt" style="color: #f4d03f; margin-right: 15px;"></i><span data-translate="What is Arbitrage?">What is Arbitrage?</span>
+                <i class="fas fa-sync-alt" style="color: #f4d03f; margin-right: 15px;"></i><span data-translate="O Que é Arbitragem?">O Que é Arbitragem?</span>
             </div>
-            <div style="font-family: 'Open Sans', sans-serif; font-size: 1.3em; font-weight: 300; color: rgba(255,255,255,0.8); margin-bottom: 30px; letter-spacing: 1px;" data-translate="Company's Main Activity - 50% of Receita">
-                Company's Main Activity - 50% of Receita
+            <div style="font-family: 'Open Sans', sans-serif; font-size: 1.3em; font-weight: 300; color: rgba(255,255,255,0.8); margin-bottom: 30px; letter-spacing: 1px;" data-translate="Company's Main Activity - 50% de Receita">
+                Company's Main Activity - 50% de Receita
             </div>
 
             <!-- Highlight Box -->
             <div class="fragment" style="background: linear-gradient(135deg, rgba(201, 162, 39, 0.15), rgba(244, 208, 63, 0.08)); backdrop-filter: blur(15px); border-radius: 20px; padding: 25px 35px; margin-bottom: 25px; border: 1px solid rgba(244, 208, 63, 0.3); box-shadow: 0 15px 40px rgba(0,0,0,0.3); text-align: center;">
-                <div style="font-family: 'Montserrat', sans-serif; font-size: 1.2em; font-weight: 600; color: #f4d03f; margin-bottom: 10px;">Arbitrage Means:</div>
+                <div style="font-family: 'Montserrat', sans-serif; font-size: 1.2em; font-weight: 600; color: #f4d03f; margin-bottom: 10px;">Arbitragem Significa:</div>
                 <div style="font-size: 20px; color: rgba(255,255,255,0.95); line-height: 1.6;">
                     Buying currency/cripto in one place cheaper<br>and selling in another for more
                 </div>
@@ -3335,7 +3335,7 @@ html {
                 <div class="fragment" style="background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05)); backdrop-filter: blur(15px); border-radius: 20px; padding: 25px; border: 1px solid rgba(255, 255, 255, 0.15); box-shadow: 0 15px 40px rgba(0,0,0,0.3);">
                     <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 20px;">
                         <i class="fas fa-apple-alt" style="font-size: 24px; color: #f4d03f;"></i>
-                        <span style="font-family: 'Montserrat', sans-serif; font-size: 1.1em; font-weight: 600; color: #f4d03f;">Simple Example:</span>
+                        <span style="font-family: 'Montserrat', sans-serif; font-size: 1.1em; font-weight: 600; color: #f4d03f;">Exemplo Simples:</span>
                     </div>
                     <div style="display: flex; flex-direction: column; gap: 12px;">
                         <div style="display: flex; align-items: center; gap: 12px;">
@@ -3348,11 +3348,11 @@ html {
                         </div>
                         <div style="display: flex; align-items: center; gap: 12px;">
                             <div style="width: 8px; height: 8px; background: #10b981; border-radius: 50%;"></div>
-                            <span style="color: rgba(255,255,255,0.95); font-size: 15px;">10 cents is profit</span>
+                            <span style="color: rgba(255,255,255,0.95); font-size: 15px;">10 cents is lucro</span>
                         </div>
                         <div style="display: flex; align-items: center; gap: 12px;">
                             <div style="width: 8px; height: 8px; background: #10b981; border-radius: 50%;"></div>
-                            <span style="color: rgba(255,255,255,0.95); font-size: 15px;">Every day = stable profit</span>
+                            <span style="color: rgba(255,255,255,0.95); font-size: 15px;">Todos os dias = lucro estável</span>
                         </div>
                     </div>
                 </div>
@@ -3370,15 +3370,15 @@ html {
                         </div>
                         <div style="display: flex; align-items: center; gap: 12px;">
                             <i class="fas fa-check-circle" style="color: #f4d03f; font-size: 16px;"></i>
-                            <span style="color: rgba(255,255,255,0.95); font-size: 15px;">Large volumes</span>
+                            <span style="color: rgba(255,255,255,0.95); font-size: 15px;"Grandes volumes</span>
                         </div>
                         <div style="display: flex; align-items: center; gap: 12px;">
                             <i class="fas fa-check-circle" style="color: #f4d03f; font-size: 16px;"></i>
-                            <span style="color: rgba(255,255,255,0.95); font-size: 15px;">Every day</span>
+                            <span style="color: rgba(255,255,255,0.95); font-size: 15px;"Todos os dias</span>
                         </div>
                         <div style="display: flex; align-items: center; gap: 12px;">
                             <i class="fas fa-check-circle" style="color: #f4d03f; font-size: 16px;"></i>
-                            <span style="color: rgba(255,255,255,0.95); font-size: 15px;">Automatically</span>
+                            <span style="color: rgba(255,255,255,0.95); font-size: 15px;"Automaticamente</span>
                         </div>
                     </div>
                 </div>
@@ -3389,10 +3389,10 @@ html {
                 <div style="display: flex; align-items: flex-start; gap: 15px;">
                     <i class="fas fa-exchange-alt" style="font-size: 22px; color: #f59e0b; margin-top: 2px;"></i>
                     <div>
-                        <div style="font-family: 'Montserrat', sans-serif; font-size: 15px; font-weight: 600; color: #f59e0b; margin-bottom: 8px;">Real Life Example - Currency Exchange</div>
+                        <div style="font-family: 'Montserrat', sans-serif; font-size: 15px; font-weight: 600; color: #f59e0b; margin-bottom: 8px;">Exemplo Real - Câmbio de Moedas</div>
                         <div style="color: rgba(255,255,255,0.9); font-size: 15px; line-height: 1.5;">
                             <strong>Popular currency exchanger:</strong> They buy from you at $1.1085 → They sell to you at $1.1720<br>
-                            <strong style="color: #f4d03f;">Diferença: ~5.7% profit</strong> on every transaction — <em>This is arbitrage!</em>
+                            <strong style="color: #f4d03f;">Diferença: ~5.7% lucro</strong> em cada transação — <em>Isto é arbitragem!</em>
                         </div>
                     </div>
                 </div>
@@ -3419,7 +3419,7 @@ html {
         <div style="display: flex; justify-content: flex-end; align-items: center; margin-bottom: 30px;">
             <div style="display: flex; align-items: center; gap: 15px;">
                 <div style="background: linear-gradient(135deg, rgba(201, 162, 39, 0.3), rgba(244, 208, 63, 0.2)); padding: 12px 30px; border-radius: 25px; border: 1px solid rgba(244, 208, 63, 0.5);">
-                    <span style="color: #f4d03f; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 16px; letter-spacing: 2px;" data-translate="PRICE DIFFERENCES">PRICE DIFFERENCES</span>
+                    <span style="color: #f4d03f; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 16px; letter-spacing: 2px;" data-translate="DIFERENÇAS DE PREÇO">DIFERENÇAS DE PREÇO</span>
                 </div>
                 <div style="width: 55px; height: 55px; border-radius: 50%; overflow: hidden; border: 3px solid #f4d03f; box-shadow: 0 5px 20px rgba(244, 208, 63, 0.4);">
                     <img class="presenter-photo" src="LOGOS/Vambola Tullus.jpg" style="width: 100%; height: 100%; object-fit: cover;" alt="Presenter">
@@ -3453,7 +3453,7 @@ html {
                 <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; padding: 15px 0; border-bottom: 1px solid rgba(255,255,255,0.1);">
                     <div style="display: flex; align-items: center; gap: 10px; color: white; font-size: 16px;"><i class="fas fa-map-marker-alt" style="color: #f4d03f;"></i> Philippines / Dubai</div>
                     <div style="color: white; font-size: 18px; font-weight: 600; text-align: center;">$1.00</div>
-                    <div style="text-align: right;"><span style="background: #10b981; color: white; padding: 5px 15px; border-radius: 20px; font-size: 14px; font-weight: 600;">BUY HERE</span></div>
+                    <div style="text-align: right;"><span style="background: #10b981; color: white; padding: 5px 15px; border-radius: 20px; font-size: 14px; font-weight: 600;">COMPRAR AQUI</span></div>
                 </div>
                 <!-- Row 2 -->
                 <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; padding: 15px 0; border-bottom: 1px solid rgba(255,255,255,0.1);">
@@ -3480,10 +3480,10 @@ html {
                 <div style="display: flex; align-items: flex-start; gap: 15px;">
                     <i class="fas fa-lightbulb" style="font-size: 24px; color: #10b981; margin-top: 2px;"></i>
                     <div>
-                        <div style="font-family: 'Montserrat', sans-serif; font-size: 16px; font-weight: 600; color: #10b981; margin-bottom: 8px;" data-translate="Illustrative Example">Illustrative Example</div>
+                        <div style="font-family: 'Montserrat', sans-serif; font-size: 16px; font-weight: 600; color: #10b981; margin-bottom: 8px;" data-translate="Exemplo Ilustrativo">Exemplo Ilustrativo</div>
                         <div style="color: rgba(255,255,255,0.9); font-size: 16px; line-height: 1.6;">
-                            <span data-translate="Buy in Dubai $1.00 → Sell in Bangladesh $1.15 = 15% profit">Buy in Dubai $1.00 → Sell in Bangladesh $1.15 = <strong style="color: #f4d03f;">15% profit</strong></span><br>
-                            <span data-translate="Repeat this diário with large volumes = stable income">Repeat this diário with large volumes = stable income</span><br>
+                            <span data-translate="Comprar no Dubai $1.00 → Vender no Bangladesh $1.15 = 15% profit">Comprar no Dubai $1.00 → Vender no Bangladesh $1.15 = <strong style="color: #f4d03f;">15% lucro</strong></span><br>
+                            <span data-translate="Repetir isto diariamente com grandes volumes = rendimento estável">Repetir isto diariamente com grandes volumes = rendimento estável</span><br>
                             <em style="font-size: 14px; opacity: 0.7;" data-translate="*Illustrative example, actual prices may vary">*Illustrative example, actual prices may vary</em>
                         </div>
                     </div>
@@ -3511,7 +3511,7 @@ html {
         <div style="display: flex; justify-content: flex-end; align-items: center; margin-bottom: 30px;">
             <div style="display: flex; align-items: center; gap: 15px;">
                 <div style="background: linear-gradient(135deg, rgba(201, 162, 39, 0.3), rgba(244, 208, 63, 0.2)); padding: 12px 30px; border-radius: 25px; border: 1px solid rgba(244, 208, 63, 0.5);">
-                    <span style="color: #f4d03f; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 16px; letter-spacing: 2px;" data-translate="PROFIT GENERATION">PROFIT GENERATION</span>
+                    <span style="color: #f4d03f; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 16px; letter-spacing: 2px;" data-translate="GERAÇÃO DE LUCRO">GERAÇÃO DE LUCRO</span>
                 </div>
                 <div style="width: 55px; height: 55px; border-radius: 50%; overflow: hidden; border: 3px solid #f4d03f; box-shadow: 0 5px 20px rgba(244, 208, 63, 0.4);">
                     <img class="presenter-photo" src="LOGOS/Vambola Tullus.jpg" style="width: 100%; height: 100%; object-fit: cover;" alt="Presenter">
@@ -3534,19 +3534,19 @@ html {
             <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-bottom: 35px;">
                 <div class="fragment" style="background: linear-gradient(135deg, rgba(201, 162, 39, 0.2), rgba(244, 208, 63, 0.1)); backdrop-filter: blur(15px); border-radius: 20px; padding: 25px; border: 2px solid rgba(244, 208, 63, 0.4); box-shadow: 0 15px 40px rgba(0,0,0,0.3); text-align: center;">
                     <div style="width: 50px; height: 50px; background: linear-gradient(135deg, #c9a227, #f4d03f); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; font-family: 'Montserrat', sans-serif; font-size: 24px; font-weight: 900; color: #0f0c08;">1</div>
-                    <div style="color: rgba(255,255,255,0.95); font-size: 15px; line-height: 1.5;" data-translate="Buy in large quantities at lower price">Buy in large quantities at lower price</div>
+                    <div style="color: rgba(255,255,255,0.95); font-size: 15px; line-height: 1.5;" data-translate="Comprar em grandes quantidades a preço mais baixo">Comprar em grandes quantidades a preço mais baixo</div>
                 </div>
                 <div class="fragment" style="background: linear-gradient(135deg, rgba(201, 162, 39, 0.2), rgba(244, 208, 63, 0.1)); backdrop-filter: blur(15px); border-radius: 20px; padding: 25px; border: 2px solid rgba(244, 208, 63, 0.4); box-shadow: 0 15px 40px rgba(0,0,0,0.3); text-align: center;">
                     <div style="width: 50px; height: 50px; background: linear-gradient(135deg, #c9a227, #f4d03f); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; font-family: 'Montserrat', sans-serif; font-size: 24px; font-weight: 900; color: #0f0c08;">2</div>
-                    <div style="color: rgba(255,255,255,0.95); font-size: 15px; line-height: 1.5;" data-translate="Sell at higher price in another country">Sell at higher price in another country</div>
+                    <div style="color: rgba(255,255,255,0.95); font-size: 15px; line-height: 1.5;" data-translate="Vender a preço mais alto noutro país">Vender a preço mais alto noutro país</div>
                 </div>
                 <div class="fragment" style="background: linear-gradient(135deg, rgba(201, 162, 39, 0.2), rgba(244, 208, 63, 0.1)); backdrop-filter: blur(15px); border-radius: 20px; padding: 25px; border: 2px solid rgba(244, 208, 63, 0.4); box-shadow: 0 15px 40px rgba(0,0,0,0.3); text-align: center;">
                     <div style="width: 50px; height: 50px; background: linear-gradient(135deg, #c9a227, #f4d03f); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; font-family: 'Montserrat', sans-serif; font-size: 24px; font-weight: 900; color: #0f0c08;">3</div>
-                    <div style="color: rgba(255,255,255,0.95); font-size: 15px; line-height: 1.5;" data-translate="Earn 0.5-8% difference">Earn 0.5-8% difference</div>
+                    <div style="color: rgba(255,255,255,0.95); font-size: 15px; line-height: 1.5;" data-translate="Ganhar 0,5-8% de diferença">Ganhar 0,5-8% de diferença</div>
                 </div>
                 <div class="fragment" style="background: linear-gradient(135deg, rgba(201, 162, 39, 0.2), rgba(244, 208, 63, 0.1)); backdrop-filter: blur(15px); border-radius: 20px; padding: 25px; border: 2px solid rgba(244, 208, 63, 0.4); box-shadow: 0 15px 40px rgba(0,0,0,0.3); text-align: center;">
                     <div style="width: 50px; height: 50px; background: linear-gradient(135deg, #c9a227, #f4d03f); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; font-family: 'Montserrat', sans-serif; font-size: 24px; font-weight: 900; color: #0f0c08;">4</div>
-                    <div style="color: rgba(255,255,255,0.95); font-size: 15px; line-height: 1.5;" data-translate="Repeated every day">Repeated every day</div>
+                    <div style="color: rgba(255,255,255,0.95); font-size: 15px; line-height: 1.5;" data-translate="Repetido todos os dias">Repetido todos os dias</div>
                 </div>
             </div>
 
@@ -3557,21 +3557,21 @@ html {
                         <i class="fas fa-percentage"></i>
                     </div>
                     <div style="font-family: 'Montserrat', sans-serif; font-size: 2.2em; font-weight: 800; color: white; margin-bottom: 5px;">1-1.5%</div>
-                    <div style="font-size: 14px; color: rgba(255,255,255,0.7);" data-translate="Average Lucro Per Cycle">Average Lucro Per Cycle</div>
+                    <div style="font-size: 14px; color: rgba(255,255,255,0.7);" data-translate="Lucro Médio Por Ciclo">Lucro Médio Por Ciclo</div>
                 </div>
                 <div class="fragment" style="background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05)); backdrop-filter: blur(15px); border-radius: 18px; padding: 25px; text-align: center; border: 1px solid rgba(244, 208, 63, 0.2); box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
                     <div style="font-size: 36px; color: #f4d03f; margin-bottom: 10px;">
                         <i class="fas fa-redo"></i>
                     </div>
                     <div style="font-family: 'Montserrat', sans-serif; font-size: 2.2em; font-weight: 800; color: white; margin-bottom: 5px;">30x</div>
-                    <div style="font-size: 14px; color: rgba(255,255,255,0.7);" data-translate="Transactions Por Mês">Transactions Por Mês</div>
+                    <div style="font-size: 14px; color: rgba(255,255,255,0.7);" data-translate="Transações Por Mês">Transações Por Mês</div>
                 </div>
                 <div class="fragment" style="background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05)); backdrop-filter: blur(15px); border-radius: 18px; padding: 25px; text-align: center; border: 1px solid rgba(244, 208, 63, 0.2); box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
                     <div style="font-size: 36px; color: #f4d03f; margin-bottom: 10px;">
                         <i class="fas fa-chart-line"></i>
                     </div>
-                    <div style="font-family: 'Montserrat', sans-serif; font-size: 2.2em; font-weight: 800; color: white; margin-bottom: 5px;" data-translate="Stable">Stable</div>
-                    <div style="font-size: 14px; color: rgba(255,255,255,0.7);" data-translate="Retorno Mensals">Retorno Mensals</div>
+                    <div style="font-family: 'Montserrat', sans-serif; font-size: 2.2em; font-weight: 800; color: white; margin-bottom: 5px;" data-translate="Stable">Estável</div>
+                    <div style="font-size: 14px; color: rgba(255,255,255,0.7);" data-translate="Retornos Mensais">Retornos Mensais</div>
                 </div>
             </div>
 
@@ -3580,7 +3580,7 @@ html {
                 <div style="display: flex; align-items: center; gap: 15px; justify-content: center;">
                     <i class="fas fa-check-double" style="font-size: 24px; color: #10b981;"></i>
                     <div style="color: rgba(255,255,255,0.95); font-size: 17px;">
-                        <strong style="color: #10b981;" data-translate="Reason for Stability:">Reason for Stability:</strong> <span data-translate="Renda doesn't depend on cripto market rise or stock exchange.">Renda doesn't depend on cripto market rise or stock exchange.</span> <span style="color: #f4d03f; font-weight: 600;" data-translate="Renda comes from business, not recruitment.">Renda comes from business, not recruitment.</span>
+                        <strong style="color: #10b981;" data-translate="Razão da Estabilidade:">Razão da Estabilidade:</strong> <span data-translate="A renda não depende da subida do mercado cripto ou da bolsa.">A renda não depende da subida do mercado cripto ou da bolsa.</span> <span style="color: #f4d03f; font-weight: 600;" data-translate="A renda vem do negócio, não do recrutamento.">A renda vem do negócio, não do recrutamento.</span>
                     </div>
                 </div>
             </div>
@@ -3606,7 +3606,7 @@ html {
         <div style="display: flex; justify-content: flex-end; align-items: center; margin-bottom: 30px;">
             <div style="display: flex; align-items: center; gap: 15px;">
                 <div style="background: linear-gradient(135deg, rgba(201, 162, 39, 0.3), rgba(244, 208, 63, 0.2)); padding: 12px 30px; border-radius: 25px; border: 1px solid rgba(244, 208, 63, 0.5);">
-                    <span style="color: #f4d03f; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 16px; letter-spacing: 2px;" data-translate="OTHER REVENUE STREAMS">OTHER REVENUE STREAMS</span>
+                    <span style="color: #f4d03f; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 16px; letter-spacing: 2px;" data-translate="OUTRAS FONTES DE RECEITA">OUTRAS FONTES DE RECEITA</span>
                 </div>
                 <div style="width: 55px; height: 55px; border-radius: 50%; overflow: hidden; border: 3px solid #f4d03f; box-shadow: 0 5px 20px rgba(244, 208, 63, 0.4);">
                     <img class="presenter-photo" src="LOGOS/Vambola Tullus.jpg" style="width: 100%; height: 100%; object-fit: cover;" alt="Presenter">
@@ -3634,28 +3634,28 @@ html {
                 <div class="fragment" style="background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05)); backdrop-filter: blur(15px); border-radius: 20px; padding: 30px; border: 1px solid rgba(255, 255, 255, 0.15); box-shadow: 0 15px 40px rgba(0,0,0,0.3);">
                     <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 20px;">
                         <i class="fas fa-search-dollar" style="font-size: 28px; color: #f4d03f;"></i>
-                        <span style="font-family: 'Montserrat', sans-serif; font-size: 1.2em; font-weight: 600; color: #f4d03f;" data-translate="Cripto Research (20%)">Cripto Research (20%)</span>
+                        <span style="font-family: 'Montserrat', sans-serif; font-size: 1.2em; font-weight: 600; color: #f4d03f;" data-translate="Pesquisa Cripto (20%)">Pesquisa Cripto (20%)</span>
                     </div>
                     <div style="display: flex; flex-direction: column; gap: 12px;">
                         <div class="fragment" style="display: flex; align-items: center; gap: 12px;">
                             <i class="fas fa-check-circle" style="color: #10b981; font-size: 14px;"></i>
-                            <span style="color: rgba(255,255,255,0.95); font-size: 15px;">Analysis and evaluation of new projects</span>
+                            <span style="color: rgba(255,255,255,0.95); font-size: 15px;">Análise e avaliação de novos projetos</span>
                         </div>
                         <div class="fragment" style="display: flex; align-items: center; gap: 12px;">
                             <i class="fas fa-check-circle" style="color: #10b981; font-size: 14px;"></i>
-                            <span style="color: rgba(255,255,255,0.95); font-size: 15px;">Market analysis and trend research</span>
+                            <span style="color: rgba(255,255,255,0.95); font-size: 15px;">Análise de mercado e pesquisa de tendências</span>
                         </div>
                         <div class="fragment" style="display: flex; align-items: center; gap: 12px;">
                             <i class="fas fa-check-circle" style="color: #10b981; font-size: 14px;"></i>
-                            <span style="color: rgba(255,255,255,0.95); font-size: 15px;">Consultations and advisory</span>
+                            <span style="color: rgba(255,255,255,0.95); font-size: 15px;">Consultorias e assessoria</span>
                         </div>
                         <div class="fragment" style="display: flex; align-items: center; gap: 12px;">
                             <i class="fas fa-check-circle" style="color: #10b981; font-size: 14px;"></i>
-                            <span style="color: rgba(255,255,255,0.95); font-size: 15px;">Training and seminars</span>
+                            <span style="color: rgba(255,255,255,0.95); font-size: 15px;">Treinamento and seminars</span>
                         </div>
                         <div class="fragment" style="display: flex; align-items: center; gap: 12px;">
                             <i class="fas fa-check-circle" style="color: #10b981; font-size: 14px;"></i>
-                            <span style="color: rgba(255,255,255,0.95); font-size: 15px;">Community building services</span>
+                            <span style="color: rgba(255,255,255,0.95); font-size: 15px;">Serviços de construção de comunidade</span>
                         </div>
                     </div>
                 </div>
@@ -3673,7 +3673,7 @@ html {
                         </div>
                         <div class="fragment" style="display: flex; align-items: center; gap: 12px;">
                             <i class="fas fa-check-circle" style="color: #f4d03f; font-size: 14px;"></i>
-                            <span style="color: rgba(255,255,255,0.95); font-size: 15px;">Business Centers (Dubai, India)</span>
+                            <span style="color: rgba(255,255,255,0.95); font-size: 15px;">Centro de Negócioss (Dubai, India)</span>
                         </div>
                         <div class="fragment" style="display: flex; align-items: center; gap: 12px;">
                             <i class="fas fa-check-circle" style="color: #f4d03f; font-size: 14px;"></i>
@@ -3685,7 +3685,7 @@ html {
                         </div>
                         <div class="fragment" style="display: flex; align-items: center; gap: 12px;">
                             <i class="fas fa-check-circle" style="color: #f4d03f; font-size: 14px;"></i>
-                            <span style="color: rgba(255,255,255,0.95); font-size: 15px;">Long-term investments</span>
+                            <span style="color: rgba(255,255,255,0.95); font-size: 15px;">Investimentos de longo prazo</span>
                         </div>
                     </div>
                 </div>
@@ -3696,9 +3696,9 @@ html {
                 <div style="display: flex; align-items: flex-start; gap: 15px;">
                     <i class="fas fa-shield-alt" style="font-size: 28px; color: #10b981; margin-top: 2px;"></i>
                     <div>
-                        <div style="font-family: 'Montserrat', sans-serif; font-size: 16px; font-weight: 600; color: #10b981; margin-bottom: 10px;">Why Is This Important?</div>
+                        <div style="font-family: 'Montserrat', sans-serif; font-size: 16px; font-weight: 600; color: #10b981; margin-bottom: 10px;">Por Que Isto É Importante?</div>
                         <div style="color: rgba(255,255,255,0.9); font-size: 16px; line-height: 1.6;">
-                            Diversified income means: <span style="color: #f4d03f; font-weight: 600;">Lower risk</span> → <span style="color: #f4d03f; font-weight: 600;">Mais stable company</span> → <span style="color: #f4d03f; font-weight: 600;">Múltiplas fontes de receita work in parallel</span>
+                            Rendimento diversificado significa: <span style="color: #f4d03f; font-weight: 600;">Menor risco</span> → <span style="color: #f4d03f; font-weight: 600;">Empresa mais estável</span> → <span style="color: #f4d03f; font-weight: 600;">Múltiplas fontes de receita trabalham em paralelo</span>
                         </div>
                     </div>
                 </div>
@@ -3725,7 +3725,7 @@ html {
         <div style="display: flex; justify-content: flex-end; align-items: center; margin-bottom: 30px;">
             <div style="display: flex; align-items: center; gap: 15px;">
                 <div style="background: linear-gradient(135deg, rgba(201, 162, 39, 0.3), rgba(244, 208, 63, 0.2)); padding: 12px 30px; border-radius: 25px; border: 1px solid rgba(244, 208, 63, 0.5);">
-                    <span style="color: #f4d03f; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 16px; letter-spacing: 2px;" data-translate="INVESTOR EARNINGS">INVESTOR EARNINGS</span>
+                    <span style="color: #f4d03f; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 16px; letter-spacing: 2px;" data-translate="GANHOS DO INVESTIDOR">GANHOS DO INVESTIDOR</span>
                 </div>
                 <div style="width: 55px; height: 55px; border-radius: 50%; overflow: hidden; border: 3px solid #f4d03f; box-shadow: 0 5px 20px rgba(244, 208, 63, 0.4);">
                     <img class="presenter-photo" src="LOGOS/Vambola Tullus.jpg" style="width: 100%; height: 100%; object-fit: cover;" alt="Presenter">
@@ -3741,26 +3741,26 @@ html {
 
             <!-- Title -->
             <div style="font-family: 'Montserrat', sans-serif; font-size: 2.8em; font-weight: 700; color: white; margin-bottom: 35px; text-shadow: 0 4px 20px rgba(0,0,0,0.5);">
-                <i class="fas fa-hand-holding-usd" style="color: #f4d03f; margin-right: 15px;"></i><span data-translate="How The Investidor Earns">How The Investidor Earns</span>
+                <i class="fas fa-hand-holding-usd" style="color: #f4d03f; margin-right: 15px;"></i><span data-translate="Como o Investidor Ganha">Como o Investidor Ganha</span>
             </div>
 
             <!-- Process Steps -->
             <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 15px; margin-bottom: 30px;">
                 <div class="fragment" style="background: linear-gradient(135deg, rgba(201, 162, 39, 0.2), rgba(244, 208, 63, 0.1)); backdrop-filter: blur(15px); border-radius: 15px; padding: 20px 15px; border: 2px solid rgba(244, 208, 63, 0.4); box-shadow: 0 15px 40px rgba(0,0,0,0.3); text-align: center;">
                     <div style="width: 40px; height: 40px; background: linear-gradient(135deg, #c9a227, #f4d03f); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 12px; font-family: 'Montserrat', sans-serif; font-size: 18px; font-weight: 900; color: #0f0c08;">1</div>
-                    <div style="color: rgba(255,255,255,0.95); font-size: 13px; line-height: 1.4;">Investidor puts their money to work</div>
+                    <div style="color: rgba(255,255,255,0.95); font-size: 13px; line-height: 1.4;">O investidor coloca o dinheiro a trabalhar</div>
                 </div>
                 <div class="fragment" style="background: linear-gradient(135deg, rgba(201, 162, 39, 0.2), rgba(244, 208, 63, 0.1)); backdrop-filter: blur(15px); border-radius: 15px; padding: 20px 15px; border: 2px solid rgba(244, 208, 63, 0.4); box-shadow: 0 15px 40px rgba(0,0,0,0.3); text-align: center;">
                     <div style="width: 40px; height: 40px; background: linear-gradient(135deg, #c9a227, #f4d03f); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 12px; font-family: 'Montserrat', sans-serif; font-size: 18px; font-weight: 900; color: #0f0c08;">2</div>
-                    <div style="color: rgba(255,255,255,0.95); font-size: 13px; line-height: 1.4;">Company uses for business</div>
+                    <div style="color: rgba(255,255,255,0.95); font-size: 13px; line-height: 1.4;">A empresa usa para o negócio</div>
                 </div>
                 <div class="fragment" style="background: linear-gradient(135deg, rgba(201, 162, 39, 0.2), rgba(244, 208, 63, 0.1)); backdrop-filter: blur(15px); border-radius: 15px; padding: 20px 15px; border: 2px solid rgba(244, 208, 63, 0.4); box-shadow: 0 15px 40px rgba(0,0,0,0.3); text-align: center;">
                     <div style="width: 40px; height: 40px; background: linear-gradient(135deg, #c9a227, #f4d03f); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 12px; font-family: 'Montserrat', sans-serif; font-size: 18px; font-weight: 900; color: #0f0c08;">3</div>
-                    <div style="color: rgba(255,255,255,0.95); font-size: 13px; line-height: 1.4;">Lucro is generated</div>
+                    <div style="color: rgba(255,255,255,0.95); font-size: 13px; line-height: 1.4;">O lucro é gerado</div>
                 </div>
                 <div class="fragment" style="background: linear-gradient(135deg, rgba(201, 162, 39, 0.2), rgba(244, 208, 63, 0.1)); backdrop-filter: blur(15px); border-radius: 15px; padding: 20px 15px; border: 2px solid rgba(244, 208, 63, 0.4); box-shadow: 0 15px 40px rgba(0,0,0,0.3); text-align: center;">
                     <div style="width: 40px; height: 40px; background: linear-gradient(135deg, #c9a227, #f4d03f); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 12px; font-family: 'Montserrat', sans-serif; font-size: 18px; font-weight: 900; color: #0f0c08;">4</div>
-                    <div style="color: rgba(255,255,255,0.95); font-size: 13px; line-height: 1.4;">Investidor gets their share</div>
+                    <div style="color: rgba(255,255,255,0.95); font-size: 13px; line-height: 1.4;">O investidor recebe a sua parte</div>
                 </div>
                 <div class="fragment" style="background: linear-gradient(135deg, rgba(201, 162, 39, 0.2), rgba(244, 208, 63, 0.1)); backdrop-filter: blur(15px); border-radius: 15px; padding: 20px 15px; border: 2px solid rgba(244, 208, 63, 0.4); box-shadow: 0 15px 40px rgba(0,0,0,0.3); text-align: center;">
                     <div style="width: 40px; height: 40px; background: linear-gradient(135deg, #c9a227, #f4d03f); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 12px; font-family: 'Montserrat', sans-serif; font-size: 18px; font-weight: 900; color: #0f0c08;">5</div>
@@ -3775,31 +3775,31 @@ html {
                         <i class="fas fa-percentage"></i>
                     </div>
                     <div style="font-family: 'Montserrat', sans-serif; font-size: 2.2em; font-weight: 800; color: white; margin-bottom: 5px;">8-10%</div>
-                    <div style="font-size: 14px; color: rgba(255,255,255,0.7);" data-translate="Average Retorno Mensal">Average Retorno Mensal</div>
+                    <div style="font-size: 14px; color: rgba(255,255,255,0.7);" data-translate="Retorno Mensal Médio">Retorno Mensal Médio</div>
                 </div>
                 <div class="fragment" style="background: linear-gradient(135deg, rgba(201, 162, 39, 0.2), rgba(244, 208, 63, 0.1)); backdrop-filter: blur(15px); border-radius: 18px; padding: 25px; text-align: center; border: 2px solid rgba(244, 208, 63, 0.4); box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
                     <div style="font-size: 36px; color: #f4d03f; margin-bottom: 10px;">
                         <i class="fas fa-times"></i>
                     </div>
                     <div style="font-family: 'Montserrat', sans-serif; font-size: 2.2em; font-weight: 800; color: #f4d03f; margin-bottom: 5px;">2.5×</div>
-                    <div style="font-size: 14px; color: rgba(255,255,255,0.7);" data-translate="Maximum Return">Maximum Return</div>
+                    <div style="font-size: 14px; color: rgba(255,255,255,0.7);" data-translate="Retorno Máximo">Retorno Máximo</div>
                 </div>
                 <div class="fragment" style="background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05)); backdrop-filter: blur(15px); border-radius: 18px; padding: 25px; text-align: center; border: 1px solid rgba(244, 208, 63, 0.2); box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
                     <div style="font-size: 36px; color: #f4d03f; margin-bottom: 10px;">
                         <i class="fas fa-calendar-day"></i>
                     </div>
-                    <div style="font-family: 'Montserrat', sans-serif; font-size: 2.2em; font-weight: 800; color: white; margin-bottom: 5px;">Every day</div>
+                    <div style="font-family: 'Montserrat', sans-serif; font-size: 2.2em; font-weight: 800; color: white; margin-bottom: 5px;"Todos os dias</div>
                     <div style="font-size: 14px; color: rgba(255,255,255,0.7);" data-translate="Payout (min $10)">Payout (min $10)</div>
                 </div>
             </div>
 
             <!-- Informação Card -->
             <div class="fragment" style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(16, 185, 129, 0.08)); backdrop-filter: blur(15px); border-radius: 15px; padding: 25px 30px; border: 1px solid rgba(16, 185, 129, 0.4); box-shadow: 0 10px 30px rgba(0,0,0,0.2); text-align: center;">
-                <div style="font-family: 'Montserrat', sans-serif; font-size: 16px; font-weight: 600; color: #10b981; margin-bottom: 15px;"><i class="fas fa-shield-alt" style="margin-right: 10px;"></i>Renda Source</div>
+                <div style="font-family: 'Montserrat', sans-serif; font-size: 16px; font-weight: 600; color: #10b981; margin-bottom: 15px;"><i class="fas fa-shield-alt" style="margin-right: 10px;"></i>Fonte de Renda</div>
                 <div style="display: flex; justify-content: center; gap: 30px; margin-bottom: 15px; flex-wrap: wrap;">
-                    <span style="color: rgba(255,255,255,0.7); font-size: 15px;"><i class="fas fa-times" style="color: #ef4444; margin-right: 8px;"></i>Doesn't depend on cripto market rise</span>
-                    <span style="color: rgba(255,255,255,0.7); font-size: 15px;"><i class="fas fa-times" style="color: #ef4444; margin-right: 8px;"></i>Doesn't depend on stock exchange</span>
-                    <span style="color: rgba(255,255,255,0.7); font-size: 15px;"><i class="fas fa-times" style="color: #ef4444; margin-right: 8px;"></i>Doesn't depend on new people joining</span>
+                    <span style="color: rgba(255,255,255,0.7); font-size: 15px;"><i class="fas fa-times" style="color: #ef4444; margin-right: 8px;"></i>A renda não depende da subida do mercado cripto</span>
+                    <span style="color: rgba(255,255,255,0.7); font-size: 15px;"><i class="fas fa-times" style="color: #ef4444; margin-right: 8px;"></i>nem da bolsa</span>
+                    <span style="color: rgba(255,255,255,0.7); font-size: 15px;"><i class="fas fa-times" style="color: #ef4444; margin-right: 8px;"></i>Não depende de novas pessoas a entrar</span>
                 </div>
                 <div style="font-size: 20px; font-weight: 700; color: #10b981;"><i class="fas fa-check-circle" style="margin-right: 10px;"></i><span data-translate="Renda comes from real business, not from recruiting people">Renda comes from real business, not from recruiting people</span></div>
             </div>
@@ -3827,7 +3827,7 @@ html {
         <!-- Title -->
         <div style="text-align: center; margin-bottom: 25px;">
             <div style="font-family: 'Montserrat', sans-serif; font-size: 2.4em; font-weight: 700; color: white; letter-spacing: 4px; text-shadow: 0 4px 20px rgba(0,0,0,0.5); margin-bottom: 8px;">
-                <i class="fas fa-calculator" style="color: #f4d03f; margin-right: 15px;"></i><span data-translate="INVESTMENT CALCULATOR">INVESTMENT CALCULATOR</span>
+                <i class="fas fa-calculator" style="color: #f4d03f; margin-right: 15px;"></i><span data-translate="CALCULADORA DE INVESTIMENTO">CALCULADORA DE INVESTIMENTO</span>
             </div>
             <div style="font-family: 'Open Sans', sans-serif; font-size: 1.1em; font-weight: 300; color: rgba(255,255,255,0.8); letter-spacing: 2px;" data-translate="Drag slider to calculate">
                 Change the amount and see the result instantly - all numbers transparent
@@ -3843,7 +3843,7 @@ html {
 
                     <!-- Input Header -->
                     <div style="text-align: center; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid rgba(255,255,255,0.15);">
-                        <div style="font-size: 11px; color: rgba(255,255,255,0.6); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 3px;" data-translate="Total Investment">Total Investment</div>
+                        <div style="font-size: 11px; color: rgba(255,255,255,0.6); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 3px;" data-translate="Investimento Total">Investimento Total</div>
                         <div style="display: flex; align-items: center; justify-content: center; gap: 5px;">
                             <span style="font-size: 38px; font-weight: 900; font-family: 'Montserrat', sans-serif; color: #f4d03f;">$</span>
                             <input type="number" id="calcTotal" value="7800" min="100" step="100"
@@ -3902,7 +3902,7 @@ html {
 
                     <!-- Returns Header -->
                     <div style="text-align: center; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid rgba(255,255,255,0.15);">
-                        <div style="font-size: 11px; color: rgba(255,255,255,0.6); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 3px;" data-translate="Returns (25 meses)">Returns (25 meses)</div>
+                        <div style="font-size: 11px; color: rgba(255,255,255,0.6); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 3px;" data-translate="Retornos (25 meses)">Retornos (25 meses)</div>
                         <div style="font-size: 38px; font-weight: 900; font-family: 'Montserrat', sans-serif; color: #81c784;" id="calcBrutoTagastusHeader">$17,000</div>
                         <div style="font-size: 15px; color: rgba(255,255,255,0.7); margin-top: 5px;" id="calcBrutoTagastusHeaderEur">~14,620 EUR</div>
                     </div>
@@ -3950,20 +3950,20 @@ html {
                     </div>
                 </div>
 
-                <!-- Right: Final Lucro -->
+                <!-- Right: Lucro Final -->
                 <div class="fragment" style="flex: 1;">
                     <div style="background: linear-gradient(135deg, #1a3a2a 0%, #0d2818 100%); border-radius: 20px; padding: 25px; border: 2px solid #4caf50; box-shadow: 0 15px 50px rgba(76, 175, 80, 0.25); height: 100%; display: flex; flex-direction: column; justify-content: center;">
 
-                        <!-- Net Lucro -->
+                        <!-- Lucro Líquido -->
                         <div style="text-align: center; margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid rgba(76, 175, 80, 0.3);">
-                            <div style="font-size: 11px; color: rgba(255,255,255,0.6); margin-bottom: 10px; text-transform: uppercase; letter-spacing: 3px;" data-translate="Net Lucro">Net Lucro</div>
+                            <div style="font-size: 11px; color: rgba(255,255,255,0.6); margin-bottom: 10px; text-transform: uppercase; letter-spacing: 3px;" data-translate="Lucro Líquido">Lucro Líquido</div>
                             <div style="font-size: 44px; font-weight: 900; font-family: 'Montserrat', sans-serif; color: #81c784;" id="calcPuhasKasum">~$8,690</div>
                             <div style="font-size: 18px; color: rgba(255,255,255,0.7); margin-top: 5px;" id="calcPuhasKasumEur">~7,473 EUR</div>
                         </div>
 
                         <!-- ROI -->
                         <div style="text-align: center;">
-                            <div style="font-size: 10px; color: rgba(255,255,255,0.5); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 2px;" data-translate="Return on Investment">Retorno sobre Investimento/div>
+                            <div style="font-size: 10px; color: rgba(255,255,255,0.5); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 2px;" data-translate="Retorno sobre Investimento">Retorno sobre Investimento/div>
                             <div style="font-family: 'Montserrat', sans-serif; font-size: 52px; font-weight: 900; background: linear-gradient(135deg, #f4d03f, #c9a227); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;" id="calcROI">~111%</div>
                             <div style="margin-top: 15px; font-size: 13px; color: rgba(255,255,255,0.6);" id="calcKuus">
                                 <i class="fas fa-calendar-alt" style="margin-right: 8px; color: #f4d03f;"></i>25 meses = ~4.4%/month
@@ -4135,7 +4135,7 @@ html {
 
             <!-- Title -->
             <div style="font-family: 'Montserrat', sans-serif; font-size: 1.8em; font-weight: 700; color: white; margin-bottom: 5px; text-shadow: 0 3px 15px rgba(0,0,0,0.5);">
-                <i class="fas fa-rocket" style="color: #f4d03f; margin-right: 10px;"></i><span data-translate="Wealth Multiplication Mindset">Wealth Multiplication Mindset</span>
+                <i class="fas fa-rocket" style="color: #f4d03f; margin-right: 10px;"></i><span data-translate="Mentalidade de Multiplicação de Riqueza">Mentalidade de Multiplicação de Riqueza</span>
             </div>
             <div style="font-family: 'Open Sans', sans-serif; font-size: 1em; font-weight: 300; color: rgba(255,255,255,0.8); margin-bottom: 15px; letter-spacing: 0.5px;">
                 <span data-translate="If you have">If you have</span> <span id="leverageAmount" style="color: #f4d03f; font-weight: 700;">10,000 THB</span> - <span data-translate="What do you do?">What do you do?</span>
@@ -4147,12 +4147,12 @@ html {
                 <div class="fragment" style="background: linear-gradient(135deg, rgba(239, 68, 68, 0.15), rgba(239, 68, 68, 0.05)); backdrop-filter: blur(15px); border-radius: 15px; padding: 18px; border: 2px solid rgba(239, 68, 68, 0.4); box-shadow: 0 10px 25px rgba(0,0,0,0.3);">
                     <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 10px;">
                         <i class="fas fa-times-circle" style="font-size: 20px; color: #ef4444;"></i>
-                        <span style="font-family: 'Montserrat', sans-serif; font-size: 1em; font-weight: 600; color: #ef4444;" data-translate="The Nãormal Way">The Nãormal Way</span>
+                        <span style="font-family: 'Montserrat', sans-serif; font-size: 1em; font-weight: 600; color: #ef4444;" data-translate="A Forma Normal">A Forma Normal</span>
                     </div>
                     <div style="color: rgba(255,255,255,0.95); font-size: 13px; line-height: 1.5;">
                         <div style="font-size: 14px; font-weight: 600; color: #ef4444; margin-bottom: 8px;"><span data-translate="You have:">You have:</span> <span id="badWayAmount">10,000 THB</span></div>
                         <div style="margin-bottom: 4px;">→ <span data-translate="Spend">Spend</span> <span id="badWayMensal">1,000 THB</span>/<span data-translate="por mês">month</span></div>
-                        <div style="margin-bottom: 4px;">→ <span data-translate="Após">Após</span> <span id="badWayMonths">10</span> <span data-translate="meses">meses</span></div>
+                        <div style="margin-bottom: 4px;">→ <span data-translate="Após">Após</span> <span id="badWayMeses">10</span> <span data-translate="meses">meses</span></div>
                         <div style="font-family: 'Montserrat', sans-serif; font-size: 1.8em; font-weight: 900; color: #ef4444; margin: 8px 0;"><span id="zeroLeft">0 THB</span> <span data-translate="left">left</span></div>
                         <div style="opacity: 0.7; font-size: 11px;" data-translate="Money is gone forever">Money is gone forever.</div>
                     </div>
@@ -4162,7 +4162,7 @@ html {
                 <div class="fragment" style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(16, 185, 129, 0.05)); backdrop-filter: blur(15px); border-radius: 15px; padding: 18px; border: 2px solid rgba(16, 185, 129, 0.4); box-shadow: 0 10px 25px rgba(0,0,0,0.3);">
                     <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 10px;">
                         <i class="fas fa-check-circle" style="font-size: 20px; color: #10b981;"></i>
-                        <span style="font-family: 'Montserrat', sans-serif; font-size: 1em; font-weight: 600; color: #10b981;" data-translate="The Multiplication Way">The Multiplication Way</span>
+                        <span style="font-family: 'Montserrat', sans-serif; font-size: 1em; font-weight: 600; color: #10b981;" data-translate="A Forma de Multiplicação">A Forma de Multiplicação</span>
                     </div>
                     <div style="color: rgba(255,255,255,0.95); font-size: 12px; line-height: 1.4;">
                         <div style="font-size: 14px; font-weight: 600; color: #10b981; margin-bottom: 8px;"><span data-translate="You have:">You have:</span> <span id="goodWayAmount">10,000 THB</span></div>
@@ -4191,10 +4191,10 @@ html {
                 <div style="font-size: 13px; color: rgba(255,255,255,0.95); margin-bottom: 5px; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px;">
                     <span><i class="fab fa-bitcoin" style="color: #f7931a; margin-right: 3px;"></i><strong data-translate="Cripto">Cripto</strong></span>
                     <span><i class="fas fa-coins" style="color: #ffd700; margin-right: 3px;"></i><strong data-translate="Ouro & Prata">Ouro & Prata</strong></span>
-                    <span><i class="fas fa-chart-line" style="color: #10b981; margin-right: 3px;"></i><strong data-translate="Stocks">Stocks</strong></span>
+                    <span><i class="fas fa-chart-line" style="color: #10b981; margin-right: 3px;"></i><strong data-translate="Ações">Ações</strong></span>
                     <span><i class="fas fa-home" style="color: #3b82f6; margin-right: 3px;"></i><strong data-translate="Imóveis">Imóveis</strong></span>
                 </div>
-                <div style="font-size: 13px; font-weight: 700; color: #f4d03f;" data-translate="Money works for you, not you for money!">Money works for you, not you for money!</div>
+                <div style="font-size: 13px; font-weight: 700; color: #f4d03f;" data-translate="O dinheiro trabalha para você, não você para o dinheiro!">O dinheiro trabalha para você, não você para o dinheiro!</div>
             </div>
 
             <!-- Interactive Analysis Link -->
@@ -4265,7 +4265,7 @@ html {
         updateEl('leverageAmount', symbol + fmt(totalLocal) + ' ' + code);
         updateEl('badWayAmount', symbol + fmt(totalLocal) + ' ' + code);
         updateEl('badWayMensal', symbol + fmt(mensalSpend) + ' ' + code);
-        updateEl('badWayMonths', '10');
+        updateEl('badWayMeses', '10');
         updateEl('zeroLeft', '0 ' + code);
         updateEl('goodWayAmount', symbol + fmt(totalLocal) + ' ' + code);
         updateEl('goodWayInvest', symbol + fmt(totalLocal) + ' ' + code);
@@ -4309,7 +4309,7 @@ html {
 
         <!-- Main Question -->
         <div style="font-family: 'Montserrat', sans-serif; font-size: 3.5em; font-weight: 700; color: white; margin-bottom: 20px; text-shadow: 0 4px 20px rgba(0,0,0,0.5);">
-            <i class="fas fa-handshake" style="color: #f4d03f; margin-right: 20px;"></i>Why Am I Telling You This?
+            <i class="fas fa-handshake" style="color: #f4d03f; margin-right: 20px;"></i>Por Que Estou a Contar-lhe Isto?
         </div>
 
         <!-- Subtitle -->
@@ -4320,7 +4320,7 @@ html {
         <!-- Main Message Box -->
         <div class="fragment" style="background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05)); backdrop-filter: blur(20px); border-radius: 25px; padding: 40px 60px; max-width: 900px; border: 1px solid rgba(244, 208, 63, 0.3); box-shadow: 0 20px 60px rgba(0,0,0,0.4); margin-bottom: 40px;">
             <div style="font-size: 24px; color: rgba(255,255,255,0.95); line-height: 1.8;">
-                When you earn profit, <span style="color: #f4d03f; font-weight: 700;">I earn too</span>.<br><br>
+                Quando você ganha lucro, <span style="color: #f4d03f; font-weight: 700;">eu também ganho</span>.<br><br>
                 This is a <span style="color: #10b981; font-weight: 700;">WIN-WIN</span>:<br>
                 The more you earn, the more I earn.<br>
                 <span style="color: #10b981;">Our interests are aligned!</span>
@@ -4417,7 +4417,7 @@ html {
                 </div>
             </div>
 
-            <!-- Bottom Nãote -->
+            <!-- Bottom Note -->
             <div class="fragment" style="background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03)); backdrop-filter: blur(15px); border-radius: 15px; padding: 20px 30px; border: 1px solid rgba(244, 208, 63, 0.2); text-align: center;">
                 <div style="font-size: 18px; color: rgba(255,255,255,0.9);">
                     <i class="fas fa-arrow-right" style="color: #f4d03f; margin-right: 10px;"></i>
@@ -4462,7 +4462,7 @@ html {
 
             <!-- Title -->
             <div class="fragment" style="font-family: 'Montserrat', sans-serif; font-size: 2.8em; font-weight: 700; color: white; margin-bottom: 10px; text-shadow: 0 4px 20px rgba(0,0,0,0.5);">
-                <i class="fas fa-hand-holding-usd" style="color: #10b981; margin-right: 15px;"></i>Direct Comissão
+                <i class="fas fa-hand-holding-usd" style="color: #10b981; margin-right: 15px;"></i>Comissão Direta
             </div>
             <div class="fragment" style="font-family: 'Open Sans', sans-serif; font-size: 1.3em; font-weight: 300; color: rgba(255,255,255,0.8); margin-bottom: 35px; letter-spacing: 1px;">
                 10% of contract amount - instant reward!
@@ -4471,11 +4471,11 @@ html {
             <!-- Main Content Grid -->
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 30px;">
 
-                <!-- Left - How it works -->
+                <!-- Left - Como funciona -->
                 <div class="fragment" style="background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05)); backdrop-filter: blur(15px); border-radius: 20px; padding: 30px; border: 1px solid rgba(255,255,255,0.15); box-shadow: 0 15px 40px rgba(0,0,0,0.3);">
                     <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 20px;">
                         <i class="fas fa-cogs" style="font-size: 24px; color: #10b981;"></i>
-                        <span style="font-family: 'Montserrat', sans-serif; font-size: 1.1em; font-weight: 600; color: #10b981;">How it works:</span>
+                        <span style="font-family: 'Montserrat', sans-serif; font-size: 1.1em; font-weight: 600; color: #10b981;">Como funciona:</span>
                     </div>
                     <div style="color: rgba(255,255,255,0.95); font-size: 16px; line-height: 2;">
                         <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
@@ -4497,7 +4497,7 @@ html {
                 <div class="fragment" style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(16, 185, 129, 0.05)); backdrop-filter: blur(15px); border-radius: 20px; padding: 30px; border: 2px solid rgba(16, 185, 129, 0.4); box-shadow: 0 15px 40px rgba(0,0,0,0.3);">
                     <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 20px;">
                         <i class="fas fa-calculator" style="font-size: 24px; color: #10b981;"></i>
-                        <span style="font-family: 'Montserrat', sans-serif; font-size: 1.1em; font-weight: 600; color: #10b981;">Example:</span>
+                        <span style="font-family: 'Montserrat', sans-serif; font-size: 1.1em; font-weight: 600; color: #10b981;">Exemplo:</span>
                     </div>
                     <div style="text-align: center;">
                         <div style="font-size: 16px; color: rgba(255,255,255,0.8); margin-bottom: 15px;">Friend signs contract for</div>
@@ -4511,7 +4511,7 @@ html {
                 </div>
             </div>
 
-            <!-- Bottom Nãote -->
+            <!-- Bottom Note -->
             <div class="fragment" style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(16, 185, 129, 0.05)); backdrop-filter: blur(15px); border-radius: 15px; padding: 20px 30px; border: 1px solid rgba(16, 185, 129, 0.3); text-align: center;">
                 <div style="font-size: 18px; color: rgba(255,255,255,0.95);">
                     <i class="fas fa-users" style="color: #10b981; margin-right: 10px;"></i>
@@ -4553,16 +4553,16 @@ html {
 
             <!-- Title -->
             <div class="fragment" style="font-family: 'Montserrat', sans-serif; font-size: 2em; font-weight: 700; color: white; margin-bottom: 5px; text-shadow: 0 4px 20px rgba(0,0,0,0.5);">
-                <i class="fas fa-sitemap" style="color: #f4d03f; margin-right: 15px;"></i>Binary Bônus
+                <i class="fas fa-sitemap" style="color: #f4d03f; margin-right: 15px;"></i>Bónus Binário
             </div>
             <div class="fragment" style="font-family: 'Open Sans', sans-serif; font-size: 1.1em; color: rgba(255,255,255,0.7); margin-bottom: 18px;">
-                What is it and how does it work?
+                O que é e como funciona?
             </div>
 
             <!-- Three column layout -->
             <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px;">
 
-                <!-- Column 1: What is Binary -->
+                <!-- Column 1: O Que é Binário -->
                 <div class="fragment" style="background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05)); backdrop-filter: blur(15px); border-radius: 20px; padding: 20px; border: 1px solid rgba(244, 208, 63, 0.3);">
 
                     <div style="font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: 600; color: #f4d03f; margin-bottom: 12px; text-align: center;">
@@ -4610,7 +4610,7 @@ html {
                     </div>
                 </div>
 
-                <!-- Column 2: How to Unlock -->
+                <!-- Column 2: Como Desbloquear -->
                 <div class="fragment" style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(16, 185, 129, 0.05)); backdrop-filter: blur(15px); border-radius: 20px; padding: 20px; border: 2px solid rgba(16, 185, 129, 0.4);">
 
                     <div style="font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: 600; color: #10b981; margin-bottom: 12px; text-align: center;">
@@ -4738,10 +4738,10 @@ html {
 
             <!-- Title -->
             <div class="fragment" style="font-family: 'Montserrat', sans-serif; font-size: 2em; font-weight: 700; color: white; margin-bottom: 5px; text-shadow: 0 4px 20px rgba(0,0,0,0.5);">
-                <i class="fas fa-chart-pie" style="color: #c9a227; margin-right: 12px;"></i>Lucro Share Calculator
+                <i class="fas fa-chart-pie" style="color: #c9a227; margin-right: 12px;"></i>Calculadora de Participação nos Lucros
             </div>
             <div class="fragment" style="font-family: 'Open Sans', sans-serif; font-size: 1em; font-weight: 300; color: rgba(255,255,255,0.7); margin-bottom: 20px;">
-                Earn a share of your team's profit — 30% total across 10 levels
+                Ganhe uma parte do lucro da sua equipa — 30% total em 10 níveis
             </div>
 
             <!-- Calculator Section -->
@@ -5000,7 +5000,7 @@ html {
                     Career Rankings
                 </div>
                 <div style="font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 400; color: rgba(255,255,255,0.4); letter-spacing: 2px; margin-top: 8px;">
-                    Volume = contracts only | 50% stronger side + 50% weaker side
+                    Volume = apenas contratos | 50% lado mais forte + 50% lado mais fraco
                 </div>
             </div>
 
@@ -5055,7 +5055,7 @@ html {
                     </div>
                 </div>
 
-                <!-- 7. Team Líder (Royalty starts) -->
+                <!-- 7. Líder de Equipa (Royalty starts) -->
                 <div class="fragment" style="display: flex; flex-direction: column; align-items: center;">
                     <div style="width: 80px; height: 190px; border-radius: 6px; overflow: hidden; border: 2px solid rgba(244, 208, 63, 0.7); box-shadow: 0 0 20px rgba(244, 208, 63, 0.4); background: linear-gradient(180deg, rgba(244, 208, 63, 0.7) 0%, rgba(244, 208, 63, 0.35) 100%); display: flex; flex-direction: column; justify-content: center; align-items: center;">
                         <div style="font-family: 'Montserrat', sans-serif; font-size: 7px; font-weight: 500; color: rgba(255,255,255,0.5);">VOLUME</div>
@@ -5133,7 +5133,7 @@ html {
                 <div style="width: 80px; text-align: center;"><span style="font-family: 'Montserrat', sans-serif; font-size: 7px; font-weight: 700; color: #f4d03f; letter-spacing: 0.5px;">EXEC. LEADER</span></div>
                 <div style="width: 80px; text-align: center;"><span style="font-family: 'Montserrat', sans-serif; font-size: 7px; font-weight: 700; color: #f4d03f; letter-spacing: 0.5px;">EXEC. PARTNER</span></div>
                 <div style="width: 80px; text-align: center;"><span style="font-family: 'Montserrat', sans-serif; font-size: 7px; font-weight: 700; color: #f4d03f; letter-spacing: 0.5px;">STRAT. PARTNER</span></div>
-                <div style="width: 80px; text-align: center;"><span style="font-family: 'Montserrat', sans-serif; font-size: 7px; font-weight: 700; color: #f4d03f; letter-spacing: 0.5px;">FOUNDERS</span></div>
+                <div style="width: 80px; text-align: center;"><span style="font-family: 'Montserrat', sans-serif; font-size: 7px; font-weight: 700; color: #f4d03f; letter-spacing: 0.5px;">FUNDADORES</span></div>
                 <div style="width: 80px; text-align: center;"><span style="font-family: 'Montserrat', sans-serif; font-size: 7px; font-weight: 700; color: #f4d03f; letter-spacing: 0.5px;">LEGACY</span></div>
             </div>
 
@@ -5201,7 +5201,7 @@ html {
                 <div style="width: 80px; height: 24px;"></div>
                 <div style="width: 80px; height: 24px;"></div>
                 <div style="width: 80px; height: 24px;"></div>
-                <!-- Team Líder - no prize -->
+                <!-- Líder de Equipa - no prize -->
                 <div style="width: 80px; height: 24px;"></div>
                 <!-- Senior Líder - Smart Phone -->
                 <div style="width: 80px; height: 24px; display: flex; flex-direction: column; justify-content: center; align-items: center;">
@@ -5238,7 +5238,7 @@ html {
             <!-- Royalty note -->
             <div style="text-align: center; margin-top: 8px;">
                 <span style="font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 400; color: rgba(255,255,255,0.5); letter-spacing: 1px;">
-                    <span style="color: #f4d03f; font-weight: 600;">ROYALTY 20%</span> from Team Líder: semanal global contract pool | Requisito: 2% semanal business volume
+                    <span style="color: #f4d03f; font-weight: 600;">ROYALTY 20%</span> from Líder de Equipa: semanal global contract pool | Requisito: 2% semanal business volume
                 </span>
             </div>
         </div>
@@ -5292,7 +5292,7 @@ html {
                 <div class="fragment" style="background: linear-gradient(135deg, rgba(244, 208, 63, 0.15), rgba(244, 208, 63, 0.05)); backdrop-filter: blur(15px); border-radius: 20px; padding: 25px; border: 2px solid rgba(244, 208, 63, 0.4); box-shadow: 0 15px 40px rgba(0,0,0,0.3);">
                     <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 20px;">
                         <i class="fas fa-gem" style="font-size: 24px; color: #f4d03f;"></i>
-                        <span style="font-family: 'Montserrat', sans-serif; font-size: 1.1em; font-weight: 600; color: #f4d03f;">What is Royalty?</span>
+                        <span style="font-family: 'Montserrat', sans-serif; font-size: 1.1em; font-weight: 600; color: #f4d03f;">O Que é Royalty?</span>
                     </div>
                     <div style="color: rgba(255,255,255,0.95); font-size: 15px; line-height: 1.8;">
                         <div style="margin-bottom: 12px;">
@@ -5309,7 +5309,7 @@ html {
                         </div>
                         <div>
                             <i class="fas fa-check" style="color: #10b981; margin-right: 10px;"></i>
-                            Shared among all qualified members
+                            Partilhado entre todos os membros qualificados
                         </div>
                     </div>
                 </div>
@@ -5331,7 +5331,7 @@ html {
                         </div>
                         <div style="background: rgba(16, 185, 129, 0.2); border-radius: 10px; padding: 12px; margin-top: 15px; border: 1px solid rgba(16, 185, 129, 0.3);">
                             <div style="font-size: 13px; color: rgba(255,255,255,0.8);">
-                                <strong style="color: #f4d03f;">Example:</strong> If your total volume is $100K, you need $2K new business during the week to receive Royalty.
+                                <strong style="color: #f4d03f;">Exemplo:</strong> Se o seu volume total é $100K, precisa de $2K de novo negócio durante a semana para receber Royalty.
                             </div>
                         </div>
                     </div>
@@ -5342,7 +5342,7 @@ html {
             <div class="fragment" style="background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03)); backdrop-filter: blur(15px); border-radius: 15px; padding: 20px 30px; border: 1px solid rgba(244, 208, 63, 0.3); margin-bottom: 20px;">
                 <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; text-align: center;">
                     <div>
-                        <div style="font-size: 14px; color: rgba(255,255,255,0.6); margin-bottom: 5px;">Global Contract Distribution</div>
+                        <div style="font-size: 14px; color: rgba(255,255,255,0.6); margin-bottom: 5px;">Distribuição Global de Contratos</div>
                         <div style="font-family: 'Montserrat', sans-serif; font-size: 28px; font-weight: 900; color: #f4d03f;">20%</div>
                         <div style="font-size: 12px; color: rgba(255,255,255,0.5);">of all semanal contracts</div>
                     </div>
@@ -5359,11 +5359,11 @@ html {
                 </div>
             </div>
 
-            <!-- Bottom Nãote -->
+            <!-- Bottom Note -->
             <div class="fragment" style="background: linear-gradient(135deg, rgba(244, 208, 63, 0.2), rgba(244, 208, 63, 0.1)); backdrop-filter: blur(15px); border-radius: 12px; padding: 15px 25px; border: 1px solid rgba(244, 208, 63, 0.4); text-align: center;">
                 <div style="font-size: 16px; color: rgba(255,255,255,0.95);">
                     <i class="fas fa-lightbulb" style="color: #f4d03f; margin-right: 10px;"></i>
-                    <strong style="color: #f4d03f;">Royalty is the leaders' reward</strong> - the bigger your team and activity, the larger your share of the pool!
+                    <strong style="color: #f4d03f;">Royalty é a recompensa dos líderes</strong> - quanto maior a sua equipa e atividade, maior a sua parte do fundo!
                 </div>
             </div>
         </div>
@@ -5401,7 +5401,7 @@ html {
 
             <!-- Title -->
             <div style="font-family: 'Montserrat', sans-serif; font-size: 2em; font-weight: 700; color: white; margin-bottom: 8px; text-shadow: 0 4px 20px rgba(0,0,0,0.5);">
-                <i class="fas fa-exchange-alt" style="color: #f4d03f; margin-right: 12px;"></i>Royalty Matching Rule
+                <i class="fas fa-exchange-alt" style="color: #f4d03f; margin-right: 12px;"></i>Regra de Matching de Royalty
             </div>
             <div style="font-family: 'Open Sans', sans-serif; font-size: 1em; font-weight: 300; color: rgba(255,255,255,0.7); margin-bottom: 20px;">
                 Understanding how royalty passes through your team structure
@@ -5425,7 +5425,7 @@ html {
                         </div>
                         <div style="margin-bottom: 10px;">
                             <i class="fas fa-info-circle" style="color: #f4d03f; margin-right: 8px;"></i>
-                            Royalty passes to the <strong style="color: #f4d03f;">closest qualified person</strong>
+                            Royalty passa para o <strong style="color: #f4d03f;">mais próximo qualificado</strong>
                         </div>
                         <div>
                             <i class="fas fa-arrow-up" style="color: #10b981; margin-right: 8px;"></i>
@@ -5438,7 +5438,7 @@ html {
                 <div class="fragment" style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(16, 185, 129, 0.05)); backdrop-filter: blur(15px); border-radius: 20px; padding: 22px; border: 2px solid rgba(16, 185, 129, 0.4); box-shadow: 0 15px 40px rgba(0,0,0,0.3);">
                     <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px;">
                         <i class="fas fa-check-circle" style="font-size: 22px; color: #10b981;"></i>
-                        <span style="font-family: 'Montserrat', sans-serif; font-size: 1.1em; font-weight: 600; color: #10b981;">How to Earn Royalty</span>
+                        <span style="font-family: 'Montserrat', sans-serif; font-size: 1.1em; font-weight: 600; color: #10b981;">Como Ganhar Royalty</span>
                     </div>
                     <div style="color: rgba(255,255,255,0.95); font-size: 14px; line-height: 1.8;">
                         <div style="margin-bottom: 12px; padding: 12px; background: rgba(0,0,0,0.2); border-radius: 10px; border-left: 3px solid #10b981;">
@@ -5475,7 +5475,7 @@ html {
                             <div style="font-size: 12px; font-weight: 700; color: #f4d03f;">12%</div>
                         </div>
                         <div style="margin-top: 8px; font-size: 11px; color: #10b981; font-weight: 600;">
-                            <i class="fas fa-check"></i> Gets +2%
+                            <i class="fas fa-check"></i> Recebe +2%
                         </div>
                     </div>
 
@@ -5489,13 +5489,13 @@ html {
                             <div style="font-size: 12px; font-weight: 700; color: #f4d03f;">10%</div>
                         </div>
                         <div style="margin-top: 8px; font-size: 11px; color: #f4d03f; font-weight: 600;">
-                            <i class="fas fa-check"></i> Gets 10%
+                            <i class="fas fa-check"></i> Recebe 10%
                         </div>
                     </div>
 
                     <div style="font-size: 24px; color: rgba(255,255,255,0.3);"><i class="fas fa-arrow-right"></i></div>
 
-                    <!-- Nãot qualified -->
+                    <!-- Não qualificado -->
                     <div style="text-align: center;">
                         <div style="width: 90px; height: 70px; background: linear-gradient(180deg, rgba(100,100,100,0.3), rgba(80,80,80,0.2)); border-radius: 12px; border: 2px dashed rgba(255,255,255,0.2); display: flex; flex-direction: column; justify-content: center; align-items: center;">
                             <div style="font-size: 10px; color: rgba(255,255,255,0.4);">DOWNLINE</div>
@@ -5503,7 +5503,7 @@ html {
                             <div style="font-size: 12px; font-weight: 700; color: rgba(255,255,255,0.3);">0%</div>
                         </div>
                         <div style="margin-top: 8px; font-size: 11px; color: rgba(255,255,255,0.4);">
-                            Nãot qualified
+                            Não qualificado
                         </div>
                     </div>
                 </div>
@@ -5546,7 +5546,7 @@ html {
         <!-- Premium Header Bar -->
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
             <div style="font-family: 'Montserrat', sans-serif; font-size: 1em; font-weight: 600; color: rgba(255,255,255,0.7); letter-spacing: 1px;">
-                <i class="fas fa-rocket" style="color: #f4d03f; margin-right: 8px;"></i>PARTNERSHIP MODEL
+                <i class="fas fa-rocket" style="color: #f4d03f; margin-right: 8px;"></i>MODELO DE PARCERIA
             </div>
             <div style="display: flex; align-items: center; gap: 15px;">
                 <div style="background: linear-gradient(135deg, rgba(244, 208, 63, 0.3), rgba(244, 208, 63, 0.2)); padding: 10px 25px; border-radius: 25px; border: 1px solid rgba(244, 208, 63, 0.5);">
@@ -5563,7 +5563,7 @@ html {
 
             <!-- Title -->
             <div style="font-family: 'Montserrat', sans-serif; font-size: 2.2em; font-weight: 700; color: white; margin-bottom: 8px; text-shadow: 0 4px 20px rgba(0,0,0,0.5);">
-                <i class="fas fa-tachometer-alt" style="color: #f4d03f; margin-right: 12px;"></i><span data-translate="Renda Accelerator">Renda Accelerator</span>
+                <i class="fas fa-tachometer-alt" style="color: #f4d03f; margin-right: 12px;"></i><span data-translate="Acelerador de Renda">Acelerador de Renda</span>
             </div>
             <div style="font-family: 'Open Sans', sans-serif; font-size: 1em; font-weight: 300; color: rgba(255,255,255,0.7); margin-bottom: 20px;" data-translate="The more you contribute, the faster you earn">
                 The more you contribute, the faster you earn
@@ -5576,16 +5576,16 @@ html {
                 <div class="fragment" style="background: linear-gradient(135deg, rgba(244, 208, 63, 0.15), rgba(244, 208, 63, 0.05)); backdrop-filter: blur(20px); border-radius: 18px; padding: 20px; border: 2px solid rgba(244, 208, 63, 0.4);">
                     <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px;">
                         <i class="fas fa-lightbulb" style="font-size: 22px; color: #f4d03f;"></i>
-                        <span style="font-family: 'Montserrat', sans-serif; font-size: 1.1em; font-weight: 600; color: #f4d03f;" data-translate="Why Does the Accelerator Exist?">Why Does the Accelerator Exist?</span>
+                        <span style="font-family: 'Montserrat', sans-serif; font-size: 1.1em; font-weight: 600; color: #f4d03f;" data-translate="Por Que Existe o Acelerador?">Por Que Existe o Acelerador?</span>
                     </div>
                     <div style="color: rgba(255,255,255,0.9); font-size: 14px; line-height: 1.8;">
                         <div style="margin-bottom: 12px;">
                             <i class="fas fa-arrow-right" style="color: #f4d03f; margin-right: 8px;"></i>
-                            <span data-translate="When you bring direct clients">When you bring <strong style="color: #f4d03f;">direct clients</strong>, the company has more capital</span>
+                            <span data-translate="Quando traz clientes diretos">When you bring <strong style="color: #f4d03f;">direct clients</strong>, a empresa tem mais capital</span>
                         </div>
                         <div style="margin-bottom: 12px;">
                             <i class="fas fa-arrow-right" style="color: #f4d03f; margin-right: 8px;"></i>
-                            <span data-translate="Mais capital = more profit">Mais capital = <strong style="color: #10b981;">more profit</strong></span>
+                            <span data-translate="Mais capital = more profit">Mais capital = <strong style="color: #10b981;">more lucro</strong></span>
                         </div>
                         <div style="margin-bottom: 12px;">
                             <i class="fas fa-arrow-right" style="color: #f4d03f; margin-right: 8px;"></i>
@@ -5599,23 +5599,23 @@ html {
                     </div>
                 </div>
 
-                <!-- Right: How it works -->
+                <!-- Right: Como funciona -->
                 <div class="fragment" style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(16, 185, 129, 0.05)); backdrop-filter: blur(20px); border-radius: 18px; padding: 20px; border: 2px solid rgba(16, 185, 129, 0.4);">
                     <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px;">
                         <i class="fas fa-calculator" style="font-size: 22px; color: #10b981;"></i>
-                        <span style="font-family: 'Montserrat', sans-serif; font-size: 1.1em; font-weight: 600; color: #10b981;" data-translate="How Is It Calculated?">How Is It Calculated?</span>
+                        <span style="font-family: 'Montserrat', sans-serif; font-size: 1.1em; font-weight: 600; color: #10b981;" data-translate="Como É Calculado?">Como É Calculado?</span>
                     </div>
                     <div style="color: rgba(255,255,255,0.9); font-size: 14px; line-height: 1.6;">
                         <div style="background: rgba(0,0,0,0.2); border-radius: 10px; padding: 15px; margin-bottom: 12px;">
                             <div style="text-align: center; font-family: 'Montserrat', sans-serif; font-size: 18px; font-weight: 700; color: #10b981;">
-                                X = Direct Business ÷ Seu Capital
+                                X = Negócio Direto ÷ O Seu Capital
                             </div>
                         </div>
                         <div style="margin-bottom: 8px;">
-                            <strong style="color: #10b981;" data-translate="Example">Example:</strong>
+                            <strong style="color: #10b981;" data-translate="Example">Exemplo:</strong>
                         </div>
                         <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
-                            <span data-translate="Seu Capital at work">Seu Capital at work:</span>
+                            <span data-translate="O Seu Capital at work">O Seu Capital at work:</span>
                             <span style="color: #f4d03f;">$5,000</span>
                         </div>
                         <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
@@ -5668,7 +5668,7 @@ html {
                 <div style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr 1fr; gap: 15px; align-items: center;">
                     <!-- Input: Capital -->
                     <div style="text-align: center;">
-                        <div style="font-size: 10px; color: rgba(255,255,255,0.6); margin-bottom: 6px; text-transform: uppercase; letter-spacing: 1px;" data-translate="Seu Capital">Seu Capital</div>
+                        <div style="font-size: 10px; color: rgba(255,255,255,0.6); margin-bottom: 6px; text-transform: uppercase; letter-spacing: 1px;" data-translate="O Seu Capital">O Seu Capital</div>
                         <div style="display: flex; align-items: center; justify-content: center; gap: 3px;">
                             <span style="font-size: 18px; color: #a855f7;">$</span>
                             <input type="number" id="boosterCapital" value="5000" min="100" step="100"
@@ -5676,9 +5676,9 @@ html {
                                 onchange="updateBooster()" oninput="updateBooster()">
                         </div>
                     </div>
-                    <!-- Input: Direct Business -->
+                    <!-- Input: Negócio Direto -->
                     <div style="text-align: center;">
-                        <div style="font-size: 10px; color: rgba(255,255,255,0.6); margin-bottom: 6px; text-transform: uppercase; letter-spacing: 1px;" data-translate="Direct Business">Direct Business</div>
+                        <div style="font-size: 10px; color: rgba(255,255,255,0.6); margin-bottom: 6px; text-transform: uppercase; letter-spacing: 1px;" data-translate="Negócio Direto">Negócio Direto</div>
                         <div style="display: flex; align-items: center; justify-content: center; gap: 3px;">
                             <span style="font-size: 18px; color: #a855f7;">$</span>
                             <input type="number" id="boosterDirect" value="25000" min="0" step="1000"
@@ -5701,7 +5701,7 @@ html {
                     <!-- Output: Time to Complete -->
                     <div style="text-align: center; padding: 10px; background: rgba(59, 130, 246, 0.2); border-radius: 10px;">
                         <div style="font-size: 10px; color: rgba(255,255,255,0.6); margin-bottom: 4px;" data-translate="CONTRACT DONE">CONTRACT DONE</div>
-                        <div style="font-size: 22px; font-weight: 900; color: #3b82f6;" id="boosterMonths">~21 mo</div>
+                        <div style="font-size: 22px; font-weight: 900; color: #3b82f6;" id="boosterMeses">~21 mo</div>
                         <div style="font-size: 12px; color: rgba(255,255,255,0.7);" id="boosterVsBaseTime">vs base 25 mo</div>
                     </div>
                 </div>
@@ -5757,8 +5757,8 @@ html {
 
         // Calculate time to complete contract (250% ROI)
         const totalROI = 250; // 250% = principal + 150% profit
-        const baseMonths = 25; // At 10%/month, takes 25 meses
-        const boostedMonths = mensalTaxa > 0 ? totalROI / mensalTaxa : baseMonths;
+        const baseMeses = 25; // At 10%/month, takes 25 meses
+        const boostedMeses = mensalTaxa > 0 ? totalROI / mensalTaxa : baseMeses;
 
         // Format
         const fmt = (n) => n.toLocaleString('en-US', {maximumFractionDigits: 0});
@@ -5768,7 +5768,7 @@ html {
         const rateEl = document.getElementById('boosterTaxa');
         const incomeEl = document.getElementById('boosterRenda');
         const vsBaseEl = document.getElementById('boosterVsBase');
-        const mesesEl = document.getElementById('boosterMonths');
+        const mesesEl = document.getElementById('boosterMeses');
         const vsBaseTimeEl = document.getElementById('boosterVsBaseTime');
 
         if (levelEl) levelEl.textContent = currentTaxa.label;
@@ -5778,16 +5778,16 @@ html {
 
         // Display completion time
         if (mesesEl) {
-            if (boostedMonths < 1) {
-                mesesEl.textContent = '~' + Math.round(boostedMonths * 30) + ' days';
+            if (boostedMeses < 1) {
+                mesesEl.textContent = '~' + Math.round(boostedMeses * 30) + ' days';
             } else {
-                mesesEl.textContent = '~' + boostedMonths.toFixed(1) + ' mo';
+                mesesEl.textContent = '~' + boostedMeses.toFixed(1) + ' mo';
             }
         }
         if (vsBaseTimeEl) {
-            const savedMonths = baseMonths - boostedMonths;
-            if (savedMonths > 0) {
-                vsBaseTimeEl.textContent = savedMonths.toFixed(1) + ' mo faster!';
+            const savedMeses = baseMeses - boostedMeses;
+            if (savedMeses > 0) {
+                vsBaseTimeEl.textContent = savedMeses.toFixed(1) + ' mo faster!';
             } else {
                 vsBaseTimeEl.textContent = 'vs base 25 mo';
             }
@@ -5840,12 +5840,12 @@ html {
             <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 15px;">
                 <div class="fragment" style="background: linear-gradient(135deg, rgba(201, 162, 39, 0.2), rgba(244, 208, 63, 0.1)); backdrop-filter: blur(15px); border-radius: 15px; padding: 18px 12px; border: 1px solid rgba(244, 208, 63, 0.4); text-align: center;">
                     <div style="width: 36px; height: 36px; background: linear-gradient(135deg, #c9a227, #f4d03f); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 10px; font-family: 'Montserrat', sans-serif; font-size: 16px; font-weight: 900; color: #0f0c08;">1</div>
-                    <div style="font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: 600; color: #f4d03f; margin-bottom: 4px;" data-translate="Contact">Contact</div>
-                    <div style="color: rgba(255,255,255,0.85); font-size: 11px; line-height: 1.4;" data-translate="Get in touch and ask questions">Get in touch and ask questions</div>
+                    <div style="font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: 600; color: #f4d03f; margin-bottom: 4px;" data-translate="Contact">Contacto</div>
+                    <div style="color: rgba(255,255,255,0.85); font-size: 11px; line-height: 1.4;" data-translate="Entre em contacto e faça perguntas">Entre em contacto e faça perguntas</div>
                 </div>
                 <div class="fragment" style="background: linear-gradient(135deg, rgba(201, 162, 39, 0.2), rgba(244, 208, 63, 0.1)); backdrop-filter: blur(15px); border-radius: 15px; padding: 18px 12px; border: 1px solid rgba(244, 208, 63, 0.4); text-align: center;">
                     <div style="width: 36px; height: 36px; background: linear-gradient(135deg, #c9a227, #f4d03f); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 10px; font-family: 'Montserrat', sans-serif; font-size: 16px; font-weight: 900; color: #0f0c08;">2</div>
-                    <div style="font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: 600; color: #f4d03f; margin-bottom: 4px;" data-translate="Registration">Registration</div>
+                    <div style="font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: 600; color: #f4d03f; margin-bottom: 4px;" data-translate="Registo">Registo</div>
                     <div style="color: rgba(255,255,255,0.85); font-size: 11px; line-height: 1.4;" data-translate="Simple 5-minute registration">Simple 5-minute registration</div>
                 </div>
                 <div class="fragment" style="background: linear-gradient(135deg, rgba(201, 162, 39, 0.2), rgba(244, 208, 63, 0.1)); backdrop-filter: blur(15px); border-radius: 15px; padding: 18px 12px; border: 1px solid rgba(244, 208, 63, 0.4); text-align: center;">
@@ -5855,8 +5855,8 @@ html {
                 </div>
                 <div class="fragment" style="background: linear-gradient(135deg, rgba(201, 162, 39, 0.2), rgba(244, 208, 63, 0.1)); backdrop-filter: blur(15px); border-radius: 15px; padding: 18px 12px; border: 1px solid rgba(244, 208, 63, 0.4); text-align: center;">
                     <div style="width: 36px; height: 36px; background: linear-gradient(135deg, #c9a227, #f4d03f); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 10px; font-family: 'Montserrat', sans-serif; font-size: 16px; font-weight: 900; color: #0f0c08;">4</div>
-                    <div style="font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: 600; color: #f4d03f; margin-bottom: 4px;" data-translate="Ganhos Begin">Ganhos Begin</div>
-                    <div style="color: rgba(255,255,255,0.85); font-size: 11px; line-height: 1.4;" data-translate="Money starts working 24/7">Money starts working 24/7</div>
+                    <div style="font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: 600; color: #f4d03f; margin-bottom: 4px;" data-translate="Os Ganhos Começam">Os Ganhos Começam</div>
+                    <div style="color: rgba(255,255,255,0.85); font-size: 11px; line-height: 1.4;" data-translate="O dinheiro começa a trabalhar 24/7">O dinheiro começa a trabalhar 24/7</div>
                 </div>
             </div>
 
@@ -5879,7 +5879,7 @@ html {
                         </div>
                         <div style="display: flex; align-items: center; gap: 6px;">
                             <i class="fas fa-check" style="color: #10b981; font-size: 10px;"></i>
-                            <span style="color: rgba(255,255,255,0.9); font-size: 12px;" data-translate="Get help with registration">Get help with registration</span>
+                            <span style="color: rgba(255,255,255,0.9); font-size: 12px;" data-translate="Obter ajuda com o registo">Obter ajuda com o registo</span>
                         </div>
                         <div style="display: flex; align-items: center; gap: 6px;">
                             <i class="fas fa-check" style="color: #10b981; font-size: 10px;"></i>
@@ -5897,15 +5897,15 @@ html {
                     <div style="display: flex; flex-direction: column; gap: 6px;">
                         <div style="display: flex; align-items: center; gap: 6px;">
                             <i class="fas fa-check" style="color: #f4d03f; font-size: 10px;"></i>
-                            <span style="color: rgba(255,255,255,0.9); font-size: 12px;" data-translate="Take your time">Take your time</span>
+                            <span style="color: rgba(255,255,255,0.9); font-size: 12px;" data-translate="Tome o seu tempo">Tome o seu tempo</span>
                         </div>
                         <div style="display: flex; align-items: center; gap: 6px;">
                             <i class="fas fa-check" style="color: #f4d03f; font-size: 10px;"></i>
-                            <span style="color: rgba(255,255,255,0.9); font-size: 12px;" data-translate="Research more info">Research more info</span>
+                            <span style="color: rgba(255,255,255,0.9); font-size: 12px;" data-translate="Pesquisar mais informações">Pesquisar mais informações</span>
                         </div>
                         <div style="display: flex; align-items: center; gap: 6px;">
                             <i class="fas fa-check" style="color: #f4d03f; font-size: 10px;"></i>
-                            <span style="color: rgba(255,255,255,0.9); font-size: 12px;" data-translate="Get in touch later">Get in touch later</span>
+                            <span style="color: rgba(255,255,255,0.9); font-size: 12px;" data-translate="Entrar em contacto mais tarde">Entrar em contacto mais tarde</span>
                         </div>
                         <div style="display: flex; align-items: center; gap: 6px;">
                             <i class="fas fa-check" style="color: #f4d03f; font-size: 10px;"></i>
@@ -5918,7 +5918,7 @@ html {
             <!-- Contact Box -->
             <div class="fragment" style="background: linear-gradient(135deg, rgba(201, 162, 39, 0.2), rgba(244, 208, 63, 0.1)); backdrop-filter: blur(15px); border-radius: 12px; padding: 15px 20px; border: 1px solid rgba(244, 208, 63, 0.3); text-align: center;">
                 <div style="font-size: 13px; color: rgba(255,255,255,0.9); margin-bottom: 5px;">
-                    <i class="fas fa-globe" style="color: #f4d03f; margin-right: 8px;"></i><strong>Contact:</strong> www.crypque.in • www.mobicryp.ai
+                    <i class="fas fa-globe" style="color: #f4d03f; margin-right: 8px;"></i><strong>Contacto:</strong> www.crypque.in • www.mobicryp.ai
                 </div>
                 <div style="font-size: 14px; font-weight: 700; color: #f4d03f;">
                     <i class="fas fa-comments" style="margin-right: 8px;"></i><span data-translate="Perguntas? Let's talk now or later!">Perguntas? Let's talk now or later!</span>
@@ -5969,7 +5969,7 @@ html {
             <div class="fragment" style="background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03)); backdrop-filter: blur(15px); border-radius: 20px; padding: 35px 45px; margin-bottom: 30px; border: 1px solid rgba(244, 208, 63, 0.3); box-shadow: 0 15px 40px rgba(0,0,0,0.3); text-align: center;">
                 <div style="font-size: 22px; color: rgba(255,255,255,0.95); line-height: 1.8; font-style: italic;">
                     "Doubt is normal.<br><br>
-                    When knowledge comes, the decision is simple:<br>
+                    Quando o conhecimento chega, a decisão é simples:<br>
                     <span style="font-family: 'Montserrat', sans-serif; font-size: 38px; font-weight: 700; color: #f4d03f; font-style: normal;">yes or no.</span>"
                 </div>
             </div>
@@ -5980,7 +5980,7 @@ html {
                 <div class="fragment" style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(16, 185, 129, 0.05)); backdrop-filter: blur(15px); border-radius: 20px; padding: 30px; border: 2px solid rgba(16, 185, 129, 0.4); box-shadow: 0 15px 40px rgba(0,0,0,0.3);">
                     <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 20px;">
                         <i class="fas fa-thumbs-up" style="font-size: 28px; color: #10b981;"></i>
-                        <span style="font-family: 'Montserrat', sans-serif; font-size: 1.2em; font-weight: 600; color: #10b981;">If This Resonates</span>
+                        <span style="font-family: 'Montserrat', sans-serif; font-size: 1.2em; font-weight: 600; color: #10b981;">Se Isto Ressoa</span>
                     </div>
                     <div style="color: rgba(255,255,255,0.95); font-size: 17px; line-height: 2;">
                         Let's continue.<br>
@@ -5993,7 +5993,7 @@ html {
                 <div class="fragment" style="background: linear-gradient(135deg, rgba(244, 208, 63, 0.15), rgba(244, 208, 63, 0.05)); backdrop-filter: blur(15px); border-radius: 20px; padding: 30px; border: 2px solid rgba(244, 208, 63, 0.4); box-shadow: 0 15px 40px rgba(0,0,0,0.3);">
                     <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 20px;">
                         <i class="fas fa-hand-paper" style="font-size: 28px; color: #f4d03f;"></i>
-                        <span style="font-family: 'Montserrat', sans-serif; font-size: 1.2em; font-weight: 600; color: #f4d03f;">If Nãot For You</span>
+                        <span style="font-family: 'Montserrat', sans-serif; font-size: 1.2em; font-weight: 600; color: #f4d03f;">Se Não For Para Si</span>
                     </div>
                     <div style="color: rgba(255,255,255,0.95); font-size: 17px; line-height: 2;">
                         Completely okay.<br>
@@ -6009,7 +6009,7 @@ html {
                     Agora you know what this opportunity is.
                 </div>
                 <div style="font-family: 'Montserrat', sans-serif; font-size: 2.2em; font-weight: 700; color: #f4d03f;">
-                    THANK YOU FOR LISTENING!
+                    OBRIGADO POR OUVIR!
                 </div>
             </div>
         </div>
@@ -6061,7 +6061,7 @@ window.MarketLocalization = {
         'Como fazer o dinheiro crescer sem trading complexo': 'วิธีเพิ่มเงินโดยไม่ต้องเทรดที่ซับซ้อน',
         'Sem gráficos e risco diário': 'ไม่ต้องดูกราฟและความเสี่ยงรายวัน',
         'Abordagem simples, clara e compreensível': 'วิธีการที่เรียบง่าย ชัดเจน และเข้าใจง่าย',
-        'Nãota Importante': 'หมายเหตุสำคัญ',
+        'Nota Importante': 'หมายเหตุสำคัญ',
         'Isto não é aconselhamento financeiro': 'นี่ไม่ใช่คำแนะนำทางการเงิน',
         'WELCOME': 'ยินดีต้อนรับ',
 
@@ -6081,25 +6081,25 @@ window.MarketLocalization = {
         "Eu não apresso decisões": 'ฉันไม่เร่งตัดสินใจ',
 
         // === SLIDE 3 - Company Voltarground ===
-        'COMPANY BACKGROUND': 'ประวัติบริษัท',
-        'Five Years of Real Business': 'ห้าปีของธุรกิจจริง',
-        'The company operates with real offices, employees and activities': 'บริษัทดำเนินงานด้วยสำนักงานจริง พนักงาน และกิจกรรม',
-        'Years in Operation': 'ปีในการดำเนินงาน',
-        'Clients Globally': 'ลูกค้าทั่วโลก',
-        'Employees': 'พนักงาน',
+        'HISTÓRICO DA EMPRESA': 'ประวัติบริษัท',
+        'Cinco Anos de Negócio Real': 'ห้าปีของธุรกิจจริง',
+        'A empresa opera com escritórios reais, funcionários e atividades': 'บริษัทดำเนินงานด้วยสำนักงานจริง พนักงาน และกิจกรรม',
+        'Anos em Operação': 'ปีในการดำเนินงาน',
+        'Clientes Globais': 'ลูกค้าทั่วโลก',
+        'Funcionários': 'พนักงาน',
         'Imóveis Portfolio': 'พอร์ตอสังหาริมทรัพย์',
 
         // === SLIDE 4 - Founders ===
-        'FOUNDERS': 'ผู้ก่อตั้ง',
-        'THE TEAM BEHIND YOU': 'ทีมงานที่อยู่เบื้องหลัง',
-        'Experienced leaders dedicated to your success': 'ผู้นำที่มีประสบการณ์อุทิศตนเพื่อความสำเร็จของคุณ',
-        'Co-Founder': 'ผู้ร่วมก่อตั้ง',
+        'FUNDADORES': 'ผู้ก่อตั้ง',
+        'A EQUIPA POR TRÁS DE SI': 'ทีมงานที่อยู่เบื้องหลัง',
+        'Líderes experientes dedicados ao seu sucesso': 'ผู้นำที่มีประสบการณ์อุทิศตนเพื่อความสำเร็จของคุณ',
+        'Cofundador': 'ผู้ร่วมก่อตั้ง',
         'CEO': 'ซีอีโอ',
         'COO': 'ซีโอโอ',
 
         // === SLIDE 5 - Ecosystem ===
-        'ECOSYSTEM': 'ระบบนิเวศ',
-        'CRYPQUE ECOSYSTEM': 'ระบบนิเวศ CRYPQUE',
+        'ECOSSISTEMA': 'ระบบนิเวศ',
+        'CRYPQUE ECOSSISTEMA': 'ระบบนิเวศ CRYPQUE',
         'Diverse Product Family and Services': 'ครอบครัวผลิตภัณฑ์และบริการที่หลากหลาย',
         'Investment Platform': 'แพลตฟอร์มการลงทุน',
         'Educational Platform': 'แพลตฟอร์มการศึกษา',
@@ -6107,20 +6107,20 @@ window.MarketLocalization = {
         'Cripto Exchange': 'ตลาดคริปโต',
         'Financial Services': 'บริการทางการเงิน',
 
-        // === SLIDE 6 - Renda Sources ===
-        'INCOME SOURCES': 'แหล่งรายได้',
-        'Where Does Company Receita Come From?': 'รายได้บริษัทมาจากไหน?',
-        'Three Strong Receita Streams': 'แหล่งรายได้ที่แข็งแกร่งสามแหล่ง',
+        // === SLIDE 6 - Fonte de Rendas ===
+        'FONTES DE RECEITA': 'แหล่งรายได้',
+        'De Onde Vem a Receita da Empresa?': 'รายได้บริษัทมาจากไหน?',
+        'Três Fontes de Receita Sólidas': 'แหล่งรายได้ที่แข็งแกร่งสามแหล่ง',
         'Arbitrage': 'อาร์บิทราจ',
         'Diversification': 'การกระจายความเสี่ยง',
-        'Cripto Research': 'การวิจัยคริปโต',
-        'of Receita': 'ของรายได้',
+        'Pesquisa Cripto': 'การวิจัยคริปโต',
+        'de Receita': 'ของรายได้',
 
         // === SLIDE 7 - Arbitrage ===
         'ARBITRAGE': 'อาร์บิทราจ',
-        'What is Arbitrage?': 'อาร์บิทราจคืออะไร?',
-        "Company's Main Activity - 50% of Receita": 'กิจกรรมหลักของบริษัท - 50% ของรายได้',
-        'Arbitrage Means:': 'อาร์บิทราจหมายถึง:',
+        'O Que é Arbitragem?': 'อาร์บิทราจคืออะไร?',
+        "Company's Main Activity - 50% de Receita": 'กิจกรรมหลักของบริษัท - 50% ของรายได้',
+        'Arbitragem Significa:': 'อาร์บิทราจหมายถึง:',
         'Buying currency/cripto in one place cheaper': 'ซื้อสกุลเงิน/คริปโตในที่หนึ่งราคาถูกกว่า',
         'and selling in another for more': 'และขายในที่อื่นในราคาที่สูงกว่า',
         'Like buying gold in Dubai and selling in Europe at higher price': 'เหมือนซื้อทองในดูไบและขายในยุโรปในราคาที่สูงกว่า',
@@ -6128,7 +6128,7 @@ window.MarketLocalization = {
         'SELL HIGH': 'ขายสูง',
 
         // === SLIDE 8 - Price Diferenças ===
-        'PRICE DIFFERENCES': 'ความแตกต่างของราคา',
+        'DIFERENÇAS DE PREÇO': 'ความแตกต่างของราคา',
         'USDT Price Diferenças': 'ความแตกต่างของราคา USDT',
         'Illustrative example - price differences between countries': 'ตัวอย่างประกอบ - ความแตกต่างของราคาระหว่างประเทศ',
         'Nigeria': 'ไนจีเรีย',
@@ -6139,32 +6139,32 @@ window.MarketLocalization = {
         'COUNTRY': 'ประเทศ',
         'USDT PRICE': 'ราคา USDT',
         'DIFFERENCE': 'ความแตกต่าง',
-        'Buy in Dubai $1.00 → Sell in Bangladesh $1.15 = 15% profit': 'ซื้อในดูไบ $1.00 → ขายในบังคลาเทศ $1.15 = กำไร 15%',
-        'Repeat this diário with large volumes = stable income': 'ทำซ้ำทุกวันด้วยปริมาณมาก = รายได้มั่นคง',
+        'Comprar no Dubai $1.00 → Vender no Bangladesh $1.15 = 15% profit': 'ซื้อในดูไบ $1.00 → ขายในบังคลาเทศ $1.15 = กำไร 15%',
+        'Repetir isto diariamente com grandes volumes = rendimento estável': 'ทำซ้ำทุกวันด้วยปริมาณมาก = รายได้มั่นคง',
         '*Illustrative example, actual prices may vary': '*ตัวอย่างประกอบ ราคาจริงอาจแตกต่าง',
 
         // === SLIDE 9 - Lucro Geração ===
-        'PROFIT GENERATION': 'การสร้างกำไร',
+        'GERAÇÃO DE LUCRO': 'การสร้างกำไร',
         'How Is Lucro Generated?': 'กำไรสร้างขึ้นอย่างไร?',
-        'Buy in large quantities at lower price': 'ซื้อจำนวนมากในราคาต่ำกว่า',
-        'Sell at higher price in another country': 'ขายในราคาที่สูงกว่าในประเทศอื่น',
-        'Earn 0.5-8% difference': 'ได้รับส่วนต่าง 0.5-8%',
-        'Repeated every day': 'ทำซ้ำทุกวัน',
-        'Average Lucro Per Cycle': 'กำไรเฉลี่ยต่อรอบ',
-        'Transactions Por Mês': 'ธุรกรรมต่อเดือน',
-        'Retorno Mensals': 'ผลตอบแทนรายเดือน',
+        'Comprar em grandes quantidades a preço mais baixo': 'ซื้อจำนวนมากในราคาต่ำกว่า',
+        'Vender a preço mais alto noutro país': 'ขายในราคาที่สูงกว่าในประเทศอื่น',
+        'Ganhar 0,5-8% de diferença': 'ได้รับส่วนต่าง 0.5-8%',
+        'Repetido todos os dias': 'ทำซ้ำทุกวัน',
+        'Lucro Médio Por Ciclo': 'กำไรเฉลี่ยต่อรอบ',
+        'Transações Por Mês': 'ธุรกรรมต่อเดือน',
+        'Retornos Mensais': 'ผลตอบแทนรายเดือน',
         'Stable': 'มั่นคง',
         'The Process': 'กระบวนการ',
         'The Result': 'ผลลัพธ์',
-        'Reason for Stability:': 'เหตุผลที่มั่นคง:',
-        "Renda doesn't depend on cripto market rise or stock exchange.": 'รายได้ไม่ขึ้นอยู่กับการขึ้นของตลาดคริปโตหรือตลาดหุ้น',
-        'Renda comes from business, not recruitment.': 'รายได้มาจากธุรกิจ ไม่ใช่การชวนคน',
+        'Razão da Estabilidade:': 'เหตุผลที่มั่นคง:',
+        "A renda não depende da subida do mercado cripto ou da bolsa.": 'รายได้ไม่ขึ้นอยู่กับการขึ้นของตลาดคริปโตหรือตลาดหุ้น',
+        'A renda vem do negócio, não do recrutamento.': 'รายได้มาจากธุรกิจ ไม่ใช่การชวนคน',
 
         // === SLIDE 10 - Other Receita ===
-        'OTHER REVENUE STREAMS': 'แหล่งรายได้อื่นๆ',
+        'OUTRAS FONTES DE RECEITA': 'แหล่งรายได้อื่นๆ',
         'Other Receita Streams (50%)': 'แหล่งรายได้อื่นๆ (50%)',
         'Besides arbitrage, there are two more important income sources': 'นอกจากอาร์บิทราจ ยังมีแหล่งรายได้สำคัญอีกสองแหล่ง',
-        'Cripto Research (20%)': 'การวิจัยคริปโต (20%)',
+        'Pesquisa Cripto (20%)': 'การวิจัยคริปโต (20%)',
         'Diversification (30%)': 'การกระจายความเสี่ยง (30%)',
         'Professional analysis team': 'ทีมวิเคราะห์มืออาชีพ',
         'Market timing strategies': 'กลยุทธ์การจับจังหวะตลาด',
@@ -6174,15 +6174,15 @@ window.MarketLocalization = {
         'Business ventures': 'ธุรกิจต่างๆ',
 
         // === SLIDE 11 - Investidor Ganhos ===
-        'INVESTOR EARNINGS': 'รายได้นักลงทุน',
-        'How The Investidor Earns': 'นักลงทุนได้รับผลตอบแทนอย่างไร',
-        'Investidor puts their money to work': 'นักลงทุนนำเงินไปทำงาน',
-        'Company uses for business': 'บริษัทใช้เพื่อธุรกิจ',
-        'Lucro is generated': 'เกิดกำไร',
-        'Investidor gets their share': 'นักลงทุนได้รับส่วนแบ่ง',
+        'GANHOS DO INVESTIDOR': 'รายได้นักลงทุน',
+        'Como o Investidor Ganha': 'นักลงทุนได้รับผลตอบแทนอย่างไร',
+        'O investidor coloca o dinheiro a trabalhar': 'นักลงทุนนำเงินไปทำงาน',
+        'A empresa usa para o negócio': 'บริษัทใช้เพื่อธุรกิจ',
+        'O lucro é gerado': 'เกิดกำไร',
+        'O investidor recebe a sua parte': 'นักลงทุนได้รับส่วนแบ่ง',
         'Max 2.5× return': 'ผลตอบแทนสูงสุด 2.5 เท่า',
-        'Average Retorno Mensal': 'ผลตอบแทนเฉลี่ยต่อเดือน',
-        'Maximum Return': 'ผลตอบแทนสูงสุด',
+        'Retorno Mensal Médio': 'ผลตอบแทนเฉลี่ยต่อเดือน',
+        'Retorno Máximo': 'ผลตอบแทนสูงสุด',
         'Payout (min $10)': 'จ่าย (ขั้นต่ำ $10)',
         'Every day': 'ทุกวัน',
         'Renda comes from real business, not from recruiting people': 'รายได้มาจากธุรกิจจริง ไม่ใช่จากการชวนคน',
@@ -6201,30 +6201,30 @@ window.MarketLocalization = {
         'Per withdrawal': 'ต่อการถอน',
 
         // === SLIDE 13 - Calculator ===
-        'INVESTMENT CALCULATOR': 'เครื่องคำนวณการลงทุน',
-        'Total Investment': 'การลงทุนทั้งหมด',
+        'CALCULADORA DE INVESTIMENTO': 'เครื่องคำนวณการลงทุน',
+        'Investimento Total': 'การลงทุนทั้งหมด',
         'Hub (contract)': 'Hub (สัญญา)',
         'Platform access': 'การเข้าถึงแพลตฟอร์ม',
         'Working capital': 'เงินทุนหมุนเวียน',
         'This earns returns': 'ได้รับผลตอบแทน',
         'TOTAL IN': 'รวมเข้า',
-        'Returns (25 meses)': 'ผลตอบแทน (25 เดือน)',
+        'Retornos (25 meses)': 'ผลตอบแทน (25 เดือน)',
         'Gross return': 'ผลตอบแทนรวม',
         'Withdrawal fee': 'ค่าธรรมเนียมถอน',
         'NET RETURN': 'ผลตอบแทนสุทธิ',
-        'Net Lucro': 'กำไรสุทธิ',
-        'Return on Investment': 'ผลตอบแทนจากการลงทุน',
+        'Lucro Líquido': 'กำไรสุทธิ',
+        'Retorno sobre Investimento': 'ผลตอบแทนจากการลงทุน',
         'Mensal Average': 'ค่าเฉลี่ยรายเดือน',
         'Drag slider to calculate': 'เลื่อนแถบเพื่อคำนวณ',
-        'Calculate Seu Retornos': 'คำนวณผลตอบแทนของคุณ',
+        'Calcule os Seus Retornos': 'คำนวณผลตอบแทนของคุณ',
 
         // === SLIDE 14 - Wealth Multiplication ===
         'WEALTH MULTIPLICATION': 'การเพิ่มความมั่งคั่ง',
-        'Wealth Multiplication Mindset': 'แนวคิดการเพิ่มความมั่งคั่ง',
+        'Mentalidade de Multiplicação de Riqueza': 'แนวคิดการเพิ่มความมั่งคั่ง',
         'If you have': 'ถ้าคุณมี',
         'What do you do?': 'คุณจะทำอย่างไร?',
-        'The Nãormal Way': 'วิธีปกติ',
-        'The Multiplication Way': 'วิธีการเพิ่มความมั่งคั่ง',
+        'A Forma Normal': 'วิธีปกติ',
+        'A Forma de Multiplicação': 'วิธีการเพิ่มความมั่งคั่ง',
         'You have:': 'คุณมี:',
         'Spend': 'ใช้จ่าย',
         'por mês': 'ต่อเดือน',
@@ -6240,9 +6240,9 @@ window.MarketLocalization = {
         'Lucro Can Be Reinvested Into:': 'กำไรสามารถนำไปลงทุนต่อใน:',
         'Cripto': 'คริปโต',
         'Ouro & Prata': 'ทองและเงิน',
-        'Stocks': 'หุ้น',
+        'Ações': 'หุ้น',
         'Imóveis': 'อสังหาริมทรัพย์',
-        'Money works for you, not you for money!': 'เงินทำงานให้คุณ ไม่ใช่คุณทำงานให้เงิน!',
+        'O dinheiro trabalha para você, não você para o dinheiro!': 'เงินทำงานให้คุณ ไม่ใช่คุณทำงานให้เงิน!',
         'View Detailed 25-Mês Analysis': 'ดูการวิเคราะห์รายละเอียด 25 เดือน',
 
         // === SLIDE 15 - Morocco Trip ===
@@ -6296,14 +6296,14 @@ window.MarketLocalization = {
         'Novo ideas and motivation going forward': 'ความคิดใหม่และแรงจูงใจสำหรับอนาคต',
         'Experiences': 'ประสบการณ์',
         'Unforgettable adventure in exotic Africa': 'การผจญภัยที่ลืมไม่ลงในแอฟริกาที่แปลกใหม่',
-        'Trust': 'ความไว้วางใจ',
+        'Confiança': 'ความไว้วางใจ',
         'Stronger connection with team and company': 'ความเชื่อมต่อที่แข็งแกร่งกับทีมและบริษัท',
         'This is an exclusive incentive trip': 'นี่คือทริปจูงใจพิเศษ',
         '— a reward for those who have taken steps for their future!': '— รางวัลสำหรับผู้ที่ก้าวเดินเพื่ออนาคต!',
 
         // === SLIDE 18 - Closing Words ===
         'Doubt is normal.': 'ความสงสัยเป็นเรื่องปกติ',
-        'When knowledge comes, the decision is simple:': 'เมื่อความรู้มา การตัดสินใจเป็นเรื่องง่าย:',
+        'Quando o conhecimento chega, a decisão é simples:': 'เมื่อความรู้มา การตัดสินใจเป็นเรื่องง่าย:',
         'yes or no.': 'ใช่หรือไม่',
         'You now know what opportunity this is.': 'ตอนนี้คุณรู้แล้วว่านี่คือโอกาสอะไร',
 
@@ -6321,37 +6321,37 @@ window.MarketLocalization = {
         // === SLIDE 17 - Closing Words ===
         'CLOSING WORDS': 'คำปิดท้าย',
         'Closing Words': 'คำปิดท้าย',
-        'If This Resonated': 'ถ้าสนใจ',
-        'If Nãot For You': 'ถ้าไม่ใช่สำหรับคุณ',
+        'Se Isto Ressoou': 'ถ้าสนใจ',
+        'Se Não For Para Si': 'ถ้าไม่ใช่สำหรับคุณ',
         'We can continue.': 'เราสามารถดำเนินการต่อได้',
         "Let's talk details.": 'มาคุยรายละเอียดกัน',
         "Let's look at options.": 'มาดูตัวเลือกกัน',
         'Totally okay.': 'ไม่เป็นไร',
         'Thanks for listening.': 'ขอบคุณที่รับฟัง',
         'Good luck on your path!': 'ขอให้โชคดี!',
-        'THANK YOU FOR LISTENING!': 'ขอบคุณที่รับฟัง!',
+        'OBRIGADO POR OUVIR!': 'ขอบคุณที่รับฟัง!',
 
         // === SLIDE 18 - Próximo Steps ===
         'NEXT STEPS': 'ขั้นตอนต่อไป',
         'What Happens Próximo?': 'ต่อไปเป็นอย่างไร?',
         'Simple 4-step process to get started': 'ขั้นตอนง่ายๆ 4 ขั้นตอนในการเริ่มต้น',
         'Contact': 'ติดต่อ',
-        'Get in touch and ask questions': 'ติดต่อและถามคำถาม',
-        'Registration': 'ลงทะเบียน',
+        'Entre em contacto e faça perguntas': 'ติดต่อและถามคำถาม',
+        'Registo': 'ลงทะเบียน',
         'Simple 5-minute registration': 'ลงทะเบียนง่ายๆ 5 นาที',
         'Contract & Deposit': 'สัญญาและฝากเงิน',
         'Choose HUB amount and activate': 'เลือกจำนวน HUB และเปิดใช้งาน',
-        'Ganhos Begin': 'เริ่มรับรายได้',
-        'Money starts working 24/7': 'เงินเริ่มทำงาน 24/7',
+        'Os Ganhos Começam': 'เริ่มรับรายได้',
+        'O dinheiro começa a trabalhar 24/7': 'เงินเริ่มทำงาน 24/7',
         'Here Hoje?': 'อยู่ที่นี่วันนี้?',
         'Need Time To Think?': 'ต้องการเวลาคิด?',
         'Ask all your questions': 'ถามคำถามทั้งหมดของคุณ',
         'Clarify details': 'ชี้แจงรายละเอียด',
-        'Get help with registration': 'รับความช่วยเหลือในการลงทะเบียน',
+        'Obter ajuda com o registo': 'รับความช่วยเหลือในการลงทะเบียน',
         'Choose suitable package': 'เลือกแพ็คเกจที่เหมาะสม',
-        'Take your time': 'ใช้เวลาของคุณ',
-        'Research more info': 'ค้นหาข้อมูลเพิ่มเติม',
-        'Get in touch later': 'ติดต่อภายหลัง',
+        'Tome o seu tempo': 'ใช้เวลาของคุณ',
+        'Pesquisar mais informações': 'ค้นหาข้อมูลเพิ่มเติม',
+        'Entrar em contacto mais tarde': 'ติดต่อภายหลัง',
         'Informação stays available': 'ข้อมูลยังคงมีอยู่',
         "Perguntas? Let's talk now or later!": 'มีคำถาม? มาคุยกันตอนนี้หรือทีหลัง!',
 
@@ -6613,7 +6613,7 @@ function showPróximoFragment() {
         fragments[0].classList.add('visible');
         return true; // Fragment was shown
     }
-    return false; // Não more fragments
+    return false; // No more fragments
 }
 
 function hideAllFragments(slideIndex) {
