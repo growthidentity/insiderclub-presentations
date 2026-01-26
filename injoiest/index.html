@@ -432,8 +432,8 @@
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            max-width: 1200px;
+            gap: 1.5rem;
+            max-width: 1400px;
             margin: 0 auto;
         }
 
@@ -1519,12 +1519,7 @@
      - NOT too aggressive
 ==================================== -->
 <section class="section danger-slide">
-    <div class="danger-image">
-        <div class="placeholder">
-            <div class="placeholder-icon">💊</div>
-            <div>images/medicine-residues.jpg</div>
-            <div style="font-size: 0.8rem; margin-top: 0.5rem;">Pills dissolving in water (symbolic)</div>
-        </div>
+    <div class="danger-image" style="background: url('images/medicine-residues.jpg') center/cover;">
     </div>
     <div class="danger-content">
         <div class="danger-number">03</div>
@@ -1551,12 +1546,7 @@
      - Soviet-era apartment building plumbing visual
 ==================================== -->
 <section class="section danger-slide reverse">
-    <div class="danger-image">
-        <div class="placeholder">
-            <div class="placeholder-icon">🔧</div>
-            <div>images/old-pipes.jpg</div>
-            <div style="font-size: 0.8rem; margin-top: 0.5rem;">Old pipes, Soviet-era plumbing</div>
-        </div>
+    <div class="danger-image" style="background: url('images/old-pipes.jpg') center/cover;">
     </div>
     <div class="danger-content">
         <div class="danger-number">04</div>
@@ -1581,24 +1571,39 @@
 ==================================== -->
 <section class="section stats-section">
     <div class="stats-header">
-        <div class="section-label">Faktid</div>
-        <h2>Probleem, millest vähe räägitakse</h2>
-        <p>Andmed, mis peaksid panema mõtlema</p>
+        <div class="section-label">Euroopa Liidu andmed</div>
+        <h2>Veekriis numbrites</h2>
+        <p>Allikad: Euroopa Keskkonnaamet (EEA), Euroopa Komisjon 2024-2025</p>
     </div>
     <div class="stats-grid">
         <div class="stat-card">
-            <div class="stat-number">2B+</div>
-            <div class="stat-label">Inimesel maailmas puudub ligipääs puhtale joogiveele</div>
+            <div class="stat-number">23 000</div>
+            <div class="stat-label">PFAS-iga saastunud kohta Euroopas, millest 2300 on ohtlikud "kuumad punktid"</div>
         </div>
         <div class="stat-card">
-            <div class="stat-number">80%</div>
-            <div class="stat-label">Haigustest arengumaades on seotud saastunud veega</div>
+            <div class="stat-number">59%</div>
+            <div class="stat-label">Euroopa jõgedest ületab PFAS-i ohutu piirmäära</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">413</div>
+            <div class="stat-label">Mikroplasti osakest liitri kraanivee kohta (2025. aasta uuring)</div>
         </div>
         <div class="stat-card">
             <div class="stat-number">94%</div>
-            <div class="stat-label">Kraanivee proovidest sisaldab mikroplasti</div>
+            <div class="stat-label">Mikroplastist on väiksem kui EL-i tuvastuspiir - jääb avastamata</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">2000</div>
+            <div class="stat-label">Miljardit eurot maksab PFAS-i puhastamine 20 aasta jooksul</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">80+</div>
+            <div class="stat-label">Erinevat ravimijääki on leitud joogiveest üle Euroopa</div>
         </div>
     </div>
+    <p style="text-align: center; color: rgba(255,255,255,0.5); font-size: 0.85rem; margin-top: 3rem;">
+        EL kehtestas 2026. aastast uued PFAS-i piirmäärad joogivees. Probleem on tunnistatud.
+    </p>
 </section>
 
 <!-- ====================================
@@ -1643,12 +1648,7 @@
 <section class="section product-hero" id="tooted">
     <div class="product-hero-inner">
         <div class="product-hero-image">
-            <div class="placeholder">
-                <div style="font-size: 4rem; margin-bottom: 1rem;">💧</div>
-                <div>images/product-hero.png</div>
-                <div style="font-size: 0.8rem; margin-top: 0.5rem;">INJOI device, white background</div>
-                <div style="font-size: 0.8rem; color: #e74c3c; margin-top: 0.5rem;">MUST be correct design!</div>
-            </div>
+            <img src="images/product-hero.png" alt="INJOI veepuhasti">
         </div>
         <div class="product-hero-content">
             <div class="section-label">Meie lahendus</div>
@@ -1676,14 +1676,7 @@
      - Machine must look exactly correct
 ==================================== -->
 <section class="section product-kitchen">
-    <div class="product-kitchen-image">
-        <div class="placeholder">
-            <div style="font-size: 4rem; margin-bottom: 1rem;">🏠</div>
-            <div>images/product-kitchen.jpg</div>
-            <div style="font-size: 0.8rem; margin-top: 0.5rem;">INJOI in Estonian kitchen</div>
-            <div style="font-size: 0.8rem; margin-top: 0.5rem;">Wood countertop, simple cabinets</div>
-            <div style="font-size: 0.8rem; color: #e74c3c; margin-top: 0.5rem;">NO luxury American style!</div>
-        </div>
+    <div class="product-kitchen-image" style="background: url('images/product-kitchen.png') center/cover;">
     </div>
     <div class="product-kitchen-content">
         <div class="section-label">Sinu kodus</div>
@@ -1761,12 +1754,7 @@
      - NO muscle men, NO fitness hype
 ==================================== -->
 <section class="section hydrogen-section">
-    <div class="hydrogen-visual">
-        <div class="placeholder">
-            <div class="h2-symbol">H₂</div>
-            <div>images/hydrogen-molecule.png</div>
-            <div style="font-size: 0.8rem; margin-top: 0.5rem;">Scientific, simple, soft glow</div>
-        </div>
+    <div class="hydrogen-visual" style="background: url('images/hydrogen.jpg') center/cover;">
     </div>
     <div class="hydrogen-content">
         <div class="section-label">Vesiniku kasu</div>
