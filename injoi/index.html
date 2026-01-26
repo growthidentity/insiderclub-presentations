@@ -1,0 +1,2521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INJOI - Life is in Your Hands</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0B1426;
+            --navy-light: #1a2744;
+            --gold: #C9A227;
+            --gold-light: #e8d5a3;
+            --cream: #FDFBF7;
+            --gray-50: #f8fafc;
+            --gray-100: #f1f5f9;
+            --gray-200: #e2e8f0;
+            --gray-400: #94a3b8;
+            --gray-600: #475569;
+            --gray-800: #1e293b;
+            --chocolate: #3d2314;
+            --chocolate-light: #8b5a3c;
+            --water-blue: #0ea5e9;
+            --water-light: #e0f2fe;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--cream);
+            color: var(--gray-800);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Typography */
+        .font-display {
+            font-family: 'Playfair Display', Georgia, serif;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-weight: 500;
+            line-height: 1.2;
+        }
+
+        /* Slide Container */
+        .slide {
+            min-height: 100vh;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1.5rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(180deg, rgba(11, 20, 38, 0.9) 0%, transparent 100%);
+            transition: background 0.3s ease;
+        }
+
+        .nav.scrolled {
+            background: rgba(11, 20, 38, 0.95);
+            backdrop-filter: blur(20px);
+        }
+
+        .nav-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.75rem;
+            font-weight: 600;
+            color: var(--gold);
+            letter-spacing: 0.15em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        /* ============================================
+           SLIDE 1: HERO
+        ============================================ */
+        .hero {
+            background: var(--navy);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1920&q=80') center/cover;
+            opacity: 0.15;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 2rem;
+            max-width: 900px;
+        }
+
+        .hero-tagline {
+            font-size: 0.9rem;
+            color: var(--gold);
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+            font-weight: 500;
+        }
+
+        .hero-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(4rem, 12vw, 10rem);
+            font-weight: 600;
+            color: var(--gold);
+            letter-spacing: 0.15em;
+            margin-bottom: 1rem;
+        }
+
+        .hero-logo span {
+            display: inline-block;
+            position: relative;
+        }
+
+        .hero-logo .drop {
+            width: 0.15em;
+            height: 0.15em;
+            background: var(--gold);
+            border-radius: 50% 50% 50% 0;
+            transform: rotate(-45deg);
+            display: inline-block;
+            margin: 0 0.05em;
+            vertical-align: middle;
+        }
+
+        .hero-subtitle {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.5rem, 3vw, 2.5rem);
+            color: white;
+            font-weight: 300;
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.7);
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            line-height: 1.8;
+        }
+
+        .hero-version {
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.4);
+            letter-spacing: 0.1em;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 3rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            color: rgba(255,255,255,0.5);
+            font-size: 0.75rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+        }
+
+        .scroll-indicator::after {
+            content: '';
+            width: 1px;
+            height: 40px;
+            background: linear-gradient(180deg, var(--gold), transparent);
+            animation: scrollPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes scrollPulse {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+
+        /* ============================================
+           SLIDE 2: COMPANY INTRO
+        ============================================ */
+        .company-intro {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 100vh;
+        }
+
+        .company-intro-image {
+            background: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&q=80') center/cover;
+            position: relative;
+        }
+
+        .company-intro-image::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, transparent 60%, var(--cream) 100%);
+        }
+
+        .company-intro-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 6rem;
+            background: var(--cream);
+        }
+
+        .section-number {
+            font-size: 0.75rem;
+            color: var(--gold);
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .company-intro-content h2 {
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            color: var(--navy);
+            margin-bottom: 2rem;
+            line-height: 1.15;
+        }
+
+        .company-intro-content .lead {
+            font-size: 1.25rem;
+            color: var(--gray-600);
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+
+        .company-intro-content p {
+            color: var(--gray-600);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .stat-row {
+            display: flex;
+            gap: 3rem;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--gray-200);
+        }
+
+        .stat {
+            text-align: left;
+        }
+
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: var(--navy);
+            font-weight: 500;
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--gray-600);
+            margin-top: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* ============================================
+           SLIDE 3: VISION MISSION VALUES
+        ============================================ */
+        .vmv-section {
+            background: var(--navy);
+            padding: 8rem 6rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .vmv-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .vmv-header h2 {
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .vmv-header p {
+            color: rgba(255,255,255,0.6);
+            font-size: 1.1rem;
+        }
+
+        .vmv-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .vmv-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 4px;
+            padding: 3rem;
+            text-align: center;
+            transition: all 0.4s ease;
+        }
+
+        .vmv-card:hover {
+            background: rgba(255,255,255,0.06);
+            border-color: var(--gold);
+            transform: translateY(-8px);
+        }
+
+        .vmv-icon {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .vmv-icon svg {
+            width: 100%;
+            height: 100%;
+            stroke: var(--gold);
+            fill: none;
+            stroke-width: 1.5;
+        }
+
+        .vmv-card h3 {
+            font-size: 1.5rem;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        .vmv-card p {
+            color: rgba(255,255,255,0.7);
+            line-height: 1.8;
+            font-size: 1rem;
+        }
+
+        /* ============================================
+           SLIDE 4: LEADERSHIP TEAM
+        ============================================ */
+        .team-section {
+            background: var(--cream);
+            padding: 8rem 6rem;
+        }
+
+        .team-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .team-header h2 {
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            color: var(--navy);
+            margin-bottom: 1rem;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .team-card {
+            text-align: center;
+        }
+
+        .team-photo {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin: 0 auto 2rem;
+            overflow: hidden;
+            border: 3px solid var(--gold);
+            padding: 4px;
+            background: white;
+        }
+
+        .team-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            filter: grayscale(20%);
+        }
+
+        .team-card h3 {
+            font-size: 1.5rem;
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+        }
+
+        .team-role {
+            font-size: 0.9rem;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .team-bio {
+            list-style: none;
+            text-align: left;
+            padding: 0;
+        }
+
+        .team-bio li {
+            color: var(--gray-600);
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--gray-200);
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .team-bio li::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: var(--gold);
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        /* ============================================
+           SLIDE 5: WATER CRISIS
+        ============================================ */
+        .water-crisis {
+            min-height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .water-crisis-bg {
+            position: absolute;
+            inset: 0;
+            background: url('https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=1920&q=80') center/cover;
+        }
+
+        .water-crisis-bg::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(11, 20, 38, 0.95) 0%, rgba(11, 20, 38, 0.7) 100%);
+        }
+
+        .water-crisis-content {
+            position: relative;
+            z-index: 2;
+            padding: 6rem;
+            max-width: 800px;
+        }
+
+        .water-crisis-content h2 {
+            font-size: clamp(3rem, 5vw, 4.5rem);
+            color: white;
+            margin-bottom: 2rem;
+            line-height: 1.1;
+        }
+
+        .water-crisis-content h2 span {
+            color: var(--water-blue);
+        }
+
+        .crisis-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .crisis-stat {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 4px;
+            padding: 2rem;
+        }
+
+        .crisis-stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            color: var(--water-blue);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .crisis-stat-label {
+            color: rgba(255,255,255,0.8);
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        /* ============================================
+           SLIDE 6: WATER SOLUTION
+        ============================================ */
+        .water-solution {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 100vh;
+        }
+
+        .water-solution-content {
+            background: var(--cream);
+            padding: 6rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .water-solution-content h2 {
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            color: var(--navy);
+            margin-bottom: 2rem;
+        }
+
+        .water-solution-content h2 span {
+            color: var(--water-blue);
+        }
+
+        .solution-features {
+            margin-top: 2rem;
+        }
+
+        .solution-feature {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .solution-feature:last-child {
+            border-bottom: none;
+        }
+
+        .solution-feature-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--water-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .solution-feature-icon svg {
+            width: 24px;
+            height: 24px;
+            stroke: var(--water-blue);
+            fill: none;
+        }
+
+        .solution-feature h4 {
+            font-size: 1.1rem;
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+        }
+
+        .solution-feature p {
+            color: var(--gray-600);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .water-solution-image {
+            background: linear-gradient(135deg, var(--water-blue) 0%, #0284c7 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .water-solution-image::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url('https://images.unsplash.com/photo-1548839140-29a749e1cf4d?w=1200&q=80') center/cover;
+            opacity: 0.2;
+        }
+
+        .product-showcase {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 3rem;
+        }
+
+        .product-showcase img {
+            max-width: 80%;
+            max-height: 60vh;
+            object-fit: contain;
+            filter: drop-shadow(0 30px 60px rgba(0,0,0,0.3));
+        }
+
+        .product-showcase h3 {
+            color: white;
+            font-size: 1.5rem;
+            margin-top: 2rem;
+            font-weight: 400;
+        }
+
+        /* ============================================
+           SLIDE 7: CHOCOLATE PROBLEM
+        ============================================ */
+        .chocolate-problem {
+            background: var(--chocolate);
+            min-height: 100vh;
+            padding: 8rem 6rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .chocolate-header {
+            max-width: 800px;
+            margin-bottom: 4rem;
+        }
+
+        .chocolate-header h2 {
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .chocolate-header h2 span {
+            color: var(--gold);
+        }
+
+        .chocolate-header p {
+            color: rgba(255,255,255,0.7);
+            font-size: 1.1rem;
+        }
+
+        .chocolate-facts {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            max-width: 1200px;
+        }
+
+        .chocolate-fact {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 4px;
+            padding: 2.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .chocolate-fact:hover {
+            background: rgba(255,255,255,0.08);
+            border-color: var(--gold);
+        }
+
+        .fact-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: var(--gold);
+            line-height: 1;
+            margin-bottom: 1rem;
+        }
+
+        .chocolate-fact h4 {
+            font-size: 1.25rem;
+            color: white;
+            margin-bottom: 1rem;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+        }
+
+        .chocolate-fact p {
+            color: rgba(255,255,255,0.7);
+            line-height: 1.7;
+        }
+
+        /* ============================================
+           SLIDE 8: CHOCOLATE SOLUTION
+        ============================================ */
+        .chocolate-solution {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 100vh;
+        }
+
+        .chocolate-solution-image {
+            background: url('https://images.unsplash.com/photo-1481391319762-47dff72954d9?w=1200&q=80') center/cover;
+            position: relative;
+        }
+
+        .chocolate-solution-image::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(270deg, var(--cream) 0%, transparent 30%);
+        }
+
+        .chocolate-solution-content {
+            background: var(--cream);
+            padding: 6rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .chocolate-solution-content h2 {
+            font-size: clamp(2rem, 3.5vw, 3rem);
+            color: var(--chocolate);
+            margin-bottom: 0.5rem;
+        }
+
+        .chocolate-solution-content .brand {
+            font-size: 1rem;
+            color: var(--gold);
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-bottom: 2rem;
+        }
+
+        .benefits-list {
+            margin-top: 1rem;
+        }
+
+        .benefit-item {
+            display: flex;
+            gap: 1.25rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .benefit-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--gold);
+            font-weight: 500;
+            flex-shrink: 0;
+            width: 30px;
+        }
+
+        .benefit-item h4 {
+            font-size: 1rem;
+            color: var(--chocolate);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .benefit-item p {
+            color: var(--gray-600);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* ============================================
+           SLIDE 9: COMP PLAN INTRO
+        ============================================ */
+        .comp-intro {
+            background: var(--navy);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .comp-intro::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url('https://images.unsplash.com/photo-1519681393784-d120267933ba?w=1920&q=80') center/cover;
+            opacity: 0.1;
+        }
+
+        .comp-intro-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 800px;
+            padding: 2rem;
+        }
+
+        .comp-intro-content .section-number {
+            margin-bottom: 2rem;
+        }
+
+        .comp-intro-content h2 {
+            font-size: clamp(3rem, 5vw, 4.5rem);
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+
+        .comp-intro-content h2 span {
+            color: var(--gold);
+        }
+
+        .comp-intro-content p {
+            color: rgba(255,255,255,0.7);
+            font-size: 1.25rem;
+            line-height: 1.8;
+        }
+
+        .getting-started {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-top: 4rem;
+        }
+
+        .start-step {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 4px;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .start-step:hover {
+            background: rgba(255,255,255,0.08);
+            border-color: var(--gold);
+        }
+
+        .step-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+
+        .start-step h4 {
+            color: white;
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .start-step p {
+            color: rgba(255,255,255,0.6);
+            font-size: 0.85rem;
+            line-height: 1.5;
+        }
+
+        /* ============================================
+           SLIDE 10: PACKAGES
+        ============================================ */
+        .packages-section {
+            background: var(--gray-50);
+            padding: 8rem 4rem;
+        }
+
+        .packages-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .packages-header h2 {
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            color: var(--navy);
+            margin-bottom: 1rem;
+        }
+
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .package-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            border: 1px solid var(--gray-200);
+        }
+
+        .package-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .package-card.featured {
+            border-color: var(--gold);
+            box-shadow: 0 8px 30px rgba(201, 162, 39, 0.15);
+        }
+
+        .package-header {
+            background: var(--navy);
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .package-card.featured .package-header {
+            background: linear-gradient(135deg, var(--gold) 0%, #b8941f 100%);
+        }
+
+        .package-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.25rem;
+            color: white;
+            margin-bottom: 0.25rem;
+        }
+
+        .package-price {
+            font-size: 2rem;
+            color: white;
+            font-weight: 700;
+        }
+
+        .package-body {
+            padding: 1.5rem;
+        }
+
+        .package-max {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--gray-200);
+            font-size: 0.9rem;
+        }
+
+        .package-max span:first-child {
+            color: var(--gray-600);
+        }
+
+        .package-max span:last-child {
+            color: var(--navy);
+            font-weight: 600;
+        }
+
+        .package-ds {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.75rem 0;
+            font-size: 0.9rem;
+        }
+
+        .package-ds span:first-child {
+            color: var(--gray-600);
+        }
+
+        .package-ds span:last-child {
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        /* ============================================
+           SLIDE 11: VOLUME BONUS
+        ============================================ */
+        .volume-bonus {
+            background: var(--navy);
+            padding: 8rem 6rem;
+        }
+
+        .volume-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .volume-header h2 {
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .volume-header p {
+            color: rgba(255,255,255,0.7);
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .bonus-visual {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            align-items: center;
+        }
+
+        .binary-tree {
+            text-align: center;
+        }
+
+        .tree-you {
+            width: 100px;
+            height: 100px;
+            background: var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            font-weight: 700;
+            color: var(--navy);
+            font-size: 1.25rem;
+        }
+
+        .tree-branches {
+            display: flex;
+            justify-content: center;
+            gap: 6rem;
+            position: relative;
+        }
+
+        .tree-branches::before {
+            content: '';
+            position: absolute;
+            top: -2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 2rem;
+            border-left: 2px solid var(--gold);
+            border-right: 2px solid var(--gold);
+            border-bottom: 2px solid var(--gold);
+        }
+
+        .tree-branch {
+            text-align: center;
+        }
+
+        .branch-circle {
+            width: 80px;
+            height: 80px;
+            border: 2px solid var(--gold);
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            color: white;
+        }
+
+        .branch-circle .amount {
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+
+        .branch-circle .unit {
+            font-size: 0.7rem;
+            opacity: 0.7;
+        }
+
+        .branch-label {
+            color: rgba(255,255,255,0.8);
+            font-size: 0.9rem;
+        }
+
+        .bonus-explanation {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 8px;
+            padding: 3rem;
+        }
+
+        .bonus-explanation h3 {
+            color: var(--gold);
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .bonus-explanation p {
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .bonus-highlight {
+            background: var(--gold);
+            color: var(--navy);
+            padding: 1.5rem;
+            border-radius: 4px;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .bonus-highlight .percent {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 700;
+        }
+
+        .bonus-highlight .label {
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        /* ============================================
+           SLIDE 12: LEADERSHIP BONUS
+        ============================================ */
+        .leadership-bonus {
+            background: var(--cream);
+            padding: 8rem 6rem;
+        }
+
+        .leadership-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .leadership-header h2 {
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            color: var(--navy);
+            margin-bottom: 1rem;
+        }
+
+        .generations-visual {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .generation-row {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .gen-number {
+            width: 60px;
+            height: 60px;
+            background: var(--navy);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        .gen-bar {
+            flex: 1;
+            height: 60px;
+            background: var(--navy);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            padding: 0 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .gen-bar::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: var(--width, 100%);
+            background: linear-gradient(90deg, var(--gold), transparent);
+            opacity: 0.3;
+        }
+
+        .gen-bar span {
+            color: white;
+            font-weight: 500;
+            position: relative;
+            z-index: 2;
+        }
+
+        .gen-percent {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--gold);
+            font-weight: 600;
+            width: 80px;
+            text-align: right;
+        }
+
+        /* ============================================
+           SLIDE 13: RANK TABLE
+        ============================================ */
+        .rank-section {
+            background: var(--gray-50);
+            padding: 6rem 4rem;
+        }
+
+        .rank-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .rank-header h2 {
+            font-size: clamp(2rem, 3.5vw, 3rem);
+            color: var(--navy);
+        }
+
+        .rank-table-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            overflow-x: auto;
+        }
+
+        .rank-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+
+        .rank-table th {
+            background: var(--navy);
+            color: white;
+            padding: 1rem;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 600;
+            text-align: left;
+        }
+
+        .rank-table th:first-child {
+            text-align: center;
+        }
+
+        .rank-table td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--gray-200);
+            font-size: 0.9rem;
+            color: var(--gray-800);
+        }
+
+        .rank-table td:first-child {
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.25rem;
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        .rank-table tr:hover {
+            background: var(--gray-50);
+        }
+
+        .rank-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .rank-name {
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        .rank-reward {
+            color: var(--gold);
+            font-weight: 500;
+        }
+
+        /* ============================================
+           SLIDE 14-17: AWARDS
+        ============================================ */
+        .award-slide {
+            min-height: 100vh;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .award-slide.reverse {
+            direction: rtl;
+        }
+
+        .award-slide.reverse > * {
+            direction: ltr;
+        }
+
+        .award-image {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .award-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .award-content {
+            background: var(--navy);
+            padding: 6rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .award-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(201, 162, 39, 0.2);
+            color: var(--gold);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 2rem;
+            width: fit-content;
+        }
+
+        .award-content h2 {
+            font-size: clamp(2.5rem, 4vw, 4rem);
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .award-content h2 span {
+            color: var(--gold);
+        }
+
+        .award-description {
+            color: rgba(255,255,255,0.7);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 3rem;
+        }
+
+        .award-requirements {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .award-req {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 4px;
+            padding: 1.5rem;
+        }
+
+        .award-req-label {
+            color: rgba(255,255,255,0.6);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.5rem;
+        }
+
+        .award-req-value {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.75rem;
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        /* ============================================
+           SLIDE 18: 6 WAYS TO EARN
+        ============================================ */
+        .ways-section {
+            background: var(--cream);
+            padding: 8rem 6rem;
+        }
+
+        .ways-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .ways-header h2 {
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            color: var(--navy);
+            margin-bottom: 1rem;
+        }
+
+        .ways-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .way-card {
+            background: white;
+            border-radius: 8px;
+            padding: 2.5rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            border: 1px solid var(--gray-200);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .way-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            border-color: var(--gold);
+        }
+
+        .way-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+
+        .way-card h3 {
+            font-size: 1.25rem;
+            color: var(--navy);
+            margin-bottom: 1rem;
+        }
+
+        .way-card p {
+            color: var(--gray-600);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* ============================================
+           SLIDE 19: CTA
+        ============================================ */
+        .cta-section {
+            background: var(--navy);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url('https://images.unsplash.com/photo-1483354483454-4cd359948304?w=1920&q=80') center/cover;
+            opacity: 0.1;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 800px;
+            padding: 2rem;
+        }
+
+        .cta-content h2 {
+            font-size: clamp(3rem, 5vw, 4.5rem);
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-tagline {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--gold);
+            font-style: italic;
+            margin-bottom: 3rem;
+        }
+
+        .cta-info {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            margin-bottom: 3rem;
+        }
+
+        .cta-info-item {
+            text-align: center;
+        }
+
+        .cta-info-item .label {
+            color: rgba(255,255,255,0.6);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.5rem;
+        }
+
+        .cta-info-item .value {
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .cta-info-item .value a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--navy);
+            padding: 1.25rem 3rem;
+            font-size: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background: white;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        /* ============================================
+           RESPONSIVE
+        ============================================ */
+        @media (max-width: 1200px) {
+            .packages-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 968px) {
+            .nav-links {
+                display: none;
+            }
+
+            .company-intro,
+            .water-solution,
+            .chocolate-solution,
+            .award-slide {
+                grid-template-columns: 1fr;
+            }
+
+            .company-intro-image,
+            .chocolate-solution-image {
+                min-height: 50vh;
+            }
+
+            .vmv-grid,
+            .team-grid,
+            .ways-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .chocolate-facts,
+            .crisis-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .bonus-visual {
+                grid-template-columns: 1fr;
+            }
+
+            .getting-started {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .packages-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .award-slide {
+                grid-template-columns: 1fr;
+            }
+
+            .award-image {
+                min-height: 50vh;
+            }
+
+            .company-intro-content,
+            .water-solution-content,
+            .chocolate-solution-content,
+            .award-content {
+                padding: 4rem 2rem;
+            }
+
+            .vmv-section,
+            .team-section,
+            .chocolate-problem,
+            .packages-section,
+            .volume-bonus,
+            .leadership-bonus,
+            .rank-section,
+            .ways-section {
+                padding: 4rem 2rem;
+            }
+
+            .water-crisis-content {
+                padding: 4rem 2rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .getting-started {
+                grid-template-columns: 1fr;
+            }
+
+            .stat-row {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .cta-info {
+                flex-direction: column;
+                gap: 2rem;
+            }
+
+            .generation-row {
+                flex-wrap: wrap;
+            }
+
+            .gen-bar {
+                order: 3;
+                width: 100%;
+            }
+
+            .award-requirements {
+                grid-template-columns: 1fr;
+            }
+
+            .tree-branches {
+                gap: 3rem;
+            }
+
+            .tree-branches::before {
+                width: 120px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="nav">
+    <div class="nav-logo">INJOI</div>
+    <div class="nav-links">
+        <a href="#company">Company</a>
+        <a href="#products">Products</a>
+        <a href="#opportunity">Opportunity</a>
+        <a href="#contact">Contact</a>
+    </div>
+</nav>
+
+<!-- SLIDE 1: HERO -->
+<section class="slide hero">
+    <div class="hero-content">
+        <div class="hero-tagline">Premium Lifestyle Products</div>
+        <div class="hero-logo">
+            INJ<span class="drop"></span>I
+        </div>
+        <div class="hero-subtitle">Life is in Your Hands</div>
+        <p class="hero-description">
+            Discover clean water solutions and nutrient-rich raw chocolates.
+            15+ years of innovation from Estonia to the world.
+        </p>
+        <div class="hero-version">Presentation v1.0 - 2025</div>
+    </div>
+    <div class="scroll-indicator">Scroll</div>
+</section>
+
+<!-- SLIDE 2: COMPANY INTRO -->
+<section class="slide company-intro" id="company">
+    <div class="company-intro-image"></div>
+    <div class="company-intro-content">
+        <div class="section-number">01 - About Us</div>
+        <h2>INJOI Stands for the Best in Lifestyle Products</h2>
+        <p class="lead">
+            For over 15 years, we've been crafting premium osmosis water purification
+            filters and raw chocolates that transform everyday wellness.
+        </p>
+        <p>
+            INJOI offers multiple options for both customers and B2B partners through
+            high-quality products and services. Our innovative approach combines
+            cutting-edge technology with natural ingredients.
+        </p>
+        <div class="stat-row">
+            <div class="stat">
+                <div class="stat-number">15+</div>
+                <div class="stat-label">Years Experience</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">80+</div>
+                <div class="stat-label">Chocolate Recipes</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">2</div>
+                <div class="stat-label">Product Lines</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SLIDE 3: VISION MISSION VALUES -->
+<section class="slide vmv-section">
+    <div class="vmv-header">
+        <div class="section-number">02 - Our Foundation</div>
+        <h2>What We Stand For</h2>
+        <p>Guiding principles that drive everything we do</p>
+    </div>
+    <div class="vmv-grid">
+        <div class="vmv-card">
+            <div class="vmv-icon">
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 0 1 10 10"/><circle cx="12" cy="12" r="3"/></svg>
+            </div>
+            <h3>Vision</h3>
+            <p>A world where conscious choices lead to better health and well-being for everyone.</p>
+        </div>
+        <div class="vmv-card">
+            <div class="vmv-icon">
+                <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            </div>
+            <h3>Mission</h3>
+            <p>To support healthier living through clean water and nutrient-rich, handcrafted chocolate - guided by awareness and trust.</p>
+        </div>
+        <div class="vmv-card">
+            <div class="vmv-icon">
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <h3>Values</h3>
+            <p>We aim to raise awareness of clean water and healthy nutrition. We don't just sell - we educate and inspire.</p>
+        </div>
+    </div>
+</section>
+
+<!-- SLIDE 4: LEADERSHIP TEAM -->
+<section class="slide team-section">
+    <div class="team-header">
+        <div class="section-number">03 - Leadership</div>
+        <h2>Meet Our Team</h2>
+    </div>
+    <div class="team-grid">
+        <div class="team-card">
+            <div class="team-photo">
+                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&q=80" alt="Horre Saluste">
+            </div>
+            <h3>Horre Saluste</h3>
+            <div class="team-role">Creator</div>
+            <ul class="team-bio">
+                <li>30 years of business experience</li>
+                <li>12 years expertise in osmosis filters</li>
+                <li>Master of sales</li>
+                <li>Owner of two chocolate factories</li>
+                <li>Creator of 80 raw chocolate recipes</li>
+            </ul>
+        </div>
+        <div class="team-card">
+            <div class="team-photo">
+                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80" alt="Georg Borin">
+            </div>
+            <h3>Georg Borin</h3>
+            <div class="team-role">Advisor</div>
+            <ul class="team-bio">
+                <li>26 years in sales</li>
+                <li>15 years in MLM industry</li>
+                <li>Strategic business development</li>
+                <li>Network expansion specialist</li>
+            </ul>
+        </div>
+        <div class="team-card">
+            <div class="team-photo">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80" alt="Madis Sandermat">
+            </div>
+            <h3>Madis Sandermat</h3>
+            <div class="team-role">Advisor</div>
+            <ul class="team-bio">
+                <li>15 years in sales</li>
+                <li>Professional sales coach</li>
+                <li>10 years in MLM industry</li>
+                <li>Team building expert</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- SLIDE 5: WATER CRISIS -->
+<section class="slide water-crisis" id="products">
+    <div class="water-crisis-bg"></div>
+    <div class="water-crisis-content">
+        <div class="section-number">04 - The Problem</div>
+        <h2>The World of <span>Water</span></h2>
+        <p style="color: rgba(255,255,255,0.8); font-size: 1.1rem; line-height: 1.8;">
+            Even in developed countries, tap water contains heavy metals, microplastics,
+            and chemicals. "Safe" water isn't always pure. Boiling alone isn't enough -
+            advanced filtration is essential.
+        </p>
+        <div class="crisis-stats">
+            <div class="crisis-stat">
+                <div class="crisis-stat-number">2B+</div>
+                <div class="crisis-stat-label">People lack access to clean drinking water globally</div>
+            </div>
+            <div class="crisis-stat">
+                <div class="crisis-stat-number">80%</div>
+                <div class="crisis-stat-label">Of diseases in developing countries are water-related</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SLIDE 6: WATER SOLUTION -->
+<section class="slide water-solution">
+    <div class="water-solution-content">
+        <div class="section-number">05 - The Solution</div>
+        <h2>Clean Water Starts with <span>Smart Choices</span></h2>
+        <p style="color: var(--gray-600); font-size: 1.1rem; margin-bottom: 2rem;">
+            Osmosis technology empowers households to take control of their health.
+            We have the solution.
+        </p>
+        <div class="solution-features">
+            <div class="solution-feature">
+                <div class="solution-feature-icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <div>
+                    <h4>Advanced Filtration</h4>
+                    <p>Reverse osmosis removes 99% of contaminants including heavy metals, bacteria, and microplastics.</p>
+                </div>
+            </div>
+            <div class="solution-feature">
+                <div class="solution-feature-icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+                </div>
+                <div>
+                    <h4>Hydrogen Enrichment</h4>
+                    <p>Optional ionization adds molecular hydrogen for enhanced antioxidant benefits.</p>
+                </div>
+            </div>
+            <div class="solution-feature">
+                <div class="solution-feature-icon">
+                    <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M12 8v8M8 12h8"/></svg>
+                </div>
+                <div>
+                    <h4>Compact Design</h4>
+                    <p>Modern, space-saving units that fit any kitchen. Portable options available for travel.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="water-solution-image">
+        <div class="product-showcase">
+            <img src="https://images.unsplash.com/photo-1548839140-29a749e1cf4d?w=600&q=80" alt="Water Filter" style="border-radius: 8px;">
+            <h3>Premium Water Purification Systems</h3>
+        </div>
+    </div>
+</section>
+
+<!-- SLIDE 7: CHOCOLATE PROBLEM -->
+<section class="slide chocolate-problem">
+    <div class="chocolate-header">
+        <div class="section-number">06 - The Bitter Truth</div>
+        <h2>Behind Conventional <span>Chocolate</span></h2>
+        <p>4 facts the chocolate industry doesn't want you to know</p>
+    </div>
+    <div class="chocolate-facts">
+        <div class="chocolate-fact">
+            <div class="fact-number">01</div>
+            <h4>Heat-Processed Cacao = Lost Nutrients</h4>
+            <p>Most commercial chocolate uses high heat, destroying antioxidants, flavonoids, and other beneficial natural compounds.</p>
+        </div>
+        <div class="chocolate-fact">
+            <div class="fact-number">02</div>
+            <h4>White Sugar - Sweet but Toxic</h4>
+            <p>Regular chocolate is loaded with refined white sugar, which stresses the liver, spikes blood sugar, and promotes inflammation.</p>
+        </div>
+        <div class="chocolate-fact">
+            <div class="fact-number">03</div>
+            <h4>Cheap Chocolate Comes at a Human Cost</h4>
+            <p>Mass-market brands often source cacao from farms that rely on underpaid or even child labor in developing countries.</p>
+        </div>
+        <div class="chocolate-fact">
+            <div class="fact-number">04</div>
+            <h4>Artificial Additives and Preservatives</h4>
+            <p>Many chocolates are packed with artificial flavors, fragrances, and emulsifiers - none of which belong in your body.</p>
+        </div>
+    </div>
+</section>
+
+<!-- SLIDE 8: CHOCOLATE SOLUTION -->
+<section class="slide chocolate-solution">
+    <div class="chocolate-solution-image"></div>
+    <div class="chocolate-solution-content">
+        <div class="section-number">07 - Our Chocolate</div>
+        <h2>INJOI Raw Chocolates</h2>
+        <div class="brand">Stay Young - Raw & Organic</div>
+        <div class="benefits-list">
+            <div class="benefit-item">
+                <div class="benefit-number">1</div>
+                <div>
+                    <h4>100% Raw Cacao</h4>
+                    <p>Made at low temperatures to retain natural benefits - more antioxidants than conventional chocolate.</p>
+                </div>
+            </div>
+            <div class="benefit-item">
+                <div class="benefit-number">2</div>
+                <div>
+                    <h4>Superfoods & Medicinal Mushrooms</h4>
+                    <p>Infused with freeze-dried acai, maca, spirulina, and adaptogens like lion's mane, reishi, and chaga.</p>
+                </div>
+            </div>
+            <div class="benefit-item">
+                <div class="benefit-number">3</div>
+                <div>
+                    <h4>Freeze-Dried for Maximum Freshness</h4>
+                    <p>Ingredients preserve their full spectrum of vitamins, minerals, and flavors - pure nature in every bite.</p>
+                </div>
+            </div>
+            <div class="benefit-item">
+                <div class="benefit-number">4</div>
+                <div>
+                    <h4>No Refined Sugars</h4>
+                    <p>Naturally sweetened with coconut sugar, dates, or lucuma. No processed sugars, no artificial additives.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SLIDE 9: COMPENSATION PLAN INTRO -->
+<section class="slide comp-intro" id="opportunity">
+    <div class="comp-intro-content">
+        <div class="section-number">08 - Business Opportunity</div>
+        <h2>Compensation <span>Plan</span></h2>
+        <p>
+            Build your own business with INJOI. Multiple income streams,
+            industry-leading rewards, and a supportive community.
+        </p>
+        <div class="getting-started">
+            <div class="start-step">
+                <div class="step-number">1</div>
+                <h4>Register</h4>
+                <p>Become an INJOI Independent Business Affiliate</p>
+            </div>
+            <div class="start-step">
+                <div class="step-number">2</div>
+                <h4>Choose Package</h4>
+                <p>Select the package that fits your goals</p>
+            </div>
+            <div class="start-step">
+                <div class="step-number">3</div>
+                <h4>Build Team</h4>
+                <p>Grow your network with left and right teams</p>
+            </div>
+            <div class="start-step">
+                <div class="step-number">4</div>
+                <h4>Earn Rewards</h4>
+                <p>Multiple ways to earn commissions and bonuses</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SLIDE 10: PACKAGES -->
+<section class="slide packages-section">
+    <div class="packages-header">
+        <div class="section-number">09 - Investment Levels</div>
+        <h2>Starter Packages</h2>
+    </div>
+    <div class="packages-grid">
+        <div class="package-card">
+            <div class="package-header">
+                <div class="package-name">Enter</div>
+                <div class="package-price">50</div>
+            </div>
+            <div class="package-body">
+                <div class="package-max"><span>Weekly Max</span><span>50</span></div>
+                <div class="package-ds"><span>DS Bonus</span><span>5</span></div>
+            </div>
+        </div>
+        <div class="package-card">
+            <div class="package-header">
+                <div class="package-name">Basic</div>
+                <div class="package-price">100</div>
+            </div>
+            <div class="package-body">
+                <div class="package-max"><span>Weekly Max</span><span>250</span></div>
+                <div class="package-ds"><span>DS Bonus</span><span>10</span></div>
+            </div>
+        </div>
+        <div class="package-card">
+            <div class="package-header">
+                <div class="package-name">Starter</div>
+                <div class="package-price">200</div>
+            </div>
+            <div class="package-body">
+                <div class="package-max"><span>Weekly Max</span><span>500</span></div>
+                <div class="package-ds"><span>DS Bonus</span><span>20</span></div>
+            </div>
+        </div>
+        <div class="package-card featured">
+            <div class="package-header">
+                <div class="package-name">Premium</div>
+                <div class="package-price">500</div>
+            </div>
+            <div class="package-body">
+                <div class="package-max"><span>Weekly Max</span><span>2,500</span></div>
+                <div class="package-ds"><span>DS Bonus</span><span>50</span></div>
+            </div>
+        </div>
+        <div class="package-card featured">
+            <div class="package-header">
+                <div class="package-name">Pro</div>
+                <div class="package-price">1,000</div>
+            </div>
+            <div class="package-body">
+                <div class="package-max"><span>Weekly Max</span><span>5,000</span></div>
+                <div class="package-ds"><span>DS Bonus</span><span>100</span></div>
+            </div>
+        </div>
+        <div class="package-card">
+            <div class="package-header">
+                <div class="package-name">Elite</div>
+                <div class="package-price">2,500</div>
+            </div>
+            <div class="package-body">
+                <div class="package-max"><span>Weekly Max</span><span>12,500</span></div>
+                <div class="package-ds"><span>DS Bonus</span><span>250</span></div>
+            </div>
+        </div>
+        <div class="package-card">
+            <div class="package-header">
+                <div class="package-name">Executive</div>
+                <div class="package-price">5,000</div>
+            </div>
+            <div class="package-body">
+                <div class="package-max"><span>Weekly Max</span><span>25,000</span></div>
+                <div class="package-ds"><span>DS Bonus</span><span>500</span></div>
+            </div>
+        </div>
+        <div class="package-card">
+            <div class="package-header">
+                <div class="package-name">Founder</div>
+                <div class="package-price">15,000</div>
+            </div>
+            <div class="package-body">
+                <div class="package-max"><span>Weekly Max</span><span>40,000</span></div>
+                <div class="package-ds"><span>DS Bonus</span><span>1,500</span></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SLIDE 11: VOLUME BONUS -->
+<section class="slide volume-bonus">
+    <div class="volume-header">
+        <div class="section-number">10 - Binary System</div>
+        <h2>Volume Bonus</h2>
+        <p>Build two teams and earn 10% of the weaker leg's volume every week</p>
+    </div>
+    <div class="bonus-visual">
+        <div class="binary-tree">
+            <div class="tree-you">YOU</div>
+            <div class="tree-branches">
+                <div class="tree-branch">
+                    <div class="branch-circle">
+                        <span class="amount">7,500</span>
+                        <span class="unit">VP</span>
+                    </div>
+                    <div class="branch-label">Left Team (Weaker)</div>
+                </div>
+                <div class="tree-branch">
+                    <div class="branch-circle">
+                        <span class="amount">12,500</span>
+                        <span class="unit">VP</span>
+                    </div>
+                    <div class="branch-label">Right Team</div>
+                </div>
+            </div>
+        </div>
+        <div class="bonus-explanation">
+            <h3>How It Works</h3>
+            <p>
+                Every customer is placed in either your left or right team.
+                Sales in each team are added up throughout the week.
+            </p>
+            <p>
+                At the end of each week, you earn commission based on the
+                total volume of your weaker team. The stronger team volume
+                carries over to the next week.
+            </p>
+            <div class="bonus-highlight">
+                <div class="percent">10%</div>
+                <div class="label">of Weaker Leg Volume</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SLIDE 12: LEADERSHIP BONUS -->
+<section class="slide leadership-bonus">
+    <div class="leadership-header">
+        <div class="section-number">11 - Passive Income</div>
+        <h2>Leadership Bonus</h2>
+        <p style="color: var(--gray-600); max-width: 700px; margin: 1rem auto 0;">
+            Available from Rank 5 (Director). Earn 5% of the Volume Bonus your team members earn, up to 5 generations deep.
+        </p>
+    </div>
+    <div class="generations-visual">
+        <div class="generation-row">
+            <div class="gen-number">1</div>
+            <div class="gen-bar" style="--width: 100%"><span>1st Generation - Direct Recruits</span></div>
+            <div class="gen-percent">5%</div>
+        </div>
+        <div class="generation-row">
+            <div class="gen-number">2</div>
+            <div class="gen-bar" style="--width: 85%"><span>2nd Generation</span></div>
+            <div class="gen-percent">5%</div>
+        </div>
+        <div class="generation-row">
+            <div class="gen-number">3</div>
+            <div class="gen-bar" style="--width: 70%"><span>3rd Generation</span></div>
+            <div class="gen-percent">5%</div>
+        </div>
+        <div class="generation-row">
+            <div class="gen-number">4</div>
+            <div class="gen-bar" style="--width: 55%"><span>4th Generation</span></div>
+            <div class="gen-percent">5%</div>
+        </div>
+        <div class="generation-row">
+            <div class="gen-number">5</div>
+            <div class="gen-bar" style="--width: 40%"><span>5th Generation</span></div>
+            <div class="gen-percent">5%</div>
+        </div>
+    </div>
+</section>
+
+<!-- SLIDE 13: RANK TABLE -->
+<section class="slide rank-section">
+    <div class="rank-header">
+        <div class="section-number">12 - Career Path</div>
+        <h2>Rank Progression</h2>
+    </div>
+    <div class="rank-table-container">
+        <table class="rank-table">
+            <thead>
+                <tr>
+                    <th>Level</th>
+                    <th>Rank</th>
+                    <th>Criteria</th>
+                    <th>Leadership Bonus</th>
+                    <th>Min Package</th>
+                    <th>Monthly Turnover</th>
+                    <th>Rewards</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td class="rank-name">Member</td>
+                    <td>Pay affiliate fee (10)</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>0</td>
+                    <td class="rank-reward">Pin</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td class="rank-name">Associate</td>
+                    <td>Purchase Enter package</td>
+                    <td>-</td>
+                    <td>Enter</td>
+                    <td>200</td>
+                    <td class="rank-reward">Pin</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td class="rank-name">Builder</td>
+                    <td>1x Associate L + 1x R</td>
+                    <td>-</td>
+                    <td>Basic</td>
+                    <td>1,000</td>
+                    <td class="rank-reward">Pin, Pen</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td class="rank-name">Leader</td>
+                    <td>1x Builder L + 1x R</td>
+                    <td>-</td>
+                    <td>Starter</td>
+                    <td>3,000</td>
+                    <td class="rank-reward">Pin, Chocolate Box</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td class="rank-name">Director</td>
+                    <td>1x Leader L + 1x R</td>
+                    <td>5% x1</td>
+                    <td>Premium</td>
+                    <td>10,000</td>
+                    <td class="rank-reward">Pin, Samsung Tablet</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td class="rank-name">Executive</td>
+                    <td>1x Director L + 1x R</td>
+                    <td>5% x2</td>
+                    <td>Pro</td>
+                    <td>20,000</td>
+                    <td class="rank-reward">Pin, Apple Watch</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td class="rank-name">Senior Executive</td>
+                    <td>1x Executive L + 1x R</td>
+                    <td>5% x3</td>
+                    <td>Pro</td>
+                    <td>50,000</td>
+                    <td class="rank-reward">Pin, iPhone, Training</td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td class="rank-name">Diamond</td>
+                    <td>1x Sr. Exec L + 1x R</td>
+                    <td>5% x4</td>
+                    <td>Elite</td>
+                    <td>100,000</td>
+                    <td class="rank-reward">MacBook Pro, Trip</td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td class="rank-name">Blue Diamond</td>
+                    <td>1x Diamond L + 1x R</td>
+                    <td>5% x5</td>
+                    <td>Founder</td>
+                    <td>200,000</td>
+                    <td class="rank-reward">Rolex, VIP Support</td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td class="rank-name">Crown</td>
+                    <td>1x Blue Dia L + 1x R</td>
+                    <td>5% x5</td>
+                    <td>Founder</td>
+                    <td>500,000</td>
+                    <td class="rank-reward">Mercedes C-Class</td>
+                </tr>
+                <tr>
+                    <td>11</td>
+                    <td class="rank-name">Ambassador</td>
+                    <td>1x Crown L + 1x R</td>
+                    <td>5% x5</td>
+                    <td>Founder</td>
+                    <td>1,000,000+</td>
+                    <td class="rank-reward">Villa in Bali</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<!-- SLIDE 14: DIAMOND AWARD -->
+<section class="slide award-slide">
+    <div class="award-image">
+        <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=1200&q=80" alt="MacBook Pro">
+    </div>
+    <div class="award-content">
+        <div class="award-badge">Diamond Rank</div>
+        <h2>MacBook <span>Pro</span></h2>
+        <p class="award-description">
+            Reach Diamond rank and receive a brand new MacBook Pro plus an exclusive
+            leadership training trip. The tools you need to build your empire.
+        </p>
+        <div class="award-requirements">
+            <div class="award-req">
+                <div class="award-req-label">Volume Bonus</div>
+                <div class="award-req-value">10%</div>
+            </div>
+            <div class="award-req">
+                <div class="award-req-label">Matching Bonus</div>
+                <div class="award-req-value">5% x5</div>
+            </div>
+            <div class="award-req">
+                <div class="award-req-label">Weaker Leg</div>
+                <div class="award-req-value">100,000</div>
+            </div>
+            <div class="award-req">
+                <div class="award-req-label">Required Package</div>
+                <div class="award-req-value">2,500</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SLIDE 15: BLUE DIAMOND AWARD -->
+<section class="slide award-slide reverse">
+    <div class="award-image">
+        <img src="https://images.unsplash.com/photo-1523170335258-f5ed11844a49?w=1200&q=80" alt="Rolex">
+    </div>
+    <div class="award-content">
+        <div class="award-badge">Blue Diamond Rank</div>
+        <h2>Rolex <span>Watch</span></h2>
+        <p class="award-description">
+            Achievement at the highest level deserves recognition to match.
+            Blue Diamond rank earns you a prestigious Rolex timepiece and VIP support.
+        </p>
+        <div class="award-requirements">
+            <div class="award-req">
+                <div class="award-req-label">Volume Bonus</div>
+                <div class="award-req-value">10%</div>
+            </div>
+            <div class="award-req">
+                <div class="award-req-label">Matching Bonus</div>
+                <div class="award-req-value">5% x5</div>
+            </div>
+            <div class="award-req">
+                <div class="award-req-label">Weaker Leg</div>
+                <div class="award-req-value">200,000</div>
+            </div>
+            <div class="award-req">
+                <div class="award-req-label">Required Package</div>
+                <div class="award-req-value">15,000</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SLIDE 16: CROWN AWARD -->
+<section class="slide award-slide">
+    <div class="award-image">
+        <img src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=1200&q=80" alt="Mercedes">
+    </div>
+    <div class="award-content">
+        <div class="award-badge">Crown Rank</div>
+        <h2>Mercedes <span>C-Class</span></h2>
+        <p class="award-description">
+            Drive your success in style. Crown rank achievement is rewarded with
+            a Mercedes-Benz C-Class - the ultimate symbol of your journey.
+        </p>
+        <div class="award-requirements">
+            <div class="award-req">
+                <div class="award-req-label">Volume Bonus</div>
+                <div class="award-req-value">10%</div>
+            </div>
+            <div class="award-req">
+                <div class="award-req-label">Matching Bonus</div>
+                <div class="award-req-value">5% x5</div>
+            </div>
+            <div class="award-req">
+                <div class="award-req-label">Weaker Leg</div>
+                <div class="award-req-value">500,000</div>
+            </div>
+            <div class="award-req">
+                <div class="award-req-label">Required Package</div>
+                <div class="award-req-value">15,000</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SLIDE 17: AMBASSADOR AWARD -->
+<section class="slide award-slide reverse">
+    <div class="award-image">
+        <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=1200&q=80" alt="Bali Villa">
+    </div>
+    <div class="award-content">
+        <div class="award-badge">Ambassador Rank</div>
+        <h2>Villa in <span>Bali</span></h2>
+        <p class="award-description">
+            The pinnacle of success. Ambassador rank earns you a private villa
+            in Bali - your own paradise as testament to extraordinary achievement.
+        </p>
+        <div class="award-requirements">
+            <div class="award-req">
+                <div class="award-req-label">Volume Bonus</div>
+                <div class="award-req-value">10%</div>
+            </div>
+            <div class="award-req">
+                <div class="award-req-label">Matching Bonus</div>
+                <div class="award-req-value">5% x5</div>
+            </div>
+            <div class="award-req">
+                <div class="award-req-label">Weaker Leg</div>
+                <div class="award-req-value">1,000,000</div>
+            </div>
+            <div class="award-req">
+                <div class="award-req-label">Required Package</div>
+                <div class="award-req-value">15,000</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SLIDE 18: 6 WAYS TO EARN -->
+<section class="slide ways-section">
+    <div class="ways-header">
+        <div class="section-number">13 - Income Streams</div>
+        <h2>6 Ways to Earn</h2>
+    </div>
+    <div class="ways-grid">
+        <div class="way-card">
+            <div class="way-number">1</div>
+            <h3>Direct Sales Bonus</h3>
+            <p>Earn 10% commission on every product you personally sell to customers.</p>
+        </div>
+        <div class="way-card">
+            <div class="way-number">2</div>
+            <h3>Volume Bonus</h3>
+            <p>10% of the weaker leg volume in your binary team structure, paid weekly.</p>
+        </div>
+        <div class="way-card">
+            <div class="way-number">3</div>
+            <h3>Leadership Bonus</h3>
+            <p>5% matching bonus on your team's Volume Bonus earnings, up to 5 generations.</p>
+        </div>
+        <div class="way-card">
+            <div class="way-number">4</div>
+            <h3>Quarterly Pool</h3>
+            <p>Share in 5% of all global package sales, distributed based on your Pool Units.</p>
+        </div>
+        <div class="way-card">
+            <div class="way-number">5</div>
+            <h3>Rank Rewards</h3>
+            <p>Physical rewards at each rank: tablets, watches, phones, laptops, cars, and more.</p>
+        </div>
+        <div class="way-card">
+            <div class="way-number">6</div>
+            <h3>Lifestyle Perks</h3>
+            <p>VIP support, leadership training trips, and exclusive events for top performers.</p>
+        </div>
+    </div>
+</section>
+
+<!-- SLIDE 19: CTA -->
+<section class="slide cta-section" id="contact">
+    <div class="cta-content">
+        <div class="section-number">Ready to Begin?</div>
+        <h2>Life is in Your Hands</h2>
+        <div class="cta-tagline">Fill your life with quality products</div>
+        <div class="cta-info">
+            <div class="cta-info-item">
+                <div class="label">Website</div>
+                <div class="value"><a href="https://injoi.life">INJOI.LIFE</a></div>
+            </div>
+            <div class="cta-info-item">
+                <div class="label">Effective Date</div>
+                <div class="value">July 1, 2025</div>
+            </div>
+        </div>
+        <a href="https://injoi.life" class="cta-button">Get Started Today</a>
+    </div>
+</section>
+
+<script>
+    // Smooth scroll for nav links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+
+    // Nav scroll effect
+    const nav = document.querySelector('.nav');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 100) {
+            nav.classList.add('scrolled');
+        } else {
+            nav.classList.remove('scrolled');
+        }
+    });
+</script>
+
+</body>
+</html>
