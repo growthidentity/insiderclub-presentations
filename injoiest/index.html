@@ -52,7 +52,7 @@
             line-height: 1.2;
         }
 
-        .slide {
+        .section {
             min-height: 100vh;
             width: 100%;
             position: relative;
@@ -105,6 +105,11 @@
             color: var(--gold);
         }
 
+        /* ========================================
+           SECTION 1: HERO / OPENING - EMOTION
+           Image: hero-family.jpg
+           (Estonian family in kitchen, winter light, gray tones)
+        ======================================== */
         .hero {
             background: var(--navy);
             display: flex;
@@ -113,12 +118,18 @@
             position: relative;
         }
 
-        .hero::before {
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background: url('images/hero-family.jpg') center/cover;
+            opacity: 0.4;
+        }
+
+        .hero-bg::after {
             content: '';
             position: absolute;
             inset: 0;
-            background: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1920&q=80') center/cover;
-            opacity: 0.15;
+            background: linear-gradient(135deg, rgba(11, 20, 38, 0.7) 0%, rgba(11, 20, 38, 0.5) 100%);
         }
 
         .hero-content {
@@ -138,47 +149,20 @@
             font-weight: 500;
         }
 
-        .hero-logo {
+        .hero-title {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(4rem, 12vw, 10rem);
-            font-weight: 600;
-            color: var(--gold);
-            letter-spacing: 0.15em;
-            margin-bottom: 1rem;
-        }
-
-        .hero-logo .drop {
-            width: 0.15em;
-            height: 0.15em;
-            background: var(--gold);
-            border-radius: 50% 50% 50% 0;
-            transform: rotate(-45deg);
-            display: inline-block;
-            margin: 0 0.05em;
-            vertical-align: middle;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            color: white;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
         }
 
         .hero-subtitle {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(1.5rem, 3vw, 2.5rem);
-            color: white;
-            font-weight: 300;
-            margin-bottom: 1rem;
-            font-style: italic;
-        }
-
-        .hero-description {
-            font-size: 1.1rem;
-            color: rgba(255,255,255,0.7);
+            font-size: 1.25rem;
+            color: rgba(255,255,255,0.8);
             max-width: 600px;
             margin: 0 auto 3rem;
             line-height: 1.8;
-        }
-
-        .hero-version {
-            font-size: 0.8rem;
-            color: rgba(255,255,255,0.4);
-            letter-spacing: 0.1em;
         }
 
         .scroll-indicator {
@@ -209,25 +193,30 @@
             50% { opacity: 1; }
         }
 
-        .company-intro {
+        /* ========================================
+           SECTION 2: TAP WATER BELIEF
+           Image: tap-water.jpg
+           (Water flowing from tap into glass, clean looking)
+        ======================================== */
+        .belief-section {
             display: grid;
             grid-template-columns: 1fr 1fr;
             min-height: 100vh;
         }
 
-        .company-intro-image {
-            background: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&q=80') center/cover;
+        .belief-image {
+            background: url('images/tap-water.jpg') center/cover;
             position: relative;
         }
 
-        .company-intro-image::after {
+        .belief-image::after {
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(90deg, transparent 60%, var(--cream) 100%);
+            background: linear-gradient(90deg, transparent 70%, var(--cream) 100%);
         }
 
-        .company-intro-content {
+        .belief-content {
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -235,7 +224,7 @@
             background: var(--cream);
         }
 
-        .section-number {
+        .section-label {
             font-size: 0.75rem;
             color: var(--gold);
             letter-spacing: 0.3em;
@@ -244,783 +233,964 @@
             font-weight: 600;
         }
 
-        .company-intro-content h2 {
-            font-size: clamp(2.5rem, 4vw, 3.5rem);
+        .belief-content h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
             color: var(--navy);
             margin-bottom: 2rem;
-            line-height: 1.15;
+            line-height: 1.2;
         }
 
-        .company-intro-content .lead {
-            font-size: 1.25rem;
+        .belief-content p {
             color: var(--gray-600);
-            margin-bottom: 2rem;
-            line-height: 1.7;
-        }
-
-        .company-intro-content p {
-            color: var(--gray-600);
-            margin-bottom: 1.5rem;
-            line-height: 1.8;
-        }
-
-        .stat-row {
-            display: flex;
-            gap: 3rem;
-            margin-top: 3rem;
-            padding-top: 2rem;
-            border-top: 1px solid var(--gray-200);
-        }
-
-        .stat {
-            text-align: left;
-        }
-
-        .stat-number {
-            font-family: 'Playfair Display', serif;
-            font-size: 3rem;
-            color: var(--navy);
-            font-weight: 500;
-            line-height: 1;
-        }
-
-        .stat-label {
-            font-size: 0.85rem;
-            color: var(--gray-600);
-            margin-top: 0.5rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        .vmv-section {
-            background: var(--navy);
-            padding: 8rem 6rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .vmv-header {
-            text-align: center;
-            margin-bottom: 5rem;
-        }
-
-        .vmv-header h2 {
-            font-size: clamp(2.5rem, 4vw, 3.5rem);
-            color: white;
-            margin-bottom: 1rem;
-        }
-
-        .vmv-header p {
-            color: rgba(255,255,255,0.6);
             font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
         }
 
-        .vmv-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 3rem;
-            max-width: 1400px;
-            margin: 0 auto;
+        .belief-content .emphasis {
+            color: var(--navy);
+            font-weight: 600;
+            font-style: italic;
         }
 
-        .vmv-card {
-            background: rgba(255,255,255,0.03);
-            border: 1px solid rgba(255,255,255,0.08);
-            border-radius: 4px;
-            padding: 3rem;
-            text-align: center;
-            transition: all 0.4s ease;
-        }
-
-        .vmv-card:hover {
-            background: rgba(255,255,255,0.06);
-            border-color: var(--gold);
-            transform: translateY(-8px);
-        }
-
-        .vmv-icon {
-            width: 64px;
-            height: 64px;
-            margin: 0 auto 2rem;
+        /* ========================================
+           SECTION 3: DISCOVER THE TRUTH - DANGERS
+        ======================================== */
+        .dangers-intro {
+            background: var(--navy);
+            min-height: 60vh;
             display: flex;
             align-items: center;
             justify-content: center;
-        }
-
-        .vmv-icon svg {
-            width: 100%;
-            height: 100%;
-            stroke: var(--gold);
-            fill: none;
-            stroke-width: 1.5;
-        }
-
-        .vmv-card h3 {
-            font-size: 1.5rem;
-            color: var(--gold);
-            margin-bottom: 1.5rem;
-            font-weight: 500;
-        }
-
-        .vmv-card p {
-            color: rgba(255,255,255,0.7);
-            line-height: 1.8;
-            font-size: 1rem;
-        }
-
-        .team-section {
-            background: var(--cream);
-            padding: 8rem 6rem;
-        }
-
-        .team-header {
             text-align: center;
-            margin-bottom: 5rem;
+            padding: 4rem;
         }
 
-        .team-header h2 {
-            font-size: clamp(2.5rem, 4vw, 3.5rem);
-            color: var(--navy);
+        .dangers-intro h2 {
+            font-size: clamp(3rem, 6vw, 5rem);
+            color: white;
             margin-bottom: 1rem;
         }
 
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 3rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .team-card {
-            text-align: center;
-        }
-
-        .team-photo {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            margin: 0 auto 2rem;
-            overflow: hidden;
-            border: 3px solid var(--gold);
-            padding: 4px;
-            background: white;
-        }
-
-        .team-photo img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 50%;
-            filter: grayscale(20%);
-        }
-
-        .team-card h3 {
-            font-size: 1.5rem;
-            color: var(--navy);
-            margin-bottom: 0.5rem;
-        }
-
-        .team-role {
-            font-size: 0.9rem;
-            color: var(--gold);
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            margin-bottom: 1.5rem;
-            font-weight: 600;
-        }
-
-        .team-bio {
-            list-style: none;
-            text-align: left;
-            padding: 0;
-        }
-
-        .team-bio li {
-            color: var(--gray-600);
-            padding: 0.5rem 0;
-            border-bottom: 1px solid var(--gray-200);
-            font-size: 0.95rem;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-
-        .team-bio li::before {
-            content: '';
-            width: 6px;
-            height: 6px;
-            background: var(--gold);
-            border-radius: 50%;
-            flex-shrink: 0;
-        }
-
-        .water-crisis {
-            min-height: 100vh;
-            position: relative;
-            display: flex;
-            align-items: center;
-        }
-
-        .water-crisis-bg {
-            position: absolute;
-            inset: 0;
-            background: url('https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=1920&q=80') center/cover;
-        }
-
-        .water-crisis-bg::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, rgba(11, 20, 38, 0.95) 0%, rgba(11, 20, 38, 0.7) 100%);
-        }
-
-        .water-crisis-content {
-            position: relative;
-            z-index: 2;
-            padding: 6rem;
-            max-width: 800px;
-        }
-
-        .water-crisis-content h2 {
-            font-size: clamp(3rem, 5vw, 4.5rem);
-            color: white;
-            margin-bottom: 2rem;
-            line-height: 1.1;
-        }
-
-        .water-crisis-content h2 span {
+        .dangers-intro h2 span {
             color: var(--water-blue);
         }
 
-        .crisis-stats {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-            margin-top: 3rem;
+        .dangers-intro p {
+            color: rgba(255,255,255,0.7);
+            font-size: 1.25rem;
         }
 
-        .crisis-stat {
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 4px;
-            padding: 2rem;
-        }
-
-        .crisis-stat-number {
-            font-family: 'Playfair Display', serif;
-            font-size: 3.5rem;
-            color: var(--water-blue);
-            line-height: 1;
-            margin-bottom: 0.5rem;
-        }
-
-        .crisis-stat-label {
-            color: rgba(255,255,255,0.8);
-            font-size: 1rem;
-            line-height: 1.5;
-        }
-
-        .water-solution {
+        /* Individual danger slides */
+        .danger-slide {
             display: grid;
             grid-template-columns: 1fr 1fr;
             min-height: 100vh;
         }
 
-        .water-solution-content {
-            background: var(--cream);
+        .danger-slide.reverse {
+            direction: rtl;
+        }
+
+        .danger-slide.reverse > * {
+            direction: ltr;
+        }
+
+        .danger-image {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--gray-100);
+            overflow: hidden;
+        }
+
+        .danger-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .danger-image .placeholder {
+            width: 80%;
+            max-width: 400px;
+            aspect-ratio: 1;
+            background: var(--gray-200);
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--gray-400);
+            font-size: 0.9rem;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .danger-image .placeholder-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            opacity: 0.5;
+        }
+
+        .danger-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
             padding: 6rem;
+            background: var(--cream);
+        }
+
+        .danger-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 5rem;
+            color: var(--gray-200);
+            line-height: 1;
+            margin-bottom: 1rem;
+        }
+
+        .danger-content h3 {
+            font-size: clamp(1.75rem, 3vw, 2.5rem);
+            color: var(--navy);
+            margin-bottom: 1.5rem;
+        }
+
+        .danger-content h3 span {
+            color: var(--water-blue);
+        }
+
+        .danger-content p {
+            color: var(--gray-600);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .danger-fact {
+            background: var(--water-light);
+            padding: 1.5rem;
+            border-radius: 4px;
+            margin-top: 1.5rem;
+            border-left: 4px solid var(--water-blue);
+        }
+
+        .danger-fact p {
+            color: var(--navy);
+            margin: 0;
+            font-size: 1rem;
+        }
+
+        /* ========================================
+           SECTION 4: DATA / STATISTICS
+           Image: eu-map.jpg (simple EU map, gray/blue)
+        ======================================== */
+        .stats-section {
+            background: var(--navy);
+            min-height: 100vh;
+            padding: 8rem 6rem;
             display: flex;
             flex-direction: column;
             justify-content: center;
         }
 
-        .water-solution-content h2 {
-            font-size: clamp(2.5rem, 4vw, 3.5rem);
+        .stats-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .stats-header h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .stats-header p {
+            color: rgba(255,255,255,0.6);
+            font-size: 1.1rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .stat-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 4px;
+            padding: 3rem 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            background: rgba(255,255,255,0.06);
+            border-color: var(--water-blue);
+        }
+
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            color: var(--water-blue);
+            line-height: 1;
+            margin-bottom: 1rem;
+        }
+
+        .stat-label {
+            color: rgba(255,255,255,0.8);
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        /* ========================================
+           SECTION 5: FOUNDER STORY
+           Images: founder-portrait.jpg, founder-lifestyle.jpg
+        ======================================== */
+        .founder-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 100vh;
+        }
+
+        .founder-image {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .founder-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .founder-image .placeholder {
+            width: 100%;
+            height: 100%;
+            background: var(--gray-200);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--gray-400);
+        }
+
+        .founder-image::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, transparent 60%, var(--cream) 100%);
+        }
+
+        .founder-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 6rem;
+            background: var(--cream);
+        }
+
+        .founder-content h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+        }
+
+        .founder-role {
+            font-size: 1rem;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 2rem;
+            font-weight: 600;
+        }
+
+        .founder-content blockquote {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-style: italic;
+            color: var(--navy);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+            padding-left: 1.5rem;
+            border-left: 3px solid var(--gold);
+        }
+
+        .founder-bio {
+            list-style: none;
+        }
+
+        .founder-bio li {
+            color: var(--gray-600);
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--gray-200);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .founder-bio li::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: var(--gold);
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        /* ========================================
+           SECTION 6: INJOI PRODUCT
+           Images: product-hero.jpg (white bg), product-kitchen.jpg (Estonian kitchen)
+        ======================================== */
+        .product-hero {
+            background: white;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 6rem;
+        }
+
+        .product-hero-inner {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            max-width: 1400px;
+            align-items: center;
+        }
+
+        .product-hero-image {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .product-hero-image img {
+            max-width: 100%;
+            max-height: 70vh;
+            object-fit: contain;
+            filter: drop-shadow(0 20px 40px rgba(0,0,0,0.1));
+        }
+
+        .product-hero-image .placeholder {
+            width: 100%;
+            max-width: 400px;
+            aspect-ratio: 3/4;
+            background: var(--gray-100);
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--gray-400);
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .product-hero-content h2 {
+            font-size: clamp(2.5rem, 4vw, 4rem);
+            color: var(--navy);
+            margin-bottom: 1rem;
+        }
+
+        .product-hero-content .tagline {
+            font-size: 1.25rem;
+            color: var(--gold);
+            margin-bottom: 2rem;
+        }
+
+        .product-hero-content p {
+            color: var(--gray-600);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Product in kitchen context */
+        .product-kitchen {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 100vh;
+        }
+
+        .product-kitchen-image {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-kitchen-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .product-kitchen-image .placeholder {
+            width: 100%;
+            height: 100%;
+            background: var(--gray-200);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--gray-400);
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .product-kitchen-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 6rem;
+            background: var(--cream);
+        }
+
+        .product-kitchen-content h2 {
+            font-size: clamp(2rem, 3.5vw, 3rem);
             color: var(--navy);
             margin-bottom: 2rem;
         }
 
-        .water-solution-content h2 span {
+        /* ========================================
+           SECTION 7: FILTRATION PROCESS
+           Images: filtration-1.jpg through filtration-4.jpg (clean icons)
+        ======================================== */
+        .filtration-section {
+            background: var(--gray-50);
+            padding: 8rem 6rem;
+        }
+
+        .filtration-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .filtration-header h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: var(--navy);
+            margin-bottom: 1rem;
+        }
+
+        .filtration-header p {
+            color: var(--gray-600);
+            font-size: 1.1rem;
+        }
+
+        .filtration-steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .filtration-step {
+            background: white;
+            border-radius: 8px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            border: 1px solid var(--gray-200);
+            transition: all 0.3s ease;
+        }
+
+        .filtration-step:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            border-color: var(--water-blue);
+        }
+
+        .filtration-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            background: var(--water-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .filtration-icon img {
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+        }
+
+        .filtration-icon .placeholder-icon {
+            font-size: 2rem;
             color: var(--water-blue);
         }
 
-        .solution-features {
+        .step-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--water-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        .filtration-step h4 {
+            font-size: 1.1rem;
+            color: var(--navy);
+            margin-bottom: 0.75rem;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+        }
+
+        .filtration-step p {
+            color: var(--gray-600);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* ========================================
+           SECTION 8: HYDROGEN WATER
+           Image: hydrogen-molecule.jpg (H2 graphic, scientific but simple)
+        ======================================== */
+        .hydrogen-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 100vh;
+        }
+
+        .hydrogen-visual {
+            background: linear-gradient(135deg, var(--water-blue) 0%, #0284c7 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 4rem;
+        }
+
+        .hydrogen-visual img {
+            max-width: 80%;
+            max-height: 60vh;
+            object-fit: contain;
+        }
+
+        .hydrogen-visual .placeholder {
+            width: 300px;
+            height: 300px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+
+        .hydrogen-visual .h2-symbol {
+            font-family: 'Playfair Display', serif;
+            font-size: 6rem;
+            font-weight: 300;
+            margin-bottom: 1rem;
+        }
+
+        .hydrogen-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 6rem;
+            background: var(--cream);
+        }
+
+        .hydrogen-content h2 {
+            font-size: clamp(2rem, 3.5vw, 3rem);
+            color: var(--navy);
+            margin-bottom: 2rem;
+        }
+
+        .hydrogen-content h2 span {
+            color: var(--water-blue);
+        }
+
+        .hydrogen-benefits {
             margin-top: 2rem;
         }
 
-        .solution-feature {
+        .hydrogen-benefit {
             display: flex;
-            gap: 1.5rem;
-            margin-bottom: 2rem;
-            padding-bottom: 2rem;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
             border-bottom: 1px solid var(--gray-200);
         }
 
-        .solution-feature:last-child {
+        .hydrogen-benefit:last-child {
             border-bottom: none;
         }
 
-        .solution-feature-icon {
-            width: 48px;
-            height: 48px;
+        .hydrogen-benefit-icon {
+            width: 40px;
+            height: 40px;
             background: var(--water-light);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             flex-shrink: 0;
+            color: var(--water-blue);
         }
 
-        .solution-feature-icon svg {
-            width: 24px;
-            height: 24px;
-            stroke: var(--water-blue);
-            fill: none;
-        }
-
-        .solution-feature h4 {
-            font-size: 1.1rem;
+        .hydrogen-benefit h4 {
+            font-size: 1rem;
             color: var(--navy);
-            margin-bottom: 0.5rem;
-            font-family: 'Inter', sans-serif;
+            margin-bottom: 0.25rem;
             font-weight: 600;
         }
 
-        .solution-feature p {
+        .hydrogen-benefit p {
             color: var(--gray-600);
             font-size: 0.95rem;
-            line-height: 1.6;
+            line-height: 1.5;
         }
 
-        .water-solution-image {
-            background: linear-gradient(135deg, var(--water-blue) 0%, #0284c7 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .water-solution-image::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: url('https://images.unsplash.com/photo-1548839140-29a749e1cf4d?w=1200&q=80') center/cover;
-            opacity: 0.2;
-        }
-
-        .product-showcase {
-            position: relative;
-            z-index: 2;
-            text-align: center;
-            padding: 3rem;
-        }
-
-        .product-showcase img {
-            max-width: 80%;
-            max-height: 60vh;
-            object-fit: contain;
-            filter: drop-shadow(0 30px 60px rgba(0,0,0,0.3));
-        }
-
-        .product-showcase h3 {
-            color: white;
-            font-size: 1.5rem;
-            margin-top: 2rem;
-            font-weight: 400;
-        }
-
-        .chocolate-problem {
-            background: var(--chocolate);
-            min-height: 100vh;
+        /* ========================================
+           SECTION 9: WHAT INJOI DOESN'T CONTAIN
+           Clean checklist visual
+        ======================================== */
+        .purity-section {
+            background: white;
             padding: 8rem 6rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
         }
 
-        .chocolate-header {
-            max-width: 800px;
+        .purity-header {
+            text-align: center;
             margin-bottom: 4rem;
         }
 
-        .chocolate-header h2 {
-            font-size: clamp(2.5rem, 4vw, 3.5rem);
-            color: white;
+        .purity-header h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: var(--navy);
             margin-bottom: 1rem;
         }
 
-        .chocolate-header h2 span {
-            color: var(--gold);
-        }
-
-        .chocolate-header p {
-            color: rgba(255,255,255,0.7);
+        .purity-header p {
+            color: var(--gray-600);
             font-size: 1.1rem;
         }
 
-        .chocolate-facts {
+        .purity-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(4, 1fr);
             gap: 2rem;
-            max-width: 1200px;
+            max-width: 1000px;
+            margin: 0 auto;
         }
 
-        .chocolate-fact {
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 4px;
-            padding: 2.5rem;
-            transition: all 0.3s ease;
+        .purity-item {
+            text-align: center;
+            padding: 2rem;
         }
 
-        .chocolate-fact:hover {
-            background: rgba(255,255,255,0.08);
-            border-color: var(--gold);
+        .purity-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 1rem;
+            background: #e8f5e9;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #4caf50;
+            font-size: 1.5rem;
         }
 
-        .fact-number {
-            font-family: 'Playfair Display', serif;
-            font-size: 3rem;
-            color: var(--gold);
-            line-height: 1;
-            margin-bottom: 1rem;
-        }
-
-        .chocolate-fact h4 {
-            font-size: 1.25rem;
-            color: white;
-            margin-bottom: 1rem;
-            font-family: 'Inter', sans-serif;
+        .purity-item h4 {
+            font-size: 1rem;
+            color: var(--navy);
             font-weight: 600;
         }
 
-        .chocolate-fact p {
-            color: rgba(255,255,255,0.7);
-            line-height: 1.7;
+        /* ========================================
+           SECTION 10: SAVINGS COMPARISON
+           Image: savings-comparison.jpg (bottled water stack vs INJOI)
+        ======================================== */
+        .savings-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 80vh;
         }
 
-        .chocolate-solution {
+        .savings-visual {
+            background: var(--gray-100);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 4rem;
+        }
+
+        .savings-visual img {
+            max-width: 90%;
+            max-height: 70vh;
+            object-fit: contain;
+        }
+
+        .savings-visual .placeholder {
+            width: 80%;
+            max-width: 500px;
+            aspect-ratio: 16/9;
+            background: var(--gray-200);
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--gray-400);
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .savings-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 6rem;
+            background: var(--cream);
+        }
+
+        .savings-content h2 {
+            font-size: clamp(2rem, 3.5vw, 3rem);
+            color: var(--navy);
+            margin-bottom: 2rem;
+        }
+
+        .savings-comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .savings-box {
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .savings-box.bottled {
+            background: var(--gray-100);
+            border: 1px solid var(--gray-200);
+        }
+
+        .savings-box.injoi {
+            background: var(--water-light);
+            border: 1px solid var(--water-blue);
+        }
+
+        .savings-box h4 {
+            font-size: 1rem;
+            color: var(--gray-600);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .savings-box .price {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: var(--navy);
+            line-height: 1;
+        }
+
+        .savings-box.injoi .price {
+            color: var(--water-blue);
+        }
+
+        .savings-box .period {
+            color: var(--gray-600);
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        /* ========================================
+           SECTION 11: CHOCOLATE
+           Image: chocolate-lifestyle.jpg (chocolate on wood table, natural light)
+        ======================================== */
+        .chocolate-section {
             display: grid;
             grid-template-columns: 1fr 1fr;
             min-height: 100vh;
         }
 
-        .chocolate-solution-image {
-            background: url('https://images.unsplash.com/photo-1481391319762-47dff72954d9?w=1200&q=80') center/cover;
+        .chocolate-image {
             position: relative;
+            overflow: hidden;
         }
 
-        .chocolate-solution-image::after {
+        .chocolate-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .chocolate-image .placeholder {
+            width: 100%;
+            height: 100%;
+            background: var(--chocolate);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold-light);
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .chocolate-image::after {
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(270deg, var(--cream) 0%, transparent 30%);
+            background: linear-gradient(90deg, transparent 60%, var(--cream) 100%);
         }
 
-        .chocolate-solution-content {
-            background: var(--cream);
-            padding: 6rem;
+        .chocolate-content {
             display: flex;
             flex-direction: column;
             justify-content: center;
+            padding: 6rem;
+            background: var(--cream);
         }
 
-        .chocolate-solution-content h2 {
+        .chocolate-content h2 {
             font-size: clamp(2rem, 3.5vw, 3rem);
             color: var(--chocolate);
             margin-bottom: 0.5rem;
         }
 
-        .chocolate-solution-content .brand {
+        .chocolate-brand {
             font-size: 1rem;
             color: var(--gold);
-            letter-spacing: 0.2em;
             text-transform: uppercase;
-            font-weight: 600;
+            letter-spacing: 0.2em;
             margin-bottom: 2rem;
+            font-weight: 600;
         }
 
-        .benefits-list {
+        .chocolate-features {
             margin-top: 1rem;
         }
 
-        .benefit-item {
+        .chocolate-feature {
             display: flex;
-            gap: 1.25rem;
+            gap: 1rem;
             margin-bottom: 1.5rem;
             padding-bottom: 1.5rem;
             border-bottom: 1px solid var(--gray-200);
         }
 
-        .benefit-number {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            color: var(--gold);
-            font-weight: 500;
-            flex-shrink: 0;
-            width: 30px;
+        .chocolate-feature:last-child {
+            border-bottom: none;
         }
 
-        .benefit-item h4 {
+        .chocolate-feature-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.25rem;
+            color: var(--gold);
+            flex-shrink: 0;
+            width: 25px;
+        }
+
+        .chocolate-feature h4 {
             font-size: 1rem;
             color: var(--chocolate);
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.25rem;
             font-weight: 600;
         }
 
-        .benefit-item p {
+        .chocolate-feature p {
             color: var(--gray-600);
-            font-size: 0.9rem;
-            line-height: 1.6;
+            font-size: 0.95rem;
+            line-height: 1.5;
         }
 
-        .comp-intro {
+        /* ========================================
+           SECTION 12: VISION & COMMUNITY
+           Image: community.jpg (families, clean water moments, soft light)
+        ======================================== */
+        .vision-section {
             background: var(--navy);
             min-height: 100vh;
+            position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
-            position: relative;
         }
 
-        .comp-intro::before {
+        .vision-bg {
+            position: absolute;
+            inset: 0;
+            background: url('images/community.jpg') center/cover;
+            opacity: 0.3;
+        }
+
+        .vision-bg::after {
             content: '';
             position: absolute;
             inset: 0;
-            background: url('https://images.unsplash.com/photo-1519681393784-d120267933ba?w=1920&q=80') center/cover;
-            opacity: 0.1;
+            background: linear-gradient(135deg, rgba(11, 20, 38, 0.8) 0%, rgba(11, 20, 38, 0.6) 100%);
         }
 
-        .comp-intro-content {
+        .vision-content {
             position: relative;
             z-index: 2;
             text-align: center;
             max-width: 800px;
-            padding: 2rem;
+            padding: 4rem;
         }
 
-        .comp-intro-content h2 {
-            font-size: clamp(3rem, 5vw, 4.5rem);
+        .vision-content h2 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
             color: white;
+            margin-bottom: 2rem;
+        }
+
+        .vision-content p {
+            color: rgba(255,255,255,0.8);
+            font-size: 1.25rem;
+            line-height: 1.8;
             margin-bottom: 1.5rem;
         }
 
-        .comp-intro-content h2 span {
-            color: var(--gold);
+        .vision-values {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 3rem;
         }
 
-        .comp-intro-content p {
-            color: rgba(255,255,255,0.7);
-            font-size: 1.25rem;
-            line-height: 1.8;
-        }
-
-        .getting-started {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1.5rem;
-            margin-top: 4rem;
-        }
-
-        .start-step {
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 4px;
-            padding: 2rem 1.5rem;
+        .vision-value {
             text-align: center;
-            transition: all 0.3s ease;
         }
 
-        .start-step:hover {
-            background: rgba(255,255,255,0.08);
-            border-color: var(--gold);
-        }
-
-        .step-number {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
+        .vision-value-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 1rem;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             color: var(--gold);
-            margin-bottom: 1rem;
+            font-size: 1.5rem;
         }
 
-        .start-step h4 {
-            color: white;
+        .vision-value h4 {
+            color: var(--gold);
             font-size: 1rem;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
         }
 
-        .start-step p {
-            color: rgba(255,255,255,0.6);
-            font-size: 0.85rem;
-            line-height: 1.5;
-        }
-
-        .packages-section {
-            background: var(--gray-50);
-            padding: 8rem 4rem;
-        }
-
-        .packages-header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
-        .packages-header h2 {
-            font-size: clamp(2.5rem, 4vw, 3.5rem);
-            color: var(--navy);
-            margin-bottom: 1rem;
-        }
-
-        .packages-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1.5rem;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .package-card {
-            background: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-            transition: all 0.3s ease;
-            border: 1px solid var(--gray-200);
-        }
-
-        .package-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-        }
-
-        .package-card.featured {
-            border-color: var(--gold);
-            box-shadow: 0 8px 30px rgba(201, 162, 39, 0.15);
-        }
-
-        .package-header {
-            background: var(--navy);
-            padding: 1.5rem;
-            text-align: center;
-        }
-
-        .package-card.featured .package-header {
-            background: linear-gradient(135deg, var(--gold) 0%, #b8941f 100%);
-        }
-
-        .package-name {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.25rem;
-            color: white;
-            margin-bottom: 0.25rem;
-        }
-
-        .package-price {
-            font-size: 2rem;
-            color: white;
-            font-weight: 700;
-        }
-
-        .package-body {
-            padding: 1.5rem;
-        }
-
-        .package-max {
-            display: flex;
-            justify-content: space-between;
-            padding: 0.75rem 0;
-            border-bottom: 1px solid var(--gray-200);
-            font-size: 0.9rem;
-        }
-
-        .package-max span:first-child {
-            color: var(--gray-600);
-        }
-
-        .package-max span:last-child {
-            color: var(--navy);
-            font-weight: 600;
-        }
-
-        .package-ds {
-            display: flex;
-            justify-content: space-between;
-            padding: 0.75rem 0;
-            font-size: 0.9rem;
-        }
-
-        .package-ds span:first-child {
-            color: var(--gray-600);
-        }
-
-        .package-ds span:last-child {
-            color: var(--gold);
-            font-weight: 600;
-        }
-
-        .ways-section {
-            background: var(--cream);
-            padding: 8rem 6rem;
-        }
-
-        .ways-header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
-        .ways-header h2 {
-            font-size: clamp(2.5rem, 4vw, 3.5rem);
-            color: var(--navy);
-            margin-bottom: 1rem;
-        }
-
-        .ways-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .way-card {
-            background: white;
-            border-radius: 8px;
-            padding: 2.5rem;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-            border: 1px solid var(--gray-200);
-            transition: all 0.3s ease;
-            text-align: center;
-        }
-
-        .way-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
-            border-color: var(--gold);
-        }
-
-        .way-number {
-            font-family: 'Playfair Display', serif;
-            font-size: 3rem;
-            color: var(--gold);
-            margin-bottom: 1rem;
-        }
-
-        .way-card h3 {
-            font-size: 1.25rem;
-            color: var(--navy);
-            margin-bottom: 1rem;
-        }
-
-        .way-card p {
-            color: var(--gray-600);
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-
+        /* ========================================
+           SECTION 13: CTA
+           Image: cta-product.jpg (INJOI machine, glass of water, calm home bg)
+        ======================================== */
         .cta-section {
             background: var(--navy);
             min-height: 100vh;
@@ -1030,12 +1200,18 @@
             position: relative;
         }
 
-        .cta-section::before {
+        .cta-bg {
+            position: absolute;
+            inset: 0;
+            background: url('images/cta-product.jpg') center/cover;
+            opacity: 0.2;
+        }
+
+        .cta-bg::after {
             content: '';
             position: absolute;
             inset: 0;
-            background: url('https://images.unsplash.com/photo-1483354483454-4cd359948304?w=1920&q=80') center/cover;
-            opacity: 0.1;
+            background: linear-gradient(135deg, rgba(11, 20, 38, 0.9) 0%, rgba(11, 20, 38, 0.7) 100%);
         }
 
         .cta-content {
@@ -1110,74 +1286,79 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
         }
 
-        @media (max-width: 1200px) {
-            .packages-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
+        /* ========================================
+           RESPONSIVE
+        ======================================== */
         @media (max-width: 968px) {
             .nav-links {
                 display: none;
             }
 
-            .company-intro,
-            .water-solution,
-            .chocolate-solution {
+            .belief-section,
+            .danger-slide,
+            .founder-section,
+            .hydrogen-section,
+            .savings-section,
+            .chocolate-section,
+            .product-kitchen,
+            .product-hero-inner {
                 grid-template-columns: 1fr;
             }
 
-            .company-intro-image,
-            .chocolate-solution-image {
+            .danger-slide.reverse {
+                direction: ltr;
+            }
+
+            .belief-image,
+            .danger-image,
+            .founder-image,
+            .hydrogen-visual,
+            .savings-visual,
+            .chocolate-image,
+            .product-kitchen-image {
                 min-height: 50vh;
             }
 
-            .vmv-grid,
-            .team-grid,
-            .ways-grid {
-                grid-template-columns: 1fr;
+            .belief-content,
+            .danger-content,
+            .founder-content,
+            .hydrogen-content,
+            .savings-content,
+            .chocolate-content,
+            .product-kitchen-content {
+                padding: 4rem 2rem;
             }
 
-            .chocolate-facts,
-            .crisis-stats {
-                grid-template-columns: 1fr;
-            }
-
-            .getting-started {
+            .stats-grid,
+            .filtration-steps {
                 grid-template-columns: repeat(2, 1fr);
             }
 
-            .packages-grid {
-                grid-template-columns: 1fr;
+            .purity-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
 
-            .company-intro-content,
-            .water-solution-content,
-            .chocolate-solution-content {
-                padding: 4rem 2rem;
+            .vision-values {
+                flex-direction: column;
+                gap: 2rem;
             }
 
-            .vmv-section,
-            .team-section,
-            .chocolate-problem,
-            .packages-section,
-            .ways-section {
-                padding: 4rem 2rem;
-            }
-
-            .water-crisis-content {
+            .stats-section,
+            .filtration-section,
+            .purity-section {
                 padding: 4rem 2rem;
             }
         }
 
         @media (max-width: 640px) {
-            .getting-started {
+            .stats-grid,
+            .filtration-steps,
+            .purity-grid {
                 grid-template-columns: 1fr;
             }
 
-            .stat-row {
-                flex-direction: column;
-                gap: 1.5rem;
+            .savings-comparison {
+                grid-template-columns: 1fr;
             }
 
             .cta-info {
@@ -1192,471 +1373,619 @@
 <nav class="nav">
     <div class="nav-logo">INJOI</div>
     <div class="nav-links">
-        <a href="#ettevote">Ettevõte</a>
+        <a href="#probleem">Probleem</a>
+        <a href="#lahendus">Lahendus</a>
         <a href="#tooted">Tooted</a>
-        <a href="#voimalus">Võimalus</a>
         <a href="#kontakt">Kontakt</a>
     </div>
 </nav>
 
-<!-- HERO -->
-<section class="slide hero">
+<!-- ====================================
+     SECTION 1: HERO / OPENING
+     IMAGE NEEDED: images/hero-family.jpg
+     - Estonian family in kitchen
+     - Winter light, gray tones
+     - Simple home, not luxury
+==================================== -->
+<section class="section hero">
+    <div class="hero-bg"></div>
     <div class="hero-content">
-        <div class="hero-tagline">Kvaliteetsed elustiilitooted</div>
-        <div class="hero-logo">
-            INJ<span class="drop"></span>I
-        </div>
-        <div class="hero-subtitle">Elu on sinu kätes</div>
-        <p class="hero-description">
-            Avasta puhas vesi ja toitaineterikkas tooršokolaad.
-            Üle 15 aasta innovatsiooni Eestist maailma.
+        <div class="hero-tagline">Puhas vesi. Teadlik valik.</div>
+        <h1 class="hero-title">Kas sa tead, mida sa jood?</h1>
+        <p class="hero-subtitle">
+            Enamik meist usub, et kraanivesi on ohutu.
+            Kuid tõde võib sind üllatada.
         </p>
-        <div class="hero-version">Esitlus v1.0 - 2025</div>
     </div>
-    <div class="scroll-indicator">Keri</div>
+    <div class="scroll-indicator">Avasta</div>
 </section>
 
-<!-- ETTEVÕTTE TUTVUSTUS -->
-<section class="slide company-intro" id="ettevote">
-    <div class="company-intro-image"></div>
-    <div class="company-intro-content">
-        <div class="section-number">01 - Meist</div>
-        <h2>INJOI esindab parimat elustiilitoodetes</h2>
-        <p class="lead">
-            Üle 15 aasta oleme loonud kvaliteetseid osmoosveepuhasteid
-            ja tooršokolaade, mis muudavad igapäevast heaolu.
+<!-- ====================================
+     SECTION 2: TAP WATER BELIEF
+     IMAGE NEEDED: images/tap-water.jpg
+     - Water flowing from tap into glass
+     - Clean looking water
+     - Important: It LOOKS fine
+==================================== -->
+<section class="section belief-section" id="probleem">
+    <div class="belief-image"></div>
+    <div class="belief-content">
+        <div class="section-label">Levinud usk</div>
+        <h2>Enamik inimesi usub, et kraanivesi on turvaline</h2>
+        <p>
+            Vesi näeb puhas välja. See tuleb kraanist.
+            Riik kontrollib seda. Järelikult on see ohutu... eks?
         </p>
         <p>
-            INJOI pakub mitmeid võimalusi nii klientidele kui äripartneritele
-            kvaliteetsete toodete ja teenuste kaudu. Meie innovaatiline lähenemine
-            ühendab tipptasemel tehnoloogia looduslike koostisosadega.
+            <span class="emphasis">Kuid see, mida sa silmaga ei näe, võib sind üllatada.</span>
         </p>
-        <div class="stat-row">
-            <div class="stat">
-                <div class="stat-number">15+</div>
-                <div class="stat-label">Aastat kogemust</div>
-            </div>
-            <div class="stat">
-                <div class="stat-number">80+</div>
-                <div class="stat-label">Šokolaadiretsepti</div>
-            </div>
-            <div class="stat">
-                <div class="stat-number">2</div>
-                <div class="stat-label">Tootesarja</div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- VISIOON, MISSIOON, VÄÄRTUSED -->
-<section class="slide vmv-section">
-    <div class="vmv-header">
-        <div class="section-number">02 - Meie alused</div>
-        <h2>Mille eest seisame</h2>
-        <p>Põhimõtted, mis juhivad kõike, mida teeme</p>
-    </div>
-    <div class="vmv-grid">
-        <div class="vmv-card">
-            <div class="vmv-icon">
-                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 0 1 10 10"/><circle cx="12" cy="12" r="3"/></svg>
-            </div>
-            <h3>Visioon</h3>
-            <p>Maailm, kus teadlikud valikud viivad parema tervise ja heaoluni kõigi jaoks.</p>
-        </div>
-        <div class="vmv-card">
-            <div class="vmv-icon">
-                <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-            </div>
-            <h3>Missioon</h3>
-            <p>Toetada tervislikumat elamist puhta vee ja toitaineterikka käsitööšokolaadi kaudu - teadlikkuse ja usalduse juhtimisel.</p>
-        </div>
-        <div class="vmv-card">
-            <div class="vmv-icon">
-                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            </div>
-            <h3>Väärtused</h3>
-            <p>Meie eesmärk on tõsta teadlikkust puhtast veest ja tervislikust toitumisest. Me ei müü lihtsalt - me harime ja inspireerime.</p>
-        </div>
-    </div>
-</section>
-
-<!-- MEESKOND -->
-<section class="slide team-section">
-    <div class="team-header">
-        <div class="section-number">03 - Juhtkond</div>
-        <h2>Tutvu meie meeskonnaga</h2>
-    </div>
-    <div class="team-grid">
-        <div class="team-card">
-            <div class="team-photo">
-                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&q=80" alt="Horre Saluste">
-            </div>
-            <h3>Horre Saluste</h3>
-            <div class="team-role">Looja</div>
-            <ul class="team-bio">
-                <li>30 aastat ärikogemust</li>
-                <li>12 aastat osmoosfiltreid</li>
-                <li>Müügimeister</li>
-                <li>Kahe šokolaadivabriku omanik</li>
-                <li>80 tooršokolaadiretsepti looja</li>
-            </ul>
-        </div>
-        <div class="team-card">
-            <div class="team-photo">
-                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80" alt="Georg Borin">
-            </div>
-            <h3>Georg Borin</h3>
-            <div class="team-role">Nõustaja</div>
-            <ul class="team-bio">
-                <li>26 aastat müügis</li>
-                <li>15 aastat MLM-valdkonnas</li>
-                <li>Strateegiline äriarendus</li>
-                <li>Võrgustiku laiendamise spetsialist</li>
-            </ul>
-        </div>
-        <div class="team-card">
-            <div class="team-photo">
-                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80" alt="Madis Sandermat">
-            </div>
-            <h3>Madis Sandermat</h3>
-            <div class="team-role">Nõustaja</div>
-            <ul class="team-bio">
-                <li>15 aastat müügis</li>
-                <li>Professionaalne müügikoolitaja</li>
-                <li>10 aastat MLM-valdkonnas</li>
-                <li>Meeskonna loomise ekspert</li>
-            </ul>
-        </div>
-    </div>
-</section>
-
-<!-- VEEPROBLEEM -->
-<section class="slide water-crisis" id="tooted">
-    <div class="water-crisis-bg"></div>
-    <div class="water-crisis-content">
-        <div class="section-number">04 - Probleem</div>
-        <h2><span>Vee</span> maailm</h2>
-        <p style="color: rgba(255,255,255,0.8); font-size: 1.1rem; line-height: 1.8;">
-            Ka arenenud riikides sisaldab kraanivesi raskemetalle, mikroplasti
-            ja kemikaale. "Ohutu" vesi ei ole alati puhas. Keetmisest üksi ei piisa -
-            vajalik on täiustatud filtreerimine.
+        <p>
+            Kaasaegne teadus on avastanud aineid meie joogivees,
+            mida veel 20 aastat tagasi ei osatud otsida.
         </p>
-        <div class="crisis-stats">
-            <div class="crisis-stat">
-                <div class="crisis-stat-number">2B+</div>
-                <div class="crisis-stat-label">Inimesel puudub ligipääs puhtale joogiveele maailmas</div>
-            </div>
-            <div class="crisis-stat">
-                <div class="crisis-stat-number">80%</div>
-                <div class="crisis-stat-label">Haigustest arengumaades on seotud veega</div>
-            </div>
-        </div>
     </div>
 </section>
 
-<!-- VEELAHENDUS -->
-<section class="slide water-solution">
-    <div class="water-solution-content">
-        <div class="section-number">05 - Lahendus</div>
-        <h2>Puhas vesi algab <span>targetest valikutest</span></h2>
-        <p style="color: var(--gray-600); font-size: 1.1rem; margin-bottom: 2rem;">
-            Osmoositehnoloogia võimaldab peredel võtta oma tervise enda kätte.
-            Meil on lahendus.
+<!-- ====================================
+     SECTION 3: DISCOVER THE TRUTH - INTRO
+==================================== -->
+<section class="dangers-intro">
+    <div>
+        <div class="section-label">Varjatud ohud</div>
+        <h2>Avasta <span>tõde</span></h2>
+        <p>Mida sinu kraanivesi tegelikult sisaldab</p>
+    </div>
+</section>
+
+<!-- ====================================
+     DANGER 3.1: MICROPLASTICS
+     IMAGE NEEDED: images/microplastics.jpg
+     - Microscopic particles illustration
+     - Plastic breaking into tiny pieces
+     - Abstract science visual (not scary)
+==================================== -->
+<section class="section danger-slide">
+    <div class="danger-image">
+        <div class="placeholder">
+            <div class="placeholder-icon">🔬</div>
+            <div>images/microplastics.jpg</div>
+            <div style="font-size: 0.8rem; margin-top: 0.5rem;">Microscopic particles illustration</div>
+        </div>
+    </div>
+    <div class="danger-content">
+        <div class="danger-number">01</div>
+        <h3><span>Mikroplast</span> joogivees</h3>
+        <p>
+            Plastikust pudeleist ja pakendisest lagunev mikroplast on jõudnud
+            meie veevarustussüsteemidesse. Need pisikesed osakesed läbivad
+            tavalisi filtreid.
         </p>
-        <div class="solution-features">
-            <div class="solution-feature">
-                <div class="solution-feature-icon">
-                    <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                </div>
-                <div>
-                    <h4>Täiustatud filtreerimine</h4>
-                    <p>Pöördosmoos eemaldab 99% saasteainetest, sealhulgas raskemetallid, bakterid ja mikroplasti.</p>
-                </div>
-            </div>
-            <div class="solution-feature">
-                <div class="solution-feature-icon">
-                    <svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
-                </div>
-                <div>
-                    <h4>Vesinikuga rikastamine</h4>
-                    <p>Valikuline ioniseerimine lisab molekulaarset vesinikku täiustatud antioksüdantse kasu jaoks.</p>
-                </div>
-            </div>
-            <div class="solution-feature">
-                <div class="solution-feature-icon">
-                    <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M12 8v8M8 12h8"/></svg>
-                </div>
-                <div>
-                    <h4>Kompaktne disain</h4>
-                    <p>Kaasaegsed, ruumisäästlikud seadmed, mis sobivad igasse kööki. Saadaval ka kaasaskantavad variandid.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="water-solution-image">
-        <div class="product-showcase">
-            <img src="https://images.unsplash.com/photo-1548839140-29a749e1cf4d?w=600&q=80" alt="Veefilter" style="border-radius: 8px;">
-            <h3>Kvaliteetsed veepuhastussüsteemid</h3>
+        <p>
+            Uuringud on leidnud mikroplasti 94% kraanivee proovidest üle maailma.
+        </p>
+        <div class="danger-fact">
+            <p>Keskmine inimene neelab igal nädalal umbes 5 grammi plastikut - see on ühe pangakaardi jagu.</p>
         </div>
     </div>
 </section>
 
-<!-- ŠOKOLAADI PROBLEEM -->
-<section class="slide chocolate-problem">
-    <div class="chocolate-header">
-        <div class="section-number">06 - Kibe tõde</div>
-        <h2>Tavalise <span>šokolaadi</span> taga</h2>
-        <p>4 fakti, mida šokolaaditööstus ei taha, et sa teaksid</p>
+<!-- ====================================
+     DANGER 3.2: PFAS
+     IMAGE NEEDED: images/pfas.jpg
+     - Chemical molecule diagram (clean, minimal)
+     - Or: Factory / industrial water abstract
+==================================== -->
+<section class="section danger-slide reverse">
+    <div class="danger-image">
+        <div class="placeholder">
+            <div class="placeholder-icon">⚗️</div>
+            <div>images/pfas.jpg</div>
+            <div style="font-size: 0.8rem; margin-top: 0.5rem;">Chemical molecule or industrial abstract</div>
+        </div>
     </div>
-    <div class="chocolate-facts">
-        <div class="chocolate-fact">
-            <div class="fact-number">01</div>
-            <h4>Kuumtöödeldud kakao = kaotatud toitained</h4>
-            <p>Enamik kommertsiaalset šokolaadi kasutab kõrget kuumust, hävitades antioksüdante, flavonoide ja teisi kasulikke looduslikke ühendeid.</p>
-        </div>
-        <div class="chocolate-fact">
-            <div class="fact-number">02</div>
-            <h4>Valge suhkur - magus, kuid kahjulik</h4>
-            <p>Tavaline šokolaad on täis rafineeritud valget suhkrut, mis koormab maksa, tõstab veresuhkrut ja soodustab põletikke.</p>
-        </div>
-        <div class="chocolate-fact">
-            <div class="fact-number">03</div>
-            <h4>Odav šokolaad tuleb inimese hinna eest</h4>
-            <p>Massituru brändid hangivad sageli kakaod farmidelt, mis kasutavad alatasu saavaid töötajaid või isegi lapstööjõudu arengumaades.</p>
-        </div>
-        <div class="chocolate-fact">
-            <div class="fact-number">04</div>
-            <h4>Kunstlikud lisaained ja säilitusained</h4>
-            <p>Paljud šokolaadid on täis kunstlikke maitse- ja lõhnaaineid ning emulgaatoreid - midagi, mis ei kuulu sinu kehasse.</p>
+    <div class="danger-content">
+        <div class="danger-number">02</div>
+        <h3><span>PFAS</span> - igavesed kemikaalid</h3>
+        <p>
+            PFAS-ühendeid kutsutakse "igavesteks kemikaalideks", sest need
+            ei lagune looduses peaaegu kunagi. Neid kasutatakse
+            teflonpannides, veekindlates kangastes ja tuletõrjevahus.
+        </p>
+        <p>
+            Need kemikaalid on seotud vähiriskiga, hormonaalhäiretega
+            ja immuunsüsteemi nõrgenemisega.
+        </p>
+        <div class="danger-fact">
+            <p>Euroopa Keskkonnaagentuur on leidnud PFAS-ühendeid enamikus EL-i riikide joogivees.</p>
         </div>
     </div>
 </section>
 
-<!-- ŠOKOLAADI LAHENDUS -->
-<section class="slide chocolate-solution">
-    <div class="chocolate-solution-image"></div>
-    <div class="chocolate-solution-content">
-        <div class="section-number">07 - Meie šokolaad</div>
+<!-- ====================================
+     DANGER 3.3: MEDICINE RESIDUES
+     IMAGE NEEDED: images/medicine-residues.jpg
+     - Pills dissolving in water (symbolic, soft)
+     - NOT too aggressive
+==================================== -->
+<section class="section danger-slide">
+    <div class="danger-image">
+        <div class="placeholder">
+            <div class="placeholder-icon">💊</div>
+            <div>images/medicine-residues.jpg</div>
+            <div style="font-size: 0.8rem; margin-top: 0.5rem;">Pills dissolving in water (symbolic)</div>
+        </div>
+    </div>
+    <div class="danger-content">
+        <div class="danger-number">03</div>
+        <h3><span>Ravimijäägid</span> vees</h3>
+        <p>
+            Antibiootikumid, hormoonid, valuvaigistid - ravimid, mida
+            inimesed tarbivad, jõuavad osaliselt tagasi veeringesse.
+            Tavapärased puhastussüsteemid ei eemalda neid täielikult.
+        </p>
+        <p>
+            Pikaajaline kokkupuude isegi väikeste kogustega võib
+            mõjutada tervist viisil, mida teadus alles uurib.
+        </p>
+        <div class="danger-fact">
+            <p>Uuringud on tuvastanud joogivees üle 80 erineva ravimi jääki.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ====================================
+     DANGER 3.4: HEAVY METALS
+     IMAGE NEEDED: images/old-pipes.jpg
+     - Old pipes (very important for Estonia!)
+     - Soviet-era apartment building plumbing visual
+==================================== -->
+<section class="section danger-slide reverse">
+    <div class="danger-image">
+        <div class="placeholder">
+            <div class="placeholder-icon">🔧</div>
+            <div>images/old-pipes.jpg</div>
+            <div style="font-size: 0.8rem; margin-top: 0.5rem;">Old pipes, Soviet-era plumbing</div>
+        </div>
+    </div>
+    <div class="danger-content">
+        <div class="danger-number">04</div>
+        <h3><span>Raskemetallid</span> vanadest torudest</h3>
+        <p>
+            Eestis on palju kortermaju nõukogudeaegsete torustikega.
+            Vanad plii- ja vasktorud annavad vette raskemetalle,
+            eriti kui vesi seisab torustes üleöö.
+        </p>
+        <p>
+            Plii on eriti ohtlik lastele - see mõjutab aju arengut
+            ja võib põhjustada püsivat kahju isegi väikestes kogustes.
+        </p>
+        <div class="danger-fact">
+            <p>Kuni 40% Eesti korteritest kasutab veel nõukogudeaegseid torusid.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ====================================
+     SECTION 4: STATISTICS
+==================================== -->
+<section class="section stats-section">
+    <div class="stats-header">
+        <div class="section-label">Faktid</div>
+        <h2>Probleem, millest vähe räägitakse</h2>
+        <p>Andmed, mis peaksid panema mõtlema</p>
+    </div>
+    <div class="stats-grid">
+        <div class="stat-card">
+            <div class="stat-number">2B+</div>
+            <div class="stat-label">Inimesel maailmas puudub ligipääs puhtale joogiveele</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">80%</div>
+            <div class="stat-label">Haigustest arengumaades on seotud saastunud veega</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">94%</div>
+            <div class="stat-label">Kraanivee proovidest sisaldab mikroplasti</div>
+        </div>
+    </div>
+</section>
+
+<!-- ====================================
+     SECTION 5: FOUNDER STORY
+     IMAGE NEEDED: images/founder-portrait.jpg
+     - Portrait of Horre Saluste (natural, not corporate)
+     - Lifestyle image (family / calm moment)
+==================================== -->
+<section class="section founder-section" id="lahendus">
+    <div class="founder-image">
+        <div class="placeholder">
+            <div style="font-size: 4rem; margin-bottom: 1rem;">👤</div>
+            <div>images/founder-portrait.jpg</div>
+            <div style="font-size: 0.8rem; margin-top: 0.5rem;">Natural portrait, not corporate</div>
+        </div>
+    </div>
+    <div class="founder-content">
+        <div class="section-label">Asutaja lugu</div>
+        <h2>Horre Saluste</h2>
+        <div class="founder-role">INJOI looja</div>
+        <blockquote>
+            "Ma ei tahtnud lihtsalt müüa filtreid. Ma tahtsin, et inimesed
+            mõistaksid, miks puhas vesi on nii oluline."
+        </blockquote>
+        <ul class="founder-bio">
+            <li>30 aastat ärikogemust</li>
+            <li>12 aastat veepuhastusvaldkonnas</li>
+            <li>Kahe šokolaadivabriku omanik</li>
+            <li>80 tooršokolaadiretsepti looja</li>
+        </ul>
+    </div>
+</section>
+
+<!-- ====================================
+     SECTION 6: PRODUCT HERO
+     IMAGE NEEDED: images/product-hero.png
+     - Single INJOI machine
+     - Correct front design (CRITICAL!)
+     - White background
+     - High quality
+==================================== -->
+<section class="section product-hero" id="tooted">
+    <div class="product-hero-inner">
+        <div class="product-hero-image">
+            <div class="placeholder">
+                <div style="font-size: 4rem; margin-bottom: 1rem;">💧</div>
+                <div>images/product-hero.png</div>
+                <div style="font-size: 0.8rem; margin-top: 0.5rem;">INJOI device, white background</div>
+                <div style="font-size: 0.8rem; color: #e74c3c; margin-top: 0.5rem;">MUST be correct design!</div>
+            </div>
+        </div>
+        <div class="product-hero-content">
+            <div class="section-label">Meie lahendus</div>
+            <h2>INJOI veepuhasti</h2>
+            <div class="tagline">Puhas vesi. Iga päev. Sinu kodus.</div>
+            <p>
+                INJOI kasutab pöördosmoos-tehnoloogiat, mis eemaldab
+                kuni 99% saasteainetest, sealhulgas mikroplasti,
+                raskemetallid ja ravimijäägid.
+            </p>
+            <p>
+                Valikuline vesiniku rikastamine annab veele antioksüdantsed omadused.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- ====================================
+     SECTION 6.2: PRODUCT IN KITCHEN
+     IMAGE NEEDED: images/product-kitchen.jpg
+     - INJOI in real Estonian kitchen
+     - Small kitchen, wood countertop
+     - Simple cabinets
+     - No luxury, no American style
+     - Machine must look exactly correct
+==================================== -->
+<section class="section product-kitchen">
+    <div class="product-kitchen-image">
+        <div class="placeholder">
+            <div style="font-size: 4rem; margin-bottom: 1rem;">🏠</div>
+            <div>images/product-kitchen.jpg</div>
+            <div style="font-size: 0.8rem; margin-top: 0.5rem;">INJOI in Estonian kitchen</div>
+            <div style="font-size: 0.8rem; margin-top: 0.5rem;">Wood countertop, simple cabinets</div>
+            <div style="font-size: 0.8rem; color: #e74c3c; margin-top: 0.5rem;">NO luxury American style!</div>
+        </div>
+    </div>
+    <div class="product-kitchen-content">
+        <div class="section-label">Sinu kodus</div>
+        <h2>Kompaktne disain igasse kööki</h2>
+        <p style="color: var(--gray-600); font-size: 1.1rem; line-height: 1.8;">
+            INJOI on loodud sobima igasse koju. Kompaktne ja
+            elegantne disain ei võta palju ruumi, kuid pakub
+            professionaalset veepuhastust.
+        </p>
+        <ul class="founder-bio" style="margin-top: 2rem;">
+            <li>Mahub igasse kööki</li>
+            <li>Lihtne paigaldus</li>
+            <li>Madal hoolduskulu</li>
+            <li>5-aastane garantii</li>
+        </ul>
+    </div>
+</section>
+
+<!-- ====================================
+     SECTION 7: FILTRATION PROCESS
+     ICONS NEEDED:
+     - images/icon-sediment.svg (rust/particles)
+     - images/icon-carbon.svg (carbon filter)
+     - images/icon-ro.svg (RO membrane)
+     - images/icon-hydrogen.svg (H2 molecule)
+==================================== -->
+<section class="section filtration-section">
+    <div class="filtration-header">
+        <div class="section-label">Kuidas see töötab</div>
+        <h2>4-astmeline puhastusprotsess</h2>
+        <p>Igal etapil on oma roll sinu vee puhastamisel</p>
+    </div>
+    <div class="filtration-steps">
+        <div class="filtration-step">
+            <div class="filtration-icon">
+                <div class="placeholder-icon">1️⃣</div>
+            </div>
+            <div class="step-number">01</div>
+            <h4>Settefilter</h4>
+            <p>Eemaldab rooste, liiva ja suuremad osakesed</p>
+        </div>
+        <div class="filtration-step">
+            <div class="filtration-icon">
+                <div class="placeholder-icon">2️⃣</div>
+            </div>
+            <div class="step-number">02</div>
+            <h4>Aktiivsüsi</h4>
+            <p>Eemaldab kloori, lõhnad ja orgaanilised ühendid</p>
+        </div>
+        <div class="filtration-step">
+            <div class="filtration-icon">
+                <div class="placeholder-icon">3️⃣</div>
+            </div>
+            <div class="step-number">03</div>
+            <h4>Pöördosmoos</h4>
+            <p>Eemaldab 99% saasteainetest molekulaarsel tasemel</p>
+        </div>
+        <div class="filtration-step">
+            <div class="filtration-icon">
+                <div class="placeholder-icon">4️⃣</div>
+            </div>
+            <div class="step-number">04</div>
+            <h4>H₂ rikastamine</h4>
+            <p>Lisab molekulaarset vesinikku antioksüdantseks kasuks</p>
+        </div>
+    </div>
+</section>
+
+<!-- ====================================
+     SECTION 8: HYDROGEN WATER
+     IMAGE NEEDED: images/hydrogen-molecule.png
+     - H2 molecule graphic
+     - Scientific but simple
+     - Soft glow / antioxidant visual
+     - NO muscle men, NO fitness hype
+==================================== -->
+<section class="section hydrogen-section">
+    <div class="hydrogen-visual">
+        <div class="placeholder">
+            <div class="h2-symbol">H₂</div>
+            <div>images/hydrogen-molecule.png</div>
+            <div style="font-size: 0.8rem; margin-top: 0.5rem;">Scientific, simple, soft glow</div>
+        </div>
+    </div>
+    <div class="hydrogen-content">
+        <div class="section-label">Vesiniku kasu</div>
+        <h2>Miks <span>vesinikuga rikastatud</span> vesi?</h2>
+        <p style="color: var(--gray-600); font-size: 1.1rem; line-height: 1.8;">
+            Molekulaarne vesinik (H₂) on võimas antioksüdant, mis aitab
+            neutraliseerida kahjulikke vabu radikaale organismis.
+        </p>
+        <div class="hydrogen-benefits">
+            <div class="hydrogen-benefit">
+                <div class="hydrogen-benefit-icon">⚡</div>
+                <div>
+                    <h4>Energia</h4>
+                    <p>Toetab rakkude energiatootmist</p>
+                </div>
+            </div>
+            <div class="hydrogen-benefit">
+                <div class="hydrogen-benefit-icon">🛡️</div>
+                <div>
+                    <h4>Kaitse</h4>
+                    <p>Aitab kaitsta oksüdatiivse stressi eest</p>
+                </div>
+            </div>
+            <div class="hydrogen-benefit">
+                <div class="hydrogen-benefit-icon">🔄</div>
+                <div>
+                    <h4>Taastumine</h4>
+                    <p>Võib aidata kiirendada taastumist</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ====================================
+     SECTION 9: WHAT INJOI DOESN'T CONTAIN
+     Clean checklist visual with icons
+==================================== -->
+<section class="section purity-section">
+    <div class="purity-header">
+        <div class="section-label">Puhtuse garantii</div>
+        <h2>Mida INJOI vesi EI sisalda</h2>
+        <p>Rahulolu, et sinu vesi on tõeliselt puhas</p>
+    </div>
+    <div class="purity-grid">
+        <div class="purity-item">
+            <div class="purity-icon">✓</div>
+            <h4>Mikroplast</h4>
+        </div>
+        <div class="purity-item">
+            <div class="purity-icon">✓</div>
+            <h4>Raskemetallid</h4>
+        </div>
+        <div class="purity-item">
+            <div class="purity-icon">✓</div>
+            <h4>PFAS-ühendid</h4>
+        </div>
+        <div class="purity-item">
+            <div class="purity-icon">✓</div>
+            <h4>Ravimijäägid</h4>
+        </div>
+        <div class="purity-item">
+            <div class="purity-icon">✓</div>
+            <h4>Kloor</h4>
+        </div>
+        <div class="purity-item">
+            <div class="purity-icon">✓</div>
+            <h4>Bakterid</h4>
+        </div>
+        <div class="purity-item">
+            <div class="purity-icon">✓</div>
+            <h4>Viirused</h4>
+        </div>
+        <div class="purity-item">
+            <div class="purity-icon">✓</div>
+            <h4>Pestitsiidid</h4>
+        </div>
+    </div>
+</section>
+
+<!-- ====================================
+     SECTION 10: SAVINGS COMPARISON
+     IMAGE NEEDED: images/savings-comparison.jpg
+     - Bottled water stack vs INJOI
+     - Simple € numbers
+     - Minimal design
+==================================== -->
+<section class="section savings-section">
+    <div class="savings-visual">
+        <div class="placeholder">
+            <div style="font-size: 4rem; margin-bottom: 1rem;">💰</div>
+            <div>images/savings-comparison.jpg</div>
+            <div style="font-size: 0.8rem; margin-top: 0.5rem;">Bottled water stack vs INJOI</div>
+        </div>
+    </div>
+    <div class="savings-content">
+        <div class="section-label">Kokkuhoid</div>
+        <h2>Võrreldes pudeliveega</h2>
+        <p style="color: var(--gray-600); font-size: 1.1rem; line-height: 1.8;">
+            Keskmine pere kulutab pudelivee peale märkimisväärse summa aastas.
+            INJOI maksab end kiiresti tagasi.
+        </p>
+        <div class="savings-comparison">
+            <div class="savings-box bottled">
+                <h4>Pudelivesi</h4>
+                <div class="price">~600€</div>
+                <div class="period">aastas (4-liikmeline pere)</div>
+            </div>
+            <div class="savings-box injoi">
+                <h4>INJOI</h4>
+                <div class="price">~50€</div>
+                <div class="period">aastas (filtrite vahetus)</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ====================================
+     SECTION 11: CHOCOLATE
+     IMAGE NEEDED: images/chocolate-lifestyle.jpg
+     - Chocolate on wood table
+     - Natural light
+     - Minimal props
+==================================== -->
+<section class="section chocolate-section">
+    <div class="chocolate-image">
+        <div class="placeholder">
+            <div style="font-size: 4rem; margin-bottom: 1rem;">🍫</div>
+            <div>images/chocolate-lifestyle.jpg</div>
+            <div style="font-size: 0.8rem; margin-top: 0.5rem;">Wood table, natural light</div>
+        </div>
+    </div>
+    <div class="chocolate-content">
+        <div class="section-label">Lisa toode</div>
         <h2>INJOI tooršokolaadid</h2>
-        <div class="brand">Stay Young - Toores & Mahe</div>
-        <div class="benefits-list">
-            <div class="benefit-item">
-                <div class="benefit-number">1</div>
+        <div class="chocolate-brand">Stay Young - Toores & Mahe</div>
+        <div class="chocolate-features">
+            <div class="chocolate-feature">
+                <div class="chocolate-feature-number">1</div>
                 <div>
                     <h4>100% toores kakao</h4>
-                    <p>Valmistatud madalal temperatuuril, et säilitada looduslikud omadused - rohkem antioksüdante kui tavaline šokolaad.</p>
+                    <p>Madalal temperatuuril valmistatud, säilitab antioksüdandid</p>
                 </div>
             </div>
-            <div class="benefit-item">
-                <div class="benefit-number">2</div>
+            <div class="chocolate-feature">
+                <div class="chocolate-feature-number">2</div>
                 <div>
-                    <h4>Supertoidud ja ravisened</h4>
-                    <p>Rikastatud külmkuivatatud acai, maca, spirulina ja adaptogeenidega nagu lõvilakk, reishi ja chaga.</p>
+                    <h4>Supertoidud</h4>
+                    <p>Acai, maca, spirulina ja adaptogeensed seened</p>
                 </div>
             </div>
-            <div class="benefit-item">
-                <div class="benefit-number">3</div>
-                <div>
-                    <h4>Külmkuivatatud maksimaalse värskuse jaoks</h4>
-                    <p>Koostisosad säilitavad kogu oma vitamiinide, mineraalide ja maitsete spektri - puhas loodus igas suutäies.</p>
-                </div>
-            </div>
-            <div class="benefit-item">
-                <div class="benefit-number">4</div>
+            <div class="chocolate-feature">
+                <div class="chocolate-feature-number">3</div>
                 <div>
                     <h4>Ilma rafineeritud suhkruta</h4>
-                    <p>Looduslikult magustatud kookosesuhkru, datlite või lucumaga. Ilma töödeldud suhkrute ja kunstlike lisaaineteta.</p>
+                    <p>Looduslikult magustatud kookosesuhkru või datlitega</p>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- TASUSTAMISPLAAN -->
-<section class="slide comp-intro" id="voimalus">
-    <div class="comp-intro-content">
-        <div class="section-number">08 - Ärivõimalus</div>
-        <h2>Tasustamis<span>plaan</span></h2>
+<!-- ====================================
+     SECTION 12: VISION & COMMUNITY
+     IMAGE NEEDED: images/community.jpg
+     - Families
+     - Clean water moments
+     - Soft light
+     - Hope and future
+==================================== -->
+<section class="section vision-section">
+    <div class="vision-bg"></div>
+    <div class="vision-content">
+        <div class="section-label">Meie visioon</div>
+        <h2>Teadlikum tulevik</h2>
         <p>
-            Ehita oma äri koos INJOI-ga. Mitu sissetulekuallikat,
-            tööstuse parimad preemiad ja toetav kogukond.
+            Me usume, et igaühel on õigus puhtale veele.
+            INJOI missioon on tõsta teadlikkust ja pakkuda lahendusi,
+            mis muudavad igapäevast elu paremaks.
         </p>
-        <div class="getting-started">
-            <div class="start-step">
-                <div class="step-number">1</div>
-                <h4>Registreeru</h4>
-                <p>Hakka INJOI sõltumatuks äripartneriks</p>
+        <p>
+            Liitu kogukonnaga, kes hoolib oma tervisest ja tulevikust.
+        </p>
+        <div class="vision-values">
+            <div class="vision-value">
+                <div class="vision-value-icon">💧</div>
+                <h4>Puhtus</h4>
             </div>
-            <div class="start-step">
-                <div class="step-number">2</div>
-                <h4>Vali pakett</h4>
-                <p>Vali pakett, mis sobib sinu eesmärkidega</p>
+            <div class="vision-value">
+                <div class="vision-value-icon">💡</div>
+                <h4>Teadlikkus</h4>
             </div>
-            <div class="start-step">
-                <div class="step-number">3</div>
-                <h4>Ehita meeskond</h4>
-                <p>Kasvatad oma võrgustikku vasaku ja parema tiimiga</p>
-            </div>
-            <div class="start-step">
-                <div class="step-number">4</div>
-                <h4>Teeni preemiaid</h4>
-                <p>Mitu viisi komisjonitasude ja boonuste teenimiseks</p>
+            <div class="vision-value">
+                <div class="vision-value-icon">🤝</div>
+                <h4>Kogukond</h4>
             </div>
         </div>
     </div>
 </section>
 
-<!-- PAKETID -->
-<section class="slide packages-section">
-    <div class="packages-header">
-        <div class="section-number">09 - Investeerimistasemed</div>
-        <h2>Stardipaketid</h2>
-    </div>
-    <div class="packages-grid">
-        <div class="package-card">
-            <div class="package-header">
-                <div class="package-name">Enter</div>
-                <div class="package-price">50</div>
-            </div>
-            <div class="package-body">
-                <div class="package-max"><span>Nädalane maks.</span><span>50</span></div>
-                <div class="package-ds"><span>DS boonus</span><span>5</span></div>
-            </div>
-        </div>
-        <div class="package-card">
-            <div class="package-header">
-                <div class="package-name">Basic</div>
-                <div class="package-price">100</div>
-            </div>
-            <div class="package-body">
-                <div class="package-max"><span>Nädalane maks.</span><span>250</span></div>
-                <div class="package-ds"><span>DS boonus</span><span>10</span></div>
-            </div>
-        </div>
-        <div class="package-card">
-            <div class="package-header">
-                <div class="package-name">Starter</div>
-                <div class="package-price">200</div>
-            </div>
-            <div class="package-body">
-                <div class="package-max"><span>Nädalane maks.</span><span>500</span></div>
-                <div class="package-ds"><span>DS boonus</span><span>20</span></div>
-            </div>
-        </div>
-        <div class="package-card featured">
-            <div class="package-header">
-                <div class="package-name">Premium</div>
-                <div class="package-price">500</div>
-            </div>
-            <div class="package-body">
-                <div class="package-max"><span>Nädalane maks.</span><span>2,500</span></div>
-                <div class="package-ds"><span>DS boonus</span><span>50</span></div>
-            </div>
-        </div>
-        <div class="package-card featured">
-            <div class="package-header">
-                <div class="package-name">Pro</div>
-                <div class="package-price">1,000</div>
-            </div>
-            <div class="package-body">
-                <div class="package-max"><span>Nädalane maks.</span><span>5,000</span></div>
-                <div class="package-ds"><span>DS boonus</span><span>100</span></div>
-            </div>
-        </div>
-        <div class="package-card">
-            <div class="package-header">
-                <div class="package-name">Elite</div>
-                <div class="package-price">2,500</div>
-            </div>
-            <div class="package-body">
-                <div class="package-max"><span>Nädalane maks.</span><span>12,500</span></div>
-                <div class="package-ds"><span>DS boonus</span><span>250</span></div>
-            </div>
-        </div>
-        <div class="package-card">
-            <div class="package-header">
-                <div class="package-name">Executive</div>
-                <div class="package-price">5,000</div>
-            </div>
-            <div class="package-body">
-                <div class="package-max"><span>Nädalane maks.</span><span>25,000</span></div>
-                <div class="package-ds"><span>DS boonus</span><span>500</span></div>
-            </div>
-        </div>
-        <div class="package-card">
-            <div class="package-header">
-                <div class="package-name">Founder</div>
-                <div class="package-price">15,000</div>
-            </div>
-            <div class="package-body">
-                <div class="package-max"><span>Nädalane maks.</span><span>40,000</span></div>
-                <div class="package-ds"><span>DS boonus</span><span>1,500</span></div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- 6 VIISI TEENIMISEKS -->
-<section class="slide ways-section">
-    <div class="ways-header">
-        <div class="section-number">10 - Sissetulekuallikad</div>
-        <h2>6 viisi teenimiseks</h2>
-    </div>
-    <div class="ways-grid">
-        <div class="way-card">
-            <div class="way-number">1</div>
-            <h3>Otsemüügi boonus</h3>
-            <p>Teeni 10% komisjonitasu igalt tootelt, mida isiklikult klientidele müüd.</p>
-        </div>
-        <div class="way-card">
-            <div class="way-number">2</div>
-            <h3>Mahuboonus</h3>
-            <p>10% nõrgema tiimi mahust sinu binaarsüsteemis, makstakse igal nädalal.</p>
-        </div>
-        <div class="way-card">
-            <div class="way-number">3</div>
-            <h3>Juhtimisboonus</h3>
-            <p>5% sobitamisboonus sinu tiimi mahuboonsute teenistuselt, kuni 5 põlvkonda.</p>
-        </div>
-        <div class="way-card">
-            <div class="way-number">4</div>
-            <h3>Kvartaalne fond</h3>
-            <p>Osale 5% kõigi globaalsete paketimüükide jagamises, vastavalt sinu osade arvule.</p>
-        </div>
-        <div class="way-card">
-            <div class="way-number">5</div>
-            <h3>Tasemepreemiad</h3>
-            <p>Füüsilised preemiad igal tasemel: tahvelarvutid, kellad, telefonid, sülearvutid, autod ja palju muud.</p>
-        </div>
-        <div class="way-card">
-            <div class="way-number">6</div>
-            <h3>Elustiilihüved</h3>
-            <p>VIP-tugi, juhtimiskoolituse reisid ja eksklusisvised üritused tipptegijatele.</p>
-        </div>
-    </div>
-</section>
-
-<!-- CTA -->
-<section class="slide cta-section" id="kontakt">
+<!-- ====================================
+     SECTION 13: CTA
+     IMAGE NEEDED: images/cta-product.jpg
+     - INJOI machine
+     - Glass of water
+     - Calm home background
+     - Minimal text overlay
+==================================== -->
+<section class="section cta-section" id="kontakt">
+    <div class="cta-bg"></div>
     <div class="cta-content">
-        <div class="section-number">Valmis alustama?</div>
+        <div class="section-label">Valmis alustama?</div>
         <h2>Elu on sinu kätes</h2>
-        <div class="cta-tagline">Täida oma elu kvaliteetsete toodetega</div>
+        <div class="cta-tagline">Tee teadlik valik oma pere tervise heaks</div>
         <div class="cta-info">
             <div class="cta-info-item">
                 <div class="label">Veebileht</div>
                 <div class="value"><a href="https://injoi.life">INJOI.LIFE</a></div>
             </div>
             <div class="cta-info-item">
-                <div class="label">Jõustumiskuupäev</div>
-                <div class="value">1. juuli 2025</div>
+                <div class="label">Küsi infot</div>
+                <div class="value">info@injoi.life</div>
             </div>
         </div>
-        <a href="https://injoi.life" class="cta-button">Alusta täna</a>
+        <a href="https://injoi.life" class="cta-button">Saa rohkem teada</a>
     </div>
 </section>
 
 <script>
+    // Smooth scroll for nav links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
@@ -1666,6 +1995,7 @@
         });
     });
 
+    // Nav scroll effect
     const nav = document.querySelector('.nav');
     window.addEventListener('scroll', () => {
         if (window.scrollY > 100) {
