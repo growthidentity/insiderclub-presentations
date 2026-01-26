@@ -19,12 +19,9 @@
             --gray-600: #475569;
             --gray-800: #1e293b;
             --chocolate: #3d2314;
-            --chocolate-light: #6b4423;
+            --chocolate-light: #8b5a3c;
             --water-blue: #0ea5e9;
-            --water-dark: #0369a1;
             --water-light: #e0f2fe;
-            --red-accent: #dc2626;
-            --green-accent: #16a34a;
         }
 
         * {
@@ -41,8 +38,12 @@
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             background: var(--cream);
             color: var(--gray-800);
-            line-height: 1.7;
+            line-height: 1.6;
             overflow-x: hidden;
+        }
+
+        .font-display {
+            font-family: 'Playfair Display', Georgia, serif;
         }
 
         h1, h2, h3 {
@@ -58,45 +59,53 @@
             overflow: hidden;
         }
 
-        /* Navigation */
         .nav {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
             z-index: 1000;
-            padding: 1.25rem 3rem;
+            padding: 1.5rem 3rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: linear-gradient(180deg, rgba(11, 20, 38, 0.95) 0%, transparent 100%);
-            transition: all 0.3s ease;
+            background: linear-gradient(180deg, rgba(11, 20, 38, 0.9) 0%, transparent 100%);
+            transition: background 0.3s ease;
         }
 
         .nav.scrolled {
-            background: rgba(11, 20, 38, 0.98);
+            background: rgba(11, 20, 38, 0.95);
             backdrop-filter: blur(20px);
-            padding: 1rem 3rem;
         }
 
-        .nav-logo img {
-            height: 32px;
-            filter: brightness(0) invert(1);
-        }
-
-        .section-label {
-            font-size: 0.75rem;
-            color: var(--gold);
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            margin-bottom: 1.5rem;
+        .nav-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.75rem;
             font-weight: 600;
+            color: var(--gold);
+            letter-spacing: 0.15em;
         }
 
-        /* ============================================
-           SLIDE 1: HOOK
-        ============================================ */
-        .hook-slide {
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        .hero {
             background: var(--navy);
             display: flex;
             align-items: center;
@@ -104,920 +113,929 @@
             position: relative;
         }
 
-        .hook-slide::before {
+        .hero::before {
             content: '';
             position: absolute;
             inset: 0;
-            background: url('https://images.unsplash.com/photo-1468421870903-4df1664ac249?w=1920&q=80') center/cover;
-            opacity: 0.12;
+            background: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1920&q=80') center/cover;
+            opacity: 0.15;
         }
 
-        .hook-content {
+        .hero-content {
             position: relative;
             z-index: 2;
             text-align: center;
             padding: 2rem;
-            max-width: 1000px;
+            max-width: 900px;
         }
 
-        .hook-logo {
-            margin-bottom: 2.5rem;
-        }
-
-        .hook-logo img {
-            height: 55px;
-            filter: brightness(0) saturate(100%) invert(72%) sepia(47%) saturate(497%) hue-rotate(5deg) brightness(91%) contrast(89%);
-        }
-
-        .hook-tagline {
-            font-size: 1rem;
+        .hero-tagline {
+            font-size: 0.9rem;
             color: var(--gold);
-            letter-spacing: 0.15em;
+            letter-spacing: 0.3em;
             text-transform: uppercase;
             margin-bottom: 2rem;
-        }
-
-        .hook-question {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(2rem, 4vw, 3.25rem);
-            color: white;
-            margin-bottom: 2rem;
-            line-height: 1.35;
-            font-weight: 400;
-        }
-
-        .hook-question em {
-            color: var(--gold);
-            font-style: normal;
-        }
-
-        .hook-subtext {
-            font-size: 1.1rem;
-            color: rgba(255,255,255,0.7);
-            max-width: 700px;
-            margin: 0 auto;
-            line-height: 1.9;
-        }
-
-        .hook-subtext p {
-            margin-bottom: 1rem;
-        }
-
-        .hook-subtext .emphasis {
-            color: rgba(255,255,255,0.9);
             font-weight: 500;
         }
 
-        .scroll-hint {
+        .hero-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(4rem, 12vw, 10rem);
+            font-weight: 600;
+            color: var(--gold);
+            letter-spacing: 0.15em;
+            margin-bottom: 1rem;
+        }
+
+        .hero-logo .drop {
+            width: 0.15em;
+            height: 0.15em;
+            background: var(--gold);
+            border-radius: 50% 50% 50% 0;
+            transform: rotate(-45deg);
+            display: inline-block;
+            margin: 0 0.05em;
+            vertical-align: middle;
+        }
+
+        .hero-subtitle {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.5rem, 3vw, 2.5rem);
+            color: white;
+            font-weight: 300;
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.7);
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            line-height: 1.8;
+        }
+
+        .hero-version {
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.4);
+            letter-spacing: 0.1em;
+        }
+
+        .scroll-indicator {
             position: absolute;
-            bottom: 2rem;
+            bottom: 3rem;
             left: 50%;
             transform: translateX(-50%);
-            color: rgba(255,255,255,0.4);
-            font-size: 0.75rem;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 0.75rem;
+            gap: 0.5rem;
+            color: rgba(255,255,255,0.5);
+            font-size: 0.75rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
         }
 
-        .scroll-hint::after {
+        .scroll-indicator::after {
             content: '';
             width: 1px;
-            height: 30px;
+            height: 40px;
             background: linear-gradient(180deg, var(--gold), transparent);
-            animation: pulse 2s ease-in-out infinite;
+            animation: scrollPulse 2s ease-in-out infinite;
         }
 
-        @keyframes pulse {
+        @keyframes scrollPulse {
             0%, 100% { opacity: 0.3; }
             50% { opacity: 1; }
         }
 
-        /* ============================================
-           SLIDE 2: WHAT'S IN WATER
-        ============================================ */
-        .contaminants-slide {
-            background: var(--gray-50);
-            padding: 6rem;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .contaminants-header {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto 4rem;
-        }
-
-        .contaminants-header h2 {
-            font-size: clamp(2.25rem, 4vw, 3.25rem);
-            color: var(--navy);
-            margin-bottom: 1rem;
-        }
-
-        .contaminants-header h2 span {
-            color: var(--red-accent);
-        }
-
-        .contaminants-header p {
-            color: var(--gray-600);
-            font-size: 1.05rem;
-            line-height: 1.8;
-        }
-
-        .contaminants-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1.5rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .contaminant-card {
-            background: white;
-            border-radius: 12px;
-            padding: 2rem;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
-            border-left: 4px solid var(--red-accent);
-            transition: all 0.3s ease;
-        }
-
-        .contaminant-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 30px rgba(0,0,0,0.1);
-        }
-
-        .contaminant-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .contaminant-card h4 {
-            font-size: 1.1rem;
-            color: var(--navy);
-            margin-bottom: 0.75rem;
-            font-weight: 600;
-        }
-
-        .contaminant-card p {
-            color: var(--gray-600);
-            font-size: 0.9rem;
-            line-height: 1.6;
-        }
-
-        .warning-note {
-            text-align: center;
-            max-width: 700px;
-            margin: 3rem auto 0;
-            padding: 1.5rem 2rem;
-            background: rgba(220, 38, 38, 0.05);
-            border: 1px solid rgba(220, 38, 38, 0.15);
-            border-radius: 8px;
-            color: var(--gray-600);
-            font-size: 0.95rem;
-        }
-
-        /* ============================================
-           SLIDE 3: THE PROBLEM
-        ============================================ */
-        .problem-slide {
-            background: linear-gradient(135deg, var(--water-dark) 0%, var(--navy) 100%);
-            min-height: 100vh;
-            padding: 6rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-        }
-
-        .problem-content {
-            max-width: 800px;
-        }
-
-        .problem-content h2 {
-            font-size: clamp(2.5rem, 4.5vw, 4rem);
-            color: white;
-            margin-bottom: 2rem;
-        }
-
-        .problem-content h2 span {
-            color: var(--water-blue);
-        }
-
-        .problem-stats {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
-
-        .problem-stat {
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 12px;
-            padding: 2rem;
-        }
-
-        .problem-stat p {
-            color: rgba(255,255,255,0.85);
-            font-size: 1.05rem;
-            line-height: 1.7;
-        }
-
-        .problem-note {
-            padding: 2rem;
-            background: rgba(255,255,255,0.03);
-            border: 1px solid rgba(255,255,255,0.08);
-            border-radius: 12px;
-        }
-
-        .problem-note p {
-            color: rgba(255,255,255,0.8);
-            font-size: 1.1rem;
-            line-height: 1.8;
-            font-style: italic;
-        }
-
-        /* ============================================
-           SLIDE 4: FOUNDER'S WHY
-        ============================================ */
-        .founder-slide {
+        .company-intro {
             display: grid;
             grid-template-columns: 1fr 1fr;
             min-height: 100vh;
         }
 
-        .founder-image {
-            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 4rem;
+        .company-intro-image {
+            background: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&q=80') center/cover;
             position: relative;
         }
 
-        .founder-image::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: url('https://images.unsplash.com/photo-1504893524553-b855bce32c67?w=1200&q=80') center/cover;
-            opacity: 0.15;
-        }
-
-        .founder-photo-container {
-            position: relative;
-            z-index: 2;
-            text-align: center;
-        }
-
-        .founder-photo {
-            width: 260px;
-            height: 260px;
-            border-radius: 50%;
-            border: 4px solid var(--gold);
-            padding: 6px;
-            background: var(--navy);
-            margin-bottom: 2rem;
-            overflow: hidden;
-        }
-
-        .founder-photo img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 50%;
-        }
-
-        .founder-name {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.75rem;
-            color: white;
-            margin-bottom: 0.5rem;
-        }
-
-        .founder-title {
-            color: var(--gold);
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-        }
-
-        .founder-content {
-            background: var(--cream);
-            padding: 5rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .founder-content h2 {
-            font-size: clamp(2rem, 3.5vw, 2.75rem);
-            color: var(--navy);
-            margin-bottom: 2rem;
-            line-height: 1.3;
-        }
-
-        .founder-content h2 span {
-            color: var(--gold);
-        }
-
-        .founder-story {
-            color: var(--gray-600);
-            font-size: 1.05rem;
-            line-height: 1.9;
-        }
-
-        .founder-story p {
-            margin-bottom: 1.5rem;
-        }
-
-        .founder-story .highlight {
-            background: linear-gradient(180deg, transparent 60%, var(--gold-light) 60%);
-            padding: 0 4px;
-        }
-
-        /* ============================================
-           SLIDE 5: THE SOLUTION
-        ============================================ */
-        .solution-slide {
-            background: white;
-            min-height: 100vh;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-        }
-
-        .solution-content {
-            padding: 5rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .solution-content h2 {
-            font-size: clamp(2rem, 3.5vw, 3rem);
-            color: var(--navy);
-            margin-bottom: 1.5rem;
-        }
-
-        .solution-content h2 span {
-            color: var(--water-blue);
-        }
-
-        .solution-content > p {
-            color: var(--gray-600);
-            font-size: 1.05rem;
-            line-height: 1.8;
-            margin-bottom: 2rem;
-        }
-
-        .solution-steps {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        .solution-step {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            padding: 1.25rem 1.5rem;
-            background: var(--gray-50);
-            border-radius: 8px;
-            transition: all 0.3s ease;
-        }
-
-        .solution-step:hover {
-            background: var(--water-light);
-        }
-
-        .step-num {
-            width: 36px;
-            height: 36px;
-            background: var(--water-blue);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: 600;
-            font-size: 0.9rem;
-            flex-shrink: 0;
-        }
-
-        .solution-step p {
-            color: var(--gray-600);
-            font-size: 0.95rem;
-            line-height: 1.5;
-        }
-
-        .solution-result {
-            margin-top: 2rem;
-            padding: 1.5rem;
-            background: var(--navy);
-            border-radius: 8px;
-            color: white;
-            text-align: center;
-        }
-
-        .solution-result p {
-            font-size: 1.05rem;
-        }
-
-        .solution-result strong {
-            color: var(--gold);
-        }
-
-        .solution-visual {
-            background: linear-gradient(135deg, var(--water-blue) 0%, var(--water-dark) 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-        }
-
-        .solution-visual::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: url('https://images.unsplash.com/photo-1527066236128-2ff79f7b9705?w=1200&q=80') center/cover;
-            opacity: 0.2;
-        }
-
-        .solution-showcase {
-            position: relative;
-            z-index: 2;
-            text-align: center;
-            padding: 3rem;
-        }
-
-        .solution-showcase h3 {
-            color: white;
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .solution-showcase p {
-            color: rgba(255,255,255,0.8);
-            font-size: 1rem;
-            line-height: 1.7;
-            max-width: 350px;
-        }
-
-        /* ============================================
-           SLIDE 6: HYDROGEN
-        ============================================ */
-        .hydrogen-slide {
-            background: var(--navy);
-            min-height: 70vh;
-            padding: 6rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-        }
-
-        .hydrogen-content {
-            max-width: 800px;
-        }
-
-        .hydrogen-content h2 {
-            font-size: clamp(2rem, 3.5vw, 3rem);
-            color: white;
-            margin-bottom: 2rem;
-        }
-
-        .hydrogen-content h2 span {
-            color: var(--water-blue);
-        }
-
-        .hydrogen-content p {
-            color: rgba(255,255,255,0.8);
-            font-size: 1.1rem;
-            line-height: 1.9;
-            margin-bottom: 1.5rem;
-        }
-
-        .hydrogen-note {
-            padding: 1.5rem 2rem;
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 8px;
-            margin-top: 2rem;
-        }
-
-        .hydrogen-note p {
-            color: var(--gold);
-            font-size: 1rem;
-            margin: 0;
-            font-style: italic;
-        }
-
-        /* ============================================
-           SLIDE 7: WHAT'S REMOVED
-        ============================================ */
-        .removed-slide {
-            background: var(--gray-50);
-            padding: 6rem;
-            min-height: 80vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .removed-header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
-        .removed-header h2 {
-            font-size: clamp(2.25rem, 4vw, 3.25rem);
-            color: var(--navy);
-            margin-bottom: 1rem;
-        }
-
-        .removed-header h2 span {
-            color: var(--green-accent);
-        }
-
-        .removed-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1.5rem;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        .removed-card {
-            background: white;
-            border-radius: 12px;
-            padding: 2rem;
-            text-align: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            border-top: 4px solid var(--green-accent);
-        }
-
-        .removed-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .removed-card h4 {
-            font-size: 1rem;
-            color: var(--navy);
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-        }
-
-        .removed-card p {
-            color: var(--green-accent);
-            font-size: 0.85rem;
-            font-weight: 600;
-        }
-
-        .savings-note {
-            text-align: center;
-            max-width: 600px;
-            margin: 3rem auto 0;
-            padding: 1.5rem 2rem;
-            background: var(--gold-light);
-            border-radius: 8px;
-            color: var(--navy);
-            font-size: 1.05rem;
-        }
-
-        /* ============================================
-           SLIDE 8: CHOCOLATE (Bridge)
-        ============================================ */
-        .chocolate-slide {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            min-height: 100vh;
-        }
-
-        .chocolate-image {
-            background: url('https://images.unsplash.com/photo-1606312619070-d48b4c652a52?w=1200&q=80') center/cover;
-            position: relative;
-        }
-
-        .chocolate-image::after {
+        .company-intro-image::after {
             content: '';
             position: absolute;
             inset: 0;
             background: linear-gradient(90deg, transparent 60%, var(--cream) 100%);
         }
 
-        .chocolate-content {
-            background: var(--cream);
-            padding: 5rem;
+        .company-intro-content {
             display: flex;
             flex-direction: column;
             justify-content: center;
-        }
-
-        .chocolate-content h2 {
-            font-size: clamp(2rem, 3.5vw, 2.75rem);
-            color: var(--chocolate);
-            margin-bottom: 1.5rem;
-        }
-
-        .chocolate-content h2 span {
-            color: var(--gold);
-        }
-
-        .chocolate-content > p {
-            color: var(--gray-600);
-            font-size: 1.05rem;
-            line-height: 1.8;
-            margin-bottom: 2rem;
-        }
-
-        .chocolate-features {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        .choco-feature {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            padding: 1rem 1.25rem;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-        }
-
-        .choco-feature-icon {
-            font-size: 1.5rem;
-        }
-
-        .choco-feature p {
-            color: var(--gray-600);
-            font-size: 0.95rem;
-        }
-
-        .chocolate-note {
-            margin-top: 2rem;
-            padding: 1.25rem 1.5rem;
-            background: var(--chocolate);
-            border-radius: 8px;
-            color: white;
-            font-style: italic;
-            font-size: 1rem;
-            text-align: center;
-        }
-
-        /* ============================================
-           SLIDE 9: VISION
-        ============================================ */
-        .vision-slide {
-            background: linear-gradient(135deg, var(--navy) 0%, #1a3a5c 100%);
-            min-height: 80vh;
             padding: 6rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-        }
-
-        .vision-content {
-            max-width: 800px;
-        }
-
-        .vision-content h2 {
-            font-size: clamp(2.5rem, 4.5vw, 4rem);
-            color: white;
-            margin-bottom: 2rem;
-        }
-
-        .vision-content h2 span {
-            color: var(--gold);
-        }
-
-        .vision-content p {
-            color: rgba(255,255,255,0.8);
-            font-size: 1.15rem;
-            line-height: 1.9;
-            margin-bottom: 1.5rem;
-        }
-
-        .vision-highlight {
-            padding: 2rem;
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 12px;
-            margin-top: 2rem;
-        }
-
-        .vision-highlight p {
-            color: var(--gold);
-            font-size: 1.1rem;
-            margin: 0;
-        }
-
-        /* ============================================
-           SLIDE 10: OPPORTUNITY
-        ============================================ */
-        .opportunity-slide {
             background: var(--cream);
-            padding: 6rem;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
         }
 
-        .opportunity-header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
-        .opportunity-header h2 {
-            font-size: clamp(2.25rem, 4vw, 3.25rem);
-            color: var(--navy);
-            margin-bottom: 1rem;
-        }
-
-        .opportunity-header h2 span {
+        .section-number {
+            font-size: 0.75rem;
             color: var(--gold);
-        }
-
-        .opportunity-header p {
-            color: var(--gray-600);
-            font-size: 1.1rem;
-            max-width: 600px;
-            margin: 0 auto;
-            line-height: 1.8;
-        }
-
-        .opportunity-options {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            max-width: 1000px;
-            margin: 0 auto 3rem;
-        }
-
-        .opportunity-option {
-            background: white;
-            border-radius: 12px;
-            padding: 2.5rem;
-            text-align: center;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
-            transition: all 0.3s ease;
-        }
-
-        .opportunity-option:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 30px rgba(0,0,0,0.1);
-        }
-
-        .opportunity-option-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .opportunity-option h4 {
-            font-size: 1.1rem;
-            color: var(--navy);
-            margin-bottom: 0.75rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
             font-weight: 600;
         }
 
-        .opportunity-option p {
-            color: var(--gray-600);
-            font-size: 0.95rem;
-            line-height: 1.6;
+        .company-intro-content h2 {
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            color: var(--navy);
+            margin-bottom: 2rem;
+            line-height: 1.15;
         }
 
-        .opportunity-note {
-            text-align: center;
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 1.5rem 2rem;
-            background: var(--gray-50);
-            border-radius: 8px;
+        .company-intro-content .lead {
+            font-size: 1.25rem;
             color: var(--gray-600);
-            font-size: 1rem;
-            font-style: italic;
+            margin-bottom: 2rem;
+            line-height: 1.7;
         }
 
-        /* ============================================
-           SLIDE 11: HOW TO START
-        ============================================ */
-        .start-slide {
+        .company-intro-content p {
+            color: var(--gray-600);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .stat-row {
+            display: flex;
+            gap: 3rem;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--gray-200);
+        }
+
+        .stat {
+            text-align: left;
+        }
+
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: var(--navy);
+            font-weight: 500;
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--gray-600);
+            margin-top: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .vmv-section {
             background: var(--navy);
-            padding: 6rem;
-            min-height: 100vh;
+            padding: 8rem 6rem;
             display: flex;
             flex-direction: column;
             justify-content: center;
         }
 
-        .start-header {
+        .vmv-header {
             text-align: center;
-            margin-bottom: 4rem;
+            margin-bottom: 5rem;
         }
 
-        .start-header h2 {
+        .vmv-header h2 {
             font-size: clamp(2.5rem, 4vw, 3.5rem);
             color: white;
             margin-bottom: 1rem;
         }
 
-        .start-steps {
+        .vmv-header p {
+            color: rgba(255,255,255,0.6);
+            font-size: 1.1rem;
+        }
+
+        .vmv-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto 3rem;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+            max-width: 1400px;
+            margin: 0 auto;
         }
 
-        .start-step {
+        .vmv-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 4px;
+            padding: 3rem;
             text-align: center;
-            position: relative;
+            transition: all 0.4s ease;
         }
 
-        .start-step::after {
+        .vmv-card:hover {
+            background: rgba(255,255,255,0.06);
+            border-color: var(--gold);
+            transform: translateY(-8px);
+        }
+
+        .vmv-icon {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .vmv-icon svg {
+            width: 100%;
+            height: 100%;
+            stroke: var(--gold);
+            fill: none;
+            stroke-width: 1.5;
+        }
+
+        .vmv-card h3 {
+            font-size: 1.5rem;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        .vmv-card p {
+            color: rgba(255,255,255,0.7);
+            line-height: 1.8;
+            font-size: 1rem;
+        }
+
+        .team-section {
+            background: var(--cream);
+            padding: 8rem 6rem;
+        }
+
+        .team-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .team-header h2 {
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            color: var(--navy);
+            margin-bottom: 1rem;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .team-card {
+            text-align: center;
+        }
+
+        .team-photo {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin: 0 auto 2rem;
+            overflow: hidden;
+            border: 3px solid var(--gold);
+            padding: 4px;
+            background: white;
+        }
+
+        .team-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            filter: grayscale(20%);
+        }
+
+        .team-card h3 {
+            font-size: 1.5rem;
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+        }
+
+        .team-role {
+            font-size: 0.9rem;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .team-bio {
+            list-style: none;
+            text-align: left;
+            padding: 0;
+        }
+
+        .team-bio li {
+            color: var(--gray-600);
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--gray-200);
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .team-bio li::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: var(--gold);
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .water-crisis {
+            min-height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .water-crisis-bg {
+            position: absolute;
+            inset: 0;
+            background: url('https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=1920&q=80') center/cover;
+        }
+
+        .water-crisis-bg::after {
             content: '';
             position: absolute;
-            top: 40px;
-            right: -1rem;
-            width: calc(100% - 80px);
-            height: 2px;
-            background: var(--gold-light);
-            opacity: 0.3;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(11, 20, 38, 0.95) 0%, rgba(11, 20, 38, 0.7) 100%);
         }
 
-        .start-step:last-child::after {
-            display: none;
+        .water-crisis-content {
+            position: relative;
+            z-index: 2;
+            padding: 6rem;
+            max-width: 800px;
         }
 
-        .step-number {
-            width: 80px;
-            height: 80px;
+        .water-crisis-content h2 {
+            font-size: clamp(3rem, 5vw, 4.5rem);
+            color: white;
+            margin-bottom: 2rem;
+            line-height: 1.1;
+        }
+
+        .water-crisis-content h2 span {
+            color: var(--water-blue);
+        }
+
+        .crisis-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .crisis-stat {
             background: rgba(255,255,255,0.05);
-            border: 2px solid var(--gold);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 4px;
+            padding: 2rem;
+        }
+
+        .crisis-stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            color: var(--water-blue);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .crisis-stat-label {
+            color: rgba(255,255,255,0.8);
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        .water-solution {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 100vh;
+        }
+
+        .water-solution-content {
+            background: var(--cream);
+            padding: 6rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .water-solution-content h2 {
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            color: var(--navy);
+            margin-bottom: 2rem;
+        }
+
+        .water-solution-content h2 span {
+            color: var(--water-blue);
+        }
+
+        .solution-features {
+            margin-top: 2rem;
+        }
+
+        .solution-feature {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .solution-feature:last-child {
+            border-bottom: none;
+        }
+
+        .solution-feature-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--water-light);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 1.5rem;
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            color: var(--gold);
-            position: relative;
-            z-index: 2;
+            flex-shrink: 0;
         }
 
-        .start-step h4 {
-            font-size: 1rem;
-            color: white;
-            margin-bottom: 0.75rem;
+        .solution-feature-icon svg {
+            width: 24px;
+            height: 24px;
+            stroke: var(--water-blue);
+            fill: none;
+        }
+
+        .solution-feature h4 {
+            font-size: 1.1rem;
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+            font-family: 'Inter', sans-serif;
             font-weight: 600;
         }
 
-        .start-step p {
-            color: rgba(255,255,255,0.7);
-            font-size: 0.9rem;
-            line-height: 1.5;
-        }
-
-        .start-note {
-            text-align: center;
-            max-width: 500px;
-            margin: 0 auto;
-            color: rgba(255,255,255,0.6);
+        .solution-feature p {
+            color: var(--gray-600);
             font-size: 0.95rem;
-            font-style: italic;
+            line-height: 1.6;
         }
 
-        /* ============================================
-           SLIDE 12: CTA
-        ============================================ */
-        .cta-slide {
+        .water-solution-image {
+            background: linear-gradient(135deg, var(--water-blue) 0%, #0284c7 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .water-solution-image::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url('https://images.unsplash.com/photo-1548839140-29a749e1cf4d?w=1200&q=80') center/cover;
+            opacity: 0.2;
+        }
+
+        .product-showcase {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 3rem;
+        }
+
+        .product-showcase img {
+            max-width: 80%;
+            max-height: 60vh;
+            object-fit: contain;
+            filter: drop-shadow(0 30px 60px rgba(0,0,0,0.3));
+        }
+
+        .product-showcase h3 {
+            color: white;
+            font-size: 1.5rem;
+            margin-top: 2rem;
+            font-weight: 400;
+        }
+
+        .chocolate-problem {
+            background: var(--chocolate);
+            min-height: 100vh;
+            padding: 8rem 6rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .chocolate-header {
+            max-width: 800px;
+            margin-bottom: 4rem;
+        }
+
+        .chocolate-header h2 {
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .chocolate-header h2 span {
+            color: var(--gold);
+        }
+
+        .chocolate-header p {
+            color: rgba(255,255,255,0.7);
+            font-size: 1.1rem;
+        }
+
+        .chocolate-facts {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            max-width: 1200px;
+        }
+
+        .chocolate-fact {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 4px;
+            padding: 2.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .chocolate-fact:hover {
+            background: rgba(255,255,255,0.08);
+            border-color: var(--gold);
+        }
+
+        .fact-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: var(--gold);
+            line-height: 1;
+            margin-bottom: 1rem;
+        }
+
+        .chocolate-fact h4 {
+            font-size: 1.25rem;
+            color: white;
+            margin-bottom: 1rem;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+        }
+
+        .chocolate-fact p {
+            color: rgba(255,255,255,0.7);
+            line-height: 1.7;
+        }
+
+        .chocolate-solution {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 100vh;
+        }
+
+        .chocolate-solution-image {
+            background: url('https://images.unsplash.com/photo-1481391319762-47dff72954d9?w=1200&q=80') center/cover;
+            position: relative;
+        }
+
+        .chocolate-solution-image::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(270deg, var(--cream) 0%, transparent 30%);
+        }
+
+        .chocolate-solution-content {
+            background: var(--cream);
+            padding: 6rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .chocolate-solution-content h2 {
+            font-size: clamp(2rem, 3.5vw, 3rem);
+            color: var(--chocolate);
+            margin-bottom: 0.5rem;
+        }
+
+        .chocolate-solution-content .brand {
+            font-size: 1rem;
+            color: var(--gold);
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-bottom: 2rem;
+        }
+
+        .benefits-list {
+            margin-top: 1rem;
+        }
+
+        .benefit-item {
+            display: flex;
+            gap: 1.25rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .benefit-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--gold);
+            font-weight: 500;
+            flex-shrink: 0;
+            width: 30px;
+        }
+
+        .benefit-item h4 {
+            font-size: 1rem;
+            color: var(--chocolate);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .benefit-item p {
+            color: var(--gray-600);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .comp-intro {
+            background: var(--navy);
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             position: relative;
-            background: var(--cream);
         }
 
-        .cta-slide::before {
+        .comp-intro::before {
             content: '';
             position: absolute;
             inset: 0;
-            background: url('https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=1920&q=80') center/cover;
-            opacity: 0.08;
+            background: url('https://images.unsplash.com/photo-1519681393784-d120267933ba?w=1920&q=80') center/cover;
+            opacity: 0.1;
+        }
+
+        .comp-intro-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 800px;
+            padding: 2rem;
+        }
+
+        .comp-intro-content h2 {
+            font-size: clamp(3rem, 5vw, 4.5rem);
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+
+        .comp-intro-content h2 span {
+            color: var(--gold);
+        }
+
+        .comp-intro-content p {
+            color: rgba(255,255,255,0.7);
+            font-size: 1.25rem;
+            line-height: 1.8;
+        }
+
+        .getting-started {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-top: 4rem;
+        }
+
+        .start-step {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 4px;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .start-step:hover {
+            background: rgba(255,255,255,0.08);
+            border-color: var(--gold);
+        }
+
+        .step-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+
+        .start-step h4 {
+            color: white;
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .start-step p {
+            color: rgba(255,255,255,0.6);
+            font-size: 0.85rem;
+            line-height: 1.5;
+        }
+
+        .packages-section {
+            background: var(--gray-50);
+            padding: 8rem 4rem;
+        }
+
+        .packages-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .packages-header h2 {
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            color: var(--navy);
+            margin-bottom: 1rem;
+        }
+
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .package-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            border: 1px solid var(--gray-200);
+        }
+
+        .package-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .package-card.featured {
+            border-color: var(--gold);
+            box-shadow: 0 8px 30px rgba(201, 162, 39, 0.15);
+        }
+
+        .package-header {
+            background: var(--navy);
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .package-card.featured .package-header {
+            background: linear-gradient(135deg, var(--gold) 0%, #b8941f 100%);
+        }
+
+        .package-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.25rem;
+            color: white;
+            margin-bottom: 0.25rem;
+        }
+
+        .package-price {
+            font-size: 2rem;
+            color: white;
+            font-weight: 700;
+        }
+
+        .package-body {
+            padding: 1.5rem;
+        }
+
+        .package-max {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--gray-200);
+            font-size: 0.9rem;
+        }
+
+        .package-max span:first-child {
+            color: var(--gray-600);
+        }
+
+        .package-max span:last-child {
+            color: var(--navy);
+            font-weight: 600;
+        }
+
+        .package-ds {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.75rem 0;
+            font-size: 0.9rem;
+        }
+
+        .package-ds span:first-child {
+            color: var(--gray-600);
+        }
+
+        .package-ds span:last-child {
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        .ways-section {
+            background: var(--cream);
+            padding: 8rem 6rem;
+        }
+
+        .ways-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .ways-header h2 {
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            color: var(--navy);
+            margin-bottom: 1rem;
+        }
+
+        .ways-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .way-card {
+            background: white;
+            border-radius: 8px;
+            padding: 2.5rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            border: 1px solid var(--gray-200);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .way-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            border-color: var(--gold);
+        }
+
+        .way-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+
+        .way-card h3 {
+            font-size: 1.25rem;
+            color: var(--navy);
+            margin-bottom: 1rem;
+        }
+
+        .way-card p {
+            color: var(--gray-600);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .cta-section {
+            background: var(--navy);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url('https://images.unsplash.com/photo-1483354483454-4cd359948304?w=1920&q=80') center/cover;
+            opacity: 0.1;
         }
 
         .cta-content {
@@ -1025,479 +1043,629 @@
             z-index: 2;
             text-align: center;
             max-width: 800px;
-            padding: 4rem 2rem;
-        }
-
-        .cta-logo {
-            margin-bottom: 2rem;
-        }
-
-        .cta-logo img {
-            height: 55px;
+            padding: 2rem;
         }
 
         .cta-content h2 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            color: var(--navy);
-            margin-bottom: 2rem;
-        }
-
-        .cta-content h2 span {
-            color: var(--gold);
-        }
-
-        .cta-message {
-            max-width: 600px;
-            margin: 0 auto 2.5rem;
-        }
-
-        .cta-message p {
-            color: var(--gray-600);
-            font-size: 1.15rem;
-            line-height: 1.9;
-            margin-bottom: 1rem;
-        }
-
-        .cta-highlight {
-            padding: 2rem;
-            background: var(--navy);
-            border-radius: 12px;
-            margin-bottom: 2.5rem;
-        }
-
-        .cta-highlight p {
+            font-size: clamp(3rem, 5vw, 4.5rem);
             color: white;
-            font-size: 1.25rem;
-            margin: 0;
+            margin-bottom: 1.5rem;
         }
 
-        .cta-highlight strong {
+        .cta-tagline {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
             color: var(--gold);
+            font-style: italic;
+            margin-bottom: 3rem;
+        }
+
+        .cta-info {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            margin-bottom: 3rem;
+        }
+
+        .cta-info-item {
+            text-align: center;
+        }
+
+        .cta-info-item .label {
+            color: rgba(255,255,255,0.6);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.5rem;
+        }
+
+        .cta-info-item .value {
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .cta-info-item .value a {
+            color: var(--gold);
+            text-decoration: none;
         }
 
         .cta-button {
             display: inline-block;
+            background: var(--gold);
+            color: var(--navy);
             padding: 1.25rem 3rem;
             font-size: 1rem;
-            font-weight: 600;
+            font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.1em;
+            letter-spacing: 0.15em;
             text-decoration: none;
             border-radius: 4px;
             transition: all 0.3s ease;
-            background: var(--gold);
-            color: var(--navy);
         }
 
         .cta-button:hover {
-            background: var(--navy);
-            color: white;
+            background: white;
             transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
         }
 
-        /* ============================================
-           RESPONSIVE
-        ============================================ */
         @media (max-width: 1200px) {
-            .contaminants-grid,
-            .removed-grid {
+            .packages-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
         }
 
         @media (max-width: 968px) {
-            .founder-slide,
-            .solution-slide,
-            .chocolate-slide {
-                grid-template-columns: 1fr;
-            }
-
-            .founder-image,
-            .chocolate-image {
-                min-height: 50vh;
-            }
-
-            .opportunity-options {
-                grid-template-columns: 1fr;
-            }
-
-            .start-steps {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .start-step::after {
+            .nav-links {
                 display: none;
             }
 
-            .problem-stats {
+            .company-intro,
+            .water-solution,
+            .chocolate-solution {
                 grid-template-columns: 1fr;
             }
 
-            .founder-content,
-            .solution-content,
-            .chocolate-content {
-                padding: 3rem 2rem;
+            .company-intro-image,
+            .chocolate-solution-image {
+                min-height: 50vh;
             }
 
-            .contaminants-slide,
-            .problem-slide,
-            .hydrogen-slide,
-            .removed-slide,
-            .vision-slide,
-            .opportunity-slide,
-            .start-slide {
+            .vmv-grid,
+            .team-grid,
+            .ways-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .chocolate-facts,
+            .crisis-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .getting-started {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .packages-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .company-intro-content,
+            .water-solution-content,
+            .chocolate-solution-content {
+                padding: 4rem 2rem;
+            }
+
+            .vmv-section,
+            .team-section,
+            .chocolate-problem,
+            .packages-section,
+            .ways-section {
+                padding: 4rem 2rem;
+            }
+
+            .water-crisis-content {
                 padding: 4rem 2rem;
             }
         }
 
         @media (max-width: 640px) {
-            .contaminants-grid,
-            .removed-grid,
-            .start-steps {
+            .getting-started {
                 grid-template-columns: 1fr;
+            }
+
+            .stat-row {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .cta-info {
+                flex-direction: column;
+                gap: 2rem;
             }
         }
     </style>
 </head>
 <body>
 
-<!-- Navigation -->
 <nav class="nav">
-    <div class="nav-logo">
-        <img src="https://insiderclub.org/LOGOS/injoi_logo.png" alt="INJOI" onerror="this.outerHTML='<span style=\'font-family: Playfair Display, serif; font-size: 1.5rem; color: #C9A227; letter-spacing: 0.1em;\'>INJOI</span>'">
+    <div class="nav-logo">INJOI</div>
+    <div class="nav-links">
+        <a href="#ettevote">Ettevõte</a>
+        <a href="#tooted">Tooted</a>
+        <a href="#voimalus">Võimalus</a>
+        <a href="#kontakt">Kontakt</a>
     </div>
 </nav>
 
-<!-- SLIDE 1: HOOK -->
-<section class="slide hook-slide">
-    <div class="hook-content">
-        <div class="hook-logo">
-            <img src="https://insiderclub.org/LOGOS/injoi_logo.png" alt="INJOI" onerror="this.outerHTML='<span style=\'font-family: Playfair Display, serif; font-size: 2.5rem; color: #C9A227; letter-spacing: 0.15em;\'>INJOI</span>'">
+<!-- HERO -->
+<section class="slide hero">
+    <div class="hero-content">
+        <div class="hero-tagline">Kvaliteetsed elustiilitooted</div>
+        <div class="hero-logo">
+            INJ<span class="drop"></span>I
         </div>
-        <p class="hook-tagline">Elu on sinu kätes</p>
-        <h1 class="hook-question">
-            Enamik inimesi usub, et kraanivesi on <em>turvaline</em>.
-        </h1>
-        <div class="hook-subtext">
-            <p>
-                Tõde on see, et ka Euroopas – ka Eestis – sisaldab joogivesi aineid,
-                mis kogunevad kehas vaikselt, aastate jooksul.
-            </p>
-            <p>
-                Sa ei tunne seda maitses ega lõhnas.<br>
-                <span class="emphasis">Aga keha tunneb.</span>
-            </p>
-        </div>
-    </div>
-    <div class="scroll-hint">Avasta tõde</div>
-</section>
-
-<!-- SLIDE 2: WHAT'S IN WATER -->
-<section class="slide contaminants-slide">
-    <div class="contaminants-header">
-        <h2>Mida me tegelikult oma veega <span>sisse joome</span>?</h2>
-    </div>
-    <div class="contaminants-grid">
-        <div class="contaminant-card">
-            <div class="contaminant-icon">🔬</div>
-            <h4>Mikroplast</h4>
-            <p>Osakesed, mida leidub juba inimese veres ja kopsudes. Seotud DNA kahjustuste ja põletikuga.</p>
-        </div>
-        <div class="contaminant-card">
-            <div class="contaminant-icon">⚗️</div>
-            <h4>PFAS-kemikaalid</h4>
-            <p>Nn „igavesed kemikaalid", mis ei lagune ei keskkonnas ega kehas. Kunagi.</p>
-        </div>
-        <div class="contaminant-card">
-            <div class="contaminant-icon">💊</div>
-            <h4>Ravimijäägid</h4>
-            <p>Hormoonid, antibiootikumid, valuvaigistid – kõik see, mida inimesed tarbivad ja välja eritavad.</p>
-        </div>
-        <div class="contaminant-card">
-            <div class="contaminant-icon">☠️</div>
-            <h4>Raskemetallid</h4>
-            <p>Plii ja elavhõbe. Seotud neuroloogiliste kahjustuste ja arenguhäiretega.</p>
-        </div>
-    </div>
-    <div class="warning-note">
-        Need ei kao keemisest ega tavalistest filtritest.
-    </div>
-</section>
-
-<!-- SLIDE 3: THE PROBLEM -->
-<section class="slide problem-slide">
-    <div class="problem-content">
-        <div class="section-label">Probleem, millest vähe räägitakse</div>
-        <h2>Vaid <span>kolmandik</span> EL pinnaveest on heas seisukorras</h2>
-        <div class="problem-stats">
-            <div class="problem-stat">
-                <p>Samas kasutame seda vett iga päev joomiseks, toidu tegemiseks ja laste jaoks.</p>
-            </div>
-            <div class="problem-stat">
-                <p>90% mikroplastidest on väiksemad kui EL-i tuvastamispiirid – me lihtsalt ei näe neid.</p>
-            </div>
-        </div>
-        <div class="problem-note">
-            <p>See ei ole paanika jutt. See on fakt, millest lihtsalt ei räägita piisavalt.</p>
-        </div>
-    </div>
-</section>
-
-<!-- SLIDE 4: FOUNDER'S WHY -->
-<section class="slide founder-slide">
-    <div class="founder-image">
-        <div class="founder-photo-container">
-            <div class="founder-photo">
-                <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&q=80" alt="Horre Saluste">
-            </div>
-            <div class="founder-name">Horre Saluste</div>
-            <div class="founder-title">Asutaja</div>
-        </div>
-    </div>
-    <div class="founder-content">
-        <div class="section-label">Kuidas INJOI alguse sai</div>
-        <h2>Väga isiklik <span>põhjus</span></h2>
-        <div class="founder-story">
-            <p>
-                INJOI sündis väga isiklikust põhjusest. Ettevõtte looja Horre Saluste puutus
-                oma peres kokku terviseprobleemidega, millele arstid ei leidnud selget põhjust.
-            </p>
-            <p>
-                Uurides jõudis ta <span class="highlight">vee kvaliteedini</span>.
-                Sealt algas üle 10 aasta kestnud sügav töö vee puhastamise tehnoloogiatega.
-            </p>
-            <p>
-                INJOI loodi selleks, et tavaline pere saaks ligipääsu
-                <span class="highlight">päriselt puhtale veele</span>,
-                ilma keeruliste paigalduste ja tööstuslahendusteta.
-            </p>
-        </div>
-    </div>
-</section>
-
-<!-- SLIDE 5: THE SOLUTION -->
-<section class="slide solution-slide">
-    <div class="solution-content">
-        <div class="section-label">Lahendus</div>
-        <h2>INJOI veepuhasti – <span>lihtne, aga tõhus</span></h2>
-        <p>
-            Lauapealne seade, mida ei pea torustikku ehitama.
-            Ühendad, vajutad nuppu ja umbes 90 sekundi pärast on vesi valmis.
+        <div class="hero-subtitle">Elu on sinu kätes</div>
+        <p class="hero-description">
+            Avasta puhas vesi ja toitaineterikkas tooršokolaad.
+            Üle 15 aasta innovatsiooni Eestist maailma.
         </p>
-        <div class="solution-steps">
-            <div class="solution-step">
-                <div class="step-num">1</div>
-                <p>Setete eemaldamine – rooste, liiv, suured osakesed</p>
-            </div>
-            <div class="solution-step">
-                <div class="step-num">2</div>
-                <p>Aktiivsüsi – kloori ja kemikaalide imendumine, maitse parandamine</p>
-            </div>
-            <div class="solution-step">
-                <div class="step-num">3</div>
-                <p>Pöördosmoosi membraan – 0.0001 mikronine filtreerimine</p>
-            </div>
-            <div class="solution-step">
-                <div class="step-num">4</div>
-                <p>Molekulaarse vesiniku lisamine – antioksüdantne toime</p>
-            </div>
-        </div>
-        <div class="solution-result">
-            <p>Tulemuseks on vesi, millest on eemaldatud kuni <strong>99% kahjulikest ainetest</strong>.</p>
-        </div>
+        <div class="hero-version">Esitlus v1.0 - 2025</div>
     </div>
-    <div class="solution-visual">
-        <div class="solution-showcase">
-            <h3>4-astmeline puhastus</h3>
-            <p>Paigaldust ei vaja. Ühenda vooluvõrku ja hakka kohe kasutama.</p>
-        </div>
-    </div>
+    <div class="scroll-indicator">Keri</div>
 </section>
 
-<!-- SLIDE 6: HYDROGEN -->
-<section class="slide hydrogen-slide">
-    <div class="hydrogen-content">
-        <div class="section-label">Teaduspõhine lisand</div>
-        <h2>Miks <span>vesinikuga</span> rikastatud vesi?</h2>
-        <p>
-            Molekulaarne vesinik on tuntud kui tugev antioksüdant.
-            Seda uuritakse üha rohkem seoses rakkude kaitse, taastumise ja põletike vähendamisega.
+<!-- ETTEVÕTTE TUTVUSTUS -->
+<section class="slide company-intro" id="ettevote">
+    <div class="company-intro-image"></div>
+    <div class="company-intro-content">
+        <div class="section-number">01 - Meist</div>
+        <h2>INJOI esindab parimat elustiilitoodetes</h2>
+        <p class="lead">
+            Üle 15 aasta oleme loonud kvaliteetseid osmoosveepuhasteid
+            ja tooršokolaade, mis muudavad igapäevast heaolu.
         </p>
         <p>
-            INJOI seade toodab kuni 1400 PPB molekulaarset vesinikku –
-            see on meditsiiniline tase.
+            INJOI pakub mitmeid võimalusi nii klientidele kui äripartneritele
+            kvaliteetsete toodete ja teenuste kaudu. Meie innovaatiline lähenemine
+            ühendab tipptasemel tehnoloogia looduslike koostisosadega.
         </p>
-        <div class="hydrogen-note">
-            <p>INJOI veevesinik ei ole turunduslik trikk, vaid teaduspõhine lisand.</p>
+        <div class="stat-row">
+            <div class="stat">
+                <div class="stat-number">15+</div>
+                <div class="stat-label">Aastat kogemust</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">80+</div>
+                <div class="stat-label">Šokolaadiretsepti</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">2</div>
+                <div class="stat-label">Tootesarja</div>
+            </div>
         </div>
     </div>
 </section>
 
-<!-- SLIDE 7: WHAT'S REMOVED -->
-<section class="slide removed-slide">
-    <div class="removed-header">
-        <h2>Mida INJOI vesi <span>ei sisalda</span></h2>
+<!-- VISIOON, MISSIOON, VÄÄRTUSED -->
+<section class="slide vmv-section">
+    <div class="vmv-header">
+        <div class="section-number">02 - Meie alused</div>
+        <h2>Mille eest seisame</h2>
+        <p>Põhimõtted, mis juhivad kõike, mida teeme</p>
     </div>
-    <div class="removed-grid">
-        <div class="removed-card">
-            <div class="removed-icon">🔬</div>
-            <h4>Mikroplast</h4>
-            <p>99% eemaldatud</p>
+    <div class="vmv-grid">
+        <div class="vmv-card">
+            <div class="vmv-icon">
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 0 1 10 10"/><circle cx="12" cy="12" r="3"/></svg>
+            </div>
+            <h3>Visioon</h3>
+            <p>Maailm, kus teadlikud valikud viivad parema tervise ja heaoluni kõigi jaoks.</p>
         </div>
-        <div class="removed-card">
-            <div class="removed-icon">⚗️</div>
-            <h4>PFAS-ühendid</h4>
-            <p>99% eemaldatud</p>
+        <div class="vmv-card">
+            <div class="vmv-icon">
+                <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            </div>
+            <h3>Missioon</h3>
+            <p>Toetada tervislikumat elamist puhta vee ja toitaineterikka käsitööšokolaadi kaudu - teadlikkuse ja usalduse juhtimisel.</p>
         </div>
-        <div class="removed-card">
-            <div class="removed-icon">🧪</div>
-            <h4>Kloor ja keemiline maitse</h4>
-            <p>99% eemaldatud</p>
+        <div class="vmv-card">
+            <div class="vmv-icon">
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <h3>Väärtused</h3>
+            <p>Meie eesmärk on tõsta teadlikkust puhtast veest ja tervislikust toitumisest. Me ei müü lihtsalt - me harime ja inspireerime.</p>
         </div>
-        <div class="removed-card">
-            <div class="removed-icon">☠️</div>
-            <h4>Raskemetallid</h4>
-            <p>99.9% eemaldatud</p>
-        </div>
-    </div>
-    <div class="savings-note">
-        Lisaks säästad raha, sest pudelivett ei ole enam vaja osta. Sääst 5 aastaga: üle €4,400.
     </div>
 </section>
 
-<!-- SLIDE 8: CHOCOLATE -->
-<section class="slide chocolate-slide">
-    <div class="chocolate-image"></div>
-    <div class="chocolate-content">
-        <div class="section-label">Rohkem kui vesi</div>
-        <h2>INJOI ei ole <span>ainult vesi</span></h2>
+<!-- MEESKOND -->
+<section class="slide team-section">
+    <div class="team-header">
+        <div class="section-number">03 - Juhtkond</div>
+        <h2>Tutvu meie meeskonnaga</h2>
+    </div>
+    <div class="team-grid">
+        <div class="team-card">
+            <div class="team-photo">
+                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&q=80" alt="Horre Saluste">
+            </div>
+            <h3>Horre Saluste</h3>
+            <div class="team-role">Looja</div>
+            <ul class="team-bio">
+                <li>30 aastat ärikogemust</li>
+                <li>12 aastat osmoosfiltreid</li>
+                <li>Müügimeister</li>
+                <li>Kahe šokolaadivabriku omanik</li>
+                <li>80 tooršokolaadiretsepti looja</li>
+            </ul>
+        </div>
+        <div class="team-card">
+            <div class="team-photo">
+                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80" alt="Georg Borin">
+            </div>
+            <h3>Georg Borin</h3>
+            <div class="team-role">Nõustaja</div>
+            <ul class="team-bio">
+                <li>26 aastat müügis</li>
+                <li>15 aastat MLM-valdkonnas</li>
+                <li>Strateegiline äriarendus</li>
+                <li>Võrgustiku laiendamise spetsialist</li>
+            </ul>
+        </div>
+        <div class="team-card">
+            <div class="team-photo">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80" alt="Madis Sandermat">
+            </div>
+            <h3>Madis Sandermat</h3>
+            <div class="team-role">Nõustaja</div>
+            <ul class="team-bio">
+                <li>15 aastat müügis</li>
+                <li>Professionaalne müügikoolitaja</li>
+                <li>10 aastat MLM-valdkonnas</li>
+                <li>Meeskonna loomise ekspert</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- VEEPROBLEEM -->
+<section class="slide water-crisis" id="tooted">
+    <div class="water-crisis-bg"></div>
+    <div class="water-crisis-content">
+        <div class="section-number">04 - Probleem</div>
+        <h2><span>Vee</span> maailm</h2>
+        <p style="color: rgba(255,255,255,0.8); font-size: 1.1rem; line-height: 1.8;">
+            Ka arenenud riikides sisaldab kraanivesi raskemetalle, mikroplasti
+            ja kemikaale. "Ohutu" vesi ei ole alati puhas. Keetmisest üksi ei piisa -
+            vajalik on täiustatud filtreerimine.
+        </p>
+        <div class="crisis-stats">
+            <div class="crisis-stat">
+                <div class="crisis-stat-number">2B+</div>
+                <div class="crisis-stat-label">Inimesel puudub ligipääs puhtale joogiveele maailmas</div>
+            </div>
+            <div class="crisis-stat">
+                <div class="crisis-stat-number">80%</div>
+                <div class="crisis-stat-label">Haigustest arengumaades on seotud veega</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- VEELAHENDUS -->
+<section class="slide water-solution">
+    <div class="water-solution-content">
+        <div class="section-number">05 - Lahendus</div>
+        <h2>Puhas vesi algab <span>targetest valikutest</span></h2>
+        <p style="color: var(--gray-600); font-size: 1.1rem; margin-bottom: 2rem;">
+            Osmoositehnoloogia võimaldab peredel võtta oma tervise enda kätte.
+            Meil on lahendus.
+        </p>
+        <div class="solution-features">
+            <div class="solution-feature">
+                <div class="solution-feature-icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <div>
+                    <h4>Täiustatud filtreerimine</h4>
+                    <p>Pöördosmoos eemaldab 99% saasteainetest, sealhulgas raskemetallid, bakterid ja mikroplasti.</p>
+                </div>
+            </div>
+            <div class="solution-feature">
+                <div class="solution-feature-icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+                </div>
+                <div>
+                    <h4>Vesinikuga rikastamine</h4>
+                    <p>Valikuline ioniseerimine lisab molekulaarset vesinikku täiustatud antioksüdantse kasu jaoks.</p>
+                </div>
+            </div>
+            <div class="solution-feature">
+                <div class="solution-feature-icon">
+                    <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M12 8v8M8 12h8"/></svg>
+                </div>
+                <div>
+                    <h4>Kompaktne disain</h4>
+                    <p>Kaasaegsed, ruumisäästlikud seadmed, mis sobivad igasse kööki. Saadaval ka kaasaskantavad variandid.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="water-solution-image">
+        <div class="product-showcase">
+            <img src="https://images.unsplash.com/photo-1548839140-29a749e1cf4d?w=600&q=80" alt="Veefilter" style="border-radius: 8px;">
+            <h3>Kvaliteetsed veepuhastussüsteemid</h3>
+        </div>
+    </div>
+</section>
+
+<!-- ŠOKOLAADI PROBLEEM -->
+<section class="slide chocolate-problem">
+    <div class="chocolate-header">
+        <div class="section-number">06 - Kibe tõde</div>
+        <h2>Tavalise <span>šokolaadi</span> taga</h2>
+        <p>4 fakti, mida šokolaaditööstus ei taha, et sa teaksid</p>
+    </div>
+    <div class="chocolate-facts">
+        <div class="chocolate-fact">
+            <div class="fact-number">01</div>
+            <h4>Kuumtöödeldud kakao = kaotatud toitained</h4>
+            <p>Enamik kommertsiaalset šokolaadi kasutab kõrget kuumust, hävitades antioksüdante, flavonoide ja teisi kasulikke looduslikke ühendeid.</p>
+        </div>
+        <div class="chocolate-fact">
+            <div class="fact-number">02</div>
+            <h4>Valge suhkur - magus, kuid kahjulik</h4>
+            <p>Tavaline šokolaad on täis rafineeritud valget suhkrut, mis koormab maksa, tõstab veresuhkrut ja soodustab põletikke.</p>
+        </div>
+        <div class="chocolate-fact">
+            <div class="fact-number">03</div>
+            <h4>Odav šokolaad tuleb inimese hinna eest</h4>
+            <p>Massituru brändid hangivad sageli kakaod farmidelt, mis kasutavad alatasu saavaid töötajaid või isegi lapstööjõudu arengumaades.</p>
+        </div>
+        <div class="chocolate-fact">
+            <div class="fact-number">04</div>
+            <h4>Kunstlikud lisaained ja säilitusained</h4>
+            <p>Paljud šokolaadid on täis kunstlikke maitse- ja lõhnaaineid ning emulgaatoreid - midagi, mis ei kuulu sinu kehasse.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ŠOKOLAADI LAHENDUS -->
+<section class="slide chocolate-solution">
+    <div class="chocolate-solution-image"></div>
+    <div class="chocolate-solution-content">
+        <div class="section-number">07 - Meie šokolaad</div>
+        <h2>INJOI tooršokolaadid</h2>
+        <div class="brand">Stay Young - Toores & Mahe</div>
+        <div class="benefits-list">
+            <div class="benefit-item">
+                <div class="benefit-number">1</div>
+                <div>
+                    <h4>100% toores kakao</h4>
+                    <p>Valmistatud madalal temperatuuril, et säilitada looduslikud omadused - rohkem antioksüdante kui tavaline šokolaad.</p>
+                </div>
+            </div>
+            <div class="benefit-item">
+                <div class="benefit-number">2</div>
+                <div>
+                    <h4>Supertoidud ja ravisened</h4>
+                    <p>Rikastatud külmkuivatatud acai, maca, spirulina ja adaptogeenidega nagu lõvilakk, reishi ja chaga.</p>
+                </div>
+            </div>
+            <div class="benefit-item">
+                <div class="benefit-number">3</div>
+                <div>
+                    <h4>Külmkuivatatud maksimaalse värskuse jaoks</h4>
+                    <p>Koostisosad säilitavad kogu oma vitamiinide, mineraalide ja maitsete spektri - puhas loodus igas suutäies.</p>
+                </div>
+            </div>
+            <div class="benefit-item">
+                <div class="benefit-number">4</div>
+                <div>
+                    <h4>Ilma rafineeritud suhkruta</h4>
+                    <p>Looduslikult magustatud kookosesuhkru, datlite või lucumaga. Ilma töödeldud suhkrute ja kunstlike lisaaineteta.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- TASUSTAMISPLAAN -->
+<section class="slide comp-intro" id="voimalus">
+    <div class="comp-intro-content">
+        <div class="section-number">08 - Ärivõimalus</div>
+        <h2>Tasustamis<span>plaan</span></h2>
         <p>
-            Tervis ei alga ainult sellest, mida me joome, vaid ka sellest, mida sööme.
-            Seepärast on INJOI loonud ka tooršokolaadi sarja.
+            Ehita oma äri koos INJOI-ga. Mitu sissetulekuallikat,
+            tööstuse parimad preemiad ja toetav kogukond.
         </p>
-        <div class="chocolate-features">
-            <div class="choco-feature">
-                <div class="choco-feature-icon">🍫</div>
-                <p>Ei kasutata rafineeritud suhkrut</p>
+        <div class="getting-started">
+            <div class="start-step">
+                <div class="step-number">1</div>
+                <h4>Registreeru</h4>
+                <p>Hakka INJOI sõltumatuks äripartneriks</p>
             </div>
-            <div class="choco-feature">
-                <div class="choco-feature-icon">🌡️</div>
-                <p>Kakaod ei kuumutata üle – säilivad toitained</p>
+            <div class="start-step">
+                <div class="step-number">2</div>
+                <h4>Vali pakett</h4>
+                <p>Vali pakett, mis sobib sinu eesmärkidega</p>
             </div>
-            <div class="choco-feature">
-                <div class="choco-feature-icon">🌿</div>
-                <p>Looduslikud antioksüdandid säilivad</p>
+            <div class="start-step">
+                <div class="step-number">3</div>
+                <h4>Ehita meeskond</h4>
+                <p>Kasvatad oma võrgustikku vasaku ja parema tiimiga</p>
             </div>
-            <div class="choco-feature">
-                <div class="choco-feature-icon">✨</div>
-                <p>Lisatud supertoidud ja funktsionaalsed koostisosad</p>
+            <div class="start-step">
+                <div class="step-number">4</div>
+                <h4>Teeni preemiaid</h4>
+                <p>Mitu viisi komisjonitasude ja boonuste teenimiseks</p>
             </div>
-        </div>
-        <div class="chocolate-note">
-            See on šokolaad, mida ei pea „pattu tundes" sööma.
         </div>
     </div>
 </section>
 
-<!-- SLIDE 9: VISION -->
-<section class="slide vision-slide">
-    <div class="vision-content">
-        <div class="section-label">Visioon</div>
-        <h2>Aidata vähemalt <span>10 miljonit</span> inimest</h2>
-        <p>
-            INJOI eesmärk on aidata inimesi jõuda puhtama vee ja teadlikuma toitumiseni.
-        </p>
-        <p>
-            Väiksem koormus tervishoiule algab väikestest valikutest kodus.
-        </p>
-        <div class="vision-highlight">
-            <p>Iga inimene, keda aitame, loob lainetuse oma pere ja kogukonna kaudu.</p>
+<!-- PAKETID -->
+<section class="slide packages-section">
+    <div class="packages-header">
+        <div class="section-number">09 - Investeerimistasemed</div>
+        <h2>Stardipaketid</h2>
+    </div>
+    <div class="packages-grid">
+        <div class="package-card">
+            <div class="package-header">
+                <div class="package-name">Enter</div>
+                <div class="package-price">50</div>
+            </div>
+            <div class="package-body">
+                <div class="package-max"><span>Nädalane maks.</span><span>50</span></div>
+                <div class="package-ds"><span>DS boonus</span><span>5</span></div>
+            </div>
+        </div>
+        <div class="package-card">
+            <div class="package-header">
+                <div class="package-name">Basic</div>
+                <div class="package-price">100</div>
+            </div>
+            <div class="package-body">
+                <div class="package-max"><span>Nädalane maks.</span><span>250</span></div>
+                <div class="package-ds"><span>DS boonus</span><span>10</span></div>
+            </div>
+        </div>
+        <div class="package-card">
+            <div class="package-header">
+                <div class="package-name">Starter</div>
+                <div class="package-price">200</div>
+            </div>
+            <div class="package-body">
+                <div class="package-max"><span>Nädalane maks.</span><span>500</span></div>
+                <div class="package-ds"><span>DS boonus</span><span>20</span></div>
+            </div>
+        </div>
+        <div class="package-card featured">
+            <div class="package-header">
+                <div class="package-name">Premium</div>
+                <div class="package-price">500</div>
+            </div>
+            <div class="package-body">
+                <div class="package-max"><span>Nädalane maks.</span><span>2,500</span></div>
+                <div class="package-ds"><span>DS boonus</span><span>50</span></div>
+            </div>
+        </div>
+        <div class="package-card featured">
+            <div class="package-header">
+                <div class="package-name">Pro</div>
+                <div class="package-price">1,000</div>
+            </div>
+            <div class="package-body">
+                <div class="package-max"><span>Nädalane maks.</span><span>5,000</span></div>
+                <div class="package-ds"><span>DS boonus</span><span>100</span></div>
+            </div>
+        </div>
+        <div class="package-card">
+            <div class="package-header">
+                <div class="package-name">Elite</div>
+                <div class="package-price">2,500</div>
+            </div>
+            <div class="package-body">
+                <div class="package-max"><span>Nädalane maks.</span><span>12,500</span></div>
+                <div class="package-ds"><span>DS boonus</span><span>250</span></div>
+            </div>
+        </div>
+        <div class="package-card">
+            <div class="package-header">
+                <div class="package-name">Executive</div>
+                <div class="package-price">5,000</div>
+            </div>
+            <div class="package-body">
+                <div class="package-max"><span>Nädalane maks.</span><span>25,000</span></div>
+                <div class="package-ds"><span>DS boonus</span><span>500</span></div>
+            </div>
+        </div>
+        <div class="package-card">
+            <div class="package-header">
+                <div class="package-name">Founder</div>
+                <div class="package-price">15,000</div>
+            </div>
+            <div class="package-body">
+                <div class="package-max"><span>Nädalane maks.</span><span>40,000</span></div>
+                <div class="package-ds"><span>DS boonus</span><span>1,500</span></div>
+            </div>
         </div>
     </div>
 </section>
 
-<!-- SLIDE 10: OPPORTUNITY -->
-<section class="slide opportunity-slide">
-    <div class="opportunity-header">
-        <h2>Soovid ainult toodet? Või ka <span>võimalust</span>?</h2>
-        <p>INJOI annab võimaluse valida oma tee.</p>
+<!-- 6 VIISI TEENIMISEKS -->
+<section class="slide ways-section">
+    <div class="ways-header">
+        <div class="section-number">10 - Sissetulekuallikad</div>
+        <h2>6 viisi teenimiseks</h2>
     </div>
-    <div class="opportunity-options">
-        <div class="opportunity-option">
-            <div class="opportunity-option-icon">💧</div>
-            <h4>Kasuta tooteid ise</h4>
-            <p>Lihtne ja selge – osta ja kasuta. Puhastama vesi oma perele.</p>
+    <div class="ways-grid">
+        <div class="way-card">
+            <div class="way-number">1</div>
+            <h3>Otsemüügi boonus</h3>
+            <p>Teeni 10% komisjonitasu igalt tootelt, mida isiklikult klientidele müüd.</p>
         </div>
-        <div class="opportunity-option">
-            <div class="opportunity-option-icon">💬</div>
-            <h4>Soovita edasi</h4>
-            <p>Jaga oma kogemust teistega ja teeni soovitusboonust.</p>
+        <div class="way-card">
+            <div class="way-number">2</div>
+            <h3>Mahuboonus</h3>
+            <p>10% nõrgema tiimi mahust sinu binaarsüsteemis, makstakse igal nädalal.</p>
         </div>
-        <div class="opportunity-option">
-            <div class="opportunity-option-icon">📈</div>
-            <h4>Loo lisasissetulek</h4>
-            <p>Ehita oma tempos partnerite võrgustik ja teeni regulaarselt.</p>
+        <div class="way-card">
+            <div class="way-number">3</div>
+            <h3>Juhtimisboonus</h3>
+            <p>5% sobitamisboonus sinu tiimi mahuboonsute teenistuselt, kuni 5 põlvkonda.</p>
         </div>
-    </div>
-    <div class="opportunity-note">
-        See ei ole klassikaline agressiivne müük. Fookus on harimisel ja päris vajadusel.
-    </div>
-</section>
-
-<!-- SLIDE 11: HOW TO START -->
-<section class="slide start-slide">
-    <div class="start-header">
-        <div class="section-label">Alustamine</div>
-        <h2>Kuidas alustada</h2>
-    </div>
-    <div class="start-steps">
-        <div class="start-step">
-            <div class="step-number">1</div>
-            <h4>Registreeru</h4>
-            <p>Registreerud partneriks (sümboolne tasu)</p>
+        <div class="way-card">
+            <div class="way-number">4</div>
+            <h3>Kvartaalne fond</h3>
+            <p>Osale 5% kõigi globaalsete paketimüükide jagamises, vastavalt sinu osade arvule.</p>
         </div>
-        <div class="start-step">
-            <div class="step-number">2</div>
-            <h4>Vali toode</h4>
-            <p>Valid endale sobiva toote või stardipaketi</p>
+        <div class="way-card">
+            <div class="way-number">5</div>
+            <h3>Tasemepreemiad</h3>
+            <p>Füüsilised preemiad igal tasemel: tahvelarvutid, kellad, telefonid, sülearvutid, autod ja palju muud.</p>
         </div>
-        <div class="start-step">
-            <div class="step-number">3</div>
-            <h4>Kasuta ja jaga</h4>
-            <p>Kasutad ja jagad kogemust oma tutvusringkonnas</p>
+        <div class="way-card">
+            <div class="way-number">6</div>
+            <h3>Elustiilihüved</h3>
+            <p>VIP-tugi, juhtimiskoolituse reisid ja eksklusisvised üritused tipptegijatele.</p>
         </div>
-        <div class="start-step">
-            <div class="step-number">4</div>
-            <h4>Teeni</h4>
-            <p>Teenid, kui tekib huvi ka teistel</p>
-        </div>
-    </div>
-    <div class="start-note">
-        Kõik sammud on vabatahtlikud ja läbipaistvad.
     </div>
 </section>
 
-<!-- SLIDE 12: CTA -->
-<section class="slide cta-slide">
+<!-- CTA -->
+<section class="slide cta-section" id="kontakt">
     <div class="cta-content">
-        <div class="cta-logo">
-            <img src="https://insiderclub.org/LOGOS/injoi_logo.png" alt="INJOI" onerror="this.outerHTML='<span style=\'font-family: Playfair Display, serif; font-size: 2.5rem; color: #0B1426; letter-spacing: 0.15em;\'>INJOI</span>'">
+        <div class="section-number">Valmis alustama?</div>
+        <h2>Elu on sinu kätes</h2>
+        <div class="cta-tagline">Täida oma elu kvaliteetsete toodetega</div>
+        <div class="cta-info">
+            <div class="cta-info-item">
+                <div class="label">Veebileht</div>
+                <div class="value"><a href="https://injoi.life">INJOI.LIFE</a></div>
+            </div>
+            <div class="cta-info-item">
+                <div class="label">Jõustumiskuupäev</div>
+                <div class="value">1. juuli 2025</div>
+            </div>
         </div>
-        <h2>Elu on <span>sinu kätes</span></h2>
-        <div class="cta-message">
-            <p>Sa ei pea kõike kohe muutma.</p>
-            <p>Piisab ühest teadlikust otsusest.</p>
-        </div>
-        <div class="cta-highlight">
-            <p><strong>Puhas vesi</strong> ei ole luksus. See on alus.</p>
-        </div>
-        <a href="https://injoi.life" class="cta-button">Alusta teekonda</a>
+        <a href="https://injoi.life" class="cta-button">Alusta täna</a>
     </div>
 </section>
 
 <script>
-    // Nav scroll effect
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+
     const nav = document.querySelector('.nav');
     window.addEventListener('scroll', () => {
         if (window.scrollY > 100) {
