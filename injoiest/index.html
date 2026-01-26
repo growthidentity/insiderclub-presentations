@@ -38,6 +38,7 @@
             -webkit-font-smoothing: antialiased;
         }
 
+        /* SLIDE BASE */
         .slide {
             position: fixed;
             top: 0;
@@ -64,9 +65,11 @@
             width: 100%;
             max-width: 1000px;
             padding: 80px 60px;
-            text-align: center;
+            position: relative;
+            z-index: 2;
         }
 
+        /* BACKGROUNDS */
         .bg-image {
             position: absolute;
             top: 0;
@@ -75,7 +78,7 @@
             height: 100%;
             background-size: cover;
             background-position: center;
-            z-index: -1;
+            z-index: 0;
         }
 
         .overlay-dark::after {
@@ -85,36 +88,65 @@
             background: linear-gradient(180deg, rgba(11, 20, 38, 0.8) 0%, rgba(11, 20, 38, 0.9) 100%);
         }
 
+        .overlay-light::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(255, 255, 255, 0.92);
+        }
+
         .bg-white { background: var(--white); }
         .bg-light { background: var(--light-bg); }
         .bg-warm { background: var(--warm); }
         .bg-primary { background: var(--primary); color: var(--white); }
+        .bg-accent { background: var(--accent); color: var(--primary); }
 
+        /* TYPOGRAPHY */
         .headline {
             font-size: clamp(2rem, 5vw, 3.5rem);
             font-weight: 700;
-            line-height: 1.2;
-            margin-bottom: 24px;
+            line-height: 1.15;
+            letter-spacing: -0.02em;
+            margin-bottom: 1.5rem;
             color: var(--primary);
         }
 
-        .bg-primary .headline { color: var(--white); }
+        .slide.bg-primary .headline,
+        .slide .overlay-dark + .slide-inner .headline {
+            color: var(--white);
+        }
 
         .subheadline {
             font-size: clamp(1.1rem, 2vw, 1.35rem);
+            font-weight: 400;
             line-height: 1.8;
             color: var(--text-dark);
             max-width: 700px;
-            margin: 0 auto;
             opacity: 0.85;
         }
 
-        .bg-primary .subheadline {
+        .slide.bg-primary .subheadline,
+        .slide .overlay-dark + .slide-inner .subheadline {
             color: var(--white);
             opacity: 0.9;
         }
 
+        .text-center {
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
         .accent { color: var(--accent); }
+        .water { color: var(--water); }
+
+        /* CARDS */
+        .card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 32px;
+            box-shadow: 0 4px 24px rgba(11, 20, 38, 0.08);
+        }
 
         .card-grid {
             display: grid;
@@ -130,70 +162,65 @@
             .card-grid.cols-3, .card-grid.cols-4 { grid-template-columns: repeat(2, 1fr); }
         }
         @media (max-width: 600px) {
-            .card-grid { grid-template-columns: 1fr !important; }
-        }
-
-        .card {
-            background: var(--white);
-            border-radius: 16px;
-            padding: 28px 24px;
-            box-shadow: 0 4px 24px rgba(11, 20, 38, 0.08);
-            text-align: center;
-        }
-
-        .card .icon {
-            width: 48px;
-            height: 48px;
-            background: rgba(220, 38, 38, 0.1);
-            color: var(--warning);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.1rem;
-            font-weight: 700;
-            margin: 0 auto 16px;
+            .card-grid { grid-template-columns: 1fr; }
         }
 
         .card h3 {
-            font-size: 1.05rem;
+            font-size: 1.1rem;
             font-weight: 600;
             color: var(--primary);
             margin-bottom: 8px;
         }
 
         .card p {
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             color: var(--text-dark);
             opacity: 0.8;
-            line-height: 1.5;
+            line-height: 1.6;
         }
 
+        .card .icon {
+            width: 48px;
+            height: 48px;
+            background: var(--light-bg);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 16px;
+        }
+
+        .card .icon.warning {
+            background: rgba(220, 38, 38, 0.1);
+            color: var(--warning);
+        }
+
+        .card .number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--accent);
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        /* QUOTE */
         .quote-block {
             background: var(--white);
             border-left: 4px solid var(--accent);
-            padding: 28px 32px;
+            padding: 32px 40px;
             border-radius: 0 16px 16px 0;
-            margin: 40px auto;
-            max-width: 650px;
-            text-align: left;
+            margin: 40px 0;
         }
 
         .quote-block p {
-            font-size: 1.15rem;
+            font-size: 1.25rem;
             font-style: italic;
             color: var(--text-dark);
             line-height: 1.7;
         }
 
-        .bg-primary .quote-block {
-            background: rgba(255,255,255,0.1);
-        }
-
-        .bg-primary .quote-block p {
-            color: rgba(255,255,255,0.9);
-        }
-
+        /* STATS */
         .stat-row {
             display: flex;
             justify-content: center;
@@ -220,9 +247,7 @@
             margin-top: 8px;
         }
 
-        .bg-primary .stat .number { color: var(--white); }
-        .bg-primary .stat .label { color: var(--white); }
-
+        /* PROCESS STEPS */
         .process-steps {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -252,12 +277,6 @@
             margin: 0 auto 16px;
         }
 
-        .bg-primary .step .num {
-            background: transparent;
-            border: 2px solid var(--accent);
-            color: var(--accent);
-        }
-
         .step h4 {
             font-size: 1rem;
             font-weight: 600;
@@ -265,27 +284,23 @@
             margin-bottom: 8px;
         }
 
-        .bg-primary .step h4 { color: var(--white); }
-
         .step p {
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             color: var(--text-dark);
             opacity: 0.75;
         }
 
-        .bg-primary .step p { color: rgba(255,255,255,0.7); }
-
+        /* RESULTS LIST */
         .results-list {
-            max-width: 550px;
+            max-width: 600px;
             margin: 40px auto 0;
-            text-align: left;
         }
 
         .result-item {
             display: flex;
             align-items: center;
             gap: 20px;
-            padding: 14px 0;
+            padding: 16px 0;
             border-bottom: 1px solid var(--light-bg);
         }
 
@@ -294,24 +309,28 @@
         .result-item .badge {
             background: var(--success);
             color: var(--white);
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             font-weight: 700;
-            padding: 8px 12px;
+            padding: 8px 14px;
             border-radius: 8px;
-            min-width: 65px;
+            min-width: 70px;
             text-align: center;
         }
 
         .result-item .text {
-            font-size: 1rem;
+            font-size: 1.05rem;
             color: var(--text-dark);
         }
 
+        /* OPTIONS */
         .option-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 24px;
             margin-top: 48px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         @media (max-width: 768px) {
@@ -321,60 +340,134 @@
         .option-card {
             background: var(--white);
             border-radius: 16px;
-            padding: 28px 24px;
+            padding: 32px;
             text-align: center;
             box-shadow: 0 4px 24px rgba(11, 20, 38, 0.08);
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
         }
 
-        .option-card .num {
-            width: 48px;
-            height: 48px;
-            background: var(--light-bg);
-            color: var(--primary);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.25rem;
-            font-weight: 700;
-            margin: 0 auto 16px;
+        .option-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-4px);
+        }
+
+        .option-card .icon {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
         }
 
         .option-card h3 {
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             font-weight: 600;
             color: var(--primary);
             margin-bottom: 8px;
         }
 
         .option-card p {
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             color: var(--text-dark);
             opacity: 0.75;
-            line-height: 1.5;
+            line-height: 1.6;
+        }
+
+        /* START STEPS */
+        .start-steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            margin-top: 48px;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        @media (max-width: 900px) {
+            .start-steps { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        .start-step {
+            text-align: center;
+        }
+
+        .start-step .num {
+            width: 64px;
+            height: 64px;
+            border: 2px solid var(--accent);
+            background: rgba(255,255,255,0.05);
+            color: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin: 0 auto 16px;
+        }
+
+        .start-step h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: 8px;
+        }
+
+        .start-step p {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.7);
+        }
+
+        /* CTA */
+        .cta-box {
+            background: var(--primary);
+            border-radius: 20px;
+            padding: 48px;
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .cta-box h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 16px;
+        }
+
+        .cta-box p {
+            font-size: 1.15rem;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 32px;
+            line-height: 1.8;
+        }
+
+        .cta-box .highlight {
+            color: var(--accent);
+            font-weight: 600;
         }
 
         .btn {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
             padding: 16px 40px;
             border-radius: 12px;
             font-size: 1rem;
             font-weight: 600;
             text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
             background: var(--accent);
             color: var(--primary);
-            margin-top: 32px;
         }
 
-        .highlight-box {
-            background: var(--accent-light);
-            padding: 16px 24px;
-            border-radius: 8px;
-            display: inline-block;
-            margin-top: 40px;
-            font-size: 1.05rem;
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(201, 162, 39, 0.3);
         }
 
+        /* SLIDE INDICATOR */
         .slide-indicator {
             position: absolute;
             bottom: 24px;
@@ -382,8 +475,10 @@
             font-size: 0.8rem;
             opacity: 0.4;
             font-weight: 500;
+            color: inherit;
         }
 
+        /* NAV DOTS */
         .nav-dots {
             position: fixed;
             right: 24px;
@@ -393,6 +488,10 @@
             display: flex;
             flex-direction: column;
             gap: 8px;
+        }
+
+        @media (max-width: 768px) {
+            .nav-dots { display: none; }
         }
 
         .nav-dot {
@@ -412,118 +511,127 @@
             transform: scale(1.3);
         }
 
+        /* MOBILE */
         @media (max-width: 768px) {
-            .slide-inner { padding: 60px 24px; }
-            .headline { font-size: 1.75rem; }
-            .subheadline { font-size: 1rem; }
-            .nav-dots { display: none; }
+            .slide-inner {
+                padding: 60px 24px;
+            }
+            .headline {
+                font-size: 1.75rem;
+            }
+            .subheadline {
+                font-size: 1rem;
+            }
         }
-
-        .label-tag {
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            color: var(--accent);
-            margin-bottom: 20px;
-        }
-
-        .bg-primary .label-tag { opacity: 0.7; color: var(--white); }
     </style>
 </head>
 <body>
 
-    <!-- SLIDE 1 -->
-    <section class="slide bg-primary active" id="slide1">
+    <!-- SLIDE 1: HOOK -->
+    <section class="slide bg-primary" id="slide1">
         <div class="bg-image overlay-dark" style="background-image: url('https://images.unsplash.com/photo-1468421870903-4df1664ac249?w=1920&q=80');"></div>
         <div class="slide-inner">
-            <p class="label-tag" style="color: var(--accent);">INJOI</p>
-            <h1 class="headline">Elu on sinu kätes.</h1>
-            <p class="subheadline">Enamik inimesi usub, et kraanivesi on turvaline. Tõde on see, et ka Euroopas – ka Eestis – sisaldab joogivesi aineid, mis kogunevad kehas vaikselt, aastate jooksul.</p>
+            <div class="text-center">
+                <p style="font-size: 1rem; color: var(--accent); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 24px;">INJOI</p>
+                <h1 class="headline">Elu on sinu kätes.</h1>
+                <p class="subheadline">Enamik inimesi usub, et kraanivesi on turvaline.<br><br>Tõde on see, et ka Euroopas – ka Eestis – sisaldab joogivesi aineid, mis kogunevad kehas vaikselt, aastate jooksul.</p>
+            </div>
         </div>
         <div class="slide-indicator" style="color: rgba(255,255,255,0.4);">01 / 14</div>
     </section>
 
-    <!-- SLIDE 2 -->
+    <!-- SLIDE 2: INVISIBLE -->
     <section class="slide bg-white" id="slide2">
         <div class="slide-inner">
-            <h2 class="headline">Sa ei tunne seda maitses ega lõhnas.</h2>
-            <p class="subheadline" style="font-size: 1.5rem; font-weight: 600; color: var(--primary);">Aga keha tunneb.</p>
+            <div class="text-center">
+                <h2 class="headline">Sa ei tunne seda maitses ega lõhnas.</h2>
+                <p class="subheadline" style="font-size: 1.5rem; font-weight: 600; color: var(--primary);">Aga keha tunneb.</p>
+            </div>
         </div>
         <div class="slide-indicator">02 / 14</div>
     </section>
 
-    <!-- SLIDE 3 -->
+    <!-- SLIDE 3: WHAT'S IN WATER -->
     <section class="slide bg-light" id="slide3">
         <div class="slide-inner">
-            <h2 class="headline">Mida me tegelikult joome?</h2>
+            <div class="text-center">
+                <h2 class="headline">Mida me tegelikult joome?</h2>
+            </div>
 
             <div class="card-grid cols-4">
                 <div class="card">
-                    <div class="icon">MP</div>
+                    <div class="icon warning">🔬</div>
                     <h3>Mikroplast</h3>
                     <p>Osakesed, mida leidub juba inimese veres ja kopsudes.</p>
                 </div>
                 <div class="card">
-                    <div class="icon">PF</div>
+                    <div class="icon warning">⚗️</div>
                     <h3>PFAS-kemikaalid</h3>
-                    <p>„Igavesed kemikaalid", mis ei lagune keskkonnas ega kehas.</p>
+                    <p>„Igavesed kemikaalid", mis ei lagune ei keskkonnas ega kehas.</p>
                 </div>
                 <div class="card">
-                    <div class="icon">Rx</div>
+                    <div class="icon warning">💊</div>
                     <h3>Ravimijäägid</h3>
                     <p>Hormoonid, antibiootikumid, valuvaigistid.</p>
                 </div>
                 <div class="card">
-                    <div class="icon">Pb</div>
+                    <div class="icon warning">☠️</div>
                     <h3>Raskemetallid</h3>
                     <p>Plii ja elavhõbe vanadest torudest.</p>
                 </div>
             </div>
 
-            <p style="margin-top: 40px; font-size: 1.1rem; color: var(--warning); font-weight: 500;">Need ei kao keemisest ega tavalistest filtritest.</p>
+            <p class="text-center" style="margin-top: 40px; font-size: 1.1rem; color: var(--warning); font-weight: 500;">Need ei kao keemisest ega tavalistest filtritest.</p>
         </div>
         <div class="slide-indicator">03 / 14</div>
     </section>
 
-    <!-- SLIDE 4 -->
+    <!-- SLIDE 4: THE PROBLEM -->
     <section class="slide bg-primary" id="slide4">
         <div class="slide-inner">
-            <p class="label-tag">Probleem, millest vähe räägitakse</p>
-            <h2 class="headline">Vaid kolmandik EL pinnaveest on heas seisukorras.</h2>
-            <p class="subheadline">Samas kasutame seda vett iga päev joomiseks, toidu tegemiseks ja laste jaoks.</p>
+            <div class="text-center">
+                <p style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.15em; opacity: 0.7; margin-bottom: 24px;">Probleem, millest vähe räägitakse</p>
+                <h2 class="headline">Vaid kolmandik EL pinnaveest on heas seisukorras.</h2>
+                <p class="subheadline">Samas kasutame seda vett iga päev joomiseks, toidu tegemiseks ja laste jaoks.</p>
 
-            <div class="quote-block">
-                <p style="font-style: normal;">See ei ole paanika jutt. See on fakt, millest lihtsalt ei räägita piisavalt.</p>
+                <div class="quote-block" style="background: rgba(255,255,255,0.1); border-color: var(--accent); margin-top: 48px; max-width: 600px; margin-left: auto; margin-right: auto;">
+                    <p style="color: rgba(255,255,255,0.9);">See ei ole paanika jutt.<br>See on fakt, millest lihtsalt ei räägita piisavalt.</p>
+                </div>
             </div>
         </div>
         <div class="slide-indicator" style="color: rgba(255,255,255,0.4);">04 / 14</div>
     </section>
 
-    <!-- SLIDE 5 -->
+    <!-- SLIDE 5: FOUNDER -->
     <section class="slide bg-warm" id="slide5">
         <div class="slide-inner">
-            <p class="label-tag">Kuidas INJOI alguse sai</p>
-            <h2 class="headline">Väga isiklik põhjus.</h2>
-            <p class="subheadline">INJOI sündis sellest, et ettevõtte looja Horre Saluste puutus oma peres kokku terviseprobleemidega, millele arstid ei leidnud selget põhjust.</p>
+            <div class="text-center">
+                <p style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 24px;">Kuidas INJOI alguse sai</p>
+                <h2 class="headline">Väga isiklik põhjus.</h2>
+            </div>
 
-            <div class="quote-block">
-                <p>Uurides jõudis ta vee kvaliteedini. Sealt algas üle 10 aasta kestnud sügav töö vee puhastamise tehnoloogiatega. INJOI loodi selleks, et tavaline pere saaks ligipääsu päriselt puhtale veele.</p>
+            <div style="max-width: 700px; margin: 40px auto 0; font-size: 1.1rem; line-height: 1.9; color: var(--text-dark);">
+                <p style="margin-bottom: 24px;">INJOI sündis väga isiklikust põhjusest. Ettevõtte looja <strong>Horre Saluste</strong> puutus oma peres kokku terviseprobleemidega, millele arstid ei leidnud selget põhjust.</p>
+                <p style="margin-bottom: 24px;">Uurides jõudis ta <span style="background: linear-gradient(180deg, transparent 60%, var(--accent-light) 60%); padding: 0 4px;">vee kvaliteedini</span>. Sealt algas üle 10 aasta kestnud sügav töö vee puhastamise tehnoloogiatega.</p>
+                <p>INJOI loodi selleks, et tavaline pere saaks ligipääsu <span style="background: linear-gradient(180deg, transparent 60%, var(--accent-light) 60%); padding: 0 4px;">päriselt puhtale veele</span> – ilma keeruliste paigalduste ja tööstuslahendusteta.</p>
             </div>
         </div>
         <div class="slide-indicator">05 / 14</div>
     </section>
 
-    <!-- SLIDE 6 -->
+    <!-- SLIDE 6: SOLUTION -->
     <section class="slide bg-white" id="slide6">
         <div class="slide-inner">
-            <p class="label-tag">Lahendus</p>
-            <h2 class="headline">Lihtne, aga tõhus.</h2>
-            <p class="subheadline">INJOI veepuhasti on lauapealne seade, mida ei pea torustikku ehitama. Ühendad, vajutad nuppu ja umbes 90 sekundi pärast on vesi valmis.</p>
+            <div class="text-center">
+                <p style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 24px;">Lahendus</p>
+                <h2 class="headline">Lihtne, aga tõhus.</h2>
+                <p class="subheadline">INJOI veepuhasti on lauapealne seade, mida ei pea torustikku ehitama. Ühendad, vajutad nuppu ja umbes 90 sekundi pärast on vesi valmis.</p>
+            </div>
 
             <div class="process-steps">
                 <div class="step">
                     <div class="num">1</div>
-                    <h4>Settefilter</h4>
+                    <h4>Setete eemaldamine</h4>
                     <p>Rooste, liiv, suured osakesed</p>
                 </div>
                 <div class="step">
@@ -543,16 +651,18 @@
                 </div>
             </div>
 
-            <p style="margin-top: 48px; font-size: 1.15rem; color: var(--success); font-weight: 600;">Tulemuseks on vesi, millest on eemaldatud kuni 99% kahjulikest ainetest.</p>
+            <p class="text-center" style="margin-top: 48px; font-size: 1.15rem; color: var(--success); font-weight: 600;">Tulemuseks on vesi, millest on eemaldatud kuni 99% kahjulikest ainetest.</p>
         </div>
         <div class="slide-indicator">06 / 14</div>
     </section>
 
-    <!-- SLIDE 7 -->
+    <!-- SLIDE 7: HYDROGEN -->
     <section class="slide bg-light" id="slide7">
         <div class="slide-inner">
-            <h2 class="headline">Miks vesinikuga rikastatud vesi?</h2>
-            <p class="subheadline">Molekulaarne vesinik on tuntud kui tugev antioksüdant. Seda uuritakse üha rohkem seoses rakkude kaitse, taastumise ja põletike vähendamisega.</p>
+            <div class="text-center">
+                <h2 class="headline">Miks vesinikuga rikastatud vesi?</h2>
+                <p class="subheadline">Molekulaarne vesinik on tuntud kui tugev antioksüdant. Seda uuritakse üha rohkem seoses rakkude kaitse, taastumise ja põletike vähendamisega.</p>
+            </div>
 
             <div class="stat-row">
                 <div class="stat">
@@ -561,183 +671,180 @@
                 </div>
             </div>
 
-            <p style="margin-top: 40px; font-size: 1rem; color: var(--accent); font-style: italic;">INJOI veevesinik ei ole turunduslik trikk, vaid teaduspõhine lisand.</p>
+            <p class="text-center" style="margin-top: 40px; font-size: 1rem; color: var(--accent); font-style: italic;">INJOI veevesinik ei ole turunduslik trikk, vaid teaduspõhine lisand.</p>
         </div>
         <div class="slide-indicator">07 / 14</div>
     </section>
 
-    <!-- SLIDE 8 -->
+    <!-- SLIDE 8: WHAT'S REMOVED -->
     <section class="slide bg-white" id="slide8">
         <div class="slide-inner">
-            <h2 class="headline">Mida INJOI vesi ei sisalda.</h2>
+            <div class="text-center">
+                <h2 class="headline">Mida INJOI vesi ei sisalda.</h2>
+            </div>
 
             <div class="results-list">
                 <div class="result-item">
                     <div class="badge">99%</div>
-                    <div class="text">Mikroplast — eemaldatud</div>
+                    <div class="text">Mikroplast – eemaldatud</div>
                 </div>
                 <div class="result-item">
                     <div class="badge">99%</div>
-                    <div class="text">PFAS-ühendid — eemaldatud</div>
+                    <div class="text">PFAS-ühendid – eemaldatud</div>
                 </div>
                 <div class="result-item">
                     <div class="badge">99%</div>
-                    <div class="text">Kloor ja keemiline maitse — eemaldatud</div>
+                    <div class="text">Kloor ja keemiline maitse – eemaldatud</div>
                 </div>
                 <div class="result-item">
                     <div class="badge">99.9%</div>
-                    <div class="text">Raskemetallid — eemaldatud</div>
+                    <div class="text">Raskemetallid – eemaldatud</div>
                 </div>
             </div>
 
-            <div class="highlight-box">Sääst 5 aastaga pudeliveega võrreldes: <strong>üle 4400€</strong></div>
+            <p class="text-center" style="margin-top: 48px; font-size: 1.1rem; background: var(--accent-light); padding: 16px 24px; border-radius: 8px; display: inline-block;">Lisaks säästad raha – pudelivett ei ole enam vaja osta. <strong>Sääst 5 aastaga: üle 4400€.</strong></p>
         </div>
         <div class="slide-indicator">08 / 14</div>
     </section>
 
-    <!-- SLIDE 9 -->
+    <!-- SLIDE 9: CHOCOLATE -->
     <section class="slide bg-warm" id="slide9">
         <div class="slide-inner">
-            <p class="label-tag">Rohkem kui vesi</p>
-            <h2 class="headline">INJOI ei ole ainult vesi.</h2>
-            <p class="subheadline">Tervis ei alga ainult sellest, mida me joome, vaid ka sellest, mida sööme. Seepärast on INJOI loonud ka tooršokolaadi sarja.</p>
+            <div class="text-center">
+                <p style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 24px;">Rohkem kui vesi</p>
+                <h2 class="headline">INJOI ei ole ainult vesi.</h2>
+                <p class="subheadline">Tervis ei alga ainult sellest, mida me joome, vaid ka sellest, mida sööme. Seepärast on INJOI loonud ka tooršokolaadi sarja.</p>
+            </div>
 
             <div class="card-grid cols-4" style="margin-top: 40px;">
-                <div class="card">
-                    <div class="icon" style="background: var(--light-bg); color: var(--primary);">0</div>
+                <div class="card" style="text-align: center;">
+                    <div class="icon">🍫</div>
                     <p>Ei kasutata rafineeritud suhkrut</p>
                 </div>
-                <div class="card">
-                    <div class="icon" style="background: var(--light-bg); color: var(--primary);">°C</div>
+                <div class="card" style="text-align: center;">
+                    <div class="icon">🌡️</div>
                     <p>Kakaod ei kuumutata üle</p>
                 </div>
-                <div class="card">
-                    <div class="icon" style="background: var(--light-bg); color: var(--primary);">AO</div>
+                <div class="card" style="text-align: center;">
+                    <div class="icon">🌿</div>
                     <p>Säilivad looduslikud antioksüdandid</p>
                 </div>
-                <div class="card">
-                    <div class="icon" style="background: var(--light-bg); color: var(--primary);">+</div>
-                    <p>Lisatud supertoidud</p>
+                <div class="card" style="text-align: center;">
+                    <div class="icon">✨</div>
+                    <p>Lisatud supertoidud ja funktsionaalsed koostisosad</p>
                 </div>
             </div>
 
-            <p style="margin-top: 40px; font-size: 1.1rem; font-style: italic;">See on šokolaad, mida ei pea „pattu tundes" sööma.</p>
+            <p class="text-center" style="margin-top: 40px; font-size: 1.15rem; font-style: italic; color: var(--text-dark);">See on šokolaad, mida ei pea „pattu tundes" sööma.</p>
         </div>
         <div class="slide-indicator">09 / 14</div>
     </section>
 
-    <!-- SLIDE 10 -->
+    <!-- SLIDE 10: VISION -->
     <section class="slide bg-primary" id="slide10">
         <div class="slide-inner">
-            <p class="label-tag">Visioon</p>
-            <h2 class="headline">Aidata vähemalt <span class="accent">10 miljonit</span> inimest.</h2>
-            <p class="subheadline">INJOI eesmärk on aidata inimesi jõuda puhtama vee ja teadlikuma toitumiseni.</p>
+            <div class="text-center">
+                <p style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.15em; opacity: 0.7; margin-bottom: 24px;">Visioon</p>
+                <h2 class="headline">Aidata vähemalt <span class="accent">10 miljonit</span> inimest.</h2>
+                <p class="subheadline">INJOI eesmärk on aidata inimesi jõuda puhtama vee ja teadlikuma toitumiseni.</p>
 
-            <div class="quote-block">
-                <p style="font-style: normal;">Väiksem koormus tervishoiule algab väikestest valikutest kodus.</p>
+                <div style="margin-top: 48px; padding: 32px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; max-width: 600px; margin-left: auto; margin-right: auto;">
+                    <p style="font-size: 1.15rem; color: rgba(255,255,255,0.9); line-height: 1.8;">Väiksem koormus tervishoiule algab väikestest valikutest kodus.</p>
+                </div>
             </div>
         </div>
         <div class="slide-indicator" style="color: rgba(255,255,255,0.4);">10 / 14</div>
     </section>
 
-    <!-- SLIDE 11 -->
+    <!-- SLIDE 11: OPPORTUNITY -->
     <section class="slide bg-light" id="slide11">
         <div class="slide-inner">
-            <h2 class="headline">Soovid ainult toodet?<br>Või ka võimalust?</h2>
-            <p class="subheadline">INJOI annab sulle valiku.</p>
+            <div class="text-center">
+                <h2 class="headline">Soovid ainult toodet?<br>Või ka võimalust?</h2>
+                <p class="subheadline">INJOI annab sulle valiku.</p>
+            </div>
 
             <div class="option-grid">
                 <div class="option-card">
-                    <div class="num">1</div>
+                    <div class="icon">💧</div>
                     <h3>Kasuta tooteid ise</h3>
                     <p>Lihtne ja selge – osta ja kasuta. Puhas vesi oma perele.</p>
                 </div>
                 <div class="option-card">
-                    <div class="num">2</div>
+                    <div class="icon">💬</div>
                     <h3>Soovita edasi</h3>
                     <p>Jaga oma kogemust ja teeni soovitusboonust.</p>
                 </div>
                 <div class="option-card">
-                    <div class="num">3</div>
+                    <div class="icon">📈</div>
                     <h3>Loo lisasissetulek</h3>
                     <p>Ehita oma tempos võrgustik ja teeni regulaarselt.</p>
                 </div>
             </div>
 
-            <p style="margin-top: 40px; font-size: 1rem; font-style: italic; opacity: 0.8;">See ei ole klassikaline agressiivne müük. Fookus on harimisel ja päris vajadusel.</p>
+            <p class="text-center" style="margin-top: 40px; font-size: 1rem; font-style: italic; color: var(--text-dark); opacity: 0.8;">See ei ole klassikaline agressiivne müük. Fookus on harimisel ja päris vajadusel.</p>
         </div>
         <div class="slide-indicator">11 / 14</div>
     </section>
 
-    <!-- SLIDE 12 -->
+    <!-- SLIDE 12: HOW TO START -->
     <section class="slide bg-primary" id="slide12">
         <div class="slide-inner">
-            <p class="label-tag">Alustamine</p>
-            <h2 class="headline">Kuidas alustada?</h2>
+            <div class="text-center">
+                <p style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.15em; opacity: 0.7; margin-bottom: 24px;">Alustamine</p>
+                <h2 class="headline">Kuidas alustada?</h2>
+            </div>
 
-            <div class="process-steps">
-                <div class="step">
+            <div class="start-steps">
+                <div class="start-step">
                     <div class="num">1</div>
                     <h4>Registreeru</h4>
                     <p>Registreerud partneriks (sümboolne tasu)</p>
                 </div>
-                <div class="step">
+                <div class="start-step">
                     <div class="num">2</div>
                     <h4>Vali toode</h4>
                     <p>Valid endale sobiva toote või stardipaketi</p>
                 </div>
-                <div class="step">
+                <div class="start-step">
                     <div class="num">3</div>
                     <h4>Kasuta ja jaga</h4>
-                    <p>Kasutad ja jagad kogemust tutvusringkonnas</p>
+                    <p>Kasutad ja jagad kogemust oma tutvusringkonnas</p>
                 </div>
-                <div class="step">
+                <div class="start-step">
                     <div class="num">4</div>
                     <h4>Teeni</h4>
                     <p>Teenid, kui tekib huvi ka teistel</p>
                 </div>
             </div>
 
-            <p style="margin-top: 48px; font-size: 1rem; color: rgba(255,255,255,0.7); font-style: italic;">Kõik sammud on vabatahtlikud ja läbipaistvad.</p>
+            <p class="text-center" style="margin-top: 48px; font-size: 1rem; color: rgba(255,255,255,0.7); font-style: italic;">Kõik sammud on vabatahtlikud ja läbipaistvad.</p>
         </div>
         <div class="slide-indicator" style="color: rgba(255,255,255,0.4);">12 / 14</div>
     </section>
 
-    <!-- SLIDE 13 -->
+    <!-- SLIDE 13: FINAL MESSAGE -->
     <section class="slide bg-white" id="slide13">
         <div class="slide-inner">
-            <h2 class="headline">Sa ei pea kõike kohe muutma.</h2>
-            <p class="subheadline" style="font-size: 1.5rem; font-weight: 600; color: var(--primary);">Piisab ühest teadlikust otsusest.</p>
+            <div class="text-center">
+                <h2 class="headline">Sa ei pea kõike kohe muutma.</h2>
+                <p class="subheadline" style="font-size: 1.35rem;">Piisab ühest teadlikust otsusest.</p>
+            </div>
         </div>
         <div class="slide-indicator">13 / 14</div>
     </section>
 
-    <!-- SLIDE 14 -->
-    <section class="slide bg-primary" id="slide14">
-        <div class="bg-image overlay-dark" style="background-image: url('https://images.pexels.com/photos/3807571/pexels-photo-3807571.jpeg?auto=compress&cs=tinysrgb&w=1920');"></div>
+    <!-- SLIDE 14: CTA -->
+    <section class="slide bg-warm" id="slide14">
         <div class="slide-inner">
-            <p class="label-tag" style="color: var(--accent);">INJOI</p>
-            <h2 class="headline">Elu on sinu kätes.</h2>
-            <p class="subheadline">Puhas vesi ei ole luksus. See on alus.</p>
-
-            <a href="https://injoi.life" class="btn">Alusta teekonda</a>
-
-            <div class="stat-row" style="margin-top: 48px;">
-                <div class="stat">
-                    <div class="number">99%</div>
-                    <div class="label">eemaldusefektiivsus</div>
-                </div>
-                <div class="stat">
-                    <div class="number">4400€</div>
-                    <div class="label">5 aasta sääst</div>
-                </div>
-                <div class="stat">
-                    <div class="number">1400</div>
-                    <div class="label">PPB vesinikku</div>
-                </div>
+            <div class="cta-box">
+                <p style="font-size: 1rem; color: var(--accent); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 16px;">INJOI</p>
+                <h2>Elu on sinu kätes.</h2>
+                <p><span class="highlight">Puhas vesi</span> ei ole luksus.<br>See on alus.</p>
+                <a href="https://injoi.life" class="btn">Alusta teekonda</a>
             </div>
         </div>
-        <div class="slide-indicator" style="color: rgba(255,255,255,0.4);">14 / 14</div>
+        <div class="slide-indicator">14 / 14</div>
     </section>
 
     <!-- Navigation Dots -->
@@ -764,20 +871,30 @@
 
         function goToSlide(num) {
             if (num < 1 || num > totalSlides) return;
+
             document.getElementById('slide' + currentSlide).classList.remove('active');
             document.querySelectorAll('.nav-dot')[currentSlide - 1].classList.remove('active');
+
             currentSlide = num;
             document.getElementById('slide' + currentSlide).classList.add('active');
             document.querySelectorAll('.nav-dot')[currentSlide - 1].classList.add('active');
         }
 
         function nextSlide() {
-            if (currentSlide < totalSlides) goToSlide(currentSlide + 1);
+            if (currentSlide < totalSlides) {
+                goToSlide(currentSlide + 1);
+            }
         }
 
         function prevSlide() {
-            if (currentSlide > 1) goToSlide(currentSlide - 1);
+            if (currentSlide > 1) {
+                goToSlide(currentSlide - 1);
+            }
         }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('slide1').classList.add('active');
+        });
 
         document.addEventListener('keydown', (e) => {
             if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ' || e.key === 'PageDown') {
@@ -786,6 +903,12 @@
             } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp' || e.key === 'PageUp') {
                 e.preventDefault();
                 prevSlide();
+            } else if (e.key === 'Home') {
+                e.preventDefault();
+                goToSlide(1);
+            } else if (e.key === 'End') {
+                e.preventDefault();
+                goToSlide(totalSlides);
             }
         });
 
