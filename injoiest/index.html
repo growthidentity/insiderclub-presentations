@@ -475,6 +475,14 @@
             min-height: 100vh;
         }
 
+        .founder-section.advisor-reverse {
+            direction: rtl;
+        }
+
+        .founder-section.advisor-reverse > * {
+            direction: ltr;
+        }
+
         .founder-image {
             position: relative;
             overflow: hidden;
@@ -1325,7 +1333,8 @@
                 grid-template-columns: 1fr;
             }
 
-            .danger-slide.reverse {
+            .danger-slide.reverse,
+            .founder-section.advisor-reverse {
                 direction: ltr;
             }
 
@@ -1640,10 +1649,8 @@
 </section>
 
 <!-- ADVISOR SECTION -->
-<section class="section founder-section" style="direction: rtl;">
-    <div class="founder-image" style="background: url('images/advisor-madis.jpg') center/cover; direction: ltr;">
-    </div>
-    <div class="founder-content" style="direction: ltr;">
+<section class="section founder-section advisor-reverse">
+    <div class="founder-content">
         <div class="section-label">Müüginõustaja</div>
         <h2>Madis Sandermat</h2>
         <div class="founder-role">Professionaalne müügistrateegia</div>
@@ -1658,6 +1665,8 @@
             <li>Telemarketingi teenus Alexela AS-ile</li>
             <li>Rahvusvaheline ärikogemus</li>
         </ul>
+    </div>
+    <div class="founder-image" style="background: url('images/advisor-madis.jpg') center/cover;">
     </div>
 </section>
 
