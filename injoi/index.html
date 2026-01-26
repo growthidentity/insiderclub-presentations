@@ -21,8 +21,10 @@
             --chocolate: #3d2314;
             --chocolate-light: #6b4423;
             --water-blue: #0ea5e9;
+            --water-dark: #0369a1;
             --water-light: #e0f2fe;
-            --red-accent: #8B2E2E;
+            --red-accent: #dc2626;
+            --green-accent: #16a34a;
         }
 
         * {
@@ -56,17 +58,6 @@
             overflow: hidden;
         }
 
-        /* Logo styling */
-        .injoi-logo {
-            height: 40px;
-            width: auto;
-        }
-
-        .injoi-logo-large {
-            height: 80px;
-            width: auto;
-        }
-
         /* Navigation */
         .nav {
             position: fixed;
@@ -88,17 +79,11 @@
             padding: 1rem 3rem;
         }
 
-        .nav-logo {
-            display: flex;
-            align-items: center;
-        }
-
         .nav-logo img {
             height: 32px;
             filter: brightness(0) invert(1);
         }
 
-        /* Section Number */
         .section-label {
             font-size: 0.75rem;
             color: var(--gold);
@@ -109,7 +94,7 @@
         }
 
         /* ============================================
-           SLIDE 1: HOOK - Provocative Question
+           SLIDE 1: HOOK - Data-Driven Shock
         ============================================ */
         .hook-slide {
             background: var(--navy);
@@ -123,8 +108,8 @@
             content: '';
             position: absolute;
             inset: 0;
-            background: url('https://images.unsplash.com/photo-1559825481-12a05cc00344?w=1920&q=80') center/cover;
-            opacity: 0.15;
+            background: url('https://images.unsplash.com/photo-1468421870903-4df1664ac249?w=1920&q=80') center/cover;
+            opacity: 0.12;
         }
 
         .hook-content {
@@ -132,64 +117,68 @@
             z-index: 2;
             text-align: center;
             padding: 2rem;
-            max-width: 1000px;
+            max-width: 1100px;
         }
 
         .hook-logo {
-            margin-bottom: 3rem;
+            margin-bottom: 2.5rem;
         }
 
         .hook-logo img {
-            height: 60px;
+            height: 55px;
             filter: brightness(0) saturate(100%) invert(72%) sepia(47%) saturate(497%) hue-rotate(5deg) brightness(91%) contrast(89%);
         }
 
         .hook-question {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(2rem, 4.5vw, 3.5rem);
+            font-size: clamp(2.25rem, 4.5vw, 3.75rem);
             color: white;
-            margin-bottom: 2rem;
-            line-height: 1.3;
+            margin-bottom: 1.5rem;
+            line-height: 1.25;
             font-weight: 400;
         }
 
         .hook-question em {
-            color: var(--gold);
+            color: var(--red-accent);
             font-style: normal;
         }
 
         .hook-subtext {
-            font-size: 1.15rem;
+            font-size: 1.1rem;
             color: rgba(255,255,255,0.7);
-            max-width: 700px;
+            max-width: 750px;
             margin: 0 auto 3rem;
             line-height: 1.8;
         }
 
         .hook-stats {
-            display: flex;
-            justify-content: center;
-            gap: 4rem;
-            margin-top: 3rem;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
         }
 
         .hook-stat {
             text-align: center;
+            padding: 1.5rem;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 8px;
         }
 
         .hook-stat-number {
             font-family: 'Playfair Display', serif;
-            font-size: 3rem;
-            color: var(--gold);
+            font-size: 2.5rem;
+            color: var(--red-accent);
             line-height: 1;
         }
 
         .hook-stat-label {
-            color: rgba(255,255,255,0.6);
-            font-size: 0.85rem;
+            color: rgba(255,255,255,0.7);
+            font-size: 0.8rem;
             margin-top: 0.5rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
+            line-height: 1.4;
         }
 
         .scroll-hint {
@@ -216,87 +205,165 @@
         }
 
         @keyframes pulse {
-            0%, 100% { opacity: 0.3; transform: scaleY(1); }
-            50% { opacity: 1; transform: scaleY(1.2); }
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
         }
 
         /* ============================================
-           SLIDE 2: THE HIDDEN PROBLEM (Unified)
+           SLIDE 2: THE WATER CRISIS (Hero Problem)
         ============================================ */
-        .problem-slide {
-            background: var(--gray-50);
-            padding: 8rem 6rem;
+        .water-crisis-slide {
+            background: linear-gradient(135deg, var(--water-dark) 0%, var(--navy) 100%);
+            min-height: 100vh;
+            padding: 6rem;
             display: flex;
             flex-direction: column;
             justify-content: center;
         }
 
-        .problem-header {
-            max-width: 800px;
-            margin-bottom: 4rem;
+        .crisis-header {
+            max-width: 900px;
+            margin-bottom: 3rem;
         }
 
-        .problem-header h2 {
-            font-size: clamp(2.5rem, 4vw, 3.5rem);
-            color: var(--navy);
-            margin-bottom: 1.5rem;
+        .crisis-header h2 {
+            font-size: clamp(2.5rem, 4.5vw, 4rem);
+            color: white;
+            margin-bottom: 1rem;
         }
 
-        .problem-header h2 span {
-            color: var(--red-accent);
+        .crisis-header h2 span {
+            color: var(--water-blue);
         }
 
-        .problem-header p {
+        .crisis-header p {
             font-size: 1.15rem;
-            color: var(--gray-600);
+            color: rgba(255,255,255,0.8);
             line-height: 1.8;
         }
 
-        .problem-grid {
+        .crisis-stats {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
             max-width: 1200px;
         }
 
-        .problem-card {
-            background: white;
-            border-radius: 8px;
-            padding: 2.5rem;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-            border-left: 4px solid var(--red-accent);
+        .crisis-stat {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
         }
 
-        .problem-card-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
+        .crisis-stat:hover {
+            background: rgba(255,255,255,0.08);
+            border-color: var(--water-blue);
+            transform: translateY(-5px);
         }
 
-        .problem-card h3 {
-            font-size: 1.35rem;
-            color: var(--navy);
-            margin-bottom: 1rem;
-            font-family: 'Inter', sans-serif;
-            font-weight: 600;
+        .crisis-stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: var(--water-blue);
+            line-height: 1;
+            margin-bottom: 0.75rem;
         }
 
-        .problem-card p {
-            color: var(--gray-600);
-            line-height: 1.7;
+        .crisis-stat-label {
+            color: rgba(255,255,255,0.9);
+            font-size: 0.95rem;
+            line-height: 1.4;
         }
 
-        .problem-card ul {
-            margin-top: 1rem;
-            padding-left: 1.25rem;
-            color: var(--gray-600);
-        }
-
-        .problem-card li {
-            margin-bottom: 0.5rem;
+        .crisis-stat-source {
+            color: rgba(255,255,255,0.5);
+            font-size: 0.7rem;
+            margin-top: 0.5rem;
+            font-style: italic;
         }
 
         /* ============================================
-           SLIDE 3: FOUNDER'S WHY STORY
+           SLIDE 3: What's In Your Water
+        ============================================ */
+        .water-contents-slide {
+            background: var(--gray-50);
+            padding: 6rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .water-contents-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 4rem;
+        }
+
+        .water-contents-header h2 {
+            font-size: clamp(2.25rem, 4vw, 3.25rem);
+            color: var(--navy);
+            margin-bottom: 1rem;
+        }
+
+        .water-contents-header h2 span {
+            color: var(--red-accent);
+        }
+
+        .contaminants-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .contaminant-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            border-left: 4px solid var(--red-accent);
+            transition: all 0.3s ease;
+        }
+
+        .contaminant-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+        }
+
+        .contaminant-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .contaminant-card h4 {
+            font-size: 1.1rem;
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .contaminant-card p {
+            color: var(--gray-600);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .contaminant-stat {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--gray-100);
+            font-size: 0.8rem;
+            color: var(--red-accent);
+            font-weight: 600;
+        }
+
+        /* ============================================
+           SLIDE 4: FOUNDER'S WHY
         ============================================ */
         .founder-slide {
             display: grid;
@@ -317,8 +384,8 @@
             content: '';
             position: absolute;
             inset: 0;
-            background: url('https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=1200&q=80') center/cover;
-            opacity: 0.2;
+            background: url('https://images.unsplash.com/photo-1504893524553-b855bce32c67?w=1200&q=80') center/cover;
+            opacity: 0.15;
         }
 
         .founder-photo-container {
@@ -328,8 +395,8 @@
         }
 
         .founder-photo {
-            width: 280px;
-            height: 280px;
+            width: 260px;
+            height: 260px;
             border-radius: 50%;
             border: 4px solid var(--gold);
             padding: 6px;
@@ -361,7 +428,7 @@
 
         .founder-content {
             background: var(--cream);
-            padding: 6rem;
+            padding: 5rem;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -380,7 +447,7 @@
 
         .founder-story {
             color: var(--gray-600);
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             line-height: 1.9;
         }
 
@@ -394,22 +461,21 @@
         }
 
         .founder-credentials {
-            display: flex;
-            gap: 2rem;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
             margin-top: 2rem;
             padding-top: 2rem;
             border-top: 1px solid var(--gray-200);
         }
 
         .credential {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
+            text-align: center;
         }
 
         .credential-number {
             font-family: 'Playfair Display', serif;
-            font-size: 2rem;
+            font-size: 2.25rem;
             color: var(--gold);
             line-height: 1;
         }
@@ -417,181 +483,37 @@
         .credential-text {
             font-size: 0.85rem;
             color: var(--gray-600);
-            line-height: 1.3;
+            margin-top: 0.25rem;
         }
 
         /* ============================================
-           SLIDE 4: COMPANY CREDIBILITY
+           SLIDE 5: THE SOLUTION - Water Filtration
         ============================================ */
-        .credibility-slide {
-            background: var(--navy);
-            padding: 8rem 6rem;
-            text-align: center;
-        }
-
-        .credibility-logo {
-            margin-bottom: 2rem;
-        }
-
-        .credibility-logo img {
-            height: 50px;
-            filter: brightness(0) saturate(100%) invert(72%) sepia(47%) saturate(497%) hue-rotate(5deg) brightness(91%) contrast(89%);
-        }
-
-        .credibility-tagline {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            color: white;
-            font-style: italic;
-            margin-bottom: 1rem;
-        }
-
-        .credibility-mission {
-            font-size: 1.1rem;
-            color: rgba(255,255,255,0.7);
-            max-width: 700px;
-            margin: 0 auto 4rem;
-        }
-
-        .credibility-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .credibility-item {
-            background: rgba(255,255,255,0.03);
-            border: 1px solid rgba(255,255,255,0.08);
-            border-radius: 8px;
-            padding: 2.5rem 1.5rem;
-            transition: all 0.3s ease;
-        }
-
-        .credibility-item:hover {
-            background: rgba(255,255,255,0.06);
-            border-color: var(--gold);
-            transform: translateY(-5px);
-        }
-
-        .credibility-number {
-            font-family: 'Playfair Display', serif;
-            font-size: 3rem;
-            color: var(--gold);
-            line-height: 1;
-            margin-bottom: 0.75rem;
-        }
-
-        .credibility-label {
-            color: rgba(255,255,255,0.8);
-            font-size: 0.95rem;
-        }
-
-        /* ============================================
-           SLIDE 5: WATER CRISIS (Deep Dive)
-        ============================================ */
-        .water-crisis-slide {
+        .solution-slide {
+            background: white;
             min-height: 100vh;
-            position: relative;
-            display: flex;
-            align-items: center;
-        }
-
-        .water-crisis-bg {
-            position: absolute;
-            inset: 0;
-            background: url('https://images.unsplash.com/photo-1509316785289-025f5b846b35?w=1920&q=80') center/cover;
-        }
-
-        .water-crisis-bg::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, rgba(11, 20, 38, 0.95) 0%, rgba(11, 20, 38, 0.8) 100%);
-        }
-
-        .water-crisis-content {
-            position: relative;
-            z-index: 2;
-            padding: 6rem;
-            max-width: 900px;
-        }
-
-        .water-crisis-content h2 {
-            font-size: clamp(2.5rem, 4.5vw, 4rem);
-            color: white;
-            margin-bottom: 1.5rem;
-            line-height: 1.15;
-        }
-
-        .water-crisis-content h2 span {
-            color: var(--water-blue);
-        }
-
-        .water-crisis-content > p {
-            font-size: 1.15rem;
-            color: rgba(255,255,255,0.8);
-            line-height: 1.8;
-            margin-bottom: 2rem;
-        }
-
-        .water-facts {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .water-fact {
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 8px;
-            padding: 1.75rem;
-        }
-
-        .water-fact-number {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            color: var(--water-blue);
-            line-height: 1;
-            margin-bottom: 0.5rem;
-        }
-
-        .water-fact-text {
-            color: rgba(255,255,255,0.8);
-            font-size: 0.95rem;
-            line-height: 1.5;
-        }
-
-        /* ============================================
-           SLIDE 6: WATER SOLUTION
-        ============================================ */
-        .water-solution-slide {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            min-height: 100vh;
         }
 
-        .water-solution-content {
-            background: var(--cream);
-            padding: 6rem;
+        .solution-content {
+            padding: 5rem;
             display: flex;
             flex-direction: column;
             justify-content: center;
         }
 
-        .water-solution-content h2 {
+        .solution-content h2 {
             font-size: clamp(2rem, 3.5vw, 3rem);
             color: var(--navy);
             margin-bottom: 1.5rem;
         }
 
-        .water-solution-content h2 span {
+        .solution-content h2 span {
             color: var(--water-blue);
         }
 
-        .water-solution-content > p {
+        .solution-content > p {
             color: var(--gray-600);
             font-size: 1.1rem;
             line-height: 1.8;
@@ -599,92 +521,194 @@
         }
 
         .solution-features {
-            margin-top: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
         }
 
         .solution-feature {
             display: flex;
             gap: 1.25rem;
-            margin-bottom: 1.75rem;
-            padding-bottom: 1.75rem;
-            border-bottom: 1px solid var(--gray-200);
+            padding: 1.5rem;
+            background: var(--gray-50);
+            border-radius: 8px;
+            transition: all 0.3s ease;
         }
 
-        .solution-feature:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
+        .solution-feature:hover {
+            background: var(--water-light);
         }
 
         .feature-icon {
-            width: 48px;
-            height: 48px;
-            background: var(--water-light);
+            width: 50px;
+            height: 50px;
+            background: var(--water-blue);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             flex-shrink: 0;
-            font-size: 1.25rem;
+            font-size: 1.5rem;
         }
 
         .solution-feature h4 {
             font-size: 1.05rem;
             color: var(--navy);
             margin-bottom: 0.4rem;
-            font-family: 'Inter', sans-serif;
             font-weight: 600;
         }
 
         .solution-feature p {
             color: var(--gray-600);
-            font-size: 0.95rem;
-            line-height: 1.6;
+            font-size: 0.9rem;
+            line-height: 1.5;
         }
 
-        .water-solution-visual {
-            background: linear-gradient(135deg, var(--water-blue) 0%, #0284c7 100%);
+        .solution-visual {
+            background: linear-gradient(135deg, var(--water-blue) 0%, var(--water-dark) 100%);
             display: flex;
             align-items: center;
             justify-content: center;
             position: relative;
-            overflow: hidden;
         }
 
-        .water-solution-visual::before {
+        .solution-visual::before {
             content: '';
             position: absolute;
             inset: 0;
-            background: url('https://images.unsplash.com/photo-1548839140-29a749e1cf4d?w=1200&q=80') center/cover;
-            opacity: 0.15;
+            background: url('https://images.unsplash.com/photo-1527066236128-2ff79f7b9705?w=1200&q=80') center/cover;
+            opacity: 0.2;
         }
 
-        .water-product-showcase {
+        .solution-showcase {
             position: relative;
             z-index: 2;
             text-align: center;
             padding: 3rem;
         }
 
-        .water-product-showcase h3 {
+        .solution-showcase h3 {
             color: white;
             font-size: 1.75rem;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
         }
 
-        .water-product-showcase p {
-            color: rgba(255,255,255,0.8);
-            font-size: 1rem;
-            max-width: 400px;
+        .comparison-box {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 12px;
+            padding: 2rem;
+            max-width: 350px;
             margin: 0 auto;
         }
 
+        .comparison-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+        }
+
+        .comparison-row:last-child {
+            border-bottom: none;
+        }
+
+        .comparison-row span:first-child {
+            color: rgba(255,255,255,0.7);
+        }
+
+        .comparison-row span:last-child {
+            color: white;
+            font-weight: 600;
+        }
+
+        .comparison-row.highlight span:last-child {
+            color: var(--gold);
+        }
+
         /* ============================================
-           SLIDE 7: BRIDGE - "But that's only half..."
+           SLIDE 6: MARKET OPPORTUNITY
+        ============================================ */
+        .market-slide {
+            background: var(--navy);
+            padding: 6rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .market-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 4rem;
+        }
+
+        .market-header h2 {
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .market-header h2 span {
+            color: var(--gold);
+        }
+
+        .market-header p {
+            color: rgba(255,255,255,0.7);
+            font-size: 1.1rem;
+        }
+
+        .market-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .market-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px;
+            padding: 2.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .market-card:hover {
+            background: rgba(255,255,255,0.06);
+            border-color: var(--gold);
+            transform: translateY(-5px);
+        }
+
+        .market-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            color: var(--gold);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .market-label {
+            color: white;
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .market-detail {
+            color: rgba(255,255,255,0.6);
+            font-size: 0.85rem;
+            line-height: 1.5;
+        }
+
+        /* ============================================
+           SLIDE 7: BRIDGE - And We Didn't Stop There
         ============================================ */
         .bridge-slide {
-            background: var(--navy);
-            min-height: 70vh;
+            background: var(--gold);
+            min-height: 50vh;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -698,412 +722,270 @@
 
         .bridge-content h2 {
             font-size: clamp(2rem, 4vw, 3.5rem);
-            color: white;
+            color: var(--navy);
             margin-bottom: 1.5rem;
             line-height: 1.3;
         }
 
-        .bridge-content h2 span {
-            color: var(--gold);
-        }
-
         .bridge-content p {
             font-size: 1.2rem;
-            color: rgba(255,255,255,0.7);
+            color: var(--navy);
+            opacity: 0.8;
             line-height: 1.8;
         }
 
-        .bridge-arrow {
-            margin-top: 3rem;
-            font-size: 2rem;
-            color: var(--gold);
-            animation: bounce 2s ease-in-out infinite;
-        }
-
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(10px); }
-        }
-
         /* ============================================
-           SLIDE 8: CHOCOLATE TRUTH
+           SLIDE 8: CHOCOLATE - Secondary Product
         ============================================ */
-        .chocolate-truth-slide {
-            background: var(--chocolate);
-            min-height: 100vh;
-            padding: 8rem 6rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .chocolate-truth-header {
-            max-width: 800px;
-            margin-bottom: 4rem;
-        }
-
-        .chocolate-truth-header h2 {
-            font-size: clamp(2.5rem, 4vw, 3.5rem);
-            color: white;
-            margin-bottom: 1rem;
-        }
-
-        .chocolate-truth-header h2 span {
-            color: var(--gold);
-        }
-
-        .chocolate-truth-header p {
-            color: rgba(255,255,255,0.7);
-            font-size: 1.1rem;
-        }
-
-        .chocolate-facts-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-            max-width: 1100px;
-        }
-
-        .chocolate-fact {
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 8px;
-            padding: 2rem;
-            transition: all 0.3s ease;
-        }
-
-        .chocolate-fact:hover {
-            background: rgba(255,255,255,0.08);
-            border-color: var(--gold);
-        }
-
-        .chocolate-fact-num {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            color: var(--gold);
-            line-height: 1;
-            margin-bottom: 1rem;
-        }
-
-        .chocolate-fact h4 {
-            font-size: 1.1rem;
-            color: white;
-            margin-bottom: 0.75rem;
-            font-family: 'Inter', sans-serif;
-            font-weight: 600;
-        }
-
-        .chocolate-fact p {
-            color: rgba(255,255,255,0.7);
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-
-        /* ============================================
-           SLIDE 9: CHOCOLATE SOLUTION
-        ============================================ */
-        .chocolate-solution-slide {
+        .chocolate-slide {
             display: grid;
             grid-template-columns: 1fr 1fr;
             min-height: 100vh;
         }
 
-        .chocolate-solution-image {
+        .chocolate-image {
             background: url('https://images.unsplash.com/photo-1606312619070-d48b4c652a52?w=1200&q=80') center/cover;
             position: relative;
         }
 
-        .chocolate-solution-image::after {
+        .chocolate-image::after {
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(90deg, transparent 50%, var(--cream) 100%);
+            background: linear-gradient(90deg, transparent 60%, var(--cream) 100%);
         }
 
-        .chocolate-solution-content {
+        .chocolate-content {
             background: var(--cream);
+            padding: 5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .chocolate-content h2 {
+            font-size: clamp(2rem, 3.5vw, 2.75rem);
+            color: var(--chocolate);
+            margin-bottom: 1.5rem;
+        }
+
+        .chocolate-content h2 span {
+            color: var(--gold);
+        }
+
+        .chocolate-content > p {
+            color: var(--gray-600);
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .chocolate-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.25rem;
+            margin-bottom: 2rem;
+        }
+
+        .choco-stat {
+            background: white;
+            padding: 1.25rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .choco-stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.75rem;
+            color: var(--chocolate);
+            line-height: 1;
+        }
+
+        .choco-stat-label {
+            font-size: 0.85rem;
+            color: var(--gray-600);
+            margin-top: 0.25rem;
+        }
+
+        .chocolate-benefits {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .choco-benefit {
+            background: var(--chocolate);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+        }
+
+        /* ============================================
+           SLIDE 9: VISION OF IMPACT
+        ============================================ */
+        .vision-slide {
+            background: linear-gradient(135deg, var(--navy) 0%, #1a3a5c 100%);
+            min-height: 100vh;
             padding: 6rem;
             display: flex;
             flex-direction: column;
             justify-content: center;
         }
 
-        .chocolate-brand {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .chocolate-brand img {
-            height: 35px;
-        }
-
-        .chocolate-brand span {
-            font-size: 0.8rem;
-            color: var(--gold);
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            font-weight: 600;
-        }
-
-        .chocolate-solution-content h2 {
-            font-size: clamp(2rem, 3.5vw, 2.75rem);
-            color: var(--chocolate);
-            margin-bottom: 1.5rem;
-        }
-
-        .chocolate-benefits {
-            margin-top: 1rem;
-        }
-
-        .chocolate-benefit {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-            padding-bottom: 1.5rem;
-            border-bottom: 1px solid var(--gray-200);
-        }
-
-        .chocolate-benefit:last-child {
-            border-bottom: none;
-        }
-
-        .benefit-num {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            color: var(--gold);
-            font-weight: 500;
-            width: 30px;
-            flex-shrink: 0;
-        }
-
-        .chocolate-benefit h4 {
-            font-size: 1rem;
-            color: var(--chocolate);
-            margin-bottom: 0.4rem;
-            font-weight: 600;
-        }
-
-        .chocolate-benefit p {
-            color: var(--gray-600);
-            font-size: 0.9rem;
-            line-height: 1.6;
-        }
-
-        /* ============================================
-           SLIDE 10: COMBINED WELLNESS VISION
-        ============================================ */
-        .wellness-vision-slide {
-            background: var(--cream);
-            padding: 8rem 6rem;
+        .vision-header {
             text-align: center;
-        }
-
-        .wellness-vision-header {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto 4rem;
         }
 
-        .wellness-vision-header h2 {
-            font-size: clamp(2.5rem, 4vw, 3.5rem);
-            color: var(--navy);
+        .vision-header h2 {
+            font-size: clamp(2.5rem, 4.5vw, 4rem);
+            color: white;
             margin-bottom: 1rem;
         }
 
-        .wellness-vision-header p {
+        .vision-header h2 span {
+            color: var(--gold);
+        }
+
+        .vision-header p {
+            color: rgba(255,255,255,0.7);
             font-size: 1.15rem;
-            color: var(--gray-600);
             line-height: 1.8;
         }
 
-        .wellness-equation {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 2rem;
-            max-width: 1000px;
-            margin: 0 auto;
-            flex-wrap: wrap;
-        }
-
-        .wellness-item {
-            background: white;
-            border-radius: 12px;
-            padding: 2.5rem;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
-            min-width: 280px;
-            flex: 1;
-        }
-
-        .wellness-item-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        .wellness-item h3 {
-            font-size: 1.35rem;
-            color: var(--navy);
-            margin-bottom: 0.75rem;
-        }
-
-        .wellness-item p {
-            color: var(--gray-600);
-            font-size: 0.95rem;
-        }
-
-        .wellness-plus {
-            font-family: 'Playfair Display', serif;
-            font-size: 3rem;
-            color: var(--gold);
-        }
-
-        .wellness-equals {
-            font-family: 'Playfair Display', serif;
-            font-size: 3rem;
-            color: var(--gold);
-        }
-
-        .wellness-result {
-            background: var(--navy);
-            color: white;
-            border-radius: 12px;
-            padding: 2.5rem;
-            min-width: 280px;
-            flex: 1;
-        }
-
-        .wellness-result h3 {
-            color: var(--gold);
-            font-size: 1.5rem;
-            margin-bottom: 0.75rem;
-        }
-
-        .wellness-result p {
-            color: rgba(255,255,255,0.8);
-            font-size: 0.95rem;
-        }
-
-        /* ============================================
-           SLIDE 11: TRANSFORMATION STORIES
-        ============================================ */
-        .transformation-slide {
-            background: var(--gray-50);
-            padding: 8rem 6rem;
-        }
-
-        .transformation-header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
-        .transformation-header h2 {
-            font-size: clamp(2.5rem, 4vw, 3.5rem);
-            color: var(--navy);
-            margin-bottom: 1rem;
-        }
-
-        .transformation-header p {
-            color: var(--gray-600);
-            font-size: 1.1rem;
-        }
-
-        .testimonials-grid {
+        .impact-timeline {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
             max-width: 1200px;
             margin: 0 auto;
         }
 
-        .testimonial-card {
-            background: white;
+        .impact-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
             border-radius: 12px;
-            padding: 2.5rem;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
             position: relative;
         }
 
-        .testimonial-card::before {
-            content: '"';
-            font-family: 'Playfair Display', serif;
-            font-size: 5rem;
-            color: var(--gold-light);
+        .impact-card:hover {
+            background: rgba(255,255,255,0.06);
+            border-color: var(--gold);
+            transform: translateY(-5px);
+        }
+
+        .impact-card::before {
+            content: '';
             position: absolute;
-            top: 1rem;
-            left: 1.5rem;
+            top: 50%;
+            right: -0.75rem;
+            width: 1.5rem;
+            height: 2px;
+            background: var(--gold);
+        }
+
+        .impact-card:last-child::before {
+            display: none;
+        }
+
+        .impact-people {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--gold);
             line-height: 1;
+            margin-bottom: 0.5rem;
         }
 
-        .testimonial-text {
-            position: relative;
-            z-index: 2;
-            color: var(--gray-600);
-            font-size: 1rem;
-            line-height: 1.8;
+        .impact-label {
+            color: rgba(255,255,255,0.6);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
             margin-bottom: 1.5rem;
-            font-style: italic;
         }
 
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .testimonial-avatar {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: var(--gold-light);
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .impact-families {
+            color: white;
+            font-size: 1.5rem;
             font-weight: 600;
-            color: var(--chocolate);
+            margin-bottom: 0.5rem;
         }
 
-        .testimonial-name {
-            font-weight: 600;
-            color: var(--navy);
-        }
-
-        .testimonial-location {
+        .impact-detail {
+            color: rgba(255,255,255,0.7);
             font-size: 0.85rem;
-            color: var(--gray-400);
+            line-height: 1.5;
+        }
+
+        .impact-savings {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: var(--green-accent);
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .vision-quote {
+            text-align: center;
+            max-width: 800px;
+            margin: 4rem auto 0;
+            padding-top: 3rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .vision-quote p {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: rgba(255,255,255,0.9);
+            font-style: italic;
+            line-height: 1.6;
+        }
+
+        .vision-quote cite {
+            display: block;
+            margin-top: 1rem;
+            color: var(--gold);
+            font-size: 0.9rem;
+            font-style: normal;
         }
 
         /* ============================================
-           SLIDE 12: DREAM BUILDING
+           SLIDE 10: DREAM BUILDING
         ============================================ */
         .dream-slide {
-            background: var(--navy);
+            background: var(--cream);
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             position: relative;
             text-align: center;
+            padding: 4rem;
         }
 
         .dream-slide::before {
             content: '';
             position: absolute;
             inset: 0;
-            background: url('https://images.unsplash.com/photo-1531366936337-7c912a4589a7?w=1920&q=80') center/cover;
-            opacity: 0.15;
+            background: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&q=80') center/cover;
+            opacity: 0.08;
         }
 
         .dream-content {
             position: relative;
             z-index: 2;
-            max-width: 900px;
-            padding: 4rem 2rem;
+            max-width: 1000px;
         }
 
         .dream-content h2 {
             font-size: clamp(2.5rem, 5vw, 4rem);
-            color: white;
+            color: var(--navy);
             margin-bottom: 3rem;
             line-height: 1.3;
         }
@@ -1120,17 +1002,19 @@
         }
 
         .dream-question {
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 8px;
+            background: white;
+            border: 1px solid var(--gray-200);
+            border-radius: 12px;
             padding: 2rem;
             text-align: left;
             transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
         }
 
         .dream-question:hover {
-            background: rgba(255,255,255,0.08);
             border-color: var(--gold);
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.1);
         }
 
         .dream-question h4 {
@@ -1141,16 +1025,17 @@
         }
 
         .dream-question p {
-            color: rgba(255,255,255,0.7);
+            color: var(--gray-600);
             font-size: 0.95rem;
+            line-height: 1.6;
         }
 
         /* ============================================
-           SLIDE 13: OPPORTUNITY BRIDGE
+           SLIDE 11: OPPORTUNITY BRIDGE
         ============================================ */
         .opportunity-bridge-slide {
-            background: var(--gold);
-            min-height: 60vh;
+            background: var(--navy);
+            min-height: 50vh;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -1164,24 +1049,31 @@
 
         .opportunity-bridge-content h2 {
             font-size: clamp(2.5rem, 4.5vw, 4rem);
-            color: var(--navy);
+            color: white;
             margin-bottom: 1.5rem;
             line-height: 1.2;
         }
 
+        .opportunity-bridge-content h2 span {
+            color: var(--gold);
+        }
+
         .opportunity-bridge-content p {
-            font-size: 1.25rem;
-            color: var(--navy);
-            opacity: 0.8;
+            font-size: 1.2rem;
+            color: rgba(255,255,255,0.7);
             line-height: 1.7;
         }
 
         /* ============================================
-           SLIDE 14: THE OPPORTUNITY
+           SLIDE 12: THE OPPORTUNITY
         ============================================ */
         .opportunity-slide {
-            background: var(--cream);
-            padding: 8rem 6rem;
+            background: var(--gray-50);
+            padding: 6rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         .opportunity-header {
@@ -1264,11 +1156,15 @@
         }
 
         /* ============================================
-           SLIDE 15: HOW YOU EARN (Simple)
+           SLIDE 13: HOW YOU EARN
         ============================================ */
         .earn-slide {
             background: var(--navy);
-            padding: 8rem 6rem;
+            padding: 6rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         .earn-header {
@@ -1290,7 +1186,7 @@
         .earn-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
+            gap: 1.5rem;
             max-width: 1100px;
             margin: 0 auto;
         }
@@ -1299,7 +1195,7 @@
             background: rgba(255,255,255,0.03);
             border: 1px solid rgba(255,255,255,0.08);
             border-radius: 12px;
-            padding: 2.5rem;
+            padding: 2rem;
             text-align: center;
             transition: all 0.3s ease;
         }
@@ -1312,30 +1208,34 @@
 
         .earn-card-number {
             font-family: 'Playfair Display', serif;
-            font-size: 3.5rem;
+            font-size: 3rem;
             color: var(--gold);
             line-height: 1;
-            margin-bottom: 1rem;
+            margin-bottom: 0.75rem;
         }
 
         .earn-card h3 {
-            font-size: 1.25rem;
+            font-size: 1.15rem;
             color: white;
-            margin-bottom: 0.75rem;
+            margin-bottom: 0.5rem;
         }
 
         .earn-card p {
             color: rgba(255,255,255,0.7);
-            font-size: 0.95rem;
-            line-height: 1.6;
+            font-size: 0.9rem;
+            line-height: 1.5;
         }
 
         /* ============================================
-           SLIDE 16: PACKAGES
+           SLIDE 14: PACKAGES
         ============================================ */
         .packages-slide {
-            background: var(--gray-50);
-            padding: 6rem 4rem;
+            background: var(--cream);
+            padding: 5rem 4rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         .packages-header {
@@ -1359,7 +1259,7 @@
 
         .package-card {
             background: white;
-            border-radius: 8px;
+            border-radius: 12px;
             overflow: hidden;
             box-shadow: 0 4px 15px rgba(0,0,0,0.05);
             transition: all 0.3s ease;
@@ -1388,7 +1288,7 @@
 
         .package-name {
             font-family: 'Playfair Display', serif;
-            font-size: 1.15rem;
+            font-size: 1.1rem;
             color: white;
             margin-bottom: 0.25rem;
         }
@@ -1397,11 +1297,6 @@
             font-size: 1.75rem;
             color: white;
             font-weight: 700;
-        }
-
-        .package-price span {
-            font-size: 1rem;
-            font-weight: 400;
         }
 
         .package-body {
@@ -1430,11 +1325,15 @@
         }
 
         /* ============================================
-           SLIDE 17: REWARDS PREVIEW
+           SLIDE 15: REWARDS
         ============================================ */
         .rewards-slide {
             background: var(--navy);
-            padding: 8rem 6rem;
+            padding: 6rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         .rewards-header {
@@ -1456,7 +1355,7 @@
         .rewards-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
+            gap: 1.5rem;
             max-width: 1200px;
             margin: 0 auto;
         }
@@ -1475,38 +1374,38 @@
         }
 
         .reward-image {
-            height: 160px;
+            height: 140px;
             background-size: cover;
             background-position: center;
         }
 
         .reward-content {
-            padding: 1.5rem;
+            padding: 1.25rem;
             text-align: center;
         }
 
         .reward-rank {
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             color: var(--gold);
             text-transform: uppercase;
             letter-spacing: 0.1em;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.25rem;
         }
 
         .reward-name {
             font-family: 'Playfair Display', serif;
-            font-size: 1.25rem;
+            font-size: 1.15rem;
             color: white;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.25rem;
         }
 
         .reward-requirement {
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             color: rgba(255,255,255,0.6);
         }
 
         /* ============================================
-           SLIDE 18: CALL TO ACTION
+           SLIDE 16: CALL TO ACTION
         ============================================ */
         .cta-slide {
             min-height: 100vh;
@@ -1521,15 +1420,15 @@
             content: '';
             position: absolute;
             inset: 0;
-            background: url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=1920&q=80') center/cover;
-            opacity: 0.15;
+            background: url('https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=1920&q=80') center/cover;
+            opacity: 0.12;
         }
 
         .cta-content {
             position: relative;
             z-index: 2;
             text-align: center;
-            max-width: 800px;
+            max-width: 900px;
             padding: 4rem 2rem;
         }
 
@@ -1550,10 +1449,25 @@
 
         .cta-tagline {
             font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
+            font-size: 1.35rem;
             color: var(--gold);
             font-style: italic;
             margin-bottom: 2.5rem;
+        }
+
+        .cta-vision {
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
+            padding: 2rem;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+        }
+
+        .cta-vision p {
+            color: rgba(255,255,255,0.8);
+            font-size: 1.05rem;
+            line-height: 1.7;
         }
 
         .cta-options {
@@ -1631,33 +1545,36 @@
         ============================================ */
         @media (max-width: 1200px) {
             .packages-grid,
-            .rewards-grid {
+            .rewards-grid,
+            .impact-timeline,
+            .crisis-stats {
                 grid-template-columns: repeat(2, 1fr);
             }
 
-            .credibility-grid {
+            .hook-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .contaminants-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
         }
 
         @media (max-width: 968px) {
             .founder-slide,
-            .water-solution-slide,
-            .chocolate-solution-slide {
+            .solution-slide,
+            .chocolate-slide {
                 grid-template-columns: 1fr;
             }
 
             .founder-image,
-            .chocolate-solution-image {
+            .chocolate-image {
                 min-height: 50vh;
             }
 
-            .problem-grid,
-            .water-facts,
-            .chocolate-facts-grid,
-            .dream-questions,
-            .testimonials-grid,
-            .earn-grid {
+            .market-grid,
+            .earn-grid,
+            .dream-questions {
                 grid-template-columns: 1fr;
             }
 
@@ -1669,39 +1586,24 @@
                 display: none;
             }
 
-            .wellness-equation {
-                flex-direction: column;
-            }
-
-            .wellness-plus,
-            .wellness-equals {
-                transform: rotate(90deg);
-            }
-
-            .hook-stats {
-                flex-direction: column;
-                gap: 2rem;
+            .impact-card::before {
+                display: none;
             }
 
             .founder-content,
-            .water-solution-content,
-            .chocolate-solution-content {
-                padding: 4rem 2rem;
+            .solution-content,
+            .chocolate-content {
+                padding: 3rem 2rem;
             }
 
-            .problem-slide,
-            .credibility-slide,
-            .chocolate-truth-slide,
-            .wellness-vision-slide,
-            .transformation-slide,
+            .water-crisis-slide,
+            .water-contents-slide,
+            .market-slide,
+            .vision-slide,
             .opportunity-slide,
             .earn-slide,
             .packages-slide,
             .rewards-slide {
-                padding: 4rem 2rem;
-            }
-
-            .water-crisis-content {
                 padding: 4rem 2rem;
             }
 
@@ -1715,13 +1617,20 @@
             .packages-grid,
             .rewards-grid,
             .opportunity-steps,
-            .credibility-grid {
+            .crisis-stats,
+            .impact-timeline,
+            .contaminants-grid,
+            .hook-stats {
                 grid-template-columns: 1fr;
             }
 
             .founder-credentials {
-                flex-direction: column;
-                gap: 1.5rem;
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .chocolate-stats {
+                grid-template-columns: 1fr;
             }
 
             .cta-options {
@@ -1748,71 +1657,107 @@
 <section class="slide hook-slide">
     <div class="hook-content">
         <div class="hook-logo">
-            <img src="https://insiderclub.org/LOGOS/injoi_logo.png" alt="INJOI" onerror="this.outerHTML='<span style=\'font-family: Playfair Display, serif; font-size: 3rem; color: #C9A227; letter-spacing: 0.15em;\'>INJOI</span>'">
+            <img src="https://insiderclub.org/LOGOS/injoi_logo.png" alt="INJOI" onerror="this.outerHTML='<span style=\'font-family: Playfair Display, serif; font-size: 2.5rem; color: #C9A227; letter-spacing: 0.15em;\'>INJOI</span>'">
         </div>
         <h1 class="hook-question">
-            What if the water you drink and the food you eat<br>
-            are <em>slowly poisoning you</em>?
+            87% of tap water contains <em>microplastics</em>.<br>
+            What's really in yours?
         </h1>
         <p class="hook-subtext">
-            Every day, millions of people consume contaminated water and processed foods
-            without knowing the hidden damage it causes to their bodies.
+            Even in Estonia and the Nordic countries, your "safe" drinking water contains
+            contaminants that accumulate in your body over decades.
         </p>
         <div class="hook-stats">
             <div class="hook-stat">
-                <div class="hook-stat-number">2B+</div>
-                <div class="hook-stat-label">People lack clean water</div>
+                <div class="hook-stat-number">87%</div>
+                <div class="hook-stat-label">Tap water contains microplastics</div>
             </div>
             <div class="hook-stat">
-                <div class="hook-stat-number">80%</div>
-                <div class="hook-stat-label">Chocolate is heat-processed</div>
+                <div class="hook-stat-number">12.5M</div>
+                <div class="hook-stat-label">Europeans drink PFAS-contaminated water</div>
             </div>
             <div class="hook-stat">
-                <div class="hook-stat-number">700+</div>
-                <div class="hook-stat-label">Contaminants in tap water</div>
+                <div class="hook-stat-number">60%</div>
+                <div class="hook-stat-label">EU tap water contains pharmaceutical drugs</div>
+            </div>
+            <div class="hook-stat">
+                <div class="hook-stat-number">€84B</div>
+                <div class="hook-stat-label">Annual health costs from PFAS in Europe</div>
             </div>
         </div>
     </div>
-    <div class="scroll-hint">Discover the solution</div>
+    <div class="scroll-hint">Discover the truth</div>
 </section>
 
-<!-- SLIDE 2: THE HIDDEN PROBLEM -->
-<section class="slide problem-slide">
-    <div class="problem-header">
+<!-- SLIDE 2: WATER CRISIS -->
+<section class="slide water-crisis-slide">
+    <div class="crisis-header">
         <div class="section-label">The Hidden Crisis</div>
-        <h2>Two Problems. <span>One Cause.</span></h2>
+        <h2>Your Water <span>Isn't Safe</span></h2>
         <p>
-            Modern life has disconnected us from pure water and real nutrition.
-            What we consume daily is compromising our health in ways we can't see.
+            Only 38% of EU surface water is in good ecological status.
+            What you can't see is silently affecting your health every single day.
         </p>
     </div>
-    <div class="problem-grid">
-        <div class="problem-card">
-            <div class="problem-card-icon">💧</div>
-            <h3>Your Water Isn't Safe</h3>
-            <p>Even in developed countries, tap water contains:</p>
-            <ul>
-                <li>Heavy metals (lead, mercury, arsenic)</li>
-                <li>Microplastics and pharmaceuticals</li>
-                <li>Chlorine and fluoride compounds</li>
-                <li>Bacteria that survive treatment</li>
-            </ul>
+    <div class="crisis-stats">
+        <div class="crisis-stat">
+            <div class="crisis-stat-number">72%</div>
+            <div class="crisis-stat-label">Reduction in illness with proper filtration</div>
+            <div class="crisis-stat-source">Scientific Reports, 2020</div>
         </div>
-        <div class="problem-card">
-            <div class="problem-card-icon">🍫</div>
-            <h3>Your Chocolate Is Dead</h3>
-            <p>Commercial chocolate has been stripped of benefits:</p>
-            <ul>
-                <li>High heat destroys antioxidants</li>
-                <li>Refined sugar causes inflammation</li>
-                <li>Artificial additives and preservatives</li>
-                <li>Unethical sourcing practices</li>
-            </ul>
+        <div class="crisis-stat">
+            <div class="crisis-stat-number">90%</div>
+            <div class="crisis-stat-label">Microplastics smaller than EU detection limits</div>
+            <div class="crisis-stat-source">Euronews Health, 2025</div>
+        </div>
+        <div class="crisis-stat">
+            <div class="crisis-stat-number">240K</div>
+            <div class="crisis-stat-label">Plastic particles per liter in bottled water</div>
+            <div class="crisis-stat-source">PNAS Study</div>
+        </div>
+        <div class="crisis-stat">
+            <div class="crisis-stat-number">€3.3B</div>
+            <div class="crisis-stat-label">Annual healthcare costs from waterborne illness</div>
+            <div class="crisis-stat-source">CDC Report</div>
         </div>
     </div>
 </section>
 
-<!-- SLIDE 3: FOUNDER'S WHY STORY -->
+<!-- SLIDE 3: WHAT'S IN YOUR WATER -->
+<section class="slide water-contents-slide">
+    <div class="water-contents-header">
+        <h2>What's <span>Actually</span> In Your Tap Water</h2>
+        <p>Even "clean" European tap water contains invisible threats that accumulate in your body</p>
+    </div>
+    <div class="contaminants-grid">
+        <div class="contaminant-card">
+            <div class="contaminant-icon">🔬</div>
+            <h4>Microplastics</h4>
+            <p>Found in human blood, lungs, placenta. Linked to DNA damage, inflammation, and cancer.</p>
+            <div class="contaminant-stat">413 particles/liter in some EU cities</div>
+        </div>
+        <div class="contaminant-card">
+            <div class="contaminant-icon">⚗️</div>
+            <h4>PFAS "Forever Chemicals"</h4>
+            <p>23,000 contaminated sites across Europe. Never breaks down in environment or body.</p>
+            <div class="contaminant-stat">59% of rivers exceed safe limits</div>
+        </div>
+        <div class="contaminant-card">
+            <div class="contaminant-icon">💊</div>
+            <h4>Pharmaceuticals</h4>
+            <p>Over 100 pharmaceutical substances detected in European water. Hormones, antibiotics, painkillers.</p>
+            <div class="contaminant-stat">60.5% of EU tap water affected</div>
+        </div>
+        <div class="contaminant-card">
+            <div class="contaminant-icon">☠️</div>
+            <h4>Heavy Metals</h4>
+            <p>Lead, mercury, arsenic. Linked to neurological damage, cancer, and developmental issues.</p>
+            <div class="contaminant-stat">10-20% of lead exposure from water</div>
+        </div>
+    </div>
+</section>
+
+<!-- SLIDE 4: FOUNDER'S WHY -->
 <section class="slide founder-slide">
     <div class="founder-image">
         <div class="founder-photo-container">
@@ -1832,130 +1777,115 @@
                 When I discovered the connection between water quality and chronic illness, everything changed."
             </p>
             <p>
-                "I spent 12 years mastering osmosis filtration technology, and another decade perfecting
-                <span class="highlight">80 raw chocolate recipes</span> that preserve nature's benefits instead of destroying them."
+                "I spent 12 years mastering osmosis filtration technology. Today, INJOI exists for one reason:
+                <span class="highlight">to give families access to what they deserve — pure water</span>."
             </p>
             <p>
-                "Today, INJOI exists for one reason: to give families access to what they deserve —
-                <span class="highlight">pure water and real nutrition</span>."
+                "And because wellness is more than hydration, we developed
+                <span class="highlight">80+ raw chocolate recipes</span> that nourish instead of harm."
             </p>
         </div>
         <div class="founder-credentials">
             <div class="credential">
-                <div class="credential-number">30</div>
-                <div class="credential-text">Years in<br>Business</div>
+                <div class="credential-number">30+</div>
+                <div class="credential-text">Years in Business</div>
             </div>
             <div class="credential">
                 <div class="credential-number">2</div>
-                <div class="credential-text">Chocolate<br>Factories</div>
+                <div class="credential-text">Chocolate Factories</div>
             </div>
             <div class="credential">
                 <div class="credential-number">80+</div>
-                <div class="credential-text">Original<br>Recipes</div>
+                <div class="credential-text">Original Recipes</div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- SLIDE 4: COMPANY CREDIBILITY -->
-<section class="slide credibility-slide">
-    <div class="credibility-logo">
-        <img src="https://insiderclub.org/LOGOS/injoi_logo.png" alt="INJOI" onerror="this.outerHTML='<span style=\'font-family: Playfair Display, serif; font-size: 2.5rem; color: #C9A227; letter-spacing: 0.15em;\'>INJOI</span>'">
-    </div>
-    <div class="credibility-tagline">"Life is in Your Hands"</div>
-    <p class="credibility-mission">
-        We don't just sell products. We educate and inspire people to take control
-        of their health through conscious choices.
-    </p>
-    <div class="credibility-grid">
-        <div class="credibility-item">
-            <div class="credibility-number">15+</div>
-            <div class="credibility-label">Years of Excellence</div>
-        </div>
-        <div class="credibility-item">
-            <div class="credibility-number">2</div>
-            <div class="credibility-label">Product Lines</div>
-        </div>
-        <div class="credibility-item">
-            <div class="credibility-number">100%</div>
-            <div class="credibility-label">Raw & Organic</div>
-        </div>
-        <div class="credibility-item">
-            <div class="credibility-number">EU</div>
-            <div class="credibility-label">Quality Certified</div>
-        </div>
-    </div>
-</section>
-
-<!-- SLIDE 5: WATER CRISIS -->
-<section class="slide water-crisis-slide">
-    <div class="water-crisis-bg"></div>
-    <div class="water-crisis-content">
-        <div class="section-label">Product Line 1</div>
-        <h2>The <span>Water</span> Your Body Deserves</h2>
-        <p>
-            Over 2 billion people lack access to clean drinking water. But even in Estonia,
-            Germany, and the Nordic countries, "safe" tap water contains contaminants that
-            accumulate in your body over decades.
-        </p>
-        <div class="water-facts">
-            <div class="water-fact">
-                <div class="water-fact-number">99.9%</div>
-                <div class="water-fact-text">Of contaminants removed by reverse osmosis technology</div>
-            </div>
-            <div class="water-fact">
-                <div class="water-fact-number">0.0001μm</div>
-                <div class="water-fact-text">Membrane pore size — smaller than viruses</div>
-            </div>
-            <div class="water-fact">
-                <div class="water-fact-number">H₂</div>
-                <div class="water-fact-text">Hydrogen-enriched water for antioxidant benefits</div>
-            </div>
-            <div class="water-fact">
-                <div class="water-fact-number">€0.02</div>
-                <div class="water-fact-text">Per liter — cheaper than bottled water</div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- SLIDE 6: WATER SOLUTION -->
-<section class="slide water-solution-slide">
-    <div class="water-solution-content">
+<!-- SLIDE 5: THE SOLUTION -->
+<section class="slide solution-slide">
+    <div class="solution-content">
         <div class="section-label">The Solution</div>
         <h2>INJOI <span>Water Purification</span></h2>
         <p>
-            Advanced osmosis technology empowers your household to take control of water quality.
-            From countertop units to whole-home systems.
+            Advanced reverse osmosis technology that removes 99.9% of contaminants —
+            including the microplastics and pharmaceuticals that basic filters miss.
         </p>
         <div class="solution-features">
             <div class="solution-feature">
                 <div class="feature-icon">🔬</div>
                 <div>
-                    <h4>Reverse Osmosis Filtration</h4>
-                    <p>Multi-stage purification removes heavy metals, chlorine, microplastics, and bacteria.</p>
+                    <h4>200+ Contaminants Removed</h4>
+                    <p>Vs. basic pitchers that remove only 8. Medical-grade filtration at home.</p>
                 </div>
             </div>
             <div class="solution-feature">
                 <div class="feature-icon">⚡</div>
                 <div>
-                    <h4>Hydrogen Ionization</h4>
-                    <p>Optional hydrogen enrichment creates powerful antioxidant water for cellular health.</p>
+                    <h4>Hydrogen Ionization Option</h4>
+                    <p>Create antioxidant-rich water that fights oxidative stress at the cellular level.</p>
                 </div>
             </div>
             <div class="solution-feature">
-                <div class="feature-icon">🏠</div>
+                <div class="feature-icon">💰</div>
                 <div>
-                    <h4>Portable & Plug-In Options</h4>
-                    <p>From travel bottles to under-sink systems — solutions for every lifestyle.</p>
+                    <h4>€0.02 Per Liter</h4>
+                    <p>50x cheaper than bottled water — and without the 240,000 microplastic particles.</p>
                 </div>
             </div>
         </div>
     </div>
-    <div class="water-solution-visual">
-        <div class="water-product-showcase">
-            <h3>Premium Filtration Systems</h3>
-            <p>8 different systems from portable bottles to advanced home units</p>
+    <div class="solution-visual">
+        <div class="solution-showcase">
+            <h3>Premium vs. Basic Filtration</h3>
+            <div class="comparison-box">
+                <div class="comparison-row">
+                    <span>Contaminants removed</span>
+                    <span>200+ vs 8</span>
+                </div>
+                <div class="comparison-row">
+                    <span>Filter lifespan</span>
+                    <span>6,000 vs 40 gal</span>
+                </div>
+                <div class="comparison-row">
+                    <span>Removes microplastics</span>
+                    <span>Yes vs No</span>
+                </div>
+                <div class="comparison-row">
+                    <span>Removes pharmaceuticals</span>
+                    <span>Yes vs No</span>
+                </div>
+                <div class="comparison-row highlight">
+                    <span>Cost per liter</span>
+                    <span>€0.02</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SLIDE 6: MARKET OPPORTUNITY -->
+<section class="slide market-slide">
+    <div class="market-header">
+        <div class="section-label">Market Opportunity</div>
+        <h2>A <span>€10 Billion</span> Market — Growing Fast</h2>
+        <p>The European water filtration market is exploding as awareness grows</p>
+    </div>
+    <div class="market-grid">
+        <div class="market-card">
+            <div class="market-number">€5.3B</div>
+            <div class="market-label">European Market 2024</div>
+            <div class="market-detail">Growing to €10.3B by 2033</div>
+        </div>
+        <div class="market-card">
+            <div class="market-number">9.6%</div>
+            <div class="market-label">Annual Growth Rate</div>
+            <div class="market-detail">One of the fastest-growing home product categories</div>
+        </div>
+        <div class="market-card">
+            <div class="market-number">78%</div>
+            <div class="market-label">Residential Demand</div>
+            <div class="market-detail">Families want filtration at home</div>
         </div>
     </div>
 </section>
@@ -1963,169 +1893,101 @@
 <!-- SLIDE 7: BRIDGE -->
 <section class="slide bridge-slide">
     <div class="bridge-content">
-        <h2>Clean water is <span>half</span> the equation.</h2>
+        <h2>And we didn't stop at water.</h2>
         <p>
-            Your body also needs proper nutrition — but the food industry has been lying to you
-            about what "healthy" really means. Especially when it comes to chocolate.
+            Because true wellness is more than hydration. Your body also needs real nutrition —
+            and the food industry has been lying about what "healthy" really means.
         </p>
-        <div class="bridge-arrow">↓</div>
     </div>
 </section>
 
-<!-- SLIDE 8: CHOCOLATE TRUTH -->
-<section class="slide chocolate-truth-slide">
-    <div class="chocolate-truth-header">
-        <div class="section-label">Product Line 2</div>
-        <h2>The <span>Bitter Truth</span> About Chocolate</h2>
-        <p>4 facts the chocolate industry doesn't want you to know</p>
-    </div>
-    <div class="chocolate-facts-grid">
-        <div class="chocolate-fact">
-            <div class="chocolate-fact-num">01</div>
-            <h4>Heat Destroys Everything Good</h4>
-            <p>Commercial chocolate is processed at high temperatures, destroying the antioxidants, flavonoids, and nutrients that make cacao a superfood.</p>
+<!-- SLIDE 8: CHOCOLATE -->
+<section class="slide chocolate-slide">
+    <div class="chocolate-image"></div>
+    <div class="chocolate-content">
+        <div class="section-label">Complementary Product Line</div>
+        <h2>Raw Chocolate That <span>Actually Heals</span></h2>
+        <p>
+            Most chocolate destroys 60-90% of cacao's antioxidants through heat processing.
+            INJOI's raw chocolate preserves everything nature intended.
+        </p>
+        <div class="chocolate-stats">
+            <div class="choco-stat">
+                <div class="choco-stat-number">40x</div>
+                <div class="choco-stat-label">More antioxidants than blueberries</div>
+            </div>
+            <div class="choco-stat">
+                <div class="choco-stat-number">60%</div>
+                <div class="choco-stat-label">Lower depression risk (dark chocolate)</div>
+            </div>
+            <div class="choco-stat">
+                <div class="choco-stat-number">€42B</div>
+                <div class="choco-stat-label">Premium chocolate market</div>
+            </div>
+            <div class="choco-stat">
+                <div class="choco-stat-number">80+</div>
+                <div class="choco-stat-label">Original superfood recipes</div>
+            </div>
         </div>
-        <div class="chocolate-fact">
-            <div class="chocolate-fact-num">02</div>
-            <h4>Sugar Is the Real Addiction</h4>
-            <p>Refined white sugar stresses your liver, spikes blood sugar, promotes inflammation, and keeps you craving more.</p>
-        </div>
-        <div class="chocolate-fact">
-            <div class="chocolate-fact-num">03</div>
-            <h4>The Human Cost Is Hidden</h4>
-            <p>Mass-market chocolate often comes from farms using underpaid or child labor. The "cheap" price has a steep moral cost.</p>
-        </div>
-        <div class="chocolate-fact">
-            <div class="chocolate-fact-num">04</div>
-            <h4>Chemicals Replace Real Ingredients</h4>
-            <p>Artificial flavors, emulsifiers, and preservatives make up a significant portion of conventional chocolate bars.</p>
-        </div>
-    </div>
-</section>
-
-<!-- SLIDE 9: CHOCOLATE SOLUTION -->
-<section class="slide chocolate-solution-slide">
-    <div class="chocolate-solution-image"></div>
-    <div class="chocolate-solution-content">
-        <div class="chocolate-brand">
-            <img src="https://insiderclub.org/LOGOS/injoi_logo.png" alt="INJOI" onerror="this.outerHTML='<span style=\'font-size: 1.5rem; color: #3d2314; font-family: Playfair Display, serif;\'>INJOI</span>'">
-            <span>Stay Young • Raw & Organic</span>
-        </div>
-        <h2>Chocolate That Heals</h2>
         <div class="chocolate-benefits">
-            <div class="chocolate-benefit">
-                <div class="benefit-num">1</div>
-                <div>
-                    <h4>100% Raw Cacao</h4>
-                    <p>Made at low temperatures to preserve all antioxidants and nutrients nature intended.</p>
-                </div>
-            </div>
-            <div class="chocolate-benefit">
-                <div class="benefit-num">2</div>
-                <div>
-                    <h4>Superfoods & Medicinal Mushrooms</h4>
-                    <p>Infused with freeze-dried acai, maca, spirulina, lion's mane, reishi, and chaga.</p>
-                </div>
-            </div>
-            <div class="chocolate-benefit">
-                <div class="benefit-num">3</div>
-                <div>
-                    <h4>Freeze-Dried for Freshness</h4>
-                    <p>Ingredients preserve their full vitamin and mineral spectrum — pure nature in every bite.</p>
-                </div>
-            </div>
-            <div class="chocolate-benefit">
-                <div class="benefit-num">4</div>
-                <div>
-                    <h4>No Refined Sugar</h4>
-                    <p>Naturally sweetened with coconut sugar, dates, or lucuma. Clean indulgence.</p>
-                </div>
-            </div>
+            <span class="choco-benefit">100% Raw Cacao</span>
+            <span class="choco-benefit">No Refined Sugar</span>
+            <span class="choco-benefit">Medicinal Mushrooms</span>
+            <span class="choco-benefit">Freeze-Dried Superfoods</span>
         </div>
     </div>
 </section>
 
-<!-- SLIDE 10: COMBINED WELLNESS VISION -->
-<section class="slide wellness-vision-slide">
-    <div class="wellness-vision-header">
-        <div class="section-label">Complete Wellness</div>
-        <h2>Two Solutions. One Transformed Life.</h2>
-        <p>When you control what goes into your body — pure water and real nutrition — everything changes.</p>
+<!-- SLIDE 9: VISION OF IMPACT -->
+<section class="slide vision-slide">
+    <div class="vision-header">
+        <div class="section-label">Our Vision</div>
+        <h2>What If We Could Help <span>10 Million People</span>?</h2>
+        <p>
+            Every person we help creates a ripple effect through their family.
+            Here's what impact at scale actually looks like.
+        </p>
     </div>
-    <div class="wellness-equation">
-        <div class="wellness-item">
-            <div class="wellness-item-icon">💧</div>
-            <h3>Clean Water</h3>
-            <p>Hydration without contamination. Every cell in your body renewed.</p>
+    <div class="impact-timeline">
+        <div class="impact-card">
+            <div class="impact-people">10K</div>
+            <div class="impact-label">People Helped</div>
+            <div class="impact-families">40,000</div>
+            <div class="impact-detail">Family members influenced</div>
+            <div class="impact-savings">€15-30M healthcare savings</div>
         </div>
-        <div class="wellness-plus">+</div>
-        <div class="wellness-item">
-            <div class="wellness-item-icon">🍫</div>
-            <h3>Real Nutrition</h3>
-            <p>Superfoods that energize, not deplete. Pleasure without guilt.</p>
+        <div class="impact-card">
+            <div class="impact-people">100K</div>
+            <div class="impact-label">People Helped</div>
+            <div class="impact-families">400,000</div>
+            <div class="impact-detail">A movement begins</div>
+            <div class="impact-savings">€150-300M healthcare savings</div>
         </div>
-        <div class="wellness-equals">=</div>
-        <div class="wellness-result">
-            <h3>Complete Wellness</h3>
-            <p>More energy. Better focus. Stronger immunity. A body that thrives.</p>
+        <div class="impact-card">
+            <div class="impact-people">1M</div>
+            <div class="impact-label">People Helped</div>
+            <div class="impact-families">4 Million</div>
+            <div class="impact-detail">Cultural shift achieved</div>
+            <div class="impact-savings">€1.5-3B healthcare savings</div>
+        </div>
+        <div class="impact-card">
+            <div class="impact-people">10M</div>
+            <div class="impact-label">People Helped</div>
+            <div class="impact-families">40 Million</div>
+            <div class="impact-detail">A nation transformed</div>
+            <div class="impact-savings">€15-30B healthcare savings</div>
         </div>
     </div>
-</section>
-
-<!-- SLIDE 11: TRANSFORMATION STORIES -->
-<section class="slide transformation-slide">
-    <div class="transformation-header">
-        <div class="section-label">Real Results</div>
-        <h2>Stories of Transformation</h2>
-        <p>From skeptics to believers — see how INJOI changed their lives</p>
-    </div>
-    <div class="testimonials-grid">
-        <div class="testimonial-card">
-            <p class="testimonial-text">
-                After switching to filtered water and raw chocolate, my energy levels completely changed.
-                I wake up refreshed for the first time in years.
-            </p>
-            <div class="testimonial-author">
-                <div class="testimonial-avatar">MK</div>
-                <div>
-                    <div class="testimonial-name">Mari K.</div>
-                    <div class="testimonial-location">Tallinn, Estonia</div>
-                </div>
-            </div>
-        </div>
-        <div class="testimonial-card">
-            <p class="testimonial-text">
-                I was skeptical about the chocolate until I tried it. The difference in how I feel after eating
-                INJOI vs regular chocolate is night and day. No crash, just sustained energy.
-            </p>
-            <div class="testimonial-author">
-                <div class="testimonial-avatar">TL</div>
-                <div>
-                    <div class="testimonial-name">Tomas L.</div>
-                    <div class="testimonial-location">Tartu, Estonia</div>
-                </div>
-            </div>
-        </div>
-        <div class="testimonial-card">
-            <p class="testimonial-text">
-                Our whole family uses the water filter now. The kids actually drink more water because
-                it tastes so much better. Simple change, huge impact.
-            </p>
-            <div class="testimonial-author">
-                <div class="testimonial-avatar">AS</div>
-                <div>
-                    <div class="testimonial-name">Anna S.</div>
-                    <div class="testimonial-location">Pärnu, Estonia</div>
-                </div>
-            </div>
-        </div>
+    <div class="vision-quote">
+        <p>"40% of life expectancy is passed down generationally. When we help one person choose wellness, their children and grandchildren inherit better health patterns."</p>
+        <cite>— Generational Health Research</cite>
     </div>
 </section>
 
-<!-- SLIDE 12: DREAM BUILDING -->
+<!-- SLIDE 10: DREAM BUILDING -->
 <section class="slide dream-slide">
     <div class="dream-content">
-        <h2>Now imagine... <span>what would you do</span> with a second income?</h2>
+        <h2>Now imagine... what would <span>you do</span> with a second income?</h2>
         <div class="dream-questions">
             <div class="dream-question">
                 <h4>Financial Freedom</h4>
@@ -2141,24 +2003,24 @@
             </div>
             <div class="dream-question">
                 <h4>Legacy Building</h4>
-                <p>What kind of future would you create for your children?</p>
+                <p>What kind of healthier future would you create for your children?</p>
             </div>
         </div>
     </div>
 </section>
 
-<!-- SLIDE 13: OPPORTUNITY BRIDGE -->
+<!-- SLIDE 11: OPPORTUNITY BRIDGE -->
 <section class="slide opportunity-bridge-slide">
     <div class="opportunity-bridge-content">
-        <h2>What if you could share this?</h2>
+        <h2>What if you could <span>share this</span>?</h2>
         <p>
-            You've seen the products. You understand the mission. Now discover how you can
+            You've seen the problem. You've seen the solution. Now discover how you can
             build a business sharing what you believe in — and get rewarded for it.
         </p>
     </div>
 </section>
 
-<!-- SLIDE 14: THE OPPORTUNITY -->
+<!-- SLIDE 12: THE OPPORTUNITY -->
 <section class="slide opportunity-slide">
     <div class="opportunity-header">
         <img src="https://insiderclub.org/LOGOS/injoi_logo.png" alt="INJOI" onerror="this.outerHTML='<span style=\'font-family: Playfair Display, serif; font-size: 2rem; color: #0B1426; letter-spacing: 0.1em;\'>INJOI</span>'">
@@ -2174,7 +2036,7 @@
         <div class="opportunity-step">
             <div class="step-number">2</div>
             <h4>Choose Package</h4>
-            <p>Select the package that fits your goals and lifestyle</p>
+            <p>Select the package that fits your goals</p>
         </div>
         <div class="opportunity-step">
             <div class="step-number">3</div>
@@ -2184,12 +2046,12 @@
         <div class="opportunity-step">
             <div class="step-number">4</div>
             <h4>Earn & Grow</h4>
-            <p>Multiple income streams and milestone rewards</p>
+            <p>Multiple income streams and rewards</p>
         </div>
     </div>
 </section>
 
-<!-- SLIDE 15: HOW YOU EARN -->
+<!-- SLIDE 13: HOW YOU EARN -->
 <section class="slide earn-slide">
     <div class="earn-header">
         <div class="section-label">Compensation Plan</div>
@@ -2200,37 +2062,37 @@
         <div class="earn-card">
             <div class="earn-card-number">10%</div>
             <h3>Direct Sales</h3>
-            <p>Commission on every product you personally sell to customers.</p>
+            <p>Commission on every product you personally sell</p>
         </div>
         <div class="earn-card">
             <div class="earn-card-number">10%</div>
             <h3>Volume Bonus</h3>
-            <p>Binary team bonus — earn from the weaker leg each week.</p>
+            <p>Binary team bonus — earn from weaker leg weekly</p>
         </div>
         <div class="earn-card">
             <div class="earn-card-number">5%×5</div>
             <h3>Leadership Bonus</h3>
-            <p>Matching bonus on your team's earnings, up to 5 generations.</p>
+            <p>Matching bonus up to 5 generations deep</p>
         </div>
         <div class="earn-card">
             <div class="earn-card-number">5%</div>
             <h3>Quarterly Pool</h3>
-            <p>Share in global sales distributed based on your pool units.</p>
+            <p>Share in global sales based on pool units</p>
         </div>
         <div class="earn-card">
             <div class="earn-card-number">🏆</div>
             <h3>Rank Rewards</h3>
-            <p>Physical rewards: tablets, phones, laptops, watches, cars, villa.</p>
+            <p>Physical rewards: tech, watches, cars, villa</p>
         </div>
         <div class="earn-card">
             <div class="earn-card-number">✨</div>
             <h3>Lifestyle Perks</h3>
-            <p>VIP support, leadership training, and exclusive travel events.</p>
+            <p>VIP support, training, exclusive travel</p>
         </div>
     </div>
 </section>
 
-<!-- SLIDE 16: PACKAGES -->
+<!-- SLIDE 14: PACKAGES -->
 <section class="slide packages-slide">
     <div class="packages-header">
         <div class="section-label">Investment Options</div>
@@ -2320,7 +2182,7 @@
     </div>
 </section>
 
-<!-- SLIDE 17: REWARDS PREVIEW -->
+<!-- SLIDE 15: REWARDS -->
 <section class="slide rewards-slide">
     <div class="rewards-header">
         <div class="section-label">Milestone Rewards</div>
@@ -2333,7 +2195,7 @@
             <div class="reward-content">
                 <div class="reward-rank">Diamond</div>
                 <div class="reward-name">MacBook Pro</div>
-                <div class="reward-requirement">€100,000 weaker leg</div>
+                <div class="reward-requirement">€100K weaker leg</div>
             </div>
         </div>
         <div class="reward-card">
@@ -2341,7 +2203,7 @@
             <div class="reward-content">
                 <div class="reward-rank">Blue Diamond</div>
                 <div class="reward-name">Rolex Watch</div>
-                <div class="reward-requirement">€200,000 weaker leg</div>
+                <div class="reward-requirement">€200K weaker leg</div>
             </div>
         </div>
         <div class="reward-card">
@@ -2349,7 +2211,7 @@
             <div class="reward-content">
                 <div class="reward-rank">Crown</div>
                 <div class="reward-name">Mercedes C-Class</div>
-                <div class="reward-requirement">€500,000 weaker leg</div>
+                <div class="reward-requirement">€500K weaker leg</div>
             </div>
         </div>
         <div class="reward-card">
@@ -2357,13 +2219,13 @@
             <div class="reward-content">
                 <div class="reward-rank">Ambassador</div>
                 <div class="reward-name">Villa in Bali</div>
-                <div class="reward-requirement">€1,000,000 weaker leg</div>
+                <div class="reward-requirement">€1M weaker leg</div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- SLIDE 18: CALL TO ACTION -->
+<!-- SLIDE 16: CALL TO ACTION -->
 <section class="slide cta-slide">
     <div class="cta-content">
         <div class="cta-logo">
@@ -2371,6 +2233,12 @@
         </div>
         <h2>Life is in Your Hands</h2>
         <p class="cta-tagline">The choice is yours. The time is now.</p>
+        <div class="cta-vision">
+            <p>
+                Join us in our mission to help 10 million people access clean water and real nutrition.
+                Every family you help creates a ripple effect that lasts for generations.
+            </p>
+        </div>
         <div class="cta-options">
             <a href="https://injoi.life" class="cta-button primary">Start Your Journey</a>
             <a href="#" class="cta-button secondary">Learn More</a>
