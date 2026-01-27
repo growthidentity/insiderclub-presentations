@@ -696,9 +696,194 @@
                 font-size: 4rem;
             }
         }
+
+        /* Countdown Timer Styles */
+        .countdown-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: linear-gradient(135deg, #0B1426 0%, #1a3a5c 50%, #0B1426 100%);
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 1s ease, visibility 1s ease;
+        }
+
+        .countdown-overlay.hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .countdown-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: white;
+            margin-bottom: 1rem;
+            letter-spacing: 0.2em;
+        }
+
+        .countdown-tagline {
+            color: var(--gold);
+            font-size: 1rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            margin-bottom: 4rem;
+        }
+
+        .countdown-timer {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .countdown-digit {
+            font-family: 'Playfair Display', serif;
+            font-size: 8rem;
+            color: white;
+            line-height: 1;
+            min-width: 140px;
+            text-align: center;
+        }
+
+        .countdown-separator {
+            font-family: 'Playfair Display', serif;
+            font-size: 6rem;
+            color: var(--water-blue);
+            animation: pulse 1s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        .countdown-label {
+            color: rgba(255,255,255,0.5);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            margin-bottom: 4rem;
+        }
+
+        /* Water drops container */
+        .water-drops {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .water-drop {
+            position: absolute;
+            width: 20px;
+            height: 26px;
+            background: radial-gradient(ellipse at 30% 20%, rgba(255,255,255,0.8) 0%, rgba(14,165,233,0.6) 50%, rgba(14,165,233,0.3) 100%);
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            animation: dropFall linear infinite;
+            opacity: 0;
+        }
+
+        @keyframes dropFall {
+            0% {
+                transform: translateY(-50px) scale(0.5);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.8;
+            }
+            90% {
+                opacity: 0.6;
+            }
+            100% {
+                transform: translateY(100vh) scale(1);
+                opacity: 0;
+            }
+        }
+
+        /* Ripple effect at bottom */
+        .ripple-container {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 150px;
+            background: linear-gradient(to top, rgba(14,165,233,0.2) 0%, transparent 100%);
+            overflow: hidden;
+        }
+
+        .ripple {
+            position: absolute;
+            border: 2px solid rgba(14,165,233,0.4);
+            border-radius: 50%;
+            animation: rippleExpand 3s ease-out infinite;
+            opacity: 0;
+        }
+
+        @keyframes rippleExpand {
+            0% {
+                width: 0;
+                height: 0;
+                opacity: 0.8;
+            }
+            100% {
+                width: 300px;
+                height: 100px;
+                opacity: 0;
+                margin-left: -150px;
+                margin-top: -50px;
+            }
+        }
+
+        .countdown-skip {
+            position: absolute;
+            bottom: 3rem;
+            color: rgba(255,255,255,0.4);
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .countdown-skip:hover {
+            color: var(--gold);
+        }
+
+        .countdown-message {
+            color: rgba(255,255,255,0.7);
+            font-size: 1.1rem;
+            font-style: italic;
+        }
     </style>
 </head>
 <body>
+
+<!-- Countdown Timer Overlay -->
+<div class="countdown-overlay" id="countdownOverlay">
+    <div class="water-drops" id="waterDrops"></div>
+    <div class="ripple-container" id="rippleContainer"></div>
+
+    <div class="countdown-logo">INJOI</div>
+    <div class="countdown-tagline">Puhas vesi. Teadlik otsus.</div>
+
+    <div class="countdown-timer">
+        <div class="countdown-digit" id="minutes">05</div>
+        <div class="countdown-separator">:</div>
+        <div class="countdown-digit" id="seconds">00</div>
+    </div>
+
+    <div class="countdown-label">Esitlus algab</div>
+    <div class="countdown-message">Tere tulemast!</div>
+
+    <div class="countdown-skip" onclick="skipCountdown()">Vajuta siia või space, et alustada →</div>
+</div>
 
 <div class="progress-bar" id="progress"></div>
 
@@ -1129,6 +1314,102 @@
 </div>
 
 <script>
+    // ========== COUNTDOWN TIMER ==========
+    let countdownActive = true;
+    let countdownInterval;
+    let totalSeconds = 5 * 60; // 5 minutes
+
+    function startCountdown() {
+        createWaterDrops();
+        createRipples();
+
+        countdownInterval = setInterval(() => {
+            if (totalSeconds <= 0) {
+                skipCountdown();
+                return;
+            }
+            totalSeconds--;
+            updateCountdownDisplay();
+
+            // Add a water drop sound effect simulation (visual pulse)
+            if (totalSeconds % 1 === 0) {
+                document.querySelector('.countdown-separator').style.color = '#0ea5e9';
+                setTimeout(() => {
+                    document.querySelector('.countdown-separator').style.color = '';
+                }, 100);
+            }
+        }, 1000);
+    }
+
+    function updateCountdownDisplay() {
+        const minutes = Math.floor(totalSeconds / 60);
+        const seconds = totalSeconds % 60;
+        document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+        document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+    }
+
+    function skipCountdown() {
+        if (!countdownActive) return;
+        countdownActive = false;
+        clearInterval(countdownInterval);
+        document.getElementById('countdownOverlay').classList.add('hidden');
+    }
+
+    function createWaterDrops() {
+        const container = document.getElementById('waterDrops');
+        const dropCount = 20;
+
+        for (let i = 0; i < dropCount; i++) {
+            const drop = document.createElement('div');
+            drop.className = 'water-drop';
+            drop.style.left = Math.random() * 100 + '%';
+            drop.style.animationDuration = (3 + Math.random() * 4) + 's';
+            drop.style.animationDelay = Math.random() * 5 + 's';
+            container.appendChild(drop);
+        }
+    }
+
+    function createRipples() {
+        const container = document.getElementById('rippleContainer');
+
+        setInterval(() => {
+            if (!countdownActive) return;
+            const ripple = document.createElement('div');
+            ripple.className = 'ripple';
+            ripple.style.left = (20 + Math.random() * 60) + '%';
+            ripple.style.bottom = '20px';
+            container.appendChild(ripple);
+
+            setTimeout(() => ripple.remove(), 3000);
+        }, 800);
+    }
+
+    // Start countdown on page load
+    window.addEventListener('load', () => {
+        startCountdown();
+        updateCountdownDisplay();
+    });
+
+    // Skip countdown with space or click
+    document.addEventListener('keydown', (e) => {
+        if (countdownActive && (e.key === ' ' || e.key === 'Enter')) {
+            e.preventDefault();
+            skipCountdown();
+            return;
+        }
+
+        if (!countdownActive) {
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                e.preventDefault();
+                nextSlide();
+            } else if (e.key === 'ArrowLeft') {
+                e.preventDefault();
+                prevSlide();
+            }
+        }
+    });
+
+    // ========== SLIDESHOW ==========
     const slides = document.querySelectorAll('.slide');
     const totalSlides = slides.length;
     let currentSlide = 0;
@@ -1157,24 +1438,18 @@
         showSlide(currentSlide - 1);
     }
 
-    // Keyboard navigation
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'ArrowRight' || e.key === ' ') {
-            e.preventDefault();
-            nextSlide();
-        } else if (e.key === 'ArrowLeft') {
-            e.preventDefault();
-            prevSlide();
-        }
-    });
-
     // Touch/swipe support
     let touchStartX = 0;
     document.addEventListener('touchstart', (e) => {
+        if (countdownActive) {
+            skipCountdown();
+            return;
+        }
         touchStartX = e.touches[0].clientX;
     });
 
     document.addEventListener('touchend', (e) => {
+        if (countdownActive) return;
         const touchEndX = e.changedTouches[0].clientX;
         const diff = touchStartX - touchEndX;
         if (Math.abs(diff) > 50) {
