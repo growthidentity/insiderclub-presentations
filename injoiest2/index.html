@@ -821,12 +821,41 @@
             pointer-events: none;
         }
 
+        .video-background {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 180%;
+            height: 180%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .video-background iframe {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(11, 20, 38, 0.6);
+            z-index: 1;
+        }
+
         .countdown-logo {
             font-family: 'Playfair Display', serif;
             font-size: 3rem;
             color: white;
             margin-bottom: 1rem;
             letter-spacing: 0.2em;
+            z-index: 10;
+            position: relative;
         }
 
         .countdown-tagline {
@@ -835,6 +864,8 @@
             letter-spacing: 0.3em;
             text-transform: uppercase;
             margin-bottom: 4rem;
+            z-index: 10;
+            position: relative;
         }
 
         .countdown-timer {
@@ -842,6 +873,8 @@
             align-items: center;
             gap: 1rem;
             margin-bottom: 3rem;
+            z-index: 10;
+            position: relative;
         }
 
         .countdown-digit {
@@ -871,6 +904,8 @@
             text-transform: uppercase;
             letter-spacing: 0.2em;
             margin-bottom: 4rem;
+            z-index: 10;
+            position: relative;
         }
 
         .water-drops {
@@ -881,6 +916,7 @@
             height: 100%;
             overflow: hidden;
             pointer-events: none;
+            z-index: 5;
         }
 
         .water-drop {
@@ -918,6 +954,7 @@
             height: 150px;
             background: linear-gradient(to top, rgba(14,165,233,0.2) 0%, transparent 100%);
             overflow: hidden;
+            z-index: 5;
         }
 
         .ripple {
@@ -949,6 +986,7 @@
             color: rgba(255,255,255,0.4);
             font-size: 0.85rem;
             cursor: pointer;
+            z-index: 10;
             transition: color 0.3s ease;
         }
 
@@ -960,6 +998,8 @@
             color: rgba(255,255,255,0.7);
             font-size: 1.1rem;
             font-style: italic;
+            z-index: 10;
+            position: relative;
         }
     </style>
 </head>
@@ -967,6 +1007,18 @@
 
 <!-- Countdown Timer Overlay -->
 <div class="countdown-overlay" id="countdownOverlay">
+    <!-- YouTube Video Background -->
+    <div class="video-background">
+        <iframe
+            id="bgVideo"
+            src="https://www.youtube.com/embed/8U3iuqFw4W0?autoplay=1&mute=0&controls=0&showinfo=0&rel=0&loop=1&playlist=8U3iuqFw4W0&modestbranding=1&iv_load_policy=3&disablekb=1&enablejsapi=1"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+        </iframe>
+    </div>
+    <div class="video-overlay"></div>
+
     <div class="water-drops" id="waterDrops"></div>
     <div class="ripple-container" id="rippleContainer"></div>
 
@@ -1761,6 +1813,11 @@
         countdownActive = false;
         clearInterval(countdownInterval);
         document.getElementById('countdownOverlay').classList.add('hidden');
+        // Stop the background video
+        const bgVideo = document.getElementById('bgVideo');
+        if (bgVideo) {
+            bgVideo.src = '';
+        }
     }
 
     function createWaterDrops() {
