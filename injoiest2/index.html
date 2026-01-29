@@ -848,6 +848,31 @@
             z-index: 1;
         }
 
+        .sound-toggle {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.3);
+            color: white;
+            padding: 0.75rem 1.25rem;
+            border-radius: 8px;
+            cursor: pointer;
+            z-index: 20;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .sound-toggle:hover {
+            background: rgba(255,255,255,0.2);
+            border-color: var(--gold);
+        }
+
+        .sound-toggle.active {
+            background: rgba(201,162,39,0.3);
+            border-color: var(--gold);
+        }
+
         .countdown-logo {
             font-family: 'Playfair Display', serif;
             font-size: 3rem;
@@ -1011,13 +1036,16 @@
     <div class="video-background">
         <iframe
             id="bgVideo"
-            src="https://www.youtube.com/embed/8U3iuqFw4W0?autoplay=1&mute=0&controls=0&showinfo=0&rel=0&loop=1&playlist=8U3iuqFw4W0&modestbranding=1&iv_load_policy=3&disablekb=1&enablejsapi=1"
+            src="https://www.youtube.com/embed/8U3iuqFw4W0?autoplay=1&mute=1&controls=0&showinfo=0&rel=0&loop=1&playlist=8U3iuqFw4W0&modestbranding=1&iv_load_policy=3&disablekb=1&enablejsapi=1&origin=https://insiderclub.org"
             frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; autoplay"
             allowfullscreen>
         </iframe>
     </div>
     <div class="video-overlay"></div>
+    <div class="sound-toggle" id="soundToggle" onclick="toggleSound()">
+        <span id="soundIcon">🔇</span> Lülita heli sisse
+    </div>
 
     <div class="water-drops" id="waterDrops"></div>
     <div class="ripple-container" id="rippleContainer"></div>
@@ -1775,6 +1803,45 @@
 </div>
 
 <script>
+    // ========== YOUTUBE API ==========
+    let player;
+    let soundEnabled = false;
+
+    // Load YouTube IFrame API
+    const tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/iframe_api";
+    const firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+    function onYouTubeIframeAPIReady() {
+        player = new YT.Player('bgVideo', {
+            events: {
+                'onReady': onPlayerReady
+            }
+        });
+    }
+
+    function onPlayerReady(event) {
+        event.target.playVideo();
+    }
+
+    function toggleSound() {
+        if (!player) return;
+        soundEnabled = !soundEnabled;
+        if (soundEnabled) {
+            player.unMute();
+            player.setVolume(50);
+            document.getElementById('soundIcon').textContent = '🔊';
+            document.getElementById('soundToggle').innerHTML = '<span id="soundIcon">🔊</span> Heli sees';
+            document.getElementById('soundToggle').classList.add('active');
+        } else {
+            player.mute();
+            document.getElementById('soundIcon').textContent = '🔇';
+            document.getElementById('soundToggle').innerHTML = '<span id="soundIcon">🔇</span> Lülita heli sisse';
+            document.getElementById('soundToggle').classList.remove('active');
+        }
+    }
+
     // ========== COUNTDOWN TIMER ==========
     let countdownActive = true;
     let countdownInterval;
@@ -1814,9 +1881,8 @@
         clearInterval(countdownInterval);
         document.getElementById('countdownOverlay').classList.add('hidden');
         // Stop the background video
-        const bgVideo = document.getElementById('bgVideo');
-        if (bgVideo) {
-            bgVideo.src = '';
+        if (player && player.stopVideo) {
+            player.stopVideo();
         }
     }
 
