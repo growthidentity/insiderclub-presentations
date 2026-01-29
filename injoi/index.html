@@ -859,6 +859,143 @@
             font-size: 1.1rem;
             font-style: italic;
         }
+
+        /* Affiliate Packages Styles */
+        .packages-slide {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            flex-direction: column;
+            padding: 3rem;
+        }
+
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        .package-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .package-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--gold);
+        }
+
+        .package-card.featured {
+            border-color: var(--gold);
+            background: rgba(201, 162, 39, 0.1);
+        }
+
+        .package-card.featured::before {
+            content: 'POPULAR';
+            position: absolute;
+            top: 15px;
+            right: -35px;
+            background: var(--gold);
+            color: var(--navy);
+            padding: 0.25rem 2.5rem;
+            font-size: 0.65rem;
+            font-weight: 700;
+            transform: rotate(45deg);
+        }
+
+        .package-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: white;
+            margin-bottom: 0.5rem;
+        }
+
+        .package-price {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+
+        .package-price span {
+            font-size: 1.5rem;
+        }
+
+        .package-shares {
+            background: var(--water-blue);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 1.5rem;
+        }
+
+        .package-items {
+            text-align: left;
+            list-style: none;
+        }
+
+        .package-items li {
+            color: rgba(255,255,255,0.8);
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.85rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+
+        .package-items li::before {
+            content: '✓';
+            color: var(--gold);
+            flex-shrink: 0;
+        }
+
+        .package-items li:last-child {
+            border-bottom: none;
+        }
+
+        .pool-info {
+            background: rgba(14, 165, 233, 0.1);
+            border: 1px solid rgba(14, 165, 233, 0.3);
+            border-radius: 8px;
+            padding: 1.5rem 2rem;
+            margin-top: 2rem;
+            max-width: 800px;
+            text-align: center;
+        }
+
+        .pool-info h4 {
+            color: var(--water-blue);
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .pool-info p {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        @media (max-width: 968px) {
+            .packages-grid {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+            }
+
+            .package-card.featured::before {
+                top: 10px;
+                right: -40px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1270,7 +1407,60 @@
         </div>
     </div>
 
-    <!-- SLIDE 18: Vision -->
+    <!-- SLIDE 18: Affiliate Packages -->
+    <div class="slide packages-slide">
+        <div class="stats-header">
+            <div class="section-label" style="color: var(--gold);">Join the Team</div>
+            <h2 style="color: white;">Partner Program Packages</h2>
+            <p style="color: rgba(255,255,255,0.6);">Start your journey as an INJOI partner</p>
+        </div>
+        <div class="packages-grid">
+            <!-- Premium €500 -->
+            <div class="package-card">
+                <div class="package-name">Premium</div>
+                <div class="package-price">€500</div>
+                <div class="package-shares">500 Bonus Shares</div>
+                <ul class="package-items">
+                    <li>3x Chocolate selections</li>
+                    <li>Pure Rain shower head</li>
+                    <li>12x SY bars</li>
+                    <li>Partner status</li>
+                </ul>
+            </div>
+            <!-- Elite €2500 -->
+            <div class="package-card featured">
+                <div class="package-name">Elite</div>
+                <div class="package-price">€2500</div>
+                <div class="package-shares">2500 Bonus Shares</div>
+                <ul class="package-items">
+                    <li>W19 portable ionizer</li>
+                    <li>W19 plug-in RO + ionizer system</li>
+                    <li>Complete partner package</li>
+                    <li>Priority support</li>
+                </ul>
+            </div>
+            <!-- Executive €5000 -->
+            <div class="package-card">
+                <div class="package-name">Executive</div>
+                <div class="package-price">€5000</div>
+                <div class="package-shares">5000 Bonus Shares</div>
+                <ul class="package-items">
+                    <li>W10 reverse osmosis purifier</li>
+                    <li>W19 portable ionizer</li>
+                    <li>2x Pure Rain shower heads</li>
+                    <li>H8 hydrogen bottle</li>
+                    <li>8x chocolates + SY bar</li>
+                    <li>VIP partner status</li>
+                </ul>
+            </div>
+        </div>
+        <div class="pool-info">
+            <h4>What are Bonus Shares?</h4>
+            <p>5% of all company sales (network, B2B, e-commerce) goes into a monthly bonus pool. This is distributed proportionally among all shareholders based on their Bonus Shares count.</p>
+        </div>
+    </div>
+
+    <!-- SLIDE 19: Vision -->
     <div class="slide vision-slide">
         <div class="vision-content">
             <div class="section-label" style="color: var(--gold);">Our Vision</div>
@@ -1286,7 +1476,7 @@
         </div>
     </div>
 
-    <!-- SLIDE 19: CTA -->
+    <!-- SLIDE 20: CTA -->
     <div class="slide cta-slide">
         <div class="cta-content">
             <div class="section-label" style="color: var(--gold);">Ready to Start?</div>
@@ -1305,7 +1495,7 @@
 </div>
 
 <!-- Navigation -->
-<div class="slide-counter"><span id="currentSlide">1</span> / <span id="totalSlides">19</span></div>
+<div class="slide-counter"><span id="currentSlide">1</span> / <span id="totalSlides">20</span></div>
 <div class="nav-arrows">
     <button class="nav-arrow" onclick="prevSlide()">←</button>
     <button class="nav-arrow" onclick="nextSlide()">→</button>
