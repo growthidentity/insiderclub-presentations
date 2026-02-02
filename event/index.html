@@ -256,6 +256,59 @@
             color: rgba(255,255,255,0.35);
         }
 
+        /* ========== LIVE COUNTER ========== */
+        .seats-counter {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .seats-bar-wrap {
+            max-width: 360px;
+            margin: 0 auto;
+        }
+
+        .seats-label {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.5);
+            margin-bottom: 0.5rem;
+        }
+
+        .seats-label strong {
+            color: white;
+            font-size: 0.85rem;
+        }
+
+        .seats-bar {
+            width: 100%;
+            height: 8px;
+            background: rgba(255,255,255,0.08);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .seats-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--gold), #d4af37);
+            border-radius: 4px;
+            width: 0%;
+            transition: width 1.2s ease;
+        }
+
+        .seats-text {
+            margin-top: 0.5rem;
+            font-size: 0.72rem;
+            color: rgba(201,162,39,0.6);
+        }
+
+        .seats-counter.loading .seats-label,
+        .seats-counter.loading .seats-text { opacity: 0.3; }
+
+        .seats-counter.full .seats-bar-fill {
+            background: linear-gradient(90deg, #ef4444, #dc2626);
+        }
+
         /* ========== SECTION TITLES ========== */
         .section-title {
             font-family: 'Playfair Display', serif;
@@ -867,10 +920,23 @@
         </div>
     </div>
 
+    <!-- LIVE SEATS COUNTER -->
+    <div class="seats-counter loading" id="seatsCounter">
+        <div class="seats-bar-wrap">
+            <div class="seats-label">
+                <span><strong id="seatsCount">...</strong> registreerunud</span>
+                <span id="seatsLeft">Laen...</span>
+            </div>
+            <div class="seats-bar">
+                <div class="seats-bar-fill" id="seatsBarFill"></div>
+            </div>
+            <div class="seats-text" id="seatsText"></div>
+        </div>
+    </div>
+
     <!-- CTA #1 -->
     <div class="cta-wrapper">
         <button class="cta-btn" onclick="scrollToForm()">Broneeri oma tasuta koht</button>
-        <span class="cta-seats">Kohad on piiratud</span>
     </div>
 
     <div class="section-divider"></div>
@@ -1096,6 +1162,31 @@
     updateCountdown();
     setInterval(updateCountdown, 60000);
 
+    // ========== LIVE COUNTER ==========
+    var TOTAL_SEATS = 50;
+
+    function updateCounter(count) {
+        var left = Math.max(0, TOTAL_SEATS - count);
+        var pct = Math.min(100, Math.round((count / TOTAL_SEATS) * 100));
+        document.getElementById('seatsCount').textContent = count;
+        document.getElementById('seatsLeft').textContent = left + ' kohta veel vaba';
+        document.getElementById('seatsBarFill').style.width = pct + '%';
+        document.getElementById('seatsCounter').classList.remove('loading');
+
+        if (left <= 10 && left > 0) {
+            document.getElementById('seatsText').textContent = 'Kiirusta, kohti on veel vaid ' + left + '!';
+        } else if (left <= 0) {
+            document.getElementById('seatsLeft').textContent = 'Kõik kohad on täis!';
+            document.getElementById('seatsText').textContent = '';
+            document.getElementById('seatsCounter').classList.add('full');
+        }
+    }
+
+    // Load count via JSONP (bypasses CORS)
+    var counterScript = document.createElement('script');
+    counterScript.src = PROXY + '?action=count&callback=updateCounter&t=' + Date.now();
+    document.body.appendChild(counterScript);
+
     // ========== SCROLL TO FORM ==========
     function scrollToForm() {
         document.getElementById('formSection').scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -1121,7 +1212,13 @@
             + '&name=' + encodeURIComponent(name + ' (' + seats + ' kohta)')
             + '&t=' + Date.now();
 
-        setTimeout(showSuccess, 700);
+        setTimeout(function() {
+            showSuccess();
+            // Refresh counter after registration
+            var s = document.createElement('script');
+            s.src = PROXY + '?action=count&callback=updateCounter&t=' + Date.now();
+            document.body.appendChild(s);
+        }, 700);
     }
 
     function showSuccess() {
