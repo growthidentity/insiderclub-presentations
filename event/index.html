@@ -553,18 +553,18 @@
                 email_address: email,
                 fields: {
                     FirstName: name
-                },
-                status: 'SUBSCRIBED'
+                }
             })
         })
         .then(response => response.json())
         .then(data => {
-            if (data.id || data.status === 'SUBSCRIBED') {
+            if (data.id) {
                 showSuccess();
             } else if (data.error && data.error.code === 'MEMBER_EXISTS_WITH_EMAIL_ADDRESS') {
                 showSuccess();
             } else {
-                btn.textContent = 'Proovi uuesti';
+                alert(data.error ? data.error.message : 'Midagi laks valesti');
+                btn.textContent = 'Registreeru';
                 btn.disabled = false;
             }
         })
