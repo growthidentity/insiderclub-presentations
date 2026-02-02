@@ -4,6 +4,12 @@ function doGet(e) {
   var LIST_ID = "c556a060-0045-11f1-8b1e-cb78ec5f1248";
   var props = PropertiesService.getScriptProperties();
 
+  // RESET MODE: zero out extra seats counter
+  if (p.action === "reset") {
+    props.setProperty("extraSeats", "0");
+    return ContentService.createTextOutput(JSON.stringify({ok:true, extraSeats:0})).setMimeType(ContentService.MimeType.JSON);
+  }
+
   // COUNT MODE: return total seats booked
   if (p.action === "count") {
     var url = "https://emailoctopus.com/api/1.6/lists/" + LIST_ID + "?api_key=" + API_KEY;

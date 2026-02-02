@@ -772,53 +772,6 @@
             stroke-width: 2;
         }
 
-        /* ========== STICKY CTA ========== */
-        .sticky-cta {
-            position: fixed;
-            bottom: 1.25rem;
-            left: 50%;
-            transform: translateX(-50%) translateY(100px);
-            z-index: 100;
-            opacity: 0;
-            transition: transform 0.4s ease, opacity 0.4s ease;
-            pointer-events: none;
-        }
-
-        .sticky-cta.visible {
-            transform: translateX(-50%) translateY(0);
-            opacity: 1;
-            pointer-events: auto;
-        }
-
-        .sticky-cta-btn {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.85rem 1.8rem;
-            background: linear-gradient(135deg, var(--gold) 0%, #d4af37 100%);
-            color: var(--navy);
-            border: none;
-            border-radius: 50px;
-            font-family: 'Inter', sans-serif;
-            font-size: 0.85rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            cursor: pointer;
-            box-shadow: 0 6px 30px rgba(201,162,39,0.4), 0 2px 8px rgba(0,0,0,0.3);
-            transition: transform 0.2s ease;
-            white-space: nowrap;
-        }
-
-        .sticky-cta-btn:hover { transform: scale(1.05); }
-
-        .sticky-cta-btn svg {
-            width: 15px; height: 15px;
-            fill: none;
-            stroke: var(--navy);
-            stroke-width: 2.5;
-        }
-
         /* ========== FOOTER ========== */
         .footer {
             text-align: center;
@@ -860,7 +813,6 @@
             .form-card .form-bg-product { display: none; }
             .countdown-box { min-width: 55px; padding: 0.6rem 0.8rem; }
             .countdown-box .num { font-size: 1.3rem; }
-            .sticky-cta-btn { padding: 0.75rem 1.5rem; font-size: 0.8rem; }
         }
     </style>
 </head>
@@ -869,13 +821,6 @@
 <div class="bg-glow"></div>
 <div class="bg-particles" id="particles"></div>
 
-<!-- Sticky CTA -->
-<div class="sticky-cta" id="stickyCta">
-    <button class="sticky-cta-btn" onclick="scrollToForm()">
-        <svg viewBox="0 0 24 24"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
-        Broneeri tasuta koht
-    </button>
-</div>
 
 <div class="page">
 
@@ -1224,30 +1169,10 @@
 
     function showSuccess() {
         document.getElementById('formSection').style.display = 'none';
-        document.getElementById('stickyCta').style.display = 'none';
         var msg = document.getElementById('successMessage');
         msg.classList.add('show');
         msg.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
-
-    // ========== STICKY CTA ==========
-    var stickyCta = document.getElementById('stickyCta');
-    var formSection = document.getElementById('formSection');
-
-    function checkFormVisibility() {
-        if (formSection.style.display === 'none') return;
-        var rect = formSection.getBoundingClientRect();
-        var wh = window.innerHeight;
-        var visible = rect.top < wh - 60 && rect.bottom > 60;
-        if (visible) {
-            stickyCta.classList.remove('visible');
-        } else {
-            stickyCta.classList.add('visible');
-        }
-    }
-
-    window.addEventListener('scroll', checkFormVisibility, { passive: true });
-    setTimeout(checkFormVisibility, 500);
 </script>
 
 </body>
