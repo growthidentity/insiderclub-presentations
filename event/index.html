@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>INJOI - Registreeru esitlusele</title>
+    <title>INJOI tasuta tervisesündmus Tallinnas</title>
+    <meta name="description" content="Tasuta tervisesündmus 15. veebruaril Hestia Hotel Euroopas. Näe oma silmaga, mida kraanivesi sisaldab. Kohtu INJOI asutajaga.">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -12,9 +13,7 @@
             --gold: #C9A227;
             --gold-light: #e8d5a3;
             --cream: #FDFBF7;
-            --gray-400: #94a3b8;
             --water-blue: #0ea5e9;
-            --chocolate: #3d2314;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -66,136 +65,82 @@
         .page {
             position: relative;
             z-index: 1;
-            max-width: 720px;
+            max-width: 680px;
             margin: 0 auto;
-            padding: 3rem 1.5rem;
+            padding: 2.5rem 1.5rem 6rem;
         }
 
-        /* ========== HEADER ========== */
-        .header {
+        /* ========== HERO ========== */
+        .hero {
             text-align: center;
-            margin-bottom: 3.5rem;
-            position: relative;
-        }
-
-        .header-bg {
-            position: absolute;
-            top: -3rem; left: -1.5rem;
-            width: calc(100% + 3rem);
-            height: calc(100% + 6rem);
-            background: url('../injoiest2/images/tap-water.jpg') center center / cover no-repeat;
-            opacity: 0.08;
-            mask-image: linear-gradient(to bottom, transparent 0%, black 30%, black 60%, transparent 100%);
-            -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 30%, black 60%, transparent 100%);
-            pointer-events: none;
-            border-radius: 20px;
-        }
-
-        .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.6rem;
-            color: rgba(255,255,255,0.4);
-            letter-spacing: 0.4em;
             margin-bottom: 2.5rem;
             position: relative;
         }
 
-        .header h1 {
+        .hero-bg {
+            position: absolute;
+            top: -2.5rem; left: -1.5rem;
+            width: calc(100% + 3rem);
+            height: calc(100% + 5rem);
+            background: url('../injoiest2/images/tap-water.jpg') center center / cover no-repeat;
+            opacity: 0.07;
+            mask-image: linear-gradient(to bottom, transparent 0%, black 20%, black 60%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 20%, black 60%, transparent 100%);
+            pointer-events: none;
+        }
+
+        .logo {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(2.2rem, 6vw, 3.5rem);
-            font-weight: 400;
-            color: white;
-            line-height: 1.15;
+            font-size: 1.4rem;
+            color: rgba(255,255,255,0.35);
+            letter-spacing: 0.4em;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--gold) 0%, #d4af37 100%);
+            color: var(--navy);
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            padding: 0.4rem 1.2rem;
+            border-radius: 20px;
             margin-bottom: 1.5rem;
             position: relative;
         }
 
-        .header h1 em {
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 5.5vw, 3.2rem);
+            font-weight: 400;
+            color: white;
+            line-height: 1.2;
+            margin-bottom: 1.2rem;
+            position: relative;
+        }
+
+        .hero h1 em {
             color: var(--gold);
             font-style: italic;
         }
 
-        .header .lead {
-            color: rgba(255,255,255,0.65);
-            font-size: 1.05rem;
+        .hero .lead {
+            color: rgba(255,255,255,0.6);
+            font-size: 1rem;
             line-height: 1.7;
             max-width: 520px;
-            margin: 0 auto;
+            margin: 0 auto 2rem;
             position: relative;
         }
 
-        /* ========== PRODUCT SHOWCASE ========== */
-        .product-showcase {
-            display: flex;
-            align-items: center;
-            gap: 2.5rem;
-            margin-bottom: 3rem;
-            padding: 2.5rem;
-            background: linear-gradient(135deg, rgba(255,255,255,0.03) 0%, rgba(201,162,39,0.06) 100%);
-            border: 1px solid rgba(201,162,39,0.15);
-            border-radius: 16px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .product-showcase::before {
-            content: '';
-            position: absolute;
-            top: 0; right: 0;
-            width: 50%; height: 100%;
-            background: radial-gradient(ellipse at 80% 50%, rgba(201,162,39,0.06) 0%, transparent 70%);
-            pointer-events: none;
-        }
-
-        .product-showcase-img {
-            flex-shrink: 0;
-            width: 200px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .product-showcase-img img {
-            width: 100%;
-            height: auto;
-            filter: drop-shadow(0 10px 30px rgba(0,0,0,0.4));
-        }
-
-        .product-showcase-text {
-            position: relative;
-            z-index: 1;
-        }
-
-        .product-showcase-text .tag {
-            display: inline-block;
-            color: var(--gold);
-            font-size: 0.65rem;
-            text-transform: uppercase;
-            letter-spacing: 0.2em;
-            border: 1px solid rgba(201,162,39,0.3);
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            margin-bottom: 1rem;
-        }
-
-        .product-showcase-text h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            font-weight: 400;
-            color: white;
-            margin-bottom: 0.75rem;
-        }
-
-        .product-showcase-text p {
-            font-size: 0.9rem;
-            color: rgba(255,255,255,0.6);
-            line-height: 1.7;
-        }
-
-        /* ========== EVENT INFO STRIP ========== */
+        /* ========== EVENT STRIP ========== */
         .event-strip {
             display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            margin-bottom: 3rem;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            margin-bottom: 2rem;
             border: 1px solid rgba(255,255,255,0.08);
             border-radius: 12px;
             overflow: hidden;
@@ -204,20 +149,18 @@
 
         .event-strip-item {
             text-align: center;
-            padding: 1.25rem 0.6rem;
+            padding: 1.1rem 0.5rem;
             border-right: 1px solid rgba(255,255,255,0.06);
         }
 
-        .event-strip-item:last-child {
-            border-right: none;
-        }
+        .event-strip-item:last-child { border-right: none; }
 
         .event-strip-item .label {
             color: var(--gold);
             font-size: 0.6rem;
             text-transform: uppercase;
             letter-spacing: 0.15em;
-            margin-bottom: 0.4rem;
+            margin-bottom: 0.35rem;
         }
 
         .event-strip-item .val {
@@ -226,108 +169,250 @@
             color: white;
         }
 
-        /* ========== WHAT YOU'LL LEARN ========== */
-        .learn-section {
-            margin-bottom: 3rem;
+        .event-strip-item .val small {
+            display: block;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.7rem;
+            color: rgba(255,255,255,0.4);
+            margin-top: 0.15rem;
         }
 
-        .learn-section h2 {
+        /* ========== COUNTDOWN ========== */
+        .countdown {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .countdown-label {
+            color: rgba(255,255,255,0.4);
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            margin-bottom: 0.8rem;
+        }
+
+        .countdown-boxes {
+            display: flex;
+            justify-content: center;
+            gap: 0.75rem;
+        }
+
+        .countdown-box {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(201,162,39,0.15);
+            border-radius: 10px;
+            padding: 0.8rem 1rem;
+            min-width: 65px;
+            text-align: center;
+        }
+
+        .countdown-box .num {
             font-family: 'Playfair Display', serif;
-            font-size: 1.4rem;
+            font-size: 1.6rem;
+            color: var(--gold);
+            line-height: 1;
+        }
+
+        .countdown-box .unit {
+            font-size: 0.6rem;
+            color: rgba(255,255,255,0.4);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-top: 0.25rem;
+        }
+
+        /* ========== CTA BUTTON (repeated) ========== */
+        .cta-wrapper {
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: linear-gradient(135deg, var(--gold) 0%, #d4af37 100%);
+            color: var(--navy);
+            border: none;
+            border-radius: 8px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(201,162,39,0.35);
+        }
+
+        .cta-seats {
+            display: block;
+            margin-top: 0.6rem;
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.35);
+        }
+
+        /* ========== SECTION TITLES ========== */
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
             font-weight: 400;
-            color: rgba(255,255,255,0.5);
+            color: white;
             text-align: center;
             margin-bottom: 1.5rem;
         }
 
-        .learn-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
+        .section-divider {
+            width: 40px;
+            height: 2px;
+            background: var(--gold);
+            margin: 0 auto 3rem;
+            opacity: 0.4;
+        }
+
+        /* ========== EXPERIENCE SECTION ========== */
+        .experience {
+            margin-bottom: 1.5rem;
+        }
+
+        .exp-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
             gap: 1rem;
         }
 
-        .learn-card {
+        .exp-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1.25rem;
             background: rgba(255,255,255,0.03);
-            border: 1px solid rgba(255,255,255,0.07);
+            border: 1px solid rgba(255,255,255,0.06);
             border-radius: 12px;
-            padding: 1.5rem;
             transition: border-color 0.3s ease;
         }
 
-        .learn-card:hover {
-            border-color: rgba(201,162,39,0.3);
+        .exp-item:hover {
+            border-color: rgba(201,162,39,0.2);
         }
 
-        .learn-card .num {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            color: rgba(201,162,39,0.3);
-            margin-bottom: 0.5rem;
+        .exp-icon {
+            flex-shrink: 0;
+            width: 40px; height: 40px;
+            background: rgba(201,162,39,0.1);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
         }
 
-        .learn-card h3 {
+        .exp-text h3 {
             font-size: 0.95rem;
             font-weight: 600;
             color: white;
-            margin-bottom: 0.4rem;
+            margin-bottom: 0.25rem;
         }
 
-        .learn-card p {
+        .exp-text p {
             font-size: 0.82rem;
             color: rgba(255,255,255,0.5);
             line-height: 1.5;
         }
 
-        /* ========== QUESTION SECTION ========== */
-        .question-section {
-            text-align: center;
-            margin-bottom: 3rem;
-            padding: 2.5rem 2rem;
-            background: linear-gradient(135deg, rgba(14,165,233,0.08) 0%, rgba(201,162,39,0.06) 100%);
-            border: 1px solid rgba(14,165,233,0.15);
+        /* ========== PRODUCT SHOWCASE ========== */
+        .product-showcase {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, rgba(255,255,255,0.03) 0%, rgba(201,162,39,0.05) 100%);
+            border: 1px solid rgba(201,162,39,0.12);
             border-radius: 16px;
-            position: relative;
-            overflow: hidden;
         }
 
-        .question-section .question-bg {
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background: url('../injoiest2/images/water-glass.jpg') center center / cover no-repeat;
-            opacity: 0.06;
-            pointer-events: none;
+        .product-showcase-img {
+            flex-shrink: 0;
+            width: 180px;
         }
 
-        .question-section p {
+        .product-showcase-img img {
+            width: 100%;
+            height: auto;
+            filter: drop-shadow(0 10px 30px rgba(0,0,0,0.4));
+        }
+
+        .product-showcase-text h3 {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(1.2rem, 3vw, 1.6rem);
-            font-style: italic;
-            color: rgba(255,255,255,0.8);
-            line-height: 1.6;
-            margin-bottom: 1rem;
-            position: relative;
+            font-size: 1.3rem;
+            font-weight: 400;
+            color: white;
+            margin-bottom: 0.6rem;
         }
 
-        .question-section .answer {
-            color: var(--gold);
+        .product-showcase-text p {
             font-size: 0.85rem;
-            font-weight: 600;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            position: relative;
+            color: rgba(255,255,255,0.55);
+            line-height: 1.6;
         }
 
-        /* ========== RAFFLE CARD ========== */
+        /* ========== FOUNDER ========== */
+        .founder {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+            padding: 2rem;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 16px;
+        }
+
+        .founder-photo {
+            flex-shrink: 0;
+            width: 110px; height: 110px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid rgba(201,162,39,0.3);
+        }
+
+        .founder-info .name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            color: white;
+            margin-bottom: 0.2rem;
+        }
+
+        .founder-info .role {
+            color: var(--gold);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 0.6rem;
+        }
+
+        .founder-info .bio {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.55);
+            line-height: 1.6;
+        }
+
+        /* ========== RAFFLE ========== */
         .raffle {
-            margin-bottom: 3rem;
-            background: linear-gradient(135deg, rgba(61,35,20,0.4) 0%, rgba(201,162,39,0.15) 100%);
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, rgba(61,35,20,0.4) 0%, rgba(201,162,39,0.12) 100%);
             border: 1px solid var(--gold);
             border-radius: 16px;
             padding: 2rem;
             display: flex;
             align-items: center;
-            gap: 2rem;
+            gap: 1.5rem;
             position: relative;
             overflow: hidden;
         }
@@ -337,51 +422,49 @@
             position: absolute;
             top: -50%; right: -20%;
             width: 300px; height: 300px;
-            background: radial-gradient(circle, rgba(201,162,39,0.1) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(201,162,39,0.08) 0%, transparent 70%);
             pointer-events: none;
         }
 
         .raffle-left {
             flex-shrink: 0;
-            text-align: center;
             position: relative;
             z-index: 1;
         }
 
         .raffle-chocolate-img {
-            width: 160px;
-            border-radius: 10px;
-            filter: drop-shadow(0 8px 24px rgba(0,0,0,0.3));
+            width: 140px;
+            border-radius: 8px;
+            filter: drop-shadow(0 8px 20px rgba(0,0,0,0.3));
         }
 
         .raffle-badge {
             position: absolute;
             top: -8px; right: -8px;
-            width: 52px; height: 52px;
+            width: 48px; height: 48px;
             background: linear-gradient(135deg, var(--gold) 0%, #d4af37 100%);
             border-radius: 50%;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 4px 16px rgba(201,162,39,0.4);
+            box-shadow: 0 3px 12px rgba(201,162,39,0.4);
             z-index: 2;
         }
 
         .raffle-badge .amount {
             font-family: 'Playfair Display', serif;
-            font-size: 1rem;
+            font-size: 0.95rem;
             font-weight: 700;
             color: var(--navy);
             line-height: 1;
         }
 
         .raffle-badge .curr {
-            font-size: 0.5rem;
+            font-size: 0.45rem;
             font-weight: 700;
             color: var(--navy);
             text-transform: uppercase;
-            letter-spacing: 0.05em;
         }
 
         .raffle-right {
@@ -391,28 +474,51 @@
 
         .raffle-right h3 {
             font-family: 'Playfair Display', serif;
-            font-size: 1.3rem;
+            font-size: 1.15rem;
             color: var(--gold);
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.4rem;
         }
 
         .raffle-right p {
-            font-size: 0.9rem;
-            color: rgba(255,255,255,0.7);
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.65);
             line-height: 1.6;
         }
 
-        .raffle-right strong {
+        .raffle-right strong { color: white; }
+
+        /* ========== FAQ ========== */
+        .faq {
+            margin-bottom: 1.5rem;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            padding: 1.25rem 0;
+        }
+
+        .faq-item:last-child { border-bottom: none; }
+
+        .faq-q {
+            font-weight: 600;
+            font-size: 0.95rem;
             color: white;
+            margin-bottom: 0.4rem;
+        }
+
+        .faq-a {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.55);
+            line-height: 1.6;
         }
 
         /* ========== FORM ========== */
         .form-section {
-            margin-bottom: 3rem;
+            margin-bottom: 2rem;
         }
 
         .form-card {
-            background: rgba(255,255,255,0.03);
+            background: rgba(255,255,255,0.04);
             border: 1px solid rgba(255,255,255,0.1);
             border-radius: 16px;
             padding: 2.5rem;
@@ -423,7 +529,7 @@
         .form-card .form-bg-product {
             position: absolute;
             bottom: -20px; right: -30px;
-            width: 180px;
+            width: 160px;
             opacity: 0.04;
             pointer-events: none;
             transform: rotate(-8deg);
@@ -431,31 +537,22 @@
 
         .form-title {
             font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             text-align: center;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.4rem;
             color: white;
+            position: relative;
         }
 
         .form-subtitle {
             text-align: center;
-            color: rgba(255,255,255,0.5);
+            color: rgba(255,255,255,0.45);
             font-size: 0.85rem;
             margin-bottom: 2rem;
-        }
-
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-            margin-bottom: 1.25rem;
+            position: relative;
         }
 
         .form-group {
-            margin-bottom: 0;
-        }
-
-        .form-group.full {
             margin-bottom: 1.25rem;
         }
 
@@ -495,9 +592,7 @@
             color: white;
         }
 
-        .form-group input::placeholder {
-            color: rgba(255,255,255,0.25);
-        }
+        .form-group input::placeholder { color: rgba(255,255,255,0.25); }
 
         .form-group input:focus, .form-group select:focus {
             border-color: var(--gold);
@@ -516,10 +611,10 @@
             font-size: 1rem;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.12em;
+            letter-spacing: 0.1em;
             cursor: pointer;
             transition: all 0.3s ease;
-            margin-top: 0.5rem;
+            position: relative;
         }
 
         .submit-btn:hover {
@@ -535,18 +630,18 @@
             transform: none;
         }
 
-        .form-note {
+        .form-privacy {
             text-align: center;
-            margin-top: 1.25rem;
+            margin-top: 1rem;
             color: rgba(255,255,255,0.3);
-            font-size: 0.75rem;
+            font-size: 0.72rem;
         }
 
         /* ========== SUCCESS ========== */
         .success-message {
             display: none;
             text-align: center;
-            padding: 3.5rem 2rem;
+            padding: 3rem 2rem;
             background: linear-gradient(135deg, rgba(201,162,39,0.1) 0%, rgba(14,165,233,0.05) 100%);
             border: 2px solid var(--gold);
             border-radius: 16px;
@@ -564,15 +659,15 @@
         }
 
         .success-check {
-            width: 70px; height: 70px;
+            width: 64px; height: 64px;
             border: 3px solid var(--gold);
             border-radius: 50%;
             display: flex; align-items: center; justify-content: center;
-            margin: 0 auto 1.5rem;
+            margin: 0 auto 1.25rem;
         }
 
         .success-check svg {
-            width: 32px; height: 32px;
+            width: 28px; height: 28px;
             stroke: var(--gold);
             fill: none;
             stroke-width: 3;
@@ -582,49 +677,52 @@
 
         .success-message h2 {
             font-family: 'Playfair Display', serif;
-            font-size: 2rem;
+            font-size: 1.8rem;
             color: var(--gold);
-            margin-bottom: 1rem;
+            margin-bottom: 0.75rem;
         }
 
         .success-message p {
-            color: rgba(255,255,255,0.75);
-            font-size: 1rem;
+            color: rgba(255,255,255,0.7);
+            font-size: 0.95rem;
             line-height: 1.7;
+            margin-bottom: 1.5rem;
         }
 
-        .success-message strong {
+        .success-message strong { color: white; }
+
+        .calendar-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.8rem;
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 8px;
             color: white;
-        }
-
-        /* ========== FOOTER ========== */
-        .footer {
-            text-align: center;
-            padding: 2.5rem 0 1rem;
-            border-top: 1px solid rgba(255,255,255,0.04);
-        }
-
-        .footer-logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 1rem;
-            color: rgba(255,255,255,0.2);
-            letter-spacing: 0.4em;
-            margin-bottom: 0.4rem;
-        }
-
-        .footer a {
-            color: rgba(201,162,39,0.5);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
             text-decoration: none;
-            font-size: 0.8rem;
+            transition: all 0.3s ease;
         }
 
-        .footer { padding-bottom: 5rem; }
-        .footer a:hover { color: var(--gold); }
+        .calendar-btn:hover {
+            background: rgba(255,255,255,0.12);
+            border-color: var(--gold);
+        }
+
+        .calendar-btn svg {
+            width: 18px; height: 18px;
+            stroke: var(--gold);
+            fill: none;
+            stroke-width: 2;
+        }
 
         /* ========== STICKY CTA ========== */
         .sticky-cta {
             position: fixed;
-            bottom: 1.5rem;
+            bottom: 1.25rem;
             left: 50%;
             transform: translateX(-50%) translateY(100px);
             z-index: 100;
@@ -642,51 +740,74 @@
         .sticky-cta-btn {
             display: flex;
             align-items: center;
-            gap: 0.6rem;
-            padding: 0.9rem 2rem;
+            gap: 0.5rem;
+            padding: 0.85rem 1.8rem;
             background: linear-gradient(135deg, var(--gold) 0%, #d4af37 100%);
             color: var(--navy);
             border: none;
             border-radius: 50px;
             font-family: 'Inter', sans-serif;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.1em;
+            letter-spacing: 0.08em;
             cursor: pointer;
             box-shadow: 0 6px 30px rgba(201,162,39,0.4), 0 2px 8px rgba(0,0,0,0.3);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            transition: transform 0.2s ease;
             white-space: nowrap;
         }
 
-        .sticky-cta-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 40px rgba(201,162,39,0.5), 0 4px 12px rgba(0,0,0,0.3);
-        }
+        .sticky-cta-btn:hover { transform: scale(1.05); }
 
         .sticky-cta-btn svg {
-            width: 16px; height: 16px;
+            width: 15px; height: 15px;
             fill: none;
             stroke: var(--navy);
-            stroke-width: 2;
+            stroke-width: 2.5;
         }
+
+        /* ========== FOOTER ========== */
+        .footer {
+            text-align: center;
+            padding: 2rem 0 1rem;
+            border-top: 1px solid rgba(255,255,255,0.04);
+        }
+
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1rem;
+            color: rgba(255,255,255,0.2);
+            letter-spacing: 0.4em;
+            margin-bottom: 0.4rem;
+        }
+
+        .footer a {
+            color: rgba(201,162,39,0.5);
+            text-decoration: none;
+            font-size: 0.8rem;
+        }
+
+        .footer a:hover { color: var(--gold); }
 
         /* ========== RESPONSIVE ========== */
         @media (max-width: 640px) {
-            .page { padding: 2rem 1rem; }
-            .learn-grid { grid-template-columns: 1fr; }
-            .form-row { grid-template-columns: 1fr; }
-            .raffle { flex-direction: column; text-align: center; }
-            .raffle-chocolate-img { width: 130px; }
-            .form-card { padding: 1.75rem 1.25rem; }
+            .page { padding: 2rem 1rem 5rem; }
             .event-strip { grid-template-columns: 1fr 1fr; }
-            .event-strip-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.06); padding: 1rem; }
+            .event-strip-item { border-bottom: 1px solid rgba(255,255,255,0.06); }
             .event-strip-item:nth-child(odd) { border-right: 1px solid rgba(255,255,255,0.06); }
-            .event-strip-item:last-child { border-bottom: none; grid-column: 1 / -1; }
-            .product-showcase { flex-direction: column; text-align: center; padding: 2rem 1.5rem; }
-            .product-showcase-img { width: 160px; }
+            .event-strip-item:nth-child(even) { border-right: none; }
+            .event-strip-item:nth-last-child(-n+2) { border-bottom: none; }
+            .product-showcase { flex-direction: column; text-align: center; padding: 1.5rem; }
+            .product-showcase-img { width: 150px; }
+            .founder { flex-direction: column; text-align: center; padding: 1.5rem; }
+            .founder-photo { width: 90px; height: 90px; }
+            .raffle { flex-direction: column; text-align: center; padding: 1.5rem; }
+            .raffle-chocolate-img { width: 120px; }
+            .form-card { padding: 1.75rem 1.25rem; }
             .form-card .form-bg-product { display: none; }
-            .sticky-cta-btn { padding: 0.8rem 1.6rem; font-size: 0.8rem; }
+            .countdown-box { min-width: 55px; padding: 0.6rem 0.8rem; }
+            .countdown-box .num { font-size: 1.3rem; }
+            .sticky-cta-btn { padding: 0.75rem 1.5rem; font-size: 0.8rem; }
         }
     </style>
 </head>
@@ -697,41 +818,38 @@
 
 <!-- Sticky CTA -->
 <div class="sticky-cta" id="stickyCta">
-    <button class="sticky-cta-btn" onclick="document.getElementById('formSection').scrollIntoView({behavior:'smooth',block:'center'})">
-        <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        Registreeru tasuta
+    <button class="sticky-cta-btn" onclick="scrollToForm()">
+        <svg viewBox="0 0 24 24"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+        Broneeri tasuta koht
     </button>
 </div>
 
 <div class="page">
 
-    <!-- Header -->
-    <div class="header">
-        <div class="header-bg"></div>
+    <!-- ===== HERO ===== -->
+    <div class="hero">
+        <div class="hero-bg"></div>
         <div class="logo">INJOI</div>
-        <h1>Kas sa tead, mida<br>sa tegelikult <em>jood?</em></h1>
+        <div class="hero-badge">Tasuta sündmus Tallinnas</div>
+        <h1>Avasta, mida sa<br>tegelikult <em>jood</em></h1>
         <p class="lead">
-            Tule 15. veebruaril tasuta esitlusele Hestia Hotel Euroopasse ja avasta, mida sinu kraanivesi tegelikult sisaldab ning kuidas üks lihtne otsus võib muuta kogu su pere tervist.
+            Tule 15. veebruaril Hestia Hotel Euroopasse ja näe oma silmaga, mida sinu kraanivesi sisaldab. Kohtu INJOI asutajaga, proovi vesinikurikast vett ja degusteeri tooršokolaade.
         </p>
     </div>
 
-    <!-- Event Info Strip -->
+    <!-- ===== EVENT INFO ===== -->
     <div class="event-strip">
         <div class="event-strip-item">
-            <div class="label">Millal</div>
-            <div class="val">15. veebruar</div>
+            <div class="label">Kuupäev</div>
+            <div class="val">15. veebr<small>Laupäev</small></div>
         </div>
         <div class="event-strip-item">
-            <div class="label">Kell</div>
+            <div class="label">Kellaaeg</div>
             <div class="val">15:00</div>
         </div>
         <div class="event-strip-item">
-            <div class="label">Kus</div>
-            <div class="val">Hestia Hotel Euroopa</div>
-        </div>
-        <div class="event-strip-item">
-            <div class="label">Aadress</div>
-            <div class="val">Paadi 5, Tallinn</div>
+            <div class="label">Koht</div>
+            <div class="val">Hestia Hotel Euroopa<small>Paadi 5, Tallinn</small></div>
         </div>
         <div class="event-strip-item">
             <div class="label">Hind</div>
@@ -739,63 +857,107 @@
         </div>
     </div>
 
-    <!-- Product Showcase -->
+    <!-- ===== COUNTDOWN ===== -->
+    <div class="countdown">
+        <div class="countdown-label">Sündmuseni jäänud</div>
+        <div class="countdown-boxes">
+            <div class="countdown-box"><div class="num" id="cd-days">--</div><div class="unit">päeva</div></div>
+            <div class="countdown-box"><div class="num" id="cd-hours">--</div><div class="unit">tundi</div></div>
+            <div class="countdown-box"><div class="num" id="cd-mins">--</div><div class="unit">minutit</div></div>
+        </div>
+    </div>
+
+    <!-- CTA #1 -->
+    <div class="cta-wrapper">
+        <button class="cta-btn" onclick="scrollToForm()">Broneeri oma tasuta koht</button>
+        <span class="cta-seats">Kohad on piiratud</span>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <!-- ===== WHAT YOU'LL EXPERIENCE ===== -->
+    <div class="experience">
+        <h2 class="section-title">Mida sa sündmusel koged</h2>
+        <ul class="exp-list">
+            <li class="exp-item">
+                <div class="exp-icon">💧</div>
+                <div class="exp-text">
+                    <h3>Näed oma silmaga</h3>
+                    <p>Elav demo: mida sinu kraanivesi tegelikult sisaldab ja mis sellest välja filtreeritakse</p>
+                </div>
+            </li>
+            <li class="exp-item">
+                <div class="exp-icon">🥤</div>
+                <div class="exp-text">
+                    <h3>Proovid vesinikurikast vett</h3>
+                    <p>Maitse ise vahet tavalise ja INJOI filtreeritud vesinikuvee vahel</p>
+                </div>
+            </li>
+            <li class="exp-item">
+                <div class="exp-icon">🍫</div>
+                <div class="exp-text">
+                    <h3>Degusteeri tooršokolaade</h3>
+                    <p>INJOI suhkruvabad šokolaadid supertoitudega, mida mujalt ei leia</p>
+                </div>
+            </li>
+            <li class="exp-item">
+                <div class="exp-icon">🎤</div>
+                <div class="exp-text">
+                    <h3>Kuuled päris kogemusi</h3>
+                    <p>Inimesed jagavad isiklikke lugusid, kuidas puhas vesi on nende tervist mõjutanud</p>
+                </div>
+            </li>
+            <li class="exp-item">
+                <div class="exp-icon">🤝</div>
+                <div class="exp-text">
+                    <h3>Kohtu asutajaga</h3>
+                    <p>INJOI asutaja Horre Saluste on kohal isiklikult ja vastab kõigile küsimustele</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <!-- CTA #2 -->
+    <div class="cta-wrapper">
+        <button class="cta-btn" onclick="scrollToForm()">Broneeri oma tasuta koht</button>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <!-- ===== PRODUCT SHOWCASE ===== -->
     <div class="product-showcase">
         <div class="product-showcase-img">
-            <img src="../injoiest2/images/product-hero.png" alt="INJOI vesiniku veefiltrisüsteem">
+            <img src="../injoiest2/images/product-hero.png" alt="INJOI vesinikuvee süsteem">
         </div>
         <div class="product-showcase-text">
-            <div class="tag">Esitluse teema</div>
-            <h3>INJOI: puhas vesinikurikas vesi otse sinu kraanist</h3>
-            <p>Avasta, kuidas INJOI 4-astmeline filtratsioon eemaldab 99% saasteainetest ja rikastab vee molekulaarse vesinikuga. Lihtne paigaldus, reaalsed tulemused.</p>
+            <h3>Näed INJOI süsteemi päriselt töötamas</h3>
+            <p>4-astmeline filtratsioon, mis eemaldab 99% saasteainetest ja rikastab vee molekulaarse vesinikuga. Näed kogu protsessi oma silmaga kohapeal.</p>
         </div>
     </div>
 
-    <!-- What You'll Learn -->
-    <div class="learn-section">
-        <h2>Mida sa esitlusel teada saad</h2>
-        <div class="learn-grid">
-            <div class="learn-card">
-                <div class="num">01</div>
-                <h3>Mis on sinu vees?</h3>
-                <p>Mikroplastid, raskemetallid, ravimijäägid. Faktid, mida keegi sulle ei räägi</p>
-            </div>
-            <div class="learn-card">
-                <div class="num">02</div>
-                <h3>Kuidas end kaitsta</h3>
-                <p>Lihtne lahendus, mis eemaldab 99% saasteainetest sinu kraanis</p>
-            </div>
-            <div class="learn-card">
-                <div class="num">03</div>
-                <h3>Vesinikuvee kasu</h3>
-                <p>Mida uuringud näitavad molekulaarse vesiniku mõjust tervisele</p>
-            </div>
-            <div class="learn-card">
-                <div class="num">04</div>
-                <h3>Võimalus sinule</h3>
-                <p>Kuidas saad head teistega jagada ja tulu teenida tervisevaldkonnas</p>
-            </div>
+    <!-- ===== FOUNDER ===== -->
+    <div class="founder">
+        <img src="../injoiest2/images/founder-horre.jpg" alt="Horre Saluste" class="founder-photo">
+        <div class="founder-info">
+            <div class="role">INJOI asutaja</div>
+            <div class="name">Horre Saluste</div>
+            <p class="bio">Kohal isiklikult, et rääkida, miks ta INJOI lõi ja mida puhas vesi tema pere jaoks tähendab. Küsi temalt otse kõike, mis sind huvitab.</p>
         </div>
     </div>
 
-    <!-- Thought-provoking question -->
-    <div class="question-section">
-        <div class="question-bg"></div>
-        <p>Kas sa ostaksid poest vett, kui teaksid, et kraanist tulev on tegelikult puhtam?</p>
-        <div class="answer">Üks esitlus võib muuta su vaatenurka.</div>
-    </div>
+    <div class="section-divider"></div>
 
-    <!-- Raffle -->
+    <!-- ===== RAFFLE ===== -->
     <div class="raffle">
         <div class="raffle-left">
-            <img src="../injoiest2/images/chocolate.png" alt="INJOI toorsokolaadid" class="raffle-chocolate-img">
+            <img src="../injoiest2/images/chocolate.png" alt="INJOI tooršokolaadid" class="raffle-chocolate-img">
             <div class="raffle-badge">
                 <div class="amount">40€</div>
                 <div class="curr">auhind</div>
             </div>
         </div>
         <div class="raffle-right">
-            <h3>Loosime osalejate vahel!</h3>
+            <h3>Boonus: loosime kohalviibijate vahel!</h3>
             <p>
                 Kõik registreerunud, kes on ka <strong>kohal</strong>, osalevad loosimises.
                 Auhinnaks <strong>40€ eest INJOI tooršokolaade</strong>. Suhkruvabad, supertoitudega, 100% toores kakao.
@@ -803,141 +965,183 @@
         </div>
     </div>
 
-    <!-- Registration Form -->
-    <div class="form-section" id="formSection">
-        <div class="form-card">
-            <img src="../injoiest2/images/cta-product.png" alt="" class="form-bg-product">
-            <div class="form-title">Registreeru kohe</div>
-            <div class="form-subtitle">Kohad on piiratud. Täida andmed ja oled nimekirjas.</div>
+    <!-- CTA #3 -->
+    <div class="cta-wrapper">
+        <button class="cta-btn" onclick="scrollToForm()">Broneeri oma tasuta koht</button>
+    </div>
 
-            <form id="registrationForm" onsubmit="handleSubmit(event)">
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="firstName">Eesnimi</label>
-                        <input type="text" id="firstName" name="firstName" placeholder="Eesnimi" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="lastName">Perenimi</label>
-                        <input type="text" id="lastName" name="lastName" placeholder="Perenimi" required>
-                    </div>
-                </div>
+    <div class="section-divider"></div>
 
-                <div class="form-group full">
-                    <label for="email">E-mail</label>
-                    <input type="email" id="email" name="email" placeholder="sinu@email.ee" required>
-                </div>
-
-                <div class="form-group full">
-                    <label for="interest">Mis sind kõige rohkem huvitab?</label>
-                    <select id="interest" name="interest">
-                        <option value="health">Oma pere tervise kaitsmine</option>
-                        <option value="water">Puhta vee teema</option>
-                        <option value="business">Ärivõimalus ja tulu teenimine</option>
-                        <option value="all">Kõik eelnev</option>
-                        <option value="curious">Lihtsalt uudishimulik</option>
-                    </select>
-                </div>
-
-                <button type="submit" class="submit-btn">Registreeru tasuta</button>
-            </form>
-            <p class="form-note">
-                Sinu andmed on kaitstud. Me ei saada spammi ega jaga infot kolmandatega.
-            </p>
+    <!-- ===== FAQ ===== -->
+    <div class="faq">
+        <h2 class="section-title">Korduma kippuvad küsimused</h2>
+        <div class="faq-item">
+            <div class="faq-q">Kas see on tõesti tasuta?</div>
+            <div class="faq-a">Jah, 100% tasuta. Registreeri ja tule kohale, rohkem pole vaja.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">Kui kaua sündmus kestab?</div>
+            <div class="faq-a">Umbes 1 kuni 1,5 tundi. Pärast on võimalik vabalt küsimusi esitada ja tooteid proovida.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">Kas pean midagi ostma?</div>
+            <div class="faq-a">Ei, mitte mingit kohustust. Tuled, kuulad, proovid ja teed ise otsuse.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">Kas saan sõbra või pereliikme kaasa võtta?</div>
+            <div class="faq-a">Kindlasti! Märgi registreerimisel, mitu kohta soovid. Mida rohkem, seda parem.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">Kus parkida?</div>
+            <div class="faq-a">Hestia Hotel Euroopa asub aadressil Paadi 5. Hotelil on oma parkla ja läheduses on ka Sadama parkimismaja.</div>
         </div>
     </div>
 
-    <!-- Success Message -->
+    <div class="section-divider"></div>
+
+    <!-- ===== REGISTRATION FORM ===== -->
+    <div class="form-section" id="formSection">
+        <div class="form-card">
+            <img src="../injoiest2/images/cta-product.png" alt="" class="form-bg-product">
+            <div class="form-title">Broneeri oma tasuta koht</div>
+            <div class="form-subtitle">Kohad on piiratud. Täida andmed ja su koht on kinni.</div>
+
+            <form id="registrationForm" onsubmit="handleSubmit(event)">
+                <div class="form-group">
+                    <label for="firstName">Eesnimi</label>
+                    <input type="text" id="firstName" name="firstName" placeholder="Sinu eesnimi" required autocomplete="given-name">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" name="email" placeholder="sinu@email.ee" required autocomplete="email">
+                </div>
+
+                <div class="form-group">
+                    <label for="seats">Mitu kohta soovid?</label>
+                    <select id="seats" name="seats">
+                        <option value="1">1 koht (ainult mina)</option>
+                        <option value="2">2 kohta (mina + 1)</option>
+                        <option value="3">3 kohta</option>
+                        <option value="4">4 kohta</option>
+                        <option value="5">5+ kohta</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="submit-btn">Broneeri oma tasuta koht</button>
+            </form>
+            <p class="form-privacy">Sinu andmed on kaitstud. Me ei jaga infot kolmandatega ega saada rämpsposti.</p>
+        </div>
+    </div>
+
+    <!-- ===== SUCCESS ===== -->
     <div class="success-message" id="successMessage">
         <div class="success-check">
             <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
         </div>
-        <h2>Oled nimekirjas!</h2>
+        <h2>Su koht on kinni!</h2>
         <p>
-            Saadame sulle <strong>meeldetuletuse</strong> enne esitlust.
-            <br><br>
+            Saadame sulle <strong>meeldetuletuse</strong> enne sündmust.<br>
             Ole kindlasti kohal, sest loosime osalejate vahel <strong>40€ eest INJOI šokolaade!</strong>
-            <br><br>
-            <span style="color: var(--gold);">Näeme peagi!</span>
         </p>
+        <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=INJOI+tervises%C3%BCndmus&dates=20260215T130000Z/20260215T143000Z&details=Tasuta+tervises%C3%BCndmus+koos+INJOI+asutajaga.+N%C3%A4e+oma+silmaga+INJOI+s%C3%BCsteemi+t%C3%B6%C3%B6s%2C+proovi+vesinikurikast+vett+ja+degusteeri+too%CC%88rs%CC%8Cokolaade.&location=Hestia+Hotel+Euroopa%2C+Paadi+5%2C+Tallinn" target="_blank" rel="noopener" class="calendar-btn">
+            <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            Lisa kalendrisse
+        </a>
     </div>
 
-    <!-- Footer -->
+    <!-- ===== FOOTER ===== -->
     <div class="footer">
         <div class="footer-logo">INJOI</div>
-        <a href="https://injoi.life">injoi.life</a>
+        <a href="https://injoi.life" target="_blank" rel="noopener">injoi.life</a>
     </div>
 
 </div>
 
 <script>
-    // ========== BACKGROUND PARTICLES ==========
-    const particlesContainer = document.getElementById('particles');
-    for (let i = 0; i < 25; i++) {
-        const p = document.createElement('div');
+    // ========== PARTICLES ==========
+    var pc = document.getElementById('particles');
+    for (var i = 0; i < 20; i++) {
+        var p = document.createElement('div');
         p.className = 'particle';
         p.style.left = Math.random() * 100 + '%';
         p.style.animationDuration = (6 + Math.random() * 12) + 's';
         p.style.animationDelay = Math.random() * 8 + 's';
-        const size = (2 + Math.random() * 3) + 'px';
-        p.style.width = size;
-        p.style.height = size;
-        particlesContainer.appendChild(p);
+        var s = (2 + Math.random() * 3) + 'px';
+        p.style.width = s;
+        p.style.height = s;
+        pc.appendChild(p);
     }
 
-    // ========== FORM HANDLING ==========
-    const PROXY = 'https://script.google.com/macros/s/AKfycbxsf0RCUzyns2GjSiszw-YFy3d9qQAYRybZWxzYbiuE-QgbyInSU4LG-r9BEGhHGtaOZg/exec';
-    const LIST_ID = 'c556a060-0045-11f1-8b1e-cb78ec5f1248';
-    const API_KEY = 'eo_69cf43bdd4ee7270d50775a4476ec8c1f4615ee4dda8f230c23bf8eb1dc26965';
+    // ========== COUNTDOWN ==========
+    var eventDate = new Date('2026-02-15T15:00:00+02:00');
+
+    function updateCountdown() {
+        var now = new Date();
+        var diff = eventDate - now;
+        if (diff <= 0) {
+            document.getElementById('cd-days').textContent = '0';
+            document.getElementById('cd-hours').textContent = '0';
+            document.getElementById('cd-mins').textContent = '0';
+            return;
+        }
+        var days = Math.floor(diff / 86400000);
+        var hours = Math.floor((diff % 86400000) / 3600000);
+        var mins = Math.floor((diff % 3600000) / 60000);
+        document.getElementById('cd-days').textContent = days;
+        document.getElementById('cd-hours').textContent = hours;
+        document.getElementById('cd-mins').textContent = mins;
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 60000);
+
+    // ========== SCROLL TO FORM ==========
+    function scrollToForm() {
+        document.getElementById('formSection').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+
+    // ========== FORM ==========
+    var PROXY = 'https://script.google.com/macros/s/AKfycbxsf0RCUzyns2GjSiszw-YFy3d9qQAYRybZWxzYbiuE-QgbyInSU4LG-r9BEGhHGtaOZg/exec';
 
     function handleSubmit(e) {
         e.preventDefault();
+        var name = document.getElementById('firstName').value.trim();
+        var email = document.getElementById('email').value.trim();
+        var seats = document.getElementById('seats').value;
+        if (!name || !email) return;
 
-        const firstName = document.getElementById('firstName').value.trim();
-        const lastName = document.getElementById('lastName').value.trim();
-        const email = document.getElementById('email').value.trim();
-        const interest = document.getElementById('interest').value;
-
-        if (!firstName || !lastName || !email) return;
-
-        const fullName = firstName + ' ' + lastName;
-        const btn = document.querySelector('.submit-btn');
-        btn.textContent = 'Registreerin...';
+        var btn = document.querySelector('.submit-btn');
+        btn.textContent = 'Broneerin...';
         btn.disabled = true;
 
-        // Send via image pixel to Google Apps Script proxy (bypasses CORS)
-        const img = new Image();
+        var img = new Image();
         img.src = PROXY
             + '?email=' + encodeURIComponent(email)
-            + '&name=' + encodeURIComponent(fullName)
-            + '&api_key=' + encodeURIComponent(API_KEY)
-            + '&list_id=' + encodeURIComponent(LIST_ID)
+            + '&name=' + encodeURIComponent(name + ' (' + seats + ' kohta)')
             + '&t=' + Date.now();
 
-        setTimeout(function() {
-            showSuccess();
-        }, 700);
+        setTimeout(showSuccess, 700);
     }
 
     function showSuccess() {
         document.getElementById('formSection').style.display = 'none';
         document.getElementById('stickyCta').style.display = 'none';
-        const msg = document.getElementById('successMessage');
+        var msg = document.getElementById('successMessage');
         msg.classList.add('show');
         msg.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
 
-    // ========== STICKY CTA VISIBILITY ==========
+    // ========== STICKY CTA ==========
     var stickyCta = document.getElementById('stickyCta');
     var formSection = document.getElementById('formSection');
-    var registered = false;
 
     function checkFormVisibility() {
-        if (registered) return;
+        if (formSection.style.display === 'none') return;
         var rect = formSection.getBoundingClientRect();
-        var windowH = window.innerHeight;
-        // Show sticky when form is NOT in viewport
-        var formVisible = rect.top < windowH - 60 && rect.bottom > 60;
-        if (formVisible) {
+        var wh = window.innerHeight;
+        var visible = rect.top < wh - 60 && rect.bottom > 60;
+        if (visible) {
             stickyCta.classList.remove('visible');
         } else {
             stickyCta.classList.add('visible');
@@ -945,7 +1149,6 @@
     }
 
     window.addEventListener('scroll', checkFormVisibility, { passive: true });
-    // Initial check after short delay
     setTimeout(checkFormVisibility, 500);
 </script>
 
