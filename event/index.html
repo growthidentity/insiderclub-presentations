@@ -1139,6 +1139,10 @@
         pc.appendChild(p);
     }
 
+    // ========== CONFIG ==========
+    var PROXY = 'https://script.google.com/macros/s/AKfycbxsf0RCUzyns2GjSiszw-YFy3d9qQAYRybZWxzYbiuE-QgbyInSU4LG-r9BEGhHGtaOZg/exec';
+    var TOTAL_SEATS = 150;
+
     // ========== COUNTDOWN ==========
     var eventDate = new Date('2026-02-15T15:00:00+02:00');
 
@@ -1163,8 +1167,6 @@
     setInterval(updateCountdown, 60000);
 
     // ========== LIVE COUNTER ==========
-    var TOTAL_SEATS = 150;
-
     function updateCounter(count) {
         var left = Math.max(0, TOTAL_SEATS - count);
         var pct = Math.min(100, Math.round((count / TOTAL_SEATS) * 100));
@@ -1193,8 +1195,6 @@
     }
 
     // ========== FORM ==========
-    var PROXY = 'https://script.google.com/macros/s/AKfycbxsf0RCUzyns2GjSiszw-YFy3d9qQAYRybZWxzYbiuE-QgbyInSU4LG-r9BEGhHGtaOZg/exec';
-
     function handleSubmit(e) {
         e.preventDefault();
         var name = document.getElementById('firstName').value.trim();
