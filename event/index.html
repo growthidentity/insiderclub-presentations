@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>INJOI - Registreeru eelesitlusele</title>
+    <title>INJOI - Registreeru esitlusele</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -620,7 +620,58 @@
             font-size: 0.8rem;
         }
 
+        .footer { padding-bottom: 5rem; }
         .footer a:hover { color: var(--gold); }
+
+        /* ========== STICKY CTA ========== */
+        .sticky-cta {
+            position: fixed;
+            bottom: 1.5rem;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            z-index: 100;
+            opacity: 0;
+            transition: transform 0.4s ease, opacity 0.4s ease;
+            pointer-events: none;
+        }
+
+        .sticky-cta.visible {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .sticky-cta-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.9rem 2rem;
+            background: linear-gradient(135deg, var(--gold) 0%, #d4af37 100%);
+            color: var(--navy);
+            border: none;
+            border-radius: 50px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            cursor: pointer;
+            box-shadow: 0 6px 30px rgba(201,162,39,0.4), 0 2px 8px rgba(0,0,0,0.3);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .sticky-cta-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 40px rgba(201,162,39,0.5), 0 4px 12px rgba(0,0,0,0.3);
+        }
+
+        .sticky-cta-btn svg {
+            width: 16px; height: 16px;
+            fill: none;
+            stroke: var(--navy);
+            stroke-width: 2;
+        }
 
         /* ========== RESPONSIVE ========== */
         @media (max-width: 640px) {
@@ -636,6 +687,7 @@
             .product-showcase { flex-direction: column; text-align: center; padding: 2rem 1.5rem; }
             .product-showcase-img { width: 160px; }
             .form-card .form-bg-product { display: none; }
+            .sticky-cta-btn { padding: 0.8rem 1.6rem; font-size: 0.8rem; }
         }
     </style>
 </head>
@@ -643,6 +695,14 @@
 
 <div class="bg-glow"></div>
 <div class="bg-particles" id="particles"></div>
+
+<!-- Sticky CTA -->
+<div class="sticky-cta" id="stickyCta">
+    <button class="sticky-cta-btn" onclick="document.getElementById('formSection').scrollIntoView({behavior:'smooth',block:'center'})">
+        <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Registreeru tasuta
+    </button>
+</div>
 
 <div class="page">
 
@@ -652,7 +712,7 @@
         <div class="logo">INJOI</div>
         <h1>Kas sa tead, mida<br>sa tegelikult <em>jood?</em></h1>
         <p class="lead">
-            Tule tasuta eelesitlusele ja avasta, mida sinu kraanivesi tegelikult sisaldab — ning kuidas uks lihtne otsus voib muuta kogu su pere tervist.
+            Tule tasuta esitlusele ja avasta, mida sinu kraanivesi tegelikult sisaldab ning kuidas üks lihtne otsus võib muuta kogu su pere tervist.
         </p>
     </div>
 
@@ -683,7 +743,7 @@
         </div>
         <div class="product-showcase-text">
             <div class="tag">Esitluse teema</div>
-            <h3>INJOI — puhas vesinikurikas vesi otse sinu kraanist</h3>
+            <h3>INJOI: puhas vesinikurikas vesi otse sinu kraanist</h3>
             <p>Avasta, kuidas INJOI 4-astmeline filtratsioon eemaldab 99% saasteainetest ja rikastab vee molekulaarse vesinikuga. Lihtne paigaldus, reaalsed tulemused.</p>
         </div>
     </div>
@@ -695,7 +755,7 @@
             <div class="learn-card">
                 <div class="num">01</div>
                 <h3>Mis on sinu vees?</h3>
-                <p>Mikroplastid, raskemetallid, ravimijäägid — faktid, mida keegi sulle ei räägi</p>
+                <p>Mikroplastid, raskemetallid, ravimijäägid. Faktid, mida keegi sulle ei räägi</p>
             </div>
             <div class="learn-card">
                 <div class="num">02</div>
@@ -705,12 +765,12 @@
             <div class="learn-card">
                 <div class="num">03</div>
                 <h3>Vesinikuvee kasu</h3>
-                <p>Mida uuringud naitavad molekulaarse vesiniku mõjust tervisele</p>
+                <p>Mida uuringud näitavad molekulaarse vesiniku mõjust tervisele</p>
             </div>
             <div class="learn-card">
                 <div class="num">04</div>
-                <h3>Voimalus sinule</h3>
-                <p>Kuidas saad ise kasu jagada ja tulu teenida tervise valdkonnas</p>
+                <h3>Võimalus sinule</h3>
+                <p>Kuidas saad head teistega jagada ja tulu teenida tervisevaldkonnas</p>
             </div>
         </div>
     </div>
@@ -719,7 +779,7 @@
     <div class="question-section">
         <div class="question-bg"></div>
         <p>Kas sa ostaksid poest vett, kui teaksid, et kraanist tulev on tegelikult puhtam?</p>
-        <div class="answer">Uks esitlus voib muuta su vaatenurka.</div>
+        <div class="answer">Üks esitlus võib muuta su vaatenurka.</div>
     </div>
 
     <!-- Raffle -->
@@ -734,8 +794,8 @@
         <div class="raffle-right">
             <h3>Loosime osalejate vahel!</h3>
             <p>
-                Koik registreerunud, kes on ka <strong>kohal</strong>, osalevad loosimises.
-                Auhinnaks <strong>40€ eest INJOI toorsokolaade</strong> — suhkruvabad, supertoitudega, 100% toores kakao.
+                Kõik registreerunud, kes on ka <strong>kohal</strong>, osalevad loosimises.
+                Auhinnaks <strong>40€ eest INJOI tooršokolaade</strong>. Suhkruvabad, supertoitudega, 100% toores kakao.
             </p>
         </div>
     </div>
@@ -745,7 +805,7 @@
         <div class="form-card">
             <img src="../injoiest2/images/cta-product.png" alt="" class="form-bg-product">
             <div class="form-title">Registreeru kohe</div>
-            <div class="form-subtitle">Kohad on piiratud. Taida andmed ja oled nimekirjas.</div>
+            <div class="form-subtitle">Kohad on piiratud. Täida andmed ja oled nimekirjas.</div>
 
             <form id="registrationForm" onsubmit="handleSubmit(event)">
                 <div class="form-row">
@@ -765,12 +825,12 @@
                 </div>
 
                 <div class="form-group full">
-                    <label for="interest">Mis sind koige rohkem huvitab?</label>
+                    <label for="interest">Mis sind kõige rohkem huvitab?</label>
                     <select id="interest" name="interest">
                         <option value="health">Oma pere tervise kaitsmine</option>
                         <option value="water">Puhta vee teema</option>
-                        <option value="business">Arivoimalus ja tulu teenimise voimalus</option>
-                        <option value="all">Koik eelnev</option>
+                        <option value="business">Ärivõimalus ja tulu teenimine</option>
+                        <option value="all">Kõik eelnev</option>
                         <option value="curious">Lihtsalt uudishimulik</option>
                     </select>
                 </div>
@@ -792,9 +852,9 @@
         <p>
             Saadame sulle <strong>Zoom lingi ja meeldetuletuse</strong> enne esitlust.
             <br><br>
-            Ole kindlasti kohal — loosime osalejate vahel <strong>40€ eest INJOI sokolaade!</strong>
+            Ole kindlasti kohal, sest loosime osalejate vahel <strong>40€ eest INJOI šokolaade!</strong>
             <br><br>
-            <span style="color: var(--gold);">Naeme peagi!</span>
+            <span style="color: var(--gold);">Näeme peagi!</span>
         </p>
     </div>
 
@@ -857,10 +917,33 @@
 
     function showSuccess() {
         document.getElementById('formSection').style.display = 'none';
+        document.getElementById('stickyCta').style.display = 'none';
         const msg = document.getElementById('successMessage');
         msg.classList.add('show');
         msg.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
+
+    // ========== STICKY CTA VISIBILITY ==========
+    var stickyCta = document.getElementById('stickyCta');
+    var formSection = document.getElementById('formSection');
+    var registered = false;
+
+    function checkFormVisibility() {
+        if (registered) return;
+        var rect = formSection.getBoundingClientRect();
+        var windowH = window.innerHeight;
+        // Show sticky when form is NOT in viewport
+        var formVisible = rect.top < windowH - 60 && rect.bottom > 60;
+        if (formVisible) {
+            stickyCta.classList.remove('visible');
+        } else {
+            stickyCta.classList.add('visible');
+        }
+    }
+
+    window.addEventListener('scroll', checkFormVisibility, { passive: true });
+    // Initial check after short delay
+    setTimeout(checkFormVisibility, 500);
 </script>
 
 </body>
