@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INJOI - Registreeru eelesitlusele</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0B1426;
+            --navy-light: #1a2744;
+            --gold: #C9A227;
+            --gold-light: #e8d5a3;
+            --cream: #FDFBF7;
+            --gray-400: #94a3b8;
+            --gray-600: #475569;
+            --water-blue: #0ea5e9;
+            --water-light: #e0f2fe;
+            --chocolate: #3d2314;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--navy);
+            color: white;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Background animation */
+        .bg-particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(201, 162, 39, 0.15);
+            border-radius: 50%;
+            animation: float linear infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(100vh) scale(0); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-10vh) scale(1); opacity: 0; }
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Logo */
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: white;
+            letter-spacing: 0.3em;
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+
+        .tagline {
+            color: var(--gold);
+            font-size: 0.8rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 400;
+            color: white;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        .hero h1 span {
+            color: var(--gold);
+        }
+
+        .hero .subtitle {
+            color: rgba(255,255,255,0.7);
+            font-size: 1.1rem;
+            line-height: 1.6;
+            max-width: 550px;
+            margin: 0 auto;
+        }
+
+        /* Event Details */
+        .event-details {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .event-detail {
+            text-align: center;
+            padding: 1rem 1.5rem;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            min-width: 140px;
+        }
+
+        .event-detail .label {
+            color: var(--gold);
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 0.5rem;
+        }
+
+        .event-detail .value {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: white;
+        }
+
+        /* Raffle Card */
+        .raffle-card {
+            background: linear-gradient(135deg, rgba(201,162,39,0.15) 0%, rgba(201,162,39,0.05) 100%);
+            border: 2px solid var(--gold);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            width: 100%;
+            max-width: 550px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .raffle-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at center, rgba(201,162,39,0.08) 0%, transparent 60%);
+            animation: shimmer 4s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(5%, 5%); }
+        }
+
+        .raffle-card > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .raffle-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .raffle-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--gold);
+            margin-bottom: 0.75rem;
+        }
+
+        .raffle-prize {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: white;
+            margin-bottom: 0.5rem;
+        }
+
+        .raffle-prize span {
+            color: var(--gold);
+        }
+
+        .raffle-card p {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Form Section */
+        .form-section {
+            width: 100%;
+            max-width: 550px;
+            margin-bottom: 3rem;
+        }
+
+        .form-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .form-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: white;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-header p {
+            color: rgba(255,255,255,0.6);
+            font-size: 0.9rem;
+        }
+
+        .form-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
+            padding: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            color: var(--gold);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 1rem 1.25rem;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 8px;
+            color: white;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            outline: none;
+        }
+
+        .form-group input::placeholder {
+            color: rgba(255,255,255,0.3);
+        }
+
+        .form-group input:focus {
+            border-color: var(--gold);
+            background: rgba(201,162,39,0.05);
+            box-shadow: 0 0 0 3px rgba(201,162,39,0.1);
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1.1rem;
+            background: linear-gradient(135deg, var(--gold) 0%, #d4af37 100%);
+            color: var(--navy);
+            border: none;
+            border-radius: 8px;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(201,162,39,0.3);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        .form-note {
+            text-align: center;
+            margin-top: 1rem;
+            color: rgba(255,255,255,0.4);
+            font-size: 0.8rem;
+        }
+
+        /* Success State */
+        .success-message {
+            display: none;
+            text-align: center;
+            padding: 3rem 2rem;
+            background: rgba(201,162,39,0.1);
+            border: 2px solid var(--gold);
+            border-radius: 16px;
+            width: 100%;
+            max-width: 550px;
+        }
+
+        .success-message.show {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .success-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .success-message h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+
+        .success-message p {
+            color: rgba(255,255,255,0.8);
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 2rem 0;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            width: 100%;
+            max-width: 550px;
+        }
+
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            color: rgba(255,255,255,0.3);
+            letter-spacing: 0.3em;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer a {
+            color: var(--gold);
+            text-decoration: none;
+            font-size: 0.85rem;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 640px) {
+            .container {
+                padding: 1.5rem 1rem;
+            }
+
+            .event-details {
+                gap: 1rem;
+            }
+
+            .event-detail {
+                min-width: 120px;
+                padding: 0.75rem 1rem;
+            }
+
+            .raffle-prize {
+                font-size: 2.5rem;
+            }
+
+            .form-card {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Background Particles -->
+<div class="bg-particles" id="particles"></div>
+
+<div class="container">
+
+    <!-- Logo -->
+    <div class="logo">INJOI</div>
+    <div class="tagline">Puhas vesi. Teadlik otsus.</div>
+
+    <!-- Hero -->
+    <div class="hero">
+        <h1>Tule <span>eelesitlusele</span></h1>
+        <p class="subtitle">
+            Avasta, kuidas INJOI muudab sinu pere igapaevaelu puhtama vee ja teadlikumate valikutega.
+        </p>
+    </div>
+
+    <!-- Event Details -->
+    <div class="event-details">
+        <div class="event-detail">
+            <div class="label">Kuupaev</div>
+            <div class="value">Peagi</div>
+        </div>
+        <div class="event-detail">
+            <div class="label">Kellaaeg</div>
+            <div class="value">TBA</div>
+        </div>
+        <div class="event-detail">
+            <div class="label">Koht</div>
+            <div class="value">Zoom</div>
+        </div>
+    </div>
+
+    <!-- Raffle Card -->
+    <div class="raffle-card">
+        <div class="raffle-icon">🍫</div>
+        <h3>Loosimine osalejate vahel!</h3>
+        <div class="raffle-prize"><span>40€</span> eest</div>
+        <p>
+            INJOI toorsokolaade — suhkruvabad, supertoitudega, 100% toores kakao.
+            Registreeru ja ole kohal, et osaleda loosimises!
+        </p>
+    </div>
+
+    <!-- Registration Form -->
+    <div class="form-section" id="formSection">
+        <div class="form-header">
+            <h2>Registreeru</h2>
+            <p>Taida oma andmed ja oled nimekirjas</p>
+        </div>
+
+        <div class="form-card">
+            <form id="registrationForm" onsubmit="handleSubmit(event)">
+                <div class="form-group">
+                    <label for="name">Nimi</label>
+                    <input type="text" id="name" name="name" placeholder="Sinu nimi" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" name="email" placeholder="sinu@email.ee" required>
+                </div>
+                <button type="submit" class="submit-btn">Registreeru</button>
+            </form>
+            <p class="form-note">
+                Me ei jaga sinu andmeid kolmandate osapooltega.
+            </p>
+        </div>
+    </div>
+
+    <!-- Success Message -->
+    <div class="success-message" id="successMessage">
+        <div class="success-icon">✓</div>
+        <h2>Oled registreeritud!</h2>
+        <p>
+            Aitah! Saadame sulle meeldetuletuse enne esitlust.
+            <br><br>
+            Ara unusta — ole kohal, et osaleda 40€ sokolaadi loosimises!
+        </p>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <div class="footer-logo">INJOI</div>
+        <a href="https://injoi.life">injoi.life</a>
+    </div>
+
+</div>
+
+<script>
+    // ========== BACKGROUND PARTICLES ==========
+    const particlesContainer = document.getElementById('particles');
+    for (let i = 0; i < 30; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        particle.style.left = Math.random() * 100 + '%';
+        particle.style.animationDuration = (5 + Math.random() * 10) + 's';
+        particle.style.animationDelay = Math.random() * 10 + 's';
+        particle.style.width = (2 + Math.random() * 4) + 'px';
+        particle.style.height = particle.style.width;
+        particlesContainer.appendChild(particle);
+    }
+
+    // ========== FORM HANDLING ==========
+    // TODO: Replace with EmailOctopus integration
+    // Once you have your EmailOctopus list ID and API key,
+    // update this function to submit to EmailOctopus API.
+    //
+    // EmailOctopus API endpoint:
+    // POST https://emailoctopus.com/api/1.6/lists/{LIST_ID}/contacts
+    // Body: { api_key: "YOUR_KEY", email_address: email, fields: { FirstName: name } }
+
+    function handleSubmit(e) {
+        e.preventDefault();
+
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+
+        if (!name || !email) return;
+
+        const btn = document.querySelector('.submit-btn');
+        btn.textContent = 'Saadame...';
+        btn.disabled = true;
+
+        // EmailOctopus integration placeholder
+        // Replace LIST_ID and API_KEY with your real values from emailoctopus.com
+        const LIST_ID = 'YOUR_LIST_ID';
+        const API_KEY = 'YOUR_API_KEY';
+
+        if (LIST_ID === 'YOUR_LIST_ID') {
+            // Demo mode — show success without actual submission
+            setTimeout(() => {
+                showSuccess();
+            }, 800);
+            return;
+        }
+
+        // Real EmailOctopus submission
+        fetch(`https://emailoctopus.com/api/1.6/lists/${LIST_ID}/contacts`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                api_key: API_KEY,
+                email_address: email,
+                fields: {
+                    FirstName: name
+                },
+                status: 'SUBSCRIBED'
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.id || data.status === 'SUBSCRIBED') {
+                showSuccess();
+            } else if (data.error && data.error.code === 'MEMBER_EXISTS_WITH_EMAIL_ADDRESS') {
+                showSuccess();
+            } else {
+                btn.textContent = 'Proovi uuesti';
+                btn.disabled = false;
+            }
+        })
+        .catch(() => {
+            btn.textContent = 'Proovi uuesti';
+            btn.disabled = false;
+        });
+    }
+
+    function showSuccess() {
+        document.getElementById('formSection').style.display = 'none';
+        document.getElementById('successMessage').classList.add('show');
+        window.scrollTo({ top: document.getElementById('successMessage').offsetTop - 100, behavior: 'smooth' });
+    }
+</script>
+
+</body>
+</html>
