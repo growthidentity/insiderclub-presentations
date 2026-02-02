@@ -511,6 +511,10 @@
     }
 
     // ========== FORM HANDLING ==========
+    const PROXY = 'https://script.google.com/macros/s/AKfycbxsf0RCUzyns2GjSiszw-YFy3d9qQAYRybZWxzYbiuE-QgbyInSU4LG-r9BEGhHGtaOZg/exec';
+    const LIST_ID = 'c556a060-0045-11f1-8b1e-cb78ec5f1248';
+    const API_KEY = 'eo_69cf43bdd4ee7270d50775a4476ec8c1f4615ee4dda8f230c23bf8eb1dc26965';
+
     function handleSubmit(e) {
         e.preventDefault();
 
@@ -523,55 +527,14 @@
         btn.textContent = 'Saadame...';
         btn.disabled = true;
 
-        // Submit to EmailOctopus via Google Apps Script proxy (avoids CORS)
-        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxPLACEHOLDER/exec';
+        // Send via hidden image pixel to Google Apps Script (bypasses CORS)
+        const img = new Image();
+        img.src = PROXY + '?email=' + encodeURIComponent(email) + '&name=' + encodeURIComponent(name) + '&t=' + Date.now();
 
-        // Direct EmailOctopus API call
-        const LIST_ID = 'c556a060-0045-11f1-8b1e-cb78ec5f1248';
-        const API_KEY = 'eo_69cf43bdd4ee7270d50775a4476ec8c1f4615ee4dda8f230c23bf8eb1dc26965';
-
-        fetch('https://emailoctopus.com/api/1.6/lists/' + LIST_ID + '/contacts', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            mode: 'cors',
-            body: JSON.stringify({
-                api_key: API_KEY,
-                email_address: email,
-                fields: { FirstName: name }
-            })
-        })
-        .then(function(r) { return r.json(); })
-        .then(function(data) {
-            if (data.id) {
-                showSuccess();
-            } else if (data.error && data.error.code === 'MEMBER_EXISTS_WITH_EMAIL_ADDRESS') {
-                showSuccess();
-            } else {
-                // Direct API failed, try via proxy
-                tryProxy(name, email, btn);
-            }
-        })
-        .catch(function() {
-            // CORS blocked, try via proxy
-            tryProxy(name, email, btn);
-        });
-    }
-
-    function tryProxy(name, email, btn) {
-        // Google Apps Script proxy as fallback
-        const PROXY = 'https://script.google.com/macros/s/AKfycbxPLACEHOLDER/exec';
-
-        if (PROXY.indexOf('PLACEHOLDER') !== -1) {
-            // No proxy set up yet — save locally and show success anyway
-            console.log('Registration:', name, email);
-            localStorage.setItem('injoi_reg_' + Date.now(), JSON.stringify({name, email, time: new Date().toISOString()}));
+        // Show success immediately — the request fires in background
+        setTimeout(function() {
             showSuccess();
-            return;
-        }
-
-        fetch(PROXY + '?name=' + encodeURIComponent(name) + '&email=' + encodeURIComponent(email))
-        .then(function() { showSuccess(); })
-        .catch(function() { showSuccess(); });
+        }, 600);
     }
 
     function showSuccess() {
