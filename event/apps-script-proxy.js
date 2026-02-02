@@ -6,8 +6,9 @@ function doGet(e) {
 
   // RESET MODE: zero out extra seats counter
   if (p.action === "reset") {
-    props.setProperty("extraSeats", "0");
-    return ContentService.createTextOutput(JSON.stringify({ok:true, extraSeats:0})).setMimeType(ContentService.MimeType.JSON);
+    var val = p.value || "0";
+    props.setProperty("extraSeats", val);
+    return ContentService.createTextOutput(JSON.stringify({ok:true, extraSeats:parseInt(val)})).setMimeType(ContentService.MimeType.JSON);
   }
 
   // COUNT MODE: return total seats booked
