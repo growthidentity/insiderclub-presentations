@@ -193,9 +193,8 @@
 
         /* ========== EVENT INFO STRIP ========== */
         .event-strip {
-            display: flex;
-            justify-content: center;
-            gap: 0;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
             margin-bottom: 3rem;
             border: 1px solid rgba(255,255,255,0.08);
             border-radius: 12px;
@@ -204,9 +203,8 @@
         }
 
         .event-strip-item {
-            flex: 1;
             text-align: center;
-            padding: 1.25rem 1rem;
+            padding: 1.25rem 0.6rem;
             border-right: 1px solid rgba(255,255,255,0.06);
         }
 
@@ -216,15 +214,15 @@
 
         .event-strip-item .label {
             color: var(--gold);
-            font-size: 0.65rem;
+            font-size: 0.6rem;
             text-transform: uppercase;
-            letter-spacing: 0.2em;
+            letter-spacing: 0.15em;
             margin-bottom: 0.4rem;
         }
 
         .event-strip-item .val {
             font-family: 'Playfair Display', serif;
-            font-size: 1.15rem;
+            font-size: 0.95rem;
             color: white;
         }
 
@@ -681,9 +679,10 @@
             .raffle { flex-direction: column; text-align: center; }
             .raffle-chocolate-img { width: 130px; }
             .form-card { padding: 1.75rem 1.25rem; }
-            .event-strip { flex-direction: column; }
+            .event-strip { grid-template-columns: 1fr 1fr; }
             .event-strip-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.06); padding: 1rem; }
-            .event-strip-item:last-child { border-bottom: none; }
+            .event-strip-item:nth-child(odd) { border-right: 1px solid rgba(255,255,255,0.06); }
+            .event-strip-item:last-child { border-bottom: none; grid-column: 1 / -1; }
             .product-showcase { flex-direction: column; text-align: center; padding: 2rem 1.5rem; }
             .product-showcase-img { width: 160px; }
             .form-card .form-bg-product { display: none; }
@@ -712,7 +711,7 @@
         <div class="logo">INJOI</div>
         <h1>Kas sa tead, mida<br>sa tegelikult <em>jood?</em></h1>
         <p class="lead">
-            Tule tasuta esitlusele ja avasta, mida sinu kraanivesi tegelikult sisaldab ning kuidas üks lihtne otsus võib muuta kogu su pere tervist.
+            Tule 15. veebruaril tasuta esitlusele Hestia Hotel Euroopasse ja avasta, mida sinu kraanivesi tegelikult sisaldab ning kuidas üks lihtne otsus võib muuta kogu su pere tervist.
         </p>
     </div>
 
@@ -720,15 +719,19 @@
     <div class="event-strip">
         <div class="event-strip-item">
             <div class="label">Millal</div>
-            <div class="val">Peagi</div>
+            <div class="val">15. veebruar</div>
+        </div>
+        <div class="event-strip-item">
+            <div class="label">Kell</div>
+            <div class="val">15:00</div>
         </div>
         <div class="event-strip-item">
             <div class="label">Kus</div>
-            <div class="val">Zoom</div>
+            <div class="val">Hestia Hotel Euroopa</div>
         </div>
         <div class="event-strip-item">
-            <div class="label">Kestus</div>
-            <div class="val">~30 min</div>
+            <div class="label">Aadress</div>
+            <div class="val">Paadi 5, Tallinn</div>
         </div>
         <div class="event-strip-item">
             <div class="label">Hind</div>
@@ -850,7 +853,7 @@
         </div>
         <h2>Oled nimekirjas!</h2>
         <p>
-            Saadame sulle <strong>Zoom lingi ja meeldetuletuse</strong> enne esitlust.
+            Saadame sulle <strong>meeldetuletuse</strong> enne esitlust.
             <br><br>
             Ole kindlasti kohal, sest loosime osalejate vahel <strong>40€ eest INJOI šokolaade!</strong>
             <br><br>
