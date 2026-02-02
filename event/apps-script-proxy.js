@@ -36,9 +36,15 @@ function doGet(e) {
   }
 
   var nameForEmail = p.name;
-  if (seats > 1) {
-    nameForEmail = p.name + " (" + seats + " kohta)";
+  var extra = [];
+  if (seats > 1) extra.push(seats + " kohta");
+  if (p.referrer) extra.push("kutsuja: " + p.referrer);
+  if (extra.length > 0) {
+    nameForEmail = p.name + " (" + extra.join(", ") + ")";
   }
+
+  var fields = { FirstName: nameForEmail };
+  if (p.referrer) fields.LastName = p.referrer;
 
   var options = {
     method: "post",
@@ -46,7 +52,7 @@ function doGet(e) {
     payload: JSON.stringify({
       api_key: API_KEY,
       email_address: p.email,
-      fields: { FirstName: nameForEmail }
+      fields: fields
     }),
     muteHttpExceptions: true
   };

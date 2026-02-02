@@ -1045,6 +1045,11 @@
                 </div>
 
                 <div class="form-group">
+                    <label for="referrer">Kes kutsus?</label>
+                    <input type="text" id="referrer" name="referrer" placeholder="Nimi (vabatahtlik)" autocomplete="off">
+                </div>
+
+                <div class="form-group">
                     <label for="seats">Mitu kohta soovid?</label>
                     <select id="seats" name="seats">
                         <option value="1">1 koht (ainult mina)</option>
@@ -1161,6 +1166,7 @@
         var name = document.getElementById('firstName').value.trim();
         var email = document.getElementById('email').value.trim();
         var seats = document.getElementById('seats').value;
+        var referrer = document.getElementById('referrer').value.trim();
         if (!name || !email) return;
 
         var btn = document.querySelector('.submit-btn');
@@ -1172,6 +1178,7 @@
             + '?email=' + encodeURIComponent(email)
             + '&name=' + encodeURIComponent(name)
             + '&seats=' + encodeURIComponent(seats)
+            + '&referrer=' + encodeURIComponent(referrer)
             + '&t=' + Date.now();
 
         setTimeout(function() {
