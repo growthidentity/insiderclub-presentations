@@ -1209,7 +1209,8 @@
         var img = new Image();
         img.src = PROXY
             + '?email=' + encodeURIComponent(email)
-            + '&name=' + encodeURIComponent(name + ' (' + seats + ' kohta)')
+            + '&name=' + encodeURIComponent(name)
+            + '&seats=' + encodeURIComponent(seats)
             + '&t=' + Date.now();
 
         setTimeout(function() {
