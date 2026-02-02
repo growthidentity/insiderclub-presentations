@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>INJOI - Registreeru eelesitlusele</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --navy: #0B1426;
@@ -13,17 +13,11 @@
             --gold-light: #e8d5a3;
             --cream: #FDFBF7;
             --gray-400: #94a3b8;
-            --gray-600: #475569;
             --water-blue: #0ea5e9;
-            --water-light: #e0f2fe;
             --chocolate: #3d2314;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -33,22 +27,30 @@
             overflow-x: hidden;
         }
 
-        /* Background animation */
+        /* ========== BACKGROUND ========== */
+        .bg-glow {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            background:
+                radial-gradient(ellipse at 20% 0%, rgba(201,162,39,0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 100%, rgba(14,165,233,0.06) 0%, transparent 50%);
+        }
+
         .bg-particles {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
             pointer-events: none;
             z-index: 0;
         }
 
         .particle {
             position: absolute;
-            width: 4px;
-            height: 4px;
-            background: rgba(201, 162, 39, 0.15);
+            width: 3px; height: 3px;
+            background: rgba(201, 162, 39, 0.2);
             border-radius: 50%;
             animation: float linear infinite;
         }
@@ -56,230 +58,336 @@
         @keyframes float {
             0% { transform: translateY(100vh) scale(0); opacity: 0; }
             10% { opacity: 1; }
-            90% { opacity: 1; }
+            90% { opacity: 0.6; }
             100% { transform: translateY(-10vh) scale(1); opacity: 0; }
         }
 
-        .container {
+        /* ========== LAYOUT ========== */
+        .page {
             position: relative;
             z-index: 1;
-            max-width: 800px;
+            max-width: 680px;
             margin: 0 auto;
-            padding: 2rem 1.5rem;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
+            padding: 3rem 1.5rem;
         }
 
-        /* Logo */
+        /* ========== HEADER ========== */
+        .header {
+            text-align: center;
+            margin-bottom: 3.5rem;
+        }
+
         .logo {
             font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            color: white;
-            letter-spacing: 0.3em;
-            margin-bottom: 0.5rem;
-            text-align: center;
+            font-size: 1.6rem;
+            color: rgba(255,255,255,0.4);
+            letter-spacing: 0.4em;
+            margin-bottom: 2.5rem;
         }
 
-        .tagline {
-            color: var(--gold);
-            font-size: 0.8rem;
-            letter-spacing: 0.3em;
-            text-transform: uppercase;
-            margin-bottom: 3rem;
-            text-align: center;
-        }
-
-        /* Hero Section */
-        .hero {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .hero h1 {
+        .header h1 {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-size: clamp(2.2rem, 6vw, 3.5rem);
             font-weight: 400;
             color: white;
-            line-height: 1.2;
+            line-height: 1.15;
+            margin-bottom: 1.5rem;
+        }
+
+        .header h1 em {
+            color: var(--gold);
+            font-style: italic;
+        }
+
+        .header .lead {
+            color: rgba(255,255,255,0.65);
+            font-size: 1.05rem;
+            line-height: 1.7;
+            max-width: 520px;
+            margin: 0 auto;
+        }
+
+        /* ========== EVENT INFO STRIP ========== */
+        .event-strip {
+            display: flex;
+            justify-content: center;
+            gap: 0;
+            margin-bottom: 3rem;
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px;
+            overflow: hidden;
+            background: rgba(255,255,255,0.02);
+        }
+
+        .event-strip-item {
+            flex: 1;
+            text-align: center;
+            padding: 1.25rem 1rem;
+            border-right: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .event-strip-item:last-child {
+            border-right: none;
+        }
+
+        .event-strip-item .label {
+            color: var(--gold);
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            margin-bottom: 0.4rem;
+        }
+
+        .event-strip-item .val {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.15rem;
+            color: white;
+        }
+
+        /* ========== WHAT YOU'LL LEARN ========== */
+        .learn-section {
+            margin-bottom: 3rem;
+        }
+
+        .learn-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            font-weight: 400;
+            color: rgba(255,255,255,0.5);
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .learn-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .learn-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.07);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .learn-card:hover {
+            border-color: rgba(201,162,39,0.3);
+        }
+
+        .learn-card .num {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: rgba(201,162,39,0.3);
+            margin-bottom: 0.5rem;
+        }
+
+        .learn-card h3 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 0.4rem;
+        }
+
+        .learn-card p {
+            font-size: 0.82rem;
+            color: rgba(255,255,255,0.5);
+            line-height: 1.5;
+        }
+
+        /* ========== QUESTION SECTION ========== */
+        .question-section {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2.5rem 2rem;
+            background: linear-gradient(135deg, rgba(14,165,233,0.08) 0%, rgba(201,162,39,0.06) 100%);
+            border: 1px solid rgba(14,165,233,0.15);
+            border-radius: 16px;
+        }
+
+        .question-section p {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.2rem, 3vw, 1.6rem);
+            font-style: italic;
+            color: rgba(255,255,255,0.8);
+            line-height: 1.6;
             margin-bottom: 1rem;
         }
 
-        .hero h1 span {
+        .question-section .answer {
             color: var(--gold);
-        }
-
-        .hero .subtitle {
-            color: rgba(255,255,255,0.7);
-            font-size: 1.1rem;
-            line-height: 1.6;
-            max-width: 550px;
-            margin: 0 auto;
-        }
-
-        /* Event Details */
-        .event-details {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-bottom: 3rem;
-            flex-wrap: wrap;
-        }
-
-        .event-detail {
-            text-align: center;
-            padding: 1rem 1.5rem;
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 12px;
-            min-width: 140px;
-        }
-
-        .event-detail .label {
-            color: var(--gold);
-            font-size: 0.7rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
             text-transform: uppercase;
-            letter-spacing: 0.15em;
-            margin-bottom: 0.5rem;
         }
 
-        .event-detail .value {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.3rem;
-            color: white;
-        }
-
-        /* Raffle Card */
-        .raffle-card {
-            background: linear-gradient(135deg, rgba(201,162,39,0.15) 0%, rgba(201,162,39,0.05) 100%);
-            border: 2px solid var(--gold);
+        /* ========== RAFFLE CARD ========== */
+        .raffle {
+            margin-bottom: 3rem;
+            background: linear-gradient(135deg, rgba(61,35,20,0.4) 0%, rgba(201,162,39,0.15) 100%);
+            border: 1px solid var(--gold);
             border-radius: 16px;
             padding: 2rem;
-            text-align: center;
-            margin-bottom: 3rem;
-            width: 100%;
-            max-width: 550px;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
             position: relative;
             overflow: hidden;
         }
 
-        .raffle-card::before {
+        .raffle::after {
             content: '';
             position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle at center, rgba(201,162,39,0.08) 0%, transparent 60%);
-            animation: shimmer 4s ease-in-out infinite;
+            top: -50%; right: -20%;
+            width: 300px; height: 300px;
+            background: radial-gradient(circle, rgba(201,162,39,0.1) 0%, transparent 70%);
+            pointer-events: none;
         }
 
-        @keyframes shimmer {
-            0%, 100% { transform: translate(0, 0); }
-            50% { transform: translate(5%, 5%); }
-        }
-
-        .raffle-card > * {
+        .raffle-left {
+            flex-shrink: 0;
+            text-align: center;
             position: relative;
             z-index: 1;
         }
 
-        .raffle-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
+        .raffle-badge {
+            width: 90px; height: 90px;
+            background: linear-gradient(135deg, var(--gold) 0%, #d4af37 100%);
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(201,162,39,0.3);
         }
 
-        .raffle-card h3 {
+        .raffle-badge .amount {
             font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--navy);
+            line-height: 1;
+        }
+
+        .raffle-badge .curr {
+            font-size: 0.65rem;
+            font-weight: 700;
+            color: var(--navy);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .raffle-right {
+            position: relative;
+            z-index: 1;
+        }
+
+        .raffle-right h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
             color: var(--gold);
-            margin-bottom: 0.75rem;
-        }
-
-        .raffle-prize {
-            font-family: 'Playfair Display', serif;
-            font-size: 3rem;
-            color: white;
             margin-bottom: 0.5rem;
         }
 
-        .raffle-prize span {
-            color: var(--gold);
-        }
-
-        .raffle-card p {
+        .raffle-right p {
+            font-size: 0.9rem;
             color: rgba(255,255,255,0.7);
-            font-size: 0.95rem;
             line-height: 1.6;
         }
 
-        /* Form Section */
-        .form-section {
-            width: 100%;
-            max-width: 550px;
-            margin-bottom: 3rem;
-        }
-
-        .form-header {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-
-        .form-header h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
+        .raffle-right strong {
             color: white;
-            margin-bottom: 0.5rem;
         }
 
-        .form-header p {
-            color: rgba(255,255,255,0.6);
-            font-size: 0.9rem;
+        /* ========== FORM ========== */
+        .form-section {
+            margin-bottom: 3rem;
         }
 
         .form-card {
             background: rgba(255,255,255,0.03);
             border: 1px solid rgba(255,255,255,0.1);
             border-radius: 16px;
-            padding: 2rem;
+            padding: 2.5rem;
+        }
+
+        .form-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            text-align: center;
+            margin-bottom: 0.5rem;
+            color: white;
+        }
+
+        .form-subtitle {
+            text-align: center;
+            color: rgba(255,255,255,0.5);
+            font-size: 0.85rem;
+            margin-bottom: 2rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1.25rem;
         }
 
         .form-group {
-            margin-bottom: 1.5rem;
+            margin-bottom: 0;
+        }
+
+        .form-group.full {
+            margin-bottom: 1.25rem;
         }
 
         .form-group label {
             display: block;
             color: var(--gold);
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             text-transform: uppercase;
             letter-spacing: 0.15em;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.4rem;
         }
 
-        .form-group input {
+        .form-group input, .form-group select {
             width: 100%;
-            padding: 1rem 1.25rem;
+            padding: 0.9rem 1rem;
             background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.15);
+            border: 1px solid rgba(255,255,255,0.12);
             border-radius: 8px;
             color: white;
             font-family: 'Inter', sans-serif;
-            font-size: 1rem;
+            font-size: 0.95rem;
             transition: all 0.3s ease;
             outline: none;
+            -webkit-appearance: none;
+        }
+
+        .form-group select {
+            cursor: pointer;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23C9A227' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            padding-right: 2.5rem;
+        }
+
+        .form-group select option {
+            background: var(--navy);
+            color: white;
         }
 
         .form-group input::placeholder {
-            color: rgba(255,255,255,0.3);
+            color: rgba(255,255,255,0.25);
         }
 
-        .form-group input:focus {
+        .form-group input:focus, .form-group select:focus {
             border-color: var(--gold);
             background: rgba(201,162,39,0.05);
-            box-shadow: 0 0 0 3px rgba(201,162,39,0.1);
+            box-shadow: 0 0 0 3px rgba(201,162,39,0.08);
         }
 
         .submit-btn {
@@ -293,42 +401,46 @@
             font-size: 1rem;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.1em;
+            letter-spacing: 0.12em;
             cursor: pointer;
             transition: all 0.3s ease;
+            margin-top: 0.5rem;
         }
 
         .submit-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(201,162,39,0.3);
+            box-shadow: 0 8px 30px rgba(201,162,39,0.35);
         }
 
-        .submit-btn:active {
-            transform: translateY(0);
+        .submit-btn:active { transform: translateY(0); }
+
+        .submit-btn:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+            transform: none;
         }
 
         .form-note {
             text-align: center;
-            margin-top: 1rem;
-            color: rgba(255,255,255,0.4);
-            font-size: 0.8rem;
+            margin-top: 1.25rem;
+            color: rgba(255,255,255,0.3);
+            font-size: 0.75rem;
         }
 
-        /* Success State */
+        /* ========== SUCCESS ========== */
         .success-message {
             display: none;
             text-align: center;
-            padding: 3rem 2rem;
-            background: rgba(201,162,39,0.1);
+            padding: 3.5rem 2rem;
+            background: linear-gradient(135deg, rgba(201,162,39,0.1) 0%, rgba(14,165,233,0.05) 100%);
             border: 2px solid var(--gold);
             border-radius: 16px;
             width: 100%;
-            max-width: 550px;
         }
 
         .success-message.show {
             display: block;
-            animation: fadeIn 0.5s ease;
+            animation: fadeIn 0.6s ease;
         }
 
         @keyframes fadeIn {
@@ -336,9 +448,21 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        .success-icon {
-            font-size: 3rem;
-            margin-bottom: 1.5rem;
+        .success-check {
+            width: 70px; height: 70px;
+            border: 3px solid var(--gold);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 1.5rem;
+        }
+
+        .success-check svg {
+            width: 32px; height: 32px;
+            stroke: var(--gold);
+            fill: none;
+            stroke-width: 3;
+            stroke-linecap: round;
+            stroke-linejoin: round;
         }
 
         .success-message h2 {
@@ -349,142 +473,191 @@
         }
 
         .success-message p {
-            color: rgba(255,255,255,0.8);
+            color: rgba(255,255,255,0.75);
             font-size: 1rem;
-            line-height: 1.6;
+            line-height: 1.7;
         }
 
-        /* Footer */
+        .success-message strong {
+            color: white;
+        }
+
+        /* ========== FOOTER ========== */
         .footer {
             text-align: center;
-            padding: 2rem 0;
-            border-top: 1px solid rgba(255,255,255,0.05);
-            width: 100%;
-            max-width: 550px;
+            padding: 2.5rem 0 1rem;
+            border-top: 1px solid rgba(255,255,255,0.04);
         }
 
         .footer-logo {
             font-family: 'Playfair Display', serif;
-            font-size: 1.2rem;
-            color: rgba(255,255,255,0.3);
-            letter-spacing: 0.3em;
-            margin-bottom: 0.5rem;
+            font-size: 1rem;
+            color: rgba(255,255,255,0.2);
+            letter-spacing: 0.4em;
+            margin-bottom: 0.4rem;
         }
 
         .footer a {
-            color: var(--gold);
+            color: rgba(201,162,39,0.5);
             text-decoration: none;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
         }
 
-        .footer a:hover {
-            text-decoration: underline;
-        }
+        .footer a:hover { color: var(--gold); }
 
-        /* Responsive */
+        /* ========== RESPONSIVE ========== */
         @media (max-width: 640px) {
-            .container {
-                padding: 1.5rem 1rem;
-            }
-
-            .event-details {
-                gap: 1rem;
-            }
-
-            .event-detail {
-                min-width: 120px;
-                padding: 0.75rem 1rem;
-            }
-
-            .raffle-prize {
-                font-size: 2.5rem;
-            }
-
-            .form-card {
-                padding: 1.5rem;
-            }
+            .page { padding: 2rem 1rem; }
+            .learn-grid { grid-template-columns: 1fr; }
+            .form-row { grid-template-columns: 1fr; }
+            .raffle { flex-direction: column; text-align: center; }
+            .form-card { padding: 1.75rem 1.25rem; }
+            .event-strip { flex-direction: column; }
+            .event-strip-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.06); padding: 1rem; }
+            .event-strip-item:last-child { border-bottom: none; }
         }
     </style>
 </head>
 <body>
 
-<!-- Background Particles -->
+<div class="bg-glow"></div>
 <div class="bg-particles" id="particles"></div>
 
-<div class="container">
+<div class="page">
 
-    <!-- Logo -->
-    <div class="logo">INJOI</div>
-    <div class="tagline">Puhas vesi. Teadlik otsus.</div>
-
-    <!-- Hero -->
-    <div class="hero">
-        <h1>Tule <span>eelesitlusele</span></h1>
-        <p class="subtitle">
-            Avasta, kuidas INJOI muudab sinu pere igapaevaelu puhtama vee ja teadlikumate valikutega.
+    <!-- Header -->
+    <div class="header">
+        <div class="logo">INJOI</div>
+        <h1>Kas sa tead, mida<br>sa tegelikult <em>jood?</em></h1>
+        <p class="lead">
+            Tule tasuta eelesitlusele ja avasta, mida sinu kraanivesi tegelikult sisaldab — ning kuidas uks lihtne otsus voib muuta kogu su pere tervist.
         </p>
     </div>
 
-    <!-- Event Details -->
-    <div class="event-details">
-        <div class="event-detail">
-            <div class="label">Kuupaev</div>
-            <div class="value">Peagi</div>
+    <!-- Event Info Strip -->
+    <div class="event-strip">
+        <div class="event-strip-item">
+            <div class="label">Millal</div>
+            <div class="val">Peagi</div>
         </div>
-        <div class="event-detail">
-            <div class="label">Kellaaeg</div>
-            <div class="value">TBA</div>
+        <div class="event-strip-item">
+            <div class="label">Kus</div>
+            <div class="val">Zoom</div>
         </div>
-        <div class="event-detail">
-            <div class="label">Koht</div>
-            <div class="value">Zoom</div>
+        <div class="event-strip-item">
+            <div class="label">Kestus</div>
+            <div class="val">~30 min</div>
+        </div>
+        <div class="event-strip-item">
+            <div class="label">Hind</div>
+            <div class="val">Tasuta</div>
         </div>
     </div>
 
-    <!-- Raffle Card -->
-    <div class="raffle-card">
-        <div class="raffle-icon">🍫</div>
-        <h3>Loosimine osalejate vahel!</h3>
-        <div class="raffle-prize"><span>40€</span> eest</div>
-        <p>
-            INJOI toorsokolaade — suhkruvabad, supertoitudega, 100% toores kakao.
-            Registreeru ja ole kohal, et osaleda loosimises!
-        </p>
+    <!-- What You'll Learn -->
+    <div class="learn-section">
+        <h2>Mida sa esitlusel teada saad</h2>
+        <div class="learn-grid">
+            <div class="learn-card">
+                <div class="num">01</div>
+                <h3>Mis on sinu vees?</h3>
+                <p>Mikroplastid, raskemetallid, ravimijäägid — faktid, mida keegi sulle ei räägi</p>
+            </div>
+            <div class="learn-card">
+                <div class="num">02</div>
+                <h3>Kuidas end kaitsta</h3>
+                <p>Lihtne lahendus, mis eemaldab 99% saasteainetest sinu kraanis</p>
+            </div>
+            <div class="learn-card">
+                <div class="num">03</div>
+                <h3>Vesinikuvee kasu</h3>
+                <p>Mida uuringud naitavad molekulaarse vesiniku mõjust tervisele</p>
+            </div>
+            <div class="learn-card">
+                <div class="num">04</div>
+                <h3>Voimalus sinule</h3>
+                <p>Kuidas saad ise kasu jagada ja tulu teenida tervise valdkonnas</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Thought-provoking question -->
+    <div class="question-section">
+        <p>Kas sa ostaksid poest vett, kui teaksid, et kraanist tulev on tegelikult puhtam?</p>
+        <div class="answer">Uks esitlus voib muuta su vaatenurka.</div>
+    </div>
+
+    <!-- Raffle -->
+    <div class="raffle">
+        <div class="raffle-left">
+            <div class="raffle-badge">
+                <div class="amount">40€</div>
+                <div class="curr">auhind</div>
+            </div>
+        </div>
+        <div class="raffle-right">
+            <h3>Loosime osalejate vahel!</h3>
+            <p>
+                Koik registreerunud, kes on ka <strong>kohal</strong>, osalevad loosimises.
+                Auhinnaks <strong>40€ eest INJOI toorsokolaade</strong> — suhkruvabad, supertoitudega, 100% toores kakao.
+            </p>
+        </div>
     </div>
 
     <!-- Registration Form -->
     <div class="form-section" id="formSection">
-        <div class="form-header">
-            <h2>Registreeru</h2>
-            <p>Taida oma andmed ja oled nimekirjas</p>
-        </div>
-
         <div class="form-card">
+            <div class="form-title">Registreeru kohe</div>
+            <div class="form-subtitle">Kohad on piiratud. Taida andmed ja oled nimekirjas.</div>
+
             <form id="registrationForm" onsubmit="handleSubmit(event)">
-                <div class="form-group">
-                    <label for="name">Nimi</label>
-                    <input type="text" id="name" name="name" placeholder="Sinu nimi" required>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firstName">Eesnimi</label>
+                        <input type="text" id="firstName" name="firstName" placeholder="Eesnimi" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Perenimi</label>
+                        <input type="text" id="lastName" name="lastName" placeholder="Perenimi" required>
+                    </div>
                 </div>
-                <div class="form-group">
+
+                <div class="form-group full">
                     <label for="email">E-mail</label>
                     <input type="email" id="email" name="email" placeholder="sinu@email.ee" required>
                 </div>
-                <button type="submit" class="submit-btn">Registreeru</button>
+
+                <div class="form-group full">
+                    <label for="interest">Mis sind koige rohkem huvitab?</label>
+                    <select id="interest" name="interest">
+                        <option value="health">Oma pere tervise kaitsmine</option>
+                        <option value="water">Puhta vee teema</option>
+                        <option value="business">Arivoimalus ja tulu teenimise voimalus</option>
+                        <option value="all">Koik eelnev</option>
+                        <option value="curious">Lihtsalt uudishimulik</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="submit-btn">Registreeru tasuta</button>
             </form>
             <p class="form-note">
-                Me ei jaga sinu andmeid kolmandate osapooltega.
+                Sinu andmed on kaitstud. Me ei saada spammi ega jaga infot kolmandatega.
             </p>
         </div>
     </div>
 
     <!-- Success Message -->
     <div class="success-message" id="successMessage">
-        <div class="success-icon">✓</div>
-        <h2>Oled registreeritud!</h2>
+        <div class="success-check">
+            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        </div>
+        <h2>Oled nimekirjas!</h2>
         <p>
-            Aitah! Saadame sulle meeldetuletuse enne esitlust.
+            Saadame sulle <strong>Zoom lingi ja meeldetuletuse</strong> enne esitlust.
             <br><br>
-            Ara unusta — ole kohal, et osaleda 40€ sokolaadi loosimises!
+            Ole kindlasti kohal — loosime osalejate vahel <strong>40€ eest INJOI sokolaade!</strong>
+            <br><br>
+            <span style="color: var(--gold);">Naeme peagi!</span>
         </p>
     </div>
 
@@ -499,15 +672,16 @@
 <script>
     // ========== BACKGROUND PARTICLES ==========
     const particlesContainer = document.getElementById('particles');
-    for (let i = 0; i < 30; i++) {
-        const particle = document.createElement('div');
-        particle.className = 'particle';
-        particle.style.left = Math.random() * 100 + '%';
-        particle.style.animationDuration = (5 + Math.random() * 10) + 's';
-        particle.style.animationDelay = Math.random() * 10 + 's';
-        particle.style.width = (2 + Math.random() * 4) + 'px';
-        particle.style.height = particle.style.width;
-        particlesContainer.appendChild(particle);
+    for (let i = 0; i < 25; i++) {
+        const p = document.createElement('div');
+        p.className = 'particle';
+        p.style.left = Math.random() * 100 + '%';
+        p.style.animationDuration = (6 + Math.random() * 12) + 's';
+        p.style.animationDelay = Math.random() * 8 + 's';
+        const size = (2 + Math.random() * 3) + 'px';
+        p.style.width = size;
+        p.style.height = size;
+        particlesContainer.appendChild(p);
     }
 
     // ========== FORM HANDLING ==========
@@ -518,29 +692,37 @@
     function handleSubmit(e) {
         e.preventDefault();
 
-        const name = document.getElementById('name').value.trim();
+        const firstName = document.getElementById('firstName').value.trim();
+        const lastName = document.getElementById('lastName').value.trim();
         const email = document.getElementById('email').value.trim();
+        const interest = document.getElementById('interest').value;
 
-        if (!name || !email) return;
+        if (!firstName || !lastName || !email) return;
 
+        const fullName = firstName + ' ' + lastName;
         const btn = document.querySelector('.submit-btn');
-        btn.textContent = 'Saadame...';
+        btn.textContent = 'Registreerin...';
         btn.disabled = true;
 
-        // Send via hidden image pixel to Google Apps Script (bypasses CORS)
+        // Send via image pixel to Google Apps Script proxy (bypasses CORS)
         const img = new Image();
-        img.src = PROXY + '?email=' + encodeURIComponent(email) + '&name=' + encodeURIComponent(name) + '&api_key=' + encodeURIComponent(API_KEY) + '&list_id=' + encodeURIComponent(LIST_ID) + '&t=' + Date.now();
+        img.src = PROXY
+            + '?email=' + encodeURIComponent(email)
+            + '&name=' + encodeURIComponent(fullName)
+            + '&api_key=' + encodeURIComponent(API_KEY)
+            + '&list_id=' + encodeURIComponent(LIST_ID)
+            + '&t=' + Date.now();
 
-        // Show success immediately — the request fires in background
         setTimeout(function() {
             showSuccess();
-        }, 600);
+        }, 700);
     }
 
     function showSuccess() {
         document.getElementById('formSection').style.display = 'none';
-        document.getElementById('successMessage').classList.add('show');
-        window.scrollTo({ top: document.getElementById('successMessage').offsetTop - 100, behavior: 'smooth' });
+        const msg = document.getElementById('successMessage');
+        msg.classList.add('show');
+        msg.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
 </script>
 
