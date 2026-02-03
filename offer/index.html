@@ -220,6 +220,96 @@ background:var(--accent-glow);color:var(--accent);
 padding:4px 12px;border-radius:20px;margin-top:16px;
 }
 
+/* ===== VALUE STACK / OFFER ===== */
+.offer{
+background:var(--bg-primary);position:relative;overflow:hidden;
+}
+.offer::before{
+content:'';position:absolute;inset:0;
+background:radial-gradient(ellipse 60% 50% at 50% 0%,rgba(184,248,71,0.05),transparent 70%);
+pointer-events:none;
+}
+.offer .container{position:relative;z-index:2}
+.offer-name{
+display:inline-block;
+font-size:0.8rem;font-weight:800;letter-spacing:2px;text-transform:uppercase;
+background:linear-gradient(135deg,var(--accent),#7dd33a);
+color:#0a0e17;padding:8px 24px;border-radius:40px;margin-bottom:20px;
+}
+.offer-headline{
+font-size:clamp(1.75rem,4vw,2.75rem);font-weight:900;line-height:1.12;
+margin-bottom:12px;
+}
+.offer-sub{
+font-size:1.1rem;color:var(--text-secondary);max-width:640px;line-height:1.7;
+margin-bottom:48px;
+}
+.stack{max-width:760px;margin:0 auto}
+.stack-item{
+display:flex;align-items:flex-start;gap:20px;
+padding:24px 28px;margin-bottom:12px;
+background:var(--bg-card);border:1px solid var(--border);
+border-radius:var(--radius);transition:var(--transition);
+position:relative;
+}
+.stack-item:hover{border-color:rgba(184,248,71,0.2);transform:translateX(4px)}
+.stack-icon{
+flex-shrink:0;width:48px;height:48px;border-radius:12px;
+background:var(--accent-glow);color:var(--accent);
+display:flex;align-items:center;justify-content:center;font-size:1.2rem;
+}
+.stack-text{flex:1}
+.stack-text h4{font-size:1.05rem;font-weight:700;margin-bottom:4px}
+.stack-text p{font-size:0.88rem;color:var(--text-secondary);line-height:1.5}
+.stack-value{
+flex-shrink:0;text-align:right;min-width:80px;
+}
+.stack-value .sv-amount{
+font-size:1.1rem;font-weight:800;color:var(--text-muted);
+text-decoration:line-through;display:block;line-height:1.2;
+}
+.stack-value .sv-label{font-size:0.65rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.5px}
+.stack-total{
+margin-top:28px;padding:32px;
+background:linear-gradient(135deg,rgba(184,248,71,0.06),rgba(59,130,246,0.04));
+border:2px solid rgba(184,248,71,0.25);
+border-radius:var(--radius-lg);text-align:center;
+}
+.stack-total .total-crossed{
+font-size:1.5rem;font-weight:700;color:var(--text-muted);
+text-decoration:line-through;display:block;margin-bottom:4px;
+}
+.stack-total .total-actual{
+font-size:2.5rem;font-weight:900;color:var(--accent);
+display:block;line-height:1.1;
+}
+.stack-total .total-actual span{font-size:1.1rem;font-weight:600}
+.stack-total .total-note{
+font-size:0.9rem;color:var(--text-secondary);margin-top:8px;
+}
+.stack-cta{text-align:center;margin-top:36px}
+.urgency-bar{
+margin-top:24px;padding:16px 24px;
+background:rgba(240,185,11,0.08);border:1px solid rgba(240,185,11,0.2);
+border-radius:var(--radius);
+display:flex;align-items:center;justify-content:center;gap:12px;
+font-size:0.9rem;font-weight:600;color:var(--gold);
+}
+.urgency-bar i{font-size:1rem}
+.guarantee-box{
+margin-top:20px;padding:20px 24px;
+background:var(--bg-card);border:1px solid var(--border);
+border-radius:var(--radius);
+display:flex;align-items:flex-start;gap:16px;
+}
+.guarantee-box .g-icon{
+flex-shrink:0;width:44px;height:44px;border-radius:50%;
+background:rgba(59,130,246,0.12);color:var(--blue);
+display:flex;align-items:center;justify-content:center;font-size:1.1rem;
+}
+.guarantee-box p{font-size:0.88rem;color:var(--text-secondary);line-height:1.6}
+.guarantee-box strong{color:var(--text-primary)}
+
 /* ===== ABOUT / MENTOR ===== */
 .mentor{
 background:var(--bg-primary);
@@ -509,6 +599,8 @@ grid-template-columns:1fr;
 .footer-links{flex-direction:column;gap:24px}
 .sonic-stats-grid{grid-template-columns:1fr 1fr}
 .final-buttons{flex-direction:column;align-items:center}
+.stack-item{flex-wrap:wrap}
+.stack-value{min-width:auto;text-align:left;margin-left:68px}
 .mentor-grid{grid-template-columns:1fr;text-align:center}
 .mentor-bio h3{text-align:center}
 .mentor-diff h4{text-align:center}
@@ -529,6 +621,7 @@ grid-template-columns:1fr;
 <a href="#" class="nav-logo">The <span>Growth</span> Identity</a>
 <ul class="nav-links">
 <li><a href="#solution">What I Offer</a></li>
+<li><a href="#offer">The Blueprint</a></li>
 <li><a href="#about">About</a></li>
 <li><a href="#platform">Platform</a></li>
 <li><a href="#sonic">Sonic AI</a></li>
@@ -545,6 +638,7 @@ grid-template-columns:1fr;
 <div class="mobile-menu" id="mobileMenu">
 <button class="close-menu" id="closeMenu" aria-label="Close menu"><i class="fa-solid fa-xmark"></i></button>
 <a href="#solution" class="mobile-link">What I Offer</a>
+<a href="#offer" class="mobile-link">The Blueprint</a>
 <a href="#about" class="mobile-link">About</a>
 <a href="#platform" class="mobile-link">Platform</a>
 <a href="#sonic" class="mobile-link">Sonic AI</a>
@@ -561,10 +655,10 @@ grid-template-columns:1fr;
 <div class="container">
 <div class="hero-content">
 <span class="section-label reveal">The Growth Identity</span>
-<h1 class="reveal reveal-delay-1">Build Your Path to <span class="highlight">Financial Independence</span> Through Trading</h1>
-<p class="reveal reveal-delay-2">Learn real trading strategies, access professional-grade platforms, and join a community of traders using proven tools. Education first, results second.</p>
+<h1 class="reveal reveal-delay-1">Get a Complete Trading Education, Professional Tools & Personal Mentorship — <span class="highlight">Without Paying for a Course</span></h1>
+<p class="reveal reveal-delay-2">Everything you need to start trading like a professional — strategies, platforms, automated trading, and a mentor who puts his own money on the line. Join free. Start in minutes.</p>
 <div class="hero-buttons reveal reveal-delay-3">
-<a href="#solution" class="btn btn-primary"><i class="fa-solid fa-rocket"></i> Start Your Trading Journey</a>
+<a href="#offer" class="btn btn-primary"><i class="fa-solid fa-gift"></i> See What You Get — Free</a>
 <a href="#steps" class="btn btn-outline"><i class="fa-solid fa-play"></i> How It Works</a>
 </div>
 <div class="hero-stats reveal reveal-delay-4">
@@ -658,6 +752,97 @@ grid-template-columns:1fr;
 <h3>Personal Mentorship</h3>
 <p>Join my community for ongoing support, live sessions, trade breakdowns, and direct access to ask questions. You're not alone on this journey.</p>
 <span class="solution-tag">Community</span>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ===== VALUE STACK / OFFER ===== -->
+<section class="section offer" id="offer">
+<div class="container text-center">
+<div class="reveal">
+<span class="offer-name">The Growth Identity Blueprint</span>
+<h2 class="offer-headline">Here's Everything You Get When You Join</h2>
+<p class="offer-sub mx-auto">Most trading courses charge $500–$2,000 and give you videos. You get a complete trading system, professional tools, automated strategies, and a personal mentor — at zero upfront cost.</p>
+</div>
+<div class="stack">
+<div class="stack-item reveal reveal-delay-1">
+<div class="stack-icon"><i class="fa-solid fa-book-open"></i></div>
+<div class="stack-text">
+<h4>Complete Trading Education Program</h4>
+<p>Multi-strategy training: technical analysis, risk management, market structure, and trading psychology. Not one trick — a full system.</p>
+</div>
+<div class="stack-value"><span class="sv-amount">$497</span><span class="sv-label">value</span></div>
+</div>
+<div class="stack-item reveal reveal-delay-1">
+<div class="stack-icon"><i class="fa-solid fa-desktop"></i></div>
+<div class="stack-text">
+<h4>Access to 3 Professional Trading Platforms</h4>
+<p>MetaTrader 5, cTrader, and DX Trade — desktop, web, and mobile. The same platforms institutional traders use.</p>
+</div>
+<div class="stack-value"><span class="sv-amount">$0</span><span class="sv-label">included</span></div>
+</div>
+<div class="stack-item reveal reveal-delay-2">
+<div class="stack-icon"><i class="fa-solid fa-users"></i></div>
+<div class="stack-text">
+<h4>Copy X Social Trading Access</h4>
+<p>Connect to experienced traders and mirror their trades automatically. Start with as little as $10. No experience required.</p>
+</div>
+<div class="stack-value"><span class="sv-amount">$297</span><span class="sv-label">value</span></div>
+</div>
+<div class="stack-item reveal reveal-delay-2">
+<div class="stack-icon"><i class="fa-solid fa-microchip"></i></div>
+<div class="stack-text">
+<h4>Sonic AI Automated Trading</h4>
+<p>Team of 3 traders (10+ years each), 15-month track record, ~1.25% avg monthly return. Connect and let professionals trade for you.</p>
+</div>
+<div class="stack-value"><span class="sv-amount">$997</span><span class="sv-label">value</span></div>
+</div>
+<div class="stack-item reveal reveal-delay-3">
+<div class="stack-icon"><i class="fa-solid fa-arrows-up-down"></i></div>
+<div class="stack-text">
+<h4>Amplified Accounts (12x & 24x)</h4>
+<p>Trade with 12x or 24x your capital. A $100 deposit trades like $1,200 or $2,400. You keep the amplified profits.</p>
+</div>
+<div class="stack-value"><span class="sv-amount">$0</span><span class="sv-label">free activation</span></div>
+</div>
+<div class="stack-item reveal reveal-delay-3">
+<div class="stack-icon"><i class="fa-solid fa-headset"></i></div>
+<div class="stack-text">
+<h4>Direct Mentorship & Community Access</h4>
+<p>WhatsApp access to Vambola. Live sessions, trade breakdowns, strategy Q&A. Ongoing support — not a course you watch alone.</p>
+</div>
+<div class="stack-value"><span class="sv-amount">$997</span><span class="sv-label">value</span></div>
+</div>
+<div class="stack-item reveal reveal-delay-4">
+<div class="stack-icon"><i class="fa-solid fa-flask"></i></div>
+<div class="stack-text">
+<h4>Risk-Free Demo Account</h4>
+<p>Practice every strategy with virtual money before risking a single cent. Take as long as you need. No pressure, no deadline.</p>
+</div>
+<div class="stack-value"><span class="sv-amount">$0</span><span class="sv-label">included</span></div>
+</div>
+
+<div class="stack-total reveal">
+<span class="total-crossed">Total Value: $2,788</span>
+<span class="total-actual">Your Cost: $0 to Join <span>— just your trading deposit when you're ready</span></span>
+<p class="total-note">No course fees. No monthly subscriptions. No hidden charges. You only fund your own trading account.</p>
+</div>
+
+<div class="guarantee-box reveal">
+<div class="g-icon"><i class="fa-solid fa-shield-halved"></i></div>
+<div>
+<p><strong>Zero-Risk Start:</strong> Open a free demo account and practice every strategy with virtual money. When you're confident, go live with as little as $10 on Copy X or $50 on a standard account. Your money stays in your account — withdraw anytime. No lock-in, no contract, no commitment.</p>
+</div>
+</div>
+
+<div class="urgency-bar reveal">
+<i class="fa-solid fa-user-group"></i>
+<span>Limited mentorship capacity — Vambola personally supports each member. Spots are limited.</span>
+</div>
+
+<div class="stack-cta reveal">
+<a href="https://aitech.ibportal.io/auth/register?e=pVFvEYZVDy1cSDKyMDBjTwiZl2ra19r/Avz6A4/UKS8=&a=1" target="_blank" class="btn btn-primary"><i class="fa-solid fa-arrow-right"></i> Claim Your Free Spot Now</a>
 </div>
 </div>
 </div>
@@ -979,11 +1164,11 @@ Start by joining my free trading community to learn the basics. When you're read
 <!-- ===== FINAL CTA ===== -->
 <section class="section final-cta" id="start">
 <div class="container">
-<h2 class="reveal">Ready to Start Your <span style="color:var(--accent)">Trading Journey</span>?</h2>
-<p class="reveal reveal-delay-1">Join my community, learn proper trading strategies, and access professional tools. The first step is always the hardest — but you don't have to take it alone.</p>
+<h2 class="reveal">You've Read This Far. <span style="color:var(--accent)">That Tells Me Something.</span></h2>
+<p class="reveal reveal-delay-1">You're serious about trading — you just need the right system, the right tools, and someone who's done the homework. You get all three here. Start with a demo, go live when you're ready. No course fees, no contracts.</p>
 <div class="final-buttons reveal reveal-delay-2">
-<a href="https://aitech.ibportal.io/auth/register?e=pVFvEYZVDy1cSDKyMDBjTwiZl2ra19r/Avz6A4/UKS8=&a=1" target="_blank" class="btn btn-primary"><i class="fa-solid fa-user-plus"></i> Open Your TAG Markets Account</a>
-<a href="#" class="btn btn-wa" onclick="openWhatsApp(); return false;"><i class="fa-brands fa-whatsapp"></i> Message Me on WhatsApp</a>
+<a href="https://aitech.ibportal.io/auth/register?e=pVFvEYZVDy1cSDKyMDBjTwiZl2ra19r/Avz6A4/UKS8=&a=1" target="_blank" class="btn btn-primary"><i class="fa-solid fa-arrow-right"></i> Claim Your Free Spot Now</a>
+<a href="#" class="btn btn-wa" onclick="openWhatsApp(); return false;"><i class="fa-brands fa-whatsapp"></i> Got Questions? Message Me First</a>
 </div>
 </div>
 </section>
