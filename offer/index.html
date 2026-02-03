@@ -395,6 +395,30 @@ font-size:0.9rem;color:var(--text-secondary);
 }
 .mentor-social-proof i{color:var(--accent);font-size:1.1rem;flex-shrink:0}
 
+/* ===== VIDEO ===== */
+.video-section{background:var(--bg-primary);position:relative;overflow:hidden}
+.video-section::before{
+content:'';position:absolute;inset:0;
+background:radial-gradient(ellipse 50% 60% at 50% 40%,rgba(184,248,71,0.03),transparent 70%);
+pointer-events:none;
+}
+.video-section .container{position:relative;z-index:2}
+.video-wrap{
+max-width:800px;margin:40px auto 0;
+border-radius:var(--radius-lg);overflow:hidden;
+border:1px solid var(--border);
+box-shadow:0 8px 40px rgba(0,0,0,0.4);
+position:relative;
+background:#000;
+}
+.video-wrap::before{
+content:'';display:block;padding-top:56.25%;
+}
+.video-wrap iframe{
+position:absolute;top:0;left:0;width:100%;height:100%;
+border:0;
+}
+
 /* ===== STEPS ===== */
 .steps{background:var(--bg-secondary)}
 .steps-grid{
@@ -904,6 +928,18 @@ grid-template-columns:1fr;
 <span>Trusted by leaders and traders across Estonia, Belgium, Thailand, Vietnam, and the Philippines.</span>
 </div>
 </div>
+</div>
+</div>
+</section>
+
+<!-- ===== VIDEO ===== -->
+<section class="section video-section" id="video">
+<div class="container text-center">
+<span class="section-label reveal">Watch</span>
+<h2 class="section-title reveal">See It for Yourself</h2>
+<p class="section-subtitle mx-auto reveal">A quick look at what this is about — straight from me.</p>
+<div class="video-wrap reveal reveal-delay-1">
+<iframe src="https://www.youtube.com/embed/b4E13YMr3ts" title="The Growth Identity — Introduction" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
 </div>
 </div>
 </section>
