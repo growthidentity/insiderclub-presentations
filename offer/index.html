@@ -1,0 +1,1205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Growth Identity | Trading Education & Professional Tools by Vambola Tullus</title>
+<meta name="description" content="The Growth Identity — trading education by Vambola Tullus. Learn real strategies, access professional platforms, copy trading, and Sonic AI automated trading. Education-first approach.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+--bg-primary:#0a0e17;
+--bg-secondary:#111827;
+--bg-card:#1a2035;
+--bg-card-hover:#1f2847;
+--text-primary:#f1f5f9;
+--text-secondary:#94a3b8;
+--text-muted:#64748b;
+--accent:#b8f847;
+--accent-dim:#8bc634;
+--accent-glow:rgba(184,248,71,0.15);
+--gold:#f0b90b;
+--blue:#3b82f6;
+--red-soft:#ef4444;
+--border:#1e293b;
+--radius:12px;
+--radius-lg:20px;
+--shadow:0 4px 24px rgba(0,0,0,0.3);
+--transition:0.3s cubic-bezier(0.4,0,0.2,1);
+}
+html{scroll-behavior:smooth;font-size:16px}
+body{
+font-family:'Inter',system-ui,-apple-system,sans-serif;
+background:var(--bg-primary);
+color:var(--text-primary);
+line-height:1.6;
+overflow-x:hidden;
+-webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;height:auto}
+a{color:var(--accent);text-decoration:none;transition:var(--transition)}
+a:hover{color:var(--accent-dim)}
+
+/* ===== UTILITY ===== */
+.container{max-width:1200px;margin:0 auto;padding:0 24px}
+.section{padding:100px 0}
+.section-label{
+font-size:0.75rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;
+color:var(--accent);margin-bottom:12px;display:block;
+}
+.section-title{
+font-size:clamp(1.75rem,4vw,2.75rem);font-weight:800;line-height:1.15;
+margin-bottom:20px;
+}
+.section-subtitle{
+font-size:1.05rem;color:var(--text-secondary);max-width:640px;line-height:1.7;
+}
+.text-center{text-align:center}
+.mx-auto{margin-left:auto;margin-right:auto}
+
+/* ===== BUTTONS ===== */
+.btn{
+display:inline-flex;align-items:center;gap:10px;
+padding:16px 36px;border-radius:60px;font-weight:700;font-size:1rem;
+cursor:pointer;border:none;transition:var(--transition);
+text-decoration:none;letter-spacing:0.3px;
+}
+.btn-primary{
+background:var(--accent);color:#0a0e17;
+box-shadow:0 0 30px rgba(184,248,71,0.25);
+}
+.btn-primary:hover{
+background:#c8ff5c;color:#0a0e17;
+transform:translateY(-2px);
+box-shadow:0 0 50px rgba(184,248,71,0.35);
+}
+.btn-outline{
+background:transparent;color:var(--accent);
+border:2px solid var(--accent);
+}
+.btn-outline:hover{
+background:var(--accent);color:#0a0e17;
+}
+.btn-wa{
+background:#25d366;color:#fff;
+box-shadow:0 4px 20px rgba(37,211,102,0.3);
+}
+.btn-wa:hover{background:#20bd5a;color:#fff;transform:translateY(-2px)}
+.btn-sm{padding:12px 24px;font-size:0.9rem}
+
+/* ===== NAV ===== */
+.nav{
+position:fixed;top:0;left:0;right:0;z-index:1000;
+background:rgba(10,14,23,0.85);backdrop-filter:blur(20px);
+border-bottom:1px solid var(--border);
+transition:var(--transition);
+}
+.nav-inner{
+display:flex;align-items:center;justify-content:space-between;
+padding:16px 24px;max-width:1200px;margin:0 auto;
+}
+.nav-logo{
+font-size:1.25rem;font-weight:800;color:var(--text-primary);
+display:flex;align-items:center;gap:8px;
+}
+.nav-logo span{color:var(--accent)}
+.nav-links{display:flex;gap:32px;list-style:none;align-items:center}
+.nav-links a{color:var(--text-secondary);font-size:0.9rem;font-weight:500}
+.nav-links a:hover{color:var(--accent)}
+.nav-cta{display:flex;gap:12px;align-items:center}
+.hamburger{display:none;background:none;border:none;color:var(--text-primary);font-size:1.5rem;cursor:pointer}
+.mobile-menu{
+display:none;position:fixed;top:0;left:0;right:0;bottom:0;
+background:rgba(10,14,23,0.98);z-index:999;
+flex-direction:column;align-items:center;justify-content:center;gap:32px;
+}
+.mobile-menu.active{display:flex}
+.mobile-menu a{color:var(--text-primary);font-size:1.25rem;font-weight:600}
+.mobile-menu .close-menu{position:absolute;top:20px;right:24px;font-size:2rem;background:none;border:none;color:var(--text-primary);cursor:pointer}
+
+/* ===== HERO ===== */
+.hero{
+min-height:100vh;display:flex;align-items:center;
+position:relative;overflow:hidden;padding-top:80px;
+}
+.hero-bg{
+position:absolute;inset:0;z-index:0;
+}
+.hero-bg canvas{position:absolute;inset:0;width:100%;height:100%}
+.hero-gradient{
+position:absolute;inset:0;
+background:
+radial-gradient(ellipse 80% 60% at 20% 50%, rgba(184,248,71,0.06) 0%, transparent 70%),
+radial-gradient(ellipse 60% 80% at 80% 20%, rgba(59,130,246,0.05) 0%, transparent 70%),
+linear-gradient(180deg, transparent 0%, var(--bg-primary) 100%);
+z-index:1;
+}
+.hero-content{position:relative;z-index:2;max-width:720px}
+.hero h1{
+font-size:clamp(2.25rem,5.5vw,3.75rem);font-weight:900;line-height:1.08;
+margin-bottom:24px;
+}
+.hero h1 .highlight{
+background:linear-gradient(135deg,var(--accent),#7dd33a);
+-webkit-background-clip:text;-webkit-text-fill-color:transparent;
+background-clip:text;
+}
+.hero p{
+font-size:1.15rem;color:var(--text-secondary);margin-bottom:40px;
+max-width:560px;line-height:1.75;
+}
+.hero-buttons{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:56px}
+.hero-stats{display:flex;gap:48px;flex-wrap:wrap}
+.hero-stat{text-align:left}
+.hero-stat .num{
+font-size:2rem;font-weight:800;color:var(--accent);
+display:block;line-height:1.2;
+}
+.hero-stat .label{font-size:0.8rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:1px;font-weight:600}
+
+/* ===== PAIN ===== */
+.pain{background:var(--bg-secondary)}
+.pain-grid{
+display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:24px;margin-top:48px;
+}
+.pain-card{
+background:var(--bg-card);border:1px solid var(--border);
+border-radius:var(--radius);padding:32px;
+transition:var(--transition);position:relative;overflow:hidden;
+}
+.pain-card::before{
+content:'';position:absolute;top:0;left:0;right:0;height:3px;
+background:linear-gradient(90deg,var(--red-soft),transparent);
+opacity:0.7;
+}
+.pain-card:hover{border-color:rgba(239,68,68,0.3);transform:translateY(-3px)}
+.pain-icon{
+font-size:1.5rem;color:var(--red-soft);margin-bottom:16px;
+width:48px;height:48px;border-radius:12px;
+background:rgba(239,68,68,0.1);
+display:flex;align-items:center;justify-content:center;
+}
+.pain-card h3{font-size:1.1rem;font-weight:700;margin-bottom:8px}
+.pain-card p{color:var(--text-secondary);font-size:0.92rem;line-height:1.6}
+
+/* ===== SOLUTION ===== */
+.solution-grid{
+display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:28px;margin-top:48px;
+}
+.solution-card{
+background:var(--bg-card);border:1px solid var(--border);
+border-radius:var(--radius-lg);padding:36px;
+transition:var(--transition);position:relative;overflow:hidden;
+}
+.solution-card::before{
+content:'';position:absolute;top:0;left:0;right:0;height:3px;
+background:linear-gradient(90deg,var(--accent),var(--blue));
+}
+.solution-card:hover{
+border-color:rgba(184,248,71,0.25);transform:translateY(-4px);
+box-shadow:0 12px 40px rgba(0,0,0,0.3);
+}
+.solution-icon{
+font-size:1.5rem;color:var(--accent);margin-bottom:20px;
+width:56px;height:56px;border-radius:14px;
+background:var(--accent-glow);
+display:flex;align-items:center;justify-content:center;
+}
+.solution-card h3{font-size:1.2rem;font-weight:700;margin-bottom:10px}
+.solution-card p{color:var(--text-secondary);font-size:0.93rem;line-height:1.7}
+.solution-tag{
+display:inline-block;font-size:0.7rem;font-weight:700;
+text-transform:uppercase;letter-spacing:1.5px;
+background:var(--accent-glow);color:var(--accent);
+padding:4px 12px;border-radius:20px;margin-top:16px;
+}
+
+/* ===== ABOUT / MENTOR ===== */
+.mentor{
+background:var(--bg-primary);
+position:relative;overflow:hidden;
+}
+.mentor::before{
+content:'';position:absolute;inset:0;
+background:
+radial-gradient(ellipse 50% 60% at 15% 50%,rgba(184,248,71,0.04),transparent 70%),
+radial-gradient(ellipse 40% 50% at 85% 30%,rgba(59,130,246,0.03),transparent 70%);
+pointer-events:none;
+}
+.mentor .container{position:relative;z-index:2}
+.mentor-grid{
+display:grid;grid-template-columns:340px 1fr;gap:56px;align-items:start;
+margin-top:48px;
+}
+.mentor-photo-col{text-align:center}
+.mentor-photo-wrap{
+position:relative;width:280px;height:280px;margin:0 auto 24px;
+}
+.mentor-photo-ring{
+position:absolute;inset:-6px;border-radius:50%;
+background:conic-gradient(var(--accent),var(--blue),var(--accent));
+animation:ringRotate 8s linear infinite;
+}
+@keyframes ringRotate{to{transform:rotate(360deg)}}
+.mentor-photo-ring-inner{
+position:absolute;inset:3px;border-radius:50%;background:var(--bg-primary);
+}
+.mentor-photo{
+position:relative;width:100%;height:100%;border-radius:50%;overflow:hidden;
+border:3px solid var(--bg-primary);z-index:1;
+}
+.mentor-photo img{
+width:100%;height:100%;object-fit:cover;display:block;
+}
+.mentor-name{
+font-size:1.5rem;font-weight:800;margin-bottom:4px;
+}
+.mentor-origin{
+font-size:0.85rem;color:var(--text-muted);margin-bottom:12px;
+display:flex;align-items:center;justify-content:center;gap:6px;
+}
+.mentor-tagline{
+font-size:0.95rem;font-weight:600;font-style:italic;
+color:var(--accent);margin-bottom:20px;
+}
+.mentor-countries{
+display:flex;flex-wrap:wrap;justify-content:center;gap:8px;
+}
+.mentor-country{
+font-size:0.72rem;font-weight:600;text-transform:uppercase;letter-spacing:1px;
+background:var(--bg-card);border:1px solid var(--border);
+padding:5px 14px;border-radius:20px;color:var(--text-muted);
+}
+.mentor-bio h3{font-size:1.35rem;font-weight:700;margin-bottom:16px;line-height:1.3}
+.mentor-bio p{color:var(--text-secondary);font-size:0.95rem;line-height:1.75;margin-bottom:16px}
+.mentor-diff{margin:28px 0 0}
+.mentor-diff h4{
+font-size:0.8rem;font-weight:700;text-transform:uppercase;letter-spacing:2px;
+color:var(--accent);margin-bottom:16px;
+}
+.mentor-diff-list{list-style:none}
+.mentor-diff-list li{
+display:flex;align-items:flex-start;gap:14px;
+padding:12px 0;color:var(--text-secondary);font-size:0.93rem;line-height:1.6;
+border-bottom:1px solid rgba(255,255,255,0.04);
+}
+.mentor-diff-list li:last-child{border-bottom:none}
+.mentor-diff-list li .diff-icon{
+flex-shrink:0;width:32px;height:32px;border-radius:8px;
+background:var(--accent-glow);color:var(--accent);
+display:flex;align-items:center;justify-content:center;
+font-size:0.8rem;margin-top:2px;
+}
+.mentor-social-proof{
+margin-top:28px;padding:20px 24px;
+background:var(--bg-card);border:1px solid var(--border);
+border-radius:var(--radius);
+display:flex;align-items:center;gap:12px;
+font-size:0.9rem;color:var(--text-secondary);
+}
+.mentor-social-proof i{color:var(--accent);font-size:1.1rem;flex-shrink:0}
+
+/* ===== STEPS ===== */
+.steps{background:var(--bg-secondary)}
+.steps-grid{
+display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:32px;margin-top:56px;
+}
+.step-card{text-align:center;position:relative;padding:40px 32px}
+.step-num{
+font-size:4rem;font-weight:900;
+background:linear-gradient(135deg,var(--accent),rgba(184,248,71,0.2));
+-webkit-background-clip:text;-webkit-text-fill-color:transparent;
+background-clip:text;line-height:1;margin-bottom:20px;
+}
+.step-card h3{font-size:1.2rem;font-weight:700;margin-bottom:12px}
+.step-card p{color:var(--text-secondary);font-size:0.93rem;line-height:1.7}
+.step-arrow{
+display:none;position:absolute;right:-20px;top:50%;
+transform:translateY(-50%);color:var(--accent);font-size:1.5rem;opacity:0.4;
+}
+
+/* ===== PLATFORM ===== */
+.platform-grid{
+display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));
+gap:28px;margin-top:48px;
+}
+.platform-feature{
+display:flex;gap:20px;padding:28px;
+background:var(--bg-card);border:1px solid var(--border);
+border-radius:var(--radius);transition:var(--transition);
+}
+.platform-feature:hover{border-color:rgba(184,248,71,0.2);transform:translateY(-2px)}
+.platform-feature .icon{
+flex-shrink:0;width:48px;height:48px;border-radius:12px;
+background:var(--accent-glow);color:var(--accent);
+display:flex;align-items:center;justify-content:center;font-size:1.2rem;
+}
+.platform-feature h4{font-size:1.05rem;font-weight:700;margin-bottom:6px}
+.platform-feature p{color:var(--text-secondary);font-size:0.88rem;line-height:1.6}
+
+/* ===== SONIC AI ===== */
+.sonic{background:var(--bg-secondary)}
+.sonic-content{
+display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;
+margin-top:48px;
+}
+.sonic-stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.sonic-stat{
+background:var(--bg-card);border:1px solid var(--border);
+border-radius:var(--radius);padding:24px;text-align:center;
+}
+.sonic-stat .value{
+font-size:1.75rem;font-weight:800;color:var(--accent);display:block;
+}
+.sonic-stat .desc{font-size:0.8rem;color:var(--text-muted);margin-top:4px;text-transform:uppercase;letter-spacing:0.5px}
+.sonic-details h3{font-size:1.5rem;font-weight:700;margin-bottom:16px}
+.sonic-details p{color:var(--text-secondary);font-size:0.95rem;line-height:1.7;margin-bottom:16px}
+.sonic-list{list-style:none;margin:24px 0}
+.sonic-list li{
+display:flex;align-items:flex-start;gap:12px;
+padding:10px 0;color:var(--text-secondary);font-size:0.93rem;
+}
+.sonic-list li i{color:var(--accent);margin-top:4px;flex-shrink:0}
+.sonic-disclaimer{
+font-size:0.78rem;color:var(--text-muted);font-style:italic;
+margin-top:20px;padding:16px;background:rgba(255,255,255,0.03);
+border-radius:8px;border-left:3px solid var(--text-muted);
+}
+
+/* ===== RESULTS / PROOF ===== */
+.proof-row{
+display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:24px;margin-top:48px;
+}
+.proof-card{
+text-align:center;padding:32px 24px;
+background:var(--bg-card);border:1px solid var(--border);
+border-radius:var(--radius);
+}
+.proof-card .big{font-size:2.5rem;font-weight:900;color:var(--accent);line-height:1}
+.proof-card .label{font-size:0.85rem;color:var(--text-secondary);margin-top:8px}
+
+/* ===== PARTNER ===== */
+.partner{background:var(--bg-secondary)}
+.partner-inner{
+background:linear-gradient(135deg,var(--bg-card),rgba(184,248,71,0.04));
+border:1px solid rgba(184,248,71,0.15);
+border-radius:var(--radius-lg);padding:56px;
+text-align:center;max-width:800px;margin:0 auto;
+}
+.partner-inner h2{font-size:clamp(1.5rem,3vw,2.25rem);font-weight:800;margin-bottom:16px}
+.partner-inner p{color:var(--text-secondary);max-width:560px;margin:0 auto 32px;line-height:1.7;font-size:1rem}
+.income-streams{
+display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-bottom:36px;
+}
+.income-tag{
+background:rgba(184,248,71,0.08);border:1px solid rgba(184,248,71,0.2);
+color:var(--accent);padding:8px 20px;border-radius:40px;
+font-size:0.85rem;font-weight:600;
+}
+
+/* ===== FAQ ===== */
+.faq-list{max-width:760px;margin:48px auto 0}
+.faq-item{
+border-bottom:1px solid var(--border);
+}
+.faq-q{
+display:flex;align-items:center;justify-content:space-between;
+padding:24px 0;cursor:pointer;font-weight:600;font-size:1.05rem;
+color:var(--text-primary);gap:16px;
+background:none;border:none;width:100%;text-align:left;
+font-family:inherit;
+}
+.faq-q:hover{color:var(--accent)}
+.faq-q i{
+color:var(--accent);font-size:0.85rem;transition:var(--transition);
+flex-shrink:0;
+}
+.faq-q.active i{transform:rotate(180deg)}
+.faq-a{
+max-height:0;overflow:hidden;transition:max-height 0.4s ease;
+}
+.faq-a-inner{
+padding:0 0 24px;color:var(--text-secondary);font-size:0.93rem;line-height:1.7;
+}
+
+/* ===== FINAL CTA ===== */
+.final-cta{
+background:linear-gradient(135deg,#0f1729,#0a0e17);
+text-align:center;position:relative;overflow:hidden;
+}
+.final-cta::before{
+content:'';position:absolute;inset:0;
+background:radial-gradient(ellipse 70% 50% at 50% 50%,rgba(184,248,71,0.06),transparent);
+}
+.final-cta .container{position:relative;z-index:2}
+.final-cta h2{font-size:clamp(2rem,4.5vw,3.25rem);font-weight:900;margin-bottom:16px}
+.final-cta p{color:var(--text-secondary);font-size:1.1rem;max-width:520px;margin:0 auto 40px;line-height:1.7}
+.final-buttons{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+
+/* ===== FOOTER ===== */
+.footer{
+background:var(--bg-secondary);border-top:1px solid var(--border);
+padding:48px 0 32px;
+}
+.footer-top{
+display:flex;justify-content:space-between;align-items:flex-start;
+flex-wrap:wrap;gap:32px;margin-bottom:32px;
+}
+.footer-brand{max-width:320px}
+.footer-brand .nav-logo{margin-bottom:12px}
+.footer-brand p{font-size:0.85rem;color:var(--text-muted);line-height:1.6}
+.footer-links{display:flex;gap:48px;flex-wrap:wrap}
+.footer-links h4{font-size:0.85rem;font-weight:700;margin-bottom:12px;color:var(--text-secondary)}
+.footer-links a{display:block;color:var(--text-muted);font-size:0.85rem;margin-bottom:8px}
+.footer-links a:hover{color:var(--accent)}
+.footer-disclaimer{
+font-size:0.75rem;color:var(--text-muted);line-height:1.7;
+padding-top:32px;border-top:1px solid var(--border);
+}
+
+/* ===== WHATSAPP FLOAT ===== */
+.wa-float{
+position:fixed;bottom:28px;right:28px;z-index:900;
+width:60px;height:60px;border-radius:50%;
+background:#25d366;color:#fff;font-size:1.75rem;
+display:flex;align-items:center;justify-content:center;
+box-shadow:0 4px 24px rgba(37,211,102,0.4);
+cursor:pointer;transition:var(--transition);
+text-decoration:none;
+}
+.wa-float:hover{transform:scale(1.1);color:#fff;box-shadow:0 6px 30px rgba(37,211,102,0.5)}
+
+/* ===== ANIMATION ===== */
+.reveal{opacity:0;transform:translateY(32px);transition:opacity 0.7s ease,transform 0.7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-delay-1{transition-delay:0.1s}
+.reveal-delay-2{transition-delay:0.2s}
+.reveal-delay-3{transition-delay:0.3s}
+.reveal-delay-4{transition-delay:0.4s}
+
+/* ===== RESPONSIVE ===== */
+@media(min-width:769px){
+.step-arrow{display:block}
+}
+@media(max-width:1024px){
+.sonic-content{grid-template-columns:1fr}
+.partner-inner{padding:40px 28px}
+}
+@media(max-width:768px){
+.nav-links,.nav-cta{display:none}
+.hamburger{display:block}
+.hero h1{font-size:2rem}
+.hero-stats{gap:28px}
+.hero-stat .num{font-size:1.5rem}
+.section{padding:72px 0}
+.pain-grid,.solution-grid,.steps-grid,.platform-grid,.proof-row{
+grid-template-columns:1fr;
+}
+.hero-buttons{flex-direction:column;align-items:stretch}
+.hero-buttons .btn{justify-content:center}
+.footer-top{flex-direction:column}
+.footer-links{flex-direction:column;gap:24px}
+.sonic-stats-grid{grid-template-columns:1fr 1fr}
+.final-buttons{flex-direction:column;align-items:center}
+.mentor-grid{grid-template-columns:1fr;text-align:center}
+.mentor-bio h3{text-align:center}
+.mentor-diff h4{text-align:center}
+.mentor-social-proof{justify-content:center;text-align:center}
+}
+@media(max-width:480px){
+.container{padding:0 16px}
+.sonic-stats-grid{grid-template-columns:1fr}
+.income-streams{flex-direction:column;align-items:center}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== NAV ===== -->
+<nav class="nav" id="nav">
+<div class="nav-inner">
+<a href="#" class="nav-logo">The <span>Growth</span> Identity</a>
+<ul class="nav-links">
+<li><a href="#solution">What I Offer</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#platform">Platform</a></li>
+<li><a href="#sonic">Sonic AI</a></li>
+<li><a href="#faq">FAQ</a></li>
+</ul>
+<div class="nav-cta">
+<a href="https://portal.tagmarkets.com/live_signup?brd=1" target="_blank" class="btn btn-primary btn-sm">Open Account</a>
+</div>
+<button class="hamburger" id="hamburgerBtn" aria-label="Open menu"><i class="fa-solid fa-bars"></i></button>
+</div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+<button class="close-menu" id="closeMenu" aria-label="Close menu"><i class="fa-solid fa-xmark"></i></button>
+<a href="#solution" class="mobile-link">What I Offer</a>
+<a href="#about" class="mobile-link">About</a>
+<a href="#platform" class="mobile-link">Platform</a>
+<a href="#sonic" class="mobile-link">Sonic AI</a>
+<a href="#faq" class="mobile-link">FAQ</a>
+<a href="https://portal.tagmarkets.com/live_signup?brd=1" target="_blank" class="btn btn-primary">Open Account</a>
+</div>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="hero">
+<div class="hero-bg">
+<canvas id="heroCanvas"></canvas>
+<div class="hero-gradient"></div>
+</div>
+<div class="container">
+<div class="hero-content">
+<span class="section-label reveal">The Growth Identity</span>
+<h1 class="reveal reveal-delay-1">Build Your Path to <span class="highlight">Financial Independence</span> Through Trading</h1>
+<p class="reveal reveal-delay-2">Learn real trading strategies, access professional-grade platforms, and join a community of traders using proven tools. Education first, results second.</p>
+<div class="hero-buttons reveal reveal-delay-3">
+<a href="#solution" class="btn btn-primary"><i class="fa-solid fa-rocket"></i> Start Your Trading Journey</a>
+<a href="#steps" class="btn btn-outline"><i class="fa-solid fa-play"></i> How It Works</a>
+</div>
+<div class="hero-stats reveal reveal-delay-4">
+<div class="hero-stat">
+<span class="num" data-count="300000">0</span>
+<span class="label">Traders Worldwide</span>
+</div>
+<div class="hero-stat">
+<span class="num" data-count="150" data-suffix="+">0</span>
+<span class="label">Countries Served</span>
+</div>
+<div class="hero-stat">
+<span class="num" data-count="3" data-suffix="">0</span>
+<span class="label">Trading Platforms</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ===== PAIN ===== -->
+<section class="section pain" id="pain">
+<div class="container">
+<span class="section-label reveal">The Problem</span>
+<h2 class="section-title reveal">Trading Alone Is a <span style="color:var(--red-soft)">Losing Strategy</span></h2>
+<p class="section-subtitle reveal">Most retail traders lose money. Not because trading doesn't work, but because they were never taught how to do it properly.</p>
+<div class="pain-grid">
+<div class="pain-card reveal reveal-delay-1">
+<div class="pain-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+<h3>No Proper Education</h3>
+<p>You watch random videos online, try strategies that worked for someone else, and still end up confused. There's no structured learning path.</p>
+</div>
+<div class="pain-card reveal reveal-delay-2">
+<div class="pain-icon"><i class="fa-solid fa-chart-line"></i></div>
+<h3>No Clear Strategy</h3>
+<p>Jumping from indicator to indicator, switching timeframes, changing pairs every week. Without a proven strategy, you're gambling — not trading.</p>
+</div>
+<div class="pain-card reveal reveal-delay-3">
+<div class="pain-icon"><i class="fa-solid fa-brain"></i></div>
+<h3>Emotional Trading</h3>
+<p>Fear and greed run the show. You close winners too early, hold losers too long, and revenge-trade after a loss. Sound familiar?</p>
+</div>
+<div class="pain-card reveal reveal-delay-4">
+<div class="pain-icon"><i class="fa-solid fa-robot"></i></div>
+<h3>Scam Bots & Gurus</h3>
+<p>The internet is full of "magic bots" and self-proclaimed gurus promising guaranteed returns. Most disappear after taking your money.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ===== SOLUTION ===== -->
+<section class="section" id="solution">
+<div class="container">
+<span class="section-label reveal">The Solution</span>
+<h2 class="section-title reveal">What I Offer: Education + Professional Tools</h2>
+<p class="section-subtitle reveal">I'm Vambola — trading educator and founder of The Growth Identity. I help people learn trading properly and access the same professional tools I use myself.</p>
+<div class="solution-grid">
+<div class="solution-card reveal reveal-delay-1">
+<div class="solution-icon"><i class="fa-solid fa-book-open"></i></div>
+<h3>Trading Education</h3>
+<p>Structured learning across multiple strategies — not just one trick. Understand risk management, technical analysis, market structure, and trading psychology.</p>
+<span class="solution-tag">Foundation</span>
+</div>
+<div class="solution-card reveal reveal-delay-2">
+<div class="solution-icon"><i class="fa-solid fa-desktop"></i></div>
+<h3>Professional Platforms</h3>
+<p>Access MetaTrader 5, cTrader, and DX Trade — industry-standard platforms used by professionals worldwide. Trade forex, crypto, metals, indices, and more.</p>
+<span class="solution-tag">Tools</span>
+</div>
+<div class="solution-card reveal reveal-delay-3">
+<div class="solution-icon"><i class="fa-solid fa-users"></i></div>
+<h3>Copy X Social Trading</h3>
+<p>Not ready to trade on your own yet? Connect to experienced traders through TAG Markets' built-in social trading platform. Start with as little as $10.</p>
+<span class="solution-tag">Copy Trading</span>
+</div>
+<div class="solution-card reveal reveal-delay-4">
+<div class="solution-icon"><i class="fa-solid fa-microchip"></i></div>
+<h3>Sonic AI Trading</h3>
+<p>A team of 3 experienced traders (10+ years each) with a 15-month track record on TAG Markets. Automated trading with transparent, verifiable results.</p>
+<span class="solution-tag">Automated</span>
+</div>
+<div class="solution-card reveal reveal-delay-1">
+<div class="solution-icon"><i class="fa-solid fa-arrows-up-down"></i></div>
+<h3>Amplified Accounts</h3>
+<p>Scale your trading with 12x and 24x amplified accounts. Trade with more capital than your deposit — keeping the profits from the amplified position.</p>
+<span class="solution-tag">Scaling</span>
+</div>
+<div class="solution-card reveal reveal-delay-2">
+<div class="solution-icon"><i class="fa-solid fa-handshake-angle"></i></div>
+<h3>Personal Mentorship</h3>
+<p>Join my community for ongoing support, live sessions, trade breakdowns, and direct access to ask questions. You're not alone on this journey.</p>
+<span class="solution-tag">Community</span>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ===== ABOUT / MENTOR ===== -->
+<section class="section mentor" id="about">
+<div class="container">
+<span class="section-label reveal">Meet Your Mentor</span>
+<h2 class="section-title reveal">The Person Behind the Education</h2>
+<p class="section-subtitle reveal">Not another anonymous guru. A real person, with real experience, who puts his own capital on the line.</p>
+<div class="mentor-grid">
+<div class="mentor-photo-col reveal reveal-delay-1">
+<div class="mentor-photo-wrap">
+<div class="mentor-photo-ring"><div class="mentor-photo-ring-inner"></div></div>
+<div class="mentor-photo">
+<img src="vambola-tullus.png" alt="Vambola Tullus — Trading Educator" width="280" height="280" loading="lazy">
+</div>
+</div>
+<h3 class="mentor-name">Vambola Tullus</h3>
+<div class="mentor-origin"><i class="fa-solid fa-location-dot"></i> Estonia</div>
+<p class="mentor-tagline">"I don't sell dreams — I teach strategy."</p>
+<div class="mentor-countries">
+<span class="mentor-country">Estonia</span>
+<span class="mentor-country">Belgium</span>
+<span class="mentor-country">Thailand</span>
+<span class="mentor-country">Vietnam</span>
+<span class="mentor-country">Philippines</span>
+</div>
+</div>
+<div class="mentor-bio reveal reveal-delay-2">
+<h3>Entrepreneur, Educator, and Analyst — Not a Trading Guru</h3>
+<p>Vambola Tullus is an Estonian entrepreneur and trading educator with a background in technology, water science, and international business development.</p>
+<p>With years of hands-on experience in network building across Europe and Southeast Asia, Vambola has established partnerships and trading communities in Estonia, Belgium, Thailand, Vietnam, and the Philippines. His approach is education-first — he believes traders fail because nobody teaches them properly, not because the markets are rigged.</p>
+<p>Before entering the trading space, Vambola built expertise in water treatment technology — developing courses, leading presentations, and training teams on complex filtration and purification systems. That same analytical, science-based approach is what he brings to trading: facts over hype, math over promises.</p>
+<div class="mentor-diff">
+<h4>What Sets Vambola Apart</h4>
+<ul class="mentor-diff-list">
+<li>
+<div class="diff-icon"><i class="fa-solid fa-bullseye"></i></div>
+<span>Teaches strategy, risk management, and platform mechanics — not dreams of overnight wealth.</span>
+</li>
+<li>
+<div class="diff-icon"><i class="fa-solid fa-globe"></i></div>
+<span>Runs a real international network across 5 countries — not a Telegram group with screenshots.</span>
+</li>
+<li>
+<div class="diff-icon"><i class="fa-solid fa-microscope"></i></div>
+<span>Evaluates every opportunity with deep due diligence before bringing it to his community. If it doesn't pass his standards, it doesn't get promoted.</span>
+</li>
+<li>
+<div class="diff-icon"><i class="fa-solid fa-coins"></i></div>
+<span>Uses the same tools and strategies he recommends. His own capital is on the line.</span>
+</li>
+</ul>
+</div>
+<div class="mentor-social-proof">
+<i class="fa-solid fa-users"></i>
+<span>Trusted by leaders and traders across Estonia, Belgium, Thailand, Vietnam, and the Philippines.</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ===== STEPS ===== -->
+<section class="section steps" id="steps">
+<div class="container text-center">
+<span class="section-label reveal">Getting Started</span>
+<h2 class="section-title reveal">How It Works — 3 Simple Steps</h2>
+<p class="section-subtitle mx-auto reveal">No complicated setup. No confusion. Here's exactly how to begin your trading journey.</p>
+<div class="steps-grid">
+<div class="step-card reveal reveal-delay-1">
+<div class="step-num">01</div>
+<h3>Join My Trading Community</h3>
+<p>Get access to free trading education, strategy breakdowns, and a supportive community of like-minded traders. Learn before you risk a single dollar.</p>
+<i class="fa-solid fa-chevron-right step-arrow"></i>
+</div>
+<div class="step-card reveal reveal-delay-2">
+<div class="step-num">02</div>
+<h3>Open Your TAG Markets Account</h3>
+<p>Create your account on TAG Markets in minutes. Access MT5, cTrader, or DX Trade. Start with a demo account to practice risk-free, or go live when you're ready.</p>
+<i class="fa-solid fa-chevron-right step-arrow"></i>
+</div>
+<div class="step-card reveal reveal-delay-3">
+<div class="step-num">03</div>
+<h3>Choose Your Strategy</h3>
+<p>Trade manually with the strategies you've learned, copy experienced traders through Copy X, or activate Sonic AI for automated trading. Your choice, your pace.</p>
+</div>
+</div>
+<div style="margin-top:48px" class="reveal">
+<a href="https://portal.tagmarkets.com/live_signup?brd=1" target="_blank" class="btn btn-primary"><i class="fa-solid fa-arrow-right"></i> Open Your Account Now</a>
+</div>
+</div>
+</section>
+
+<!-- ===== PLATFORM ===== -->
+<section class="section" id="platform">
+<div class="container">
+<span class="section-label reveal">The Platform</span>
+<h2 class="section-title reveal">Why TAG Markets</h2>
+<p class="section-subtitle reveal">Founded by industry veterans, TAG Markets has grown to serve 300,000+ traders across 150+ countries with institutional-grade trading infrastructure.</p>
+<div class="platform-grid">
+<div class="platform-feature reveal reveal-delay-1">
+<div class="icon"><i class="fa-solid fa-building-columns"></i></div>
+<div>
+<h4>A-Book Broker</h4>
+<p>Transparent order execution. TAG Markets operates as an A-Book broker, routing your orders directly to liquidity providers — not trading against you.</p>
+</div>
+</div>
+<div class="platform-feature reveal reveal-delay-2">
+<div class="icon"><i class="fa-solid fa-laptop-code"></i></div>
+<div>
+<h4>3 Professional Platforms</h4>
+<p>MetaTrader 5, cTrader, and DX Trade — available on desktop, web, and mobile. Choose the platform that fits your trading style.</p>
+</div>
+</div>
+<div class="platform-feature reveal reveal-delay-3">
+<div class="icon"><i class="fa-solid fa-copy"></i></div>
+<div>
+<h4>Copy X Social Trading</h4>
+<p>Built-in social trading ecosystem. Browse top traders, connect in one click, and mirror their trades automatically. Start from just $10.</p>
+</div>
+</div>
+<div class="platform-feature reveal reveal-delay-1">
+<div class="icon"><i class="fa-solid fa-bolt"></i></div>
+<div>
+<h4>Amplified Accounts</h4>
+<p>12x accounts trade with 12 times your capital. 24x accounts go even further. You keep the profits from the amplified position.</p>
+</div>
+</div>
+<div class="platform-feature reveal reveal-delay-2">
+<div class="icon"><i class="fa-solid fa-shield-halved"></i></div>
+<div>
+<h4>Licensed Broker</h4>
+<p>TAG Markets operates under T.M. Financials Ltd, licensed by the Mauritius Financial Services Commission (FSC). License No: GB21026474.</p>
+</div>
+</div>
+<div class="platform-feature reveal reveal-delay-3">
+<div class="icon"><i class="fa-solid fa-droplet"></i></div>
+<div>
+<h4>75 Liquidity Providers</h4>
+<p>Deep liquidity pool from 75 providers ensures competitive spreads and reliable execution across all major instruments.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ===== SONIC AI ===== -->
+<section class="section sonic" id="sonic">
+<div class="container">
+<span class="section-label reveal">Automated Trading</span>
+<h2 class="section-title reveal">Sonic AI — Professional Automated Trading</h2>
+<p class="section-subtitle reveal">A team of 3 experienced traders managing automated strategies on TAG Markets for over 15 months.</p>
+<div class="sonic-content">
+<div class="reveal">
+<div class="sonic-stats-grid">
+<div class="sonic-stat">
+<span class="value">~1.25%</span>
+<span class="desc">Avg. Monthly Return</span>
+</div>
+<div class="sonic-stat">
+<span class="value">15+</span>
+<span class="desc">Months Track Record</span>
+</div>
+<div class="sonic-stat">
+<span class="value">3</span>
+<span class="desc">Experienced Traders</span>
+</div>
+<div class="sonic-stat">
+<span class="value">10+</span>
+<span class="desc">Years Experience Each</span>
+</div>
+</div>
+<div class="sonic-disclaimer">Past performance does not guarantee future results. Monthly returns vary. Trading involves risk and you may lose part or all of your invested capital.</div>
+</div>
+<div class="sonic-details reveal reveal-delay-2">
+<h3>How Sonic AI Works</h3>
+<p>Sonic AI is managed by a trading team of 3 professionals with over 10 years of experience each. Their strategies are automated on TAG Markets, and you can connect through Copy X.</p>
+<ul class="sonic-list">
+<li><i class="fa-solid fa-check"></i>Approximately 1.25% average monthly profit (before amplification)</li>
+<li><i class="fa-solid fa-check"></i>With 12x amplified account: potential ~15% monthly return</li>
+<li><i class="fa-solid fa-check"></i>With 24x amplified account: potential ~30% monthly return</li>
+<li><i class="fa-solid fa-check"></i>70% of profits go to you, 5% to traders, 25% to community program</li>
+<li><i class="fa-solid fa-check"></i>Transparent track record — verifiable results</li>
+</ul>
+<a href="https://portal.tagmarkets.com/live_signup?brd=1" target="_blank" class="btn btn-primary btn-sm"><i class="fa-solid fa-arrow-right"></i> Get Started with Sonic AI</a>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ===== SOCIAL PROOF ===== -->
+<section class="section" id="proof">
+<div class="container text-center">
+<span class="section-label reveal">By The Numbers</span>
+<h2 class="section-title reveal">Platform Growth & Track Record</h2>
+<p class="section-subtitle mx-auto reveal">TAG Markets is one of the fastest-growing brokers globally. Here are the facts.</p>
+<div class="proof-row">
+<div class="proof-card reveal reveal-delay-1">
+<div class="big">300K+</div>
+<div class="label">Active Traders</div>
+</div>
+<div class="proof-card reveal reveal-delay-2">
+<div class="big">150+</div>
+<div class="label">Countries Worldwide</div>
+</div>
+<div class="proof-card reveal reveal-delay-3">
+<div class="big">$100B+</div>
+<div class="label">Monthly Trading Volume</div>
+</div>
+<div class="proof-card reveal reveal-delay-4">
+<div class="big">75</div>
+<div class="label">Liquidity Providers</div>
+</div>
+<div class="proof-card reveal reveal-delay-1">
+<div class="big">24/7</div>
+<div class="label">Customer Support</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ===== PARTNER ===== -->
+<section class="section partner" id="partner">
+<div class="container">
+<div class="partner-inner reveal">
+<span class="section-label">Opportunity</span>
+<h2>Want to Build a Business in Trading?</h2>
+<p>Beyond trading, TAG Markets offers a partner program with multiple income streams. If you're interested in building a business while learning to trade, ask me about the opportunity.</p>
+<div class="income-streams">
+<span class="income-tag"><i class="fa-solid fa-chart-pie"></i>&nbsp; Profit Sharing</span>
+<span class="income-tag"><i class="fa-solid fa-coins"></i>&nbsp; Lot Commissions</span>
+<span class="income-tag"><i class="fa-solid fa-trophy"></i>&nbsp; Leader Pools</span>
+<span class="income-tag"><i class="fa-solid fa-user-plus"></i>&nbsp; CPA Earnings</span>
+<span class="income-tag"><i class="fa-solid fa-gift"></i>&nbsp; Incentives</span>
+</div>
+<a href="#" class="btn btn-outline" onclick="openWhatsApp(); return false;"><i class="fa-solid fa-message"></i> Ask Me About the Partner Program</a>
+</div>
+</div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="section" id="faq">
+<div class="container">
+<div class="text-center">
+<span class="section-label reveal">FAQ</span>
+<h2 class="section-title reveal">Frequently Asked Questions</h2>
+</div>
+<div class="faq-list">
+<div class="faq-item reveal">
+<button class="faq-q" aria-expanded="false">
+Is TAG Markets regulated?
+<i class="fa-solid fa-chevron-down"></i>
+</button>
+<div class="faq-a"><div class="faq-a-inner">
+TAG Markets operates under T.M. Financials Ltd, which holds a Securities Trading License from the Mauritius Financial Services Commission (FSC), License Number GB21026474. The company has offices in Medellín, Colombia and Dubai. As with any offshore broker, it's important to understand that regulatory protections may differ from those offered by brokers regulated in the EU, US, or UK.
+</div></div>
+</div>
+<div class="faq-item reveal">
+<button class="faq-q" aria-expanded="false">
+What is Sonic AI?
+<i class="fa-solid fa-chevron-down"></i>
+</button>
+<div class="faq-a"><div class="faq-a-inner">
+Sonic AI is an automated trading service managed by a team of 3 experienced traders, each with over 10 years of trading experience. They have been operating on TAG Markets for over 15 months with an average monthly return of approximately 1.25%. You can connect to their strategies through the Copy X social trading platform. Results vary month to month, and past performance does not guarantee future outcomes.
+</div></div>
+</div>
+<div class="faq-item reveal">
+<button class="faq-q" aria-expanded="false">
+How do amplified accounts work?
+<i class="fa-solid fa-chevron-down"></i>
+</button>
+<div class="faq-a"><div class="faq-a-inner">
+Amplified accounts let you trade with more capital than your actual deposit. A 12x account means your trades are amplified by a factor of 12 — so a $100 deposit trades like $1,200. A 24x account amplifies by 24 times. 12x accounts are free to activate. 24x accounts require community tokens to unlock. You keep the profits from the amplified position, but amplification also amplifies risk — losses are similarly scaled.
+</div></div>
+</div>
+<div class="faq-item reveal">
+<button class="faq-q" aria-expanded="false">
+Can I trade manually?
+<i class="fa-solid fa-chevron-down"></i>
+</button>
+<div class="faq-a"><div class="faq-a-inner">
+Yes. TAG Markets offers three professional trading platforms: MetaTrader 5 (MT5), cTrader, and DX Trade. All are available on desktop, web browser, and mobile apps. You can trade forex, cryptocurrencies, metals, commodities, indices, and stocks. A free demo account is available to practice before trading with real money.
+</div></div>
+</div>
+<div class="faq-item reveal">
+<button class="faq-q" aria-expanded="false">
+What countries are supported?
+<i class="fa-solid fa-chevron-down"></i>
+</button>
+<div class="faq-a"><div class="faq-a-inner">
+TAG Markets serves traders in over 150 countries. However, services are restricted in certain regions including the USA, UAE, Spain, and some other jurisdictions. Check the TAG Markets website for the full list of restricted countries to confirm availability in your location before registering.
+</div></div>
+</div>
+<div class="faq-item reveal">
+<button class="faq-q" aria-expanded="false">
+What is the minimum deposit?
+<i class="fa-solid fa-chevron-down"></i>
+</button>
+<div class="faq-a"><div class="faq-a-inner">
+The minimum deposit varies by account type but starts from as low as $10 for Copy X social trading. Standard trading accounts have a minimum deposit of $50. You can fund your account using cryptocurrency, Visa, MasterCard, or Apple Pay.
+</div></div>
+</div>
+<div class="faq-item reveal">
+<button class="faq-q" aria-expanded="false">
+How do I get started?
+<i class="fa-solid fa-chevron-down"></i>
+</button>
+<div class="faq-a"><div class="faq-a-inner">
+Start by joining my free trading community to learn the basics. When you're ready, open your TAG Markets account through my referral link. You can begin with a demo account to practice, then choose your strategy: trade manually, copy experienced traders, or connect to Sonic AI. I'll guide you through every step.
+</div></div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ===== FINAL CTA ===== -->
+<section class="section final-cta" id="start">
+<div class="container">
+<h2 class="reveal">Ready to Start Your <span style="color:var(--accent)">Trading Journey</span>?</h2>
+<p class="reveal reveal-delay-1">Join my community, learn proper trading strategies, and access professional tools. The first step is always the hardest — but you don't have to take it alone.</p>
+<div class="final-buttons reveal reveal-delay-2">
+<a href="https://portal.tagmarkets.com/live_signup?brd=1" target="_blank" class="btn btn-primary"><i class="fa-solid fa-user-plus"></i> Open Your TAG Markets Account</a>
+<a href="#" class="btn btn-wa" onclick="openWhatsApp(); return false;"><i class="fa-brands fa-whatsapp"></i> Message Me on WhatsApp</a>
+</div>
+</div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+<div class="container">
+<div class="footer-top">
+<div class="footer-brand">
+<div class="nav-logo">The <span>Growth</span> Identity</div>
+<p>The Growth Identity is a trading education brand by Vambola Tullus. Learn real strategies, access professional platforms, and join a global community of traders.</p>
+</div>
+<div class="footer-links">
+<div>
+<h4>Quick Links</h4>
+<a href="#solution">What I Offer</a>
+<a href="#platform">Platform</a>
+<a href="#sonic">Sonic AI</a>
+<a href="#faq">FAQ</a>
+</div>
+<div>
+<h4>Get Started</h4>
+<a href="https://portal.tagmarkets.com/live_signup?brd=1" target="_blank">Open Account</a>
+<a href="https://www.tagmarkets.com" target="_blank">TAG Markets Website</a>
+<a href="#" onclick="openWhatsApp(); return false;">Contact Me</a>
+</div>
+</div>
+</div>
+<div class="footer-disclaimer">
+<p><strong>Risk Disclaimer:</strong> Trading in Forex and CFDs involves significant risk and may not be suitable for all investors. Past performance does not guarantee future results. Before trading, carefully consider your investment objectives, experience level, financial situation, and risk tolerance. There is a possibility of losing part or all of your initial investment. Do not trade with funds you cannot afford to lose. CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. Make sure you understand all risks involved and consult an independent financial advisor if needed.</p>
+<p style="margin-top:12px">TAG Markets is operated by T.M. Financials Ltd, licensed by the Mauritius Financial Services Commission (FSC). License No: GB21026474. The Growth Identity is an independent trading education brand and affiliate partner — this page is not an official TAG Markets communication. Affiliate links on this page may generate commissions.</p>
+<p style="margin-top:12px">&copy; 2026 The Growth Identity | Vambola Tullus. All rights reserved. This is an independent educational resource and affiliate page — not an official TAG Markets communication.</p>
+</div>
+</div>
+</footer>
+
+<!-- WhatsApp Float -->
+<a href="#" class="wa-float" id="waFloat" onclick="openWhatsApp(); return false;" aria-label="Contact on WhatsApp">
+<i class="fa-brands fa-whatsapp"></i>
+</a>
+
+<script>
+// ===== WhatsApp — UPDATE THIS NUMBER =====
+function openWhatsApp() {
+// Replace with your actual WhatsApp number (with country code, no + sign)
+window.open('https://wa.me/YOUR_PHONE_NUMBER?text=Hi%20Vambola%2C%20I%27m%20interested%20in%20learning%20about%20trading%20with%20TAG%20Markets.', '_blank');
+}
+
+// ===== Mobile Menu =====
+const hamburger = document.getElementById('hamburgerBtn');
+const mobileMenu = document.getElementById('mobileMenu');
+const closeMenu = document.getElementById('closeMenu');
+
+hamburger.addEventListener('click', () => mobileMenu.classList.add('active'));
+closeMenu.addEventListener('click', () => mobileMenu.classList.remove('active'));
+document.querySelectorAll('.mobile-link').forEach(link => {
+link.addEventListener('click', () => mobileMenu.classList.remove('active'));
+});
+
+// ===== Scroll Reveal =====
+const reveals = document.querySelectorAll('.reveal');
+const revealObserver = new IntersectionObserver((entries) => {
+entries.forEach(entry => {
+if (entry.isIntersecting) {
+entry.target.classList.add('visible');
+revealObserver.unobserve(entry.target);
+}
+});
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+reveals.forEach(el => revealObserver.observe(el));
+
+// ===== Counter Animation =====
+function animateCounters() {
+document.querySelectorAll('.hero-stat .num').forEach(el => {
+const target = parseInt(el.dataset.count);
+const suffix = el.dataset.suffix || '';
+const duration = 2000;
+const start = performance.now();
+
+function update(now) {
+const elapsed = now - start;
+const progress = Math.min(elapsed / duration, 1);
+const eased = 1 - Math.pow(1 - progress, 3);
+const current = Math.floor(eased * target);
+
+if (target >= 1000) {
+el.textContent = current.toLocaleString() + suffix;
+} else {
+el.textContent = current + suffix;
+}
+
+if (progress < 1) requestAnimationFrame(update);
+else el.textContent = target.toLocaleString() + suffix;
+}
+requestAnimationFrame(update);
+});
+}
+
+const heroObserver = new IntersectionObserver((entries) => {
+entries.forEach(entry => {
+if (entry.isIntersecting) {
+animateCounters();
+heroObserver.unobserve(entry.target);
+}
+});
+}, { threshold: 0.3 });
+heroObserver.observe(document.querySelector('.hero-stats'));
+
+// ===== FAQ Accordion =====
+document.querySelectorAll('.faq-q').forEach(btn => {
+btn.addEventListener('click', () => {
+const answer = btn.nextElementSibling;
+const isOpen = btn.classList.contains('active');
+
+// Close all
+document.querySelectorAll('.faq-q').forEach(b => {
+b.classList.remove('active');
+b.setAttribute('aria-expanded', 'false');
+b.nextElementSibling.style.maxHeight = null;
+});
+
+// Open clicked if it was closed
+if (!isOpen) {
+btn.classList.add('active');
+btn.setAttribute('aria-expanded', 'true');
+answer.style.maxHeight = answer.scrollHeight + 'px';
+}
+});
+});
+
+// ===== Nav Scroll Effect =====
+let lastScroll = 0;
+window.addEventListener('scroll', () => {
+const nav = document.getElementById('nav');
+const scroll = window.pageYOffset;
+if (scroll > 60) {
+nav.style.borderBottomColor = 'rgba(184,248,71,0.08)';
+} else {
+nav.style.borderBottomColor = 'var(--border)';
+}
+lastScroll = scroll;
+}, { passive: true });
+
+// ===== Hero Canvas — Particle Grid =====
+(function() {
+const canvas = document.getElementById('heroCanvas');
+const ctx = canvas.getContext('2d');
+let particles = [];
+let w, h, dpr;
+
+function resize() {
+dpr = Math.min(window.devicePixelRatio || 1, 2);
+w = canvas.clientWidth;
+h = canvas.clientHeight;
+canvas.width = w * dpr;
+canvas.height = h * dpr;
+ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+}
+
+function init() {
+resize();
+particles = [];
+const count = Math.min(Math.floor((w * h) / 18000), 80);
+for (let i = 0; i < count; i++) {
+particles.push({
+x: Math.random() * w,
+y: Math.random() * h,
+vx: (Math.random() - 0.5) * 0.3,
+vy: (Math.random() - 0.5) * 0.3,
+r: Math.random() * 1.5 + 0.5,
+o: Math.random() * 0.3 + 0.1
+});
+}
+}
+
+function draw() {
+ctx.clearRect(0, 0, w, h);
+
+// Draw connections
+for (let i = 0; i < particles.length; i++) {
+for (let j = i + 1; j < particles.length; j++) {
+const dx = particles[i].x - particles[j].x;
+const dy = particles[i].y - particles[j].y;
+const dist = Math.sqrt(dx * dx + dy * dy);
+if (dist < 120) {
+ctx.beginPath();
+ctx.strokeStyle = `rgba(184,248,71,${0.06 * (1 - dist / 120)})`;
+ctx.lineWidth = 0.5;
+ctx.moveTo(particles[i].x, particles[i].y);
+ctx.lineTo(particles[j].x, particles[j].y);
+ctx.stroke();
+}
+}
+}
+
+// Draw particles
+particles.forEach(p => {
+ctx.beginPath();
+ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+ctx.fillStyle = `rgba(184,248,71,${p.o})`;
+ctx.fill();
+
+p.x += p.vx;
+p.y += p.vy;
+if (p.x < 0 || p.x > w) p.vx *= -1;
+if (p.y < 0 || p.y > h) p.vy *= -1;
+});
+
+requestAnimationFrame(draw);
+}
+
+window.addEventListener('resize', () => { resize(); });
+init();
+draw();
+})();
+</script>
+</body>
+</html>
