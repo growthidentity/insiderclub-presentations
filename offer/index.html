@@ -591,6 +591,70 @@ text-decoration:none;
 }
 .wa-float:hover{transform:scale(1.1);color:#fff;box-shadow:0 6px 30px rgba(37,211,102,0.5)}
 
+/* ===== EMAIL MODAL ===== */
+.modal-overlay{
+position:fixed;inset:0;z-index:2000;
+background:rgba(0,0,0,0.75);backdrop-filter:blur(8px);
+display:none;align-items:center;justify-content:center;
+padding:24px;
+}
+.modal-overlay.active{display:flex}
+.modal{
+background:var(--bg-card);border:1px solid var(--border);
+border-radius:var(--radius-lg);max-width:520px;width:100%;
+padding:48px 40px;position:relative;
+box-shadow:0 24px 80px rgba(0,0,0,0.5);
+}
+.modal-close{
+position:absolute;top:16px;right:20px;
+background:none;border:none;color:var(--text-muted);
+font-size:1.5rem;cursor:pointer;transition:var(--transition);
+}
+.modal-close:hover{color:var(--text-primary)}
+.modal h3{font-size:1.5rem;font-weight:800;margin-bottom:8px}
+.modal p{color:var(--text-secondary);font-size:0.93rem;line-height:1.6;margin-bottom:28px}
+.modal-form{display:flex;flex-direction:column;gap:14px}
+.modal-input{
+width:100%;padding:14px 18px;border-radius:10px;
+background:var(--bg-primary);border:1px solid var(--border);
+color:var(--text-primary);font-size:0.95rem;
+font-family:inherit;transition:var(--transition);
+}
+.modal-input:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-glow)}
+.modal-input::placeholder{color:var(--text-muted)}
+.modal-submit{
+width:100%;padding:16px;border-radius:60px;
+background:var(--accent);color:#0a0e17;
+font-weight:700;font-size:1rem;border:none;cursor:pointer;
+font-family:inherit;transition:var(--transition);
+}
+.modal-submit:hover{background:#c8ff5c;transform:translateY(-1px)}
+.modal-note{font-size:0.75rem;color:var(--text-muted);text-align:center;margin-top:12px}
+
+/* ===== TOOLKIT (post-email) ===== */
+.toolkit{background:var(--bg-secondary)}
+.toolkit-grid{
+display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:20px;margin-top:40px;
+}
+.toolkit-card{
+display:flex;align-items:flex-start;gap:16px;
+padding:24px;background:var(--bg-card);border:1px solid var(--border);
+border-radius:var(--radius);transition:var(--transition);
+text-decoration:none;color:var(--text-primary);
+}
+.toolkit-card:hover{border-color:rgba(184,248,71,0.25);transform:translateY(-2px);color:var(--text-primary)}
+.toolkit-card .tk-icon{
+flex-shrink:0;width:44px;height:44px;border-radius:10px;
+display:flex;align-items:center;justify-content:center;font-size:1.1rem;
+}
+.toolkit-card .tk-icon.green{background:var(--accent-glow);color:var(--accent)}
+.toolkit-card .tk-icon.blue{background:rgba(59,130,246,0.12);color:var(--blue)}
+.toolkit-card .tk-icon.teal{background:rgba(20,184,166,0.12);color:#14b8a6}
+.toolkit-card .tk-icon.purple{background:rgba(168,85,247,0.12);color:#a855f7}
+.toolkit-card h4{font-size:0.95rem;font-weight:700;margin-bottom:3px}
+.toolkit-card p{font-size:0.82rem;color:var(--text-secondary);line-height:1.5}
+
 /* ===== ANIMATION ===== */
 .reveal{opacity:0;transform:translateY(32px);transition:opacity 0.7s ease,transform 0.7s ease}
 .reveal.visible{opacity:1;transform:translateY(0)}
@@ -629,6 +693,8 @@ grid-template-columns:1fr;
 .mentor-bio h3{text-align:center}
 .mentor-diff h4{text-align:center}
 .mentor-social-proof{justify-content:center;text-align:center}
+.modal{padding:36px 24px}
+.toolkit-grid{grid-template-columns:1fr}
 }
 @media(max-width:480px){
 .container{padding:0 16px}
@@ -652,7 +718,7 @@ grid-template-columns:1fr;
 <li><a href="#faq">FAQ</a></li>
 </ul>
 <div class="nav-cta">
-<a href="https://aitech.ibportal.io/auth/register?e=pVFvEYZVDy1cSDKyMDBjTwiZl2ra19r/Avz6A4/UKS8=&a=1" target="_blank" class="btn btn-primary btn-sm">Open Account</a>
+<a href="#" class="btn btn-primary btn-sm" onclick="openEmailModal(); return false;">Get Free Access</a>
 </div>
 <button class="hamburger" id="hamburgerBtn" aria-label="Open menu"><i class="fa-solid fa-bars"></i></button>
 </div>
@@ -667,7 +733,7 @@ grid-template-columns:1fr;
 <a href="#platform" class="mobile-link">Platform</a>
 <a href="#sonic" class="mobile-link">Sonic AI</a>
 <a href="#faq" class="mobile-link">FAQ</a>
-<a href="https://aitech.ibportal.io/auth/register?e=pVFvEYZVDy1cSDKyMDBjTwiZl2ra19r/Avz6A4/UKS8=&a=1" target="_blank" class="btn btn-primary">Open Account</a>
+<a href="#" class="btn btn-primary" onclick="openEmailModal(); return false;">Get Free Access</a>
 </div>
 
 <!-- ===== HERO ===== -->
@@ -866,7 +932,7 @@ grid-template-columns:1fr;
 </div>
 
 <div class="stack-cta reveal">
-<a href="https://aitech.ibportal.io/auth/register?e=pVFvEYZVDy1cSDKyMDBjTwiZl2ra19r/Avz6A4/UKS8=&a=1" target="_blank" class="btn btn-primary"><i class="fa-solid fa-arrow-right"></i> Start Your Journey</a>
+<a href="#" class="btn btn-primary" onclick="openEmailModal(); return false;"><i class="fa-solid fa-arrow-right"></i> Get Free Access</a>
 </div>
 </div>
 </div>
@@ -971,7 +1037,7 @@ grid-template-columns:1fr;
 </div>
 </div>
 <div style="margin-top:48px" class="reveal">
-<a href="https://aitech.ibportal.io/auth/register?e=pVFvEYZVDy1cSDKyMDBjTwiZl2ra19r/Avz6A4/UKS8=&a=1" target="_blank" class="btn btn-primary"><i class="fa-solid fa-arrow-right"></i> Open Your Account</a>
+<a href="#" class="btn btn-primary" onclick="openEmailModal(); return false;"><i class="fa-solid fa-arrow-right"></i> Get Free Access</a>
 </div>
 </div>
 </section>
@@ -1065,9 +1131,9 @@ grid-template-columns:1fr;
 <li><i class="fa-solid fa-check"></i>12x amplification = higher potential</li>
 <li><i class="fa-solid fa-check"></i>24x amplification = higher risk, higher potential</li>
 <li><i class="fa-solid fa-check"></i>70% of profits go to you</li>
-<li><i class="fa-solid fa-check"></i>Fully transparent history</li>
+<li><i class="fa-solid fa-check"></i>Fully transparent history, <a href="https://www.myfxbook.com/members/SonicExperts/sonic-ai/11884034" target="_blank" style="color:var(--accent)">verified on Myfxbook</a></li>
 </ul>
-<a href="https://aitech.ibportal.io/auth/register?e=pVFvEYZVDy1cSDKyMDBjTwiZl2ra19r/Avz6A4/UKS8=&a=1" target="_blank" class="btn btn-primary btn-sm"><i class="fa-solid fa-arrow-right"></i> Get Started</a>
+<a href="#" class="btn btn-primary btn-sm" onclick="openEmailModal(); return false;"><i class="fa-solid fa-arrow-right"></i> Get Started</a>
 </div>
 </div>
 </div>
@@ -1204,8 +1270,81 @@ Join my community. Learn the basics. When you're ready, open your trading accoun
 <h2 class="reveal">Ready to <span style="color:var(--accent)">Start?</span></h2>
 <p class="reveal reveal-delay-1">Learn properly. Use real tools. Build skills that last longer than any market cycle.</p>
 <div class="final-buttons reveal reveal-delay-2">
-<a href="https://aitech.ibportal.io/auth/register?e=pVFvEYZVDy1cSDKyMDBjTwiZl2ra19r/Avz6A4/UKS8=&a=1" target="_blank" class="btn btn-primary"><i class="fa-solid fa-arrow-right"></i> Open Your Trading Account</a>
+<a href="#" class="btn btn-primary" onclick="openEmailModal(); return false;"><i class="fa-solid fa-arrow-right"></i> Get Free Access</a>
 <a href="#" class="btn btn-wa" onclick="openWhatsApp(); return false;"><i class="fa-brands fa-whatsapp"></i> Message Me on WhatsApp</a>
+</div>
+</div>
+</section>
+
+<!-- ===== EMAIL MODAL ===== -->
+<div class="modal-overlay" id="emailModal">
+<div class="modal">
+<button class="modal-close" id="modalClose" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+<h3>Get Your Free Trading Toolkit</h3>
+<p>Enter your name and email. I'll send you access to the community, tutorials, Sonic AI track record, and everything you need to get started.</p>
+<form class="modal-form" id="emailForm">
+<input type="text" class="modal-input" id="formName" placeholder="Your first name" required autocomplete="given-name">
+<input type="email" class="modal-input" id="formEmail" placeholder="Your best email" required autocomplete="email">
+<button type="submit" class="modal-submit"><i class="fa-solid fa-unlock"></i> Send Me the Toolkit</button>
+</form>
+<p class="modal-note">No spam, no selling your data. Just the tools and info you need.</p>
+</div>
+</div>
+
+<!-- ===== TOOLKIT (shown after email) ===== -->
+<section class="section toolkit" id="toolkit" style="display:none">
+<div class="container">
+<div class="text-center">
+<span class="section-label">Your Toolkit</span>
+<h2 class="section-title">You're In. Here's Everything You Need</h2>
+<p class="section-subtitle mx-auto">These are the exact tools and resources I use. Bookmark this page, you'll want to come back.</p>
+</div>
+<div class="toolkit-grid">
+<a href="https://aitech.ibportal.io/auth/register?e=pVFvEYZVDy1cSDKyMDBjTwiZl2ra19r/Avz6A4/UKS8=&a=1" target="_blank" class="toolkit-card">
+<div class="tk-icon green"><i class="fa-solid fa-user-plus"></i></div>
+<div>
+<h4>Open Your Trading Account</h4>
+<p>Create your account, verify, and start with a demo or go live</p>
+</div>
+</a>
+<a href="https://t.me/socialtradingoptions" target="_blank" class="toolkit-card">
+<div class="tk-icon blue"><i class="fa-brands fa-telegram"></i></div>
+<div>
+<h4>Join the Trading Community</h4>
+<p>Social Trading Options channel, strategies, updates, and discussions</p>
+</div>
+</a>
+<a href="https://t.me/sonicexperts" target="_blank" class="toolkit-card">
+<div class="tk-icon purple"><i class="fa-brands fa-telegram"></i></div>
+<div>
+<h4>Sonic AI Channel</h4>
+<p>Updates from the Sonic AI trading team directly</p>
+</div>
+</a>
+<a href="https://www.myfxbook.com/members/SonicExperts/sonic-ai/11884034" target="_blank" class="toolkit-card">
+<div class="tk-icon teal"><i class="fa-solid fa-chart-line"></i></div>
+<div>
+<h4>Sonic AI Track Record</h4>
+<p>Verified live results on Myfxbook, fully transparent</p>
+</div>
+</a>
+<a href="https://intercom.help/tag-markets/en/collections/10835803-guides-tutorials" target="_blank" class="toolkit-card">
+<div class="tk-icon green"><i class="fa-solid fa-play-circle"></i></div>
+<div>
+<h4>Guides & Tutorials</h4>
+<p>Official video guides for platform setup, deposits, and trading</p>
+</div>
+</a>
+<a href="https://t.me/tagsignals" target="_blank" class="toolkit-card">
+<div class="tk-icon blue"><i class="fa-solid fa-signal"></i></div>
+<div>
+<h4>Free Trading Signals</h4>
+<p>TAG Markets free signals channel on Telegram</p>
+</div>
+</a>
+</div>
+<div style="text-align:center;margin-top:40px">
+<a href="#" class="btn btn-wa" onclick="openWhatsApp(); return false;"><i class="fa-brands fa-whatsapp"></i> Message me when you're set up, I'll help you get started</a>
 </div>
 </div>
 </section>
@@ -1252,6 +1391,73 @@ Join my community. Learn the basics. When you're ready, open your trading accoun
 function openWhatsApp() {
 // Replace with your actual WhatsApp number (with country code, no + sign)
 window.open('https://wa.me/639953538545?text=Hi%20Vambola%2C%20I%27m%20interested%20in%20learning%20about%20trading%20and%20The%20Growth%20Identity.', '_blank');
+}
+
+// ===== Email Modal =====
+const emailModal = document.getElementById('emailModal');
+const modalCloseBtn = document.getElementById('modalClose');
+const emailForm = document.getElementById('emailForm');
+const toolkitSection = document.getElementById('toolkit');
+const REG_URL = 'https://aitech.ibportal.io/auth/register?e=pVFvEYZVDy1cSDKyMDBjTwiZl2ra19r/Avz6A4/UKS8=&a=1';
+
+function openEmailModal() {
+// If already submitted, go straight to registration
+if (localStorage.getItem('tgi_email')) {
+window.open(REG_URL, '_blank');
+showToolkit();
+return;
+}
+emailModal.classList.add('active');
+document.body.style.overflow = 'hidden';
+setTimeout(() => document.getElementById('formName').focus(), 200);
+}
+
+function closeEmailModal() {
+emailModal.classList.remove('active');
+document.body.style.overflow = '';
+}
+
+function showToolkit() {
+toolkitSection.style.display = 'block';
+// Scroll to toolkit if not already visible
+setTimeout(() => toolkitSection.scrollIntoView({ behavior: 'smooth', block: 'start' }), 300);
+}
+
+modalCloseBtn.addEventListener('click', closeEmailModal);
+emailModal.addEventListener('click', (e) => {
+if (e.target === emailModal) closeEmailModal();
+});
+document.addEventListener('keydown', (e) => {
+if (e.key === 'Escape' && emailModal.classList.contains('active')) closeEmailModal();
+});
+
+emailForm.addEventListener('submit', (e) => {
+e.preventDefault();
+const name = document.getElementById('formName').value.trim();
+const email = document.getElementById('formEmail').value.trim();
+if (!name || !email) return;
+
+// Store locally
+localStorage.setItem('tgi_name', name);
+localStorage.setItem('tgi_email', email);
+
+// Send to EmailOctopus via Google Apps Script proxy
+var proxy = 'https://script.google.com/macros/s/AKfycbxsf0RCUzyns2GjSiszw-YFy3d9qQAYRybZWxzYbiuE-QgbyInSU4LG-r9BEGhHGtaOZg/exec';
+var img = new Image();
+img.src = proxy
+  + '?email=' + encodeURIComponent(email)
+  + '&name=' + encodeURIComponent(name)
+  + '&referrer=offer-page'
+  + '&t=' + Date.now();
+
+closeEmailModal();
+showToolkit();
+window.open(REG_URL, '_blank');
+});
+
+// Show toolkit if returning visitor already gave email
+if (localStorage.getItem('tgi_email')) {
+toolkitSection.style.display = 'block';
 }
 
 // ===== Mobile Menu =====
