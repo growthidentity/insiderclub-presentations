@@ -2,10 +2,10 @@ BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//INJOI//Event//ET
 BEGIN:VEVENT
-DTSTART:20260215T130000Z
-DTEND:20260215T143000Z
+DTSTART:20260228T130000Z
+DTEND:20260228T143000Z
 SUMMARY:INJOI tervisesündmus
 DESCRIPTION:Tasuta tervisesündmus koos INJOI asutajaga. Näe oma silmaga INJOI süsteemi töös\, proovi vesinikurikast vett ja degusteeri tooršokolaade.
-LOCATION:Hestia Hotel Euroopa\, Paadi 5\, Tallinn
+LOCATION:Tallinn (täpsustatakse peagi)
 END:VEVENT
 END:VCALENDAR
