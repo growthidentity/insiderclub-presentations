@@ -47,14 +47,21 @@ function doGet(e) {
   var fields = { FirstName: nameForEmail };
   if (p.referrer) fields.LastName = p.referrer;
 
+  var body = {
+    api_key: API_KEY,
+    email_address: p.email,
+    fields: fields
+  };
+
+  // Support tags (e.g. ?tag=Forex)
+  if (p.tag) {
+    body.tags = [p.tag];
+  }
+
   var options = {
     method: "post",
     contentType: "application/json",
-    payload: JSON.stringify({
-      api_key: API_KEY,
-      email_address: p.email,
-      fields: fields
-    }),
+    payload: JSON.stringify(body),
     muteHttpExceptions: true
   };
   UrlFetchApp.fetch("https://emailoctopus.com/api/1.6/lists/" + LIST_ID + "/contacts", options);
