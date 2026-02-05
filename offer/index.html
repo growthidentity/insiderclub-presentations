@@ -1296,42 +1296,50 @@ Join my community. Learn the basics. When you're ready, open your trading accoun
 </div>
 </div>
 
-<!-- ===== NEXT STEPS (shown after email) ===== -->
-<section class="section toolkit" id="toolkit" style="display:none">
+<!-- ===== THANK YOU (shown after email) ===== -->
+<section class="section toolkit" id="thankYouSection" style="display:none">
 <div class="container">
 <div class="text-center">
-<span class="section-label">Next Steps</span>
-<h2 class="section-title">You're Almost There. Do This Now.</h2>
-<p class="section-subtitle mx-auto">Complete these steps and message me on WhatsApp to receive your $25 deposit.</p>
+<div style="width:80px;height:80px;background:var(--accent);border-radius:50%;margin:0 auto 24px;display:flex;align-items:center;justify-content:center;">
+<i class="fa-solid fa-check" style="font-size:36px;color:var(--dark);"></i>
 </div>
-<div class="toolkit-grid" style="grid-template-columns:repeat(3,1fr);">
-<a href="https://aitech.ibportal.io/auth/register?e=pVFvEYZVDy1cSDKyMDBjTwiZl2ra19r/Avz6A4/UKS8=&a=1" target="_blank" class="toolkit-card">
-<div class="tk-icon green"><i class="fa-solid fa-user-plus"></i></div>
-<div>
-<h4>Step 1: Register Your Account</h4>
-<p>Click here to create your trading account using my affiliate link</p>
+<span class="section-label">You're In</span>
+<h2 class="section-title">Check Your Email</h2>
+<p class="section-subtitle mx-auto">I just sent you an email with your personal registration link and next steps. Check your inbox now.</p>
 </div>
-</a>
-<a href="https://intercom.help/tag-markets/en/collections/10835803-guides-tutorials" target="_blank" class="toolkit-card">
-<div class="tk-icon blue"><i class="fa-solid fa-id-card"></i></div>
-<div>
-<h4>Step 2: Complete KYC</h4>
-<p>Verify your identity with ID and proof of address</p>
+<div style="max-width:500px;margin:40px auto 0;background:rgba(184,248,71,0.1);border-radius:12px;border:1px solid rgba(184,248,71,0.3);padding:32px;">
+<h4 style="color:#fff;margin:0 0 20px;text-align:center;">What happens next</h4>
+<div style="display:flex;align-items:flex-start;margin-bottom:16px;">
+<div style="width:28px;height:28px;background:var(--accent);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-right:12px;">
+<span style="font-weight:700;font-size:14px;color:var(--dark);">1</span>
 </div>
-</a>
-<a href="#" onclick="openWhatsApp(); return false;" class="toolkit-card">
-<div class="tk-icon" style="background:#25d366;"><i class="fa-brands fa-whatsapp"></i></div>
-<div>
-<h4>Step 3: Message Me</h4>
-<p>Send your account number on WhatsApp, I'll deposit your $25</p>
+<p style="margin:0;color:#ccc;font-size:15px;line-height:1.5;">Open the email and click the registration link</p>
 </div>
-</a>
+<div style="display:flex;align-items:flex-start;margin-bottom:16px;">
+<div style="width:28px;height:28px;background:var(--accent);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-right:12px;">
+<span style="font-weight:700;font-size:14px;color:var(--dark);">2</span>
 </div>
-<div style="text-align:center;margin-top:40px;padding:24px;background:rgba(184,248,71,0.1);border-radius:12px;border:1px solid rgba(184,248,71,0.3);">
-<p style="margin:0;color:#fff;font-size:16px;"><i class="fa-solid fa-clock" style="color:var(--accent);margin-right:8px;"></i> Once I verify your account, I'll deposit $25 and set up your 24x amplification on Sonic AI. You'll be trading within 24 hours.</p>
+<p style="margin:0;color:#ccc;font-size:15px;line-height:1.5;">Create your account and complete KYC verification</p>
 </div>
-<div style="margin-top:32px;text-align:center;">
-<h4 style="color:#fff;margin-bottom:16px;">While You Wait, Check These Out</h4>
+<div style="display:flex;align-items:flex-start;margin-bottom:16px;">
+<div style="width:28px;height:28px;background:var(--accent);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-right:12px;">
+<span style="font-weight:700;font-size:14px;color:var(--dark);">3</span>
+</div>
+<p style="margin:0;color:#ccc;font-size:15px;line-height:1.5;">Message me on WhatsApp when KYC is done</p>
+</div>
+<div style="display:flex;align-items:flex-start;">
+<div style="width:28px;height:28px;background:var(--accent);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-right:12px;">
+<span style="font-weight:700;font-size:14px;color:var(--dark);">4</span>
+</div>
+<p style="margin:0;color:#ccc;font-size:15px;line-height:1.5;">We do a quick call together, I deposit $25 and set everything up</p>
+</div>
+</div>
+<div style="text-align:center;margin-top:32px;">
+<p style="color:#888;font-size:14px;margin:0 0 16px;">Didn't get the email? Check spam or message me directly</p>
+<a href="#" class="btn btn-wa" onclick="openWhatsApp(); return false;"><i class="fa-brands fa-whatsapp"></i> Message Me on WhatsApp</a>
+</div>
+<div style="margin-top:48px;text-align:center;">
+<h4 style="color:#fff;margin-bottom:16px;">While you wait, check these out</h4>
 </div>
 <div class="toolkit-grid">
 <a href="https://t.me/socialtradingoptions" target="_blank" class="toolkit-card">
@@ -1407,14 +1415,12 @@ window.open('https://wa.me/639953538545?text=Hi%20Vambola%2C%20I%27m%20intereste
 const emailModal = document.getElementById('emailModal');
 const modalCloseBtn = document.getElementById('modalClose');
 const emailForm = document.getElementById('emailForm');
-const toolkitSection = document.getElementById('toolkit');
-const REG_URL = 'https://aitech.ibportal.io/auth/register?e=pVFvEYZVDy1cSDKyMDBjTwiZl2ra19r/Avz6A4/UKS8=&a=1';
+const thankYouSection = document.getElementById('thankYouSection');
 
 function openEmailModal() {
-// If already submitted, go straight to registration
+// If already submitted, show thank you section
 if (localStorage.getItem('tgi_email')) {
-window.open(REG_URL, '_blank');
-showToolkit();
+showThankYou();
 return;
 }
 emailModal.classList.add('active');
@@ -1427,10 +1433,9 @@ emailModal.classList.remove('active');
 document.body.style.overflow = '';
 }
 
-function showToolkit() {
-toolkitSection.style.display = 'block';
-// Scroll to toolkit if not already visible
-setTimeout(() => toolkitSection.scrollIntoView({ behavior: 'smooth', block: 'start' }), 300);
+function showThankYou() {
+thankYouSection.style.display = 'block';
+setTimeout(() => thankYouSection.scrollIntoView({ behavior: 'smooth', block: 'start' }), 300);
 }
 
 modalCloseBtn.addEventListener('click', closeEmailModal);
@@ -1462,13 +1467,12 @@ img.src = proxy
   + '&t=' + Date.now();
 
 closeEmailModal();
-showToolkit();
-window.open(REG_URL, '_blank');
+showThankYou();
 });
 
-// Show toolkit if returning visitor already gave email
+// Show thank you section if returning visitor already gave email
 if (localStorage.getItem('tgi_email')) {
-toolkitSection.style.display = 'block';
+thankYouSection.style.display = 'block';
 }
 
 // ===== Mobile Menu =====
