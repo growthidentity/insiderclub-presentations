@@ -679,8 +679,9 @@ display:flex;align-items:center;justify-content:center;font-size:1.1rem;
 .hero-stat .num{font-size:1.5rem}
 .section{padding:72px 0}
 .pain-grid,.solution-grid,.steps-grid,.platform-grid,.proof-row{
-grid-template-columns:1fr;
+grid-template-columns:1fr !important;
 }
+.step-arrow{display:none}
 .hero-buttons{flex-direction:column;align-items:stretch}
 .hero-buttons .btn{justify-content:center}
 .footer-top{flex-direction:column}
@@ -744,25 +745,25 @@ grid-template-columns:1fr;
 </div>
 <div class="container">
 <div class="hero-content">
-<span class="section-label reveal">The Growth Identity</span>
-<h1 class="reveal reveal-delay-1">Learn Trading the Right Way. <span class="highlight">Build Real Financial Skills.</span></h1>
-<p class="reveal reveal-delay-2">No hype. No fake promises. No magic bots. You learn real strategies, use professional platforms, and grow step by step with real support. Education first. Results come after.</p>
+<span class="section-label reveal">Limited Offer — 100 Spots Only</span>
+<h1 class="reveal reveal-delay-1">I'll Fund Your First <span class="highlight">$25 Trading Account</span></h1>
+<p class="reveal reveal-delay-2">Register, complete verification, message me on WhatsApp. I deposit $25 into your account. You trade with 24x amplification — that's $600 in trading power. Keep all profits. If it loses, I take the loss. Zero risk for you.</p>
 <div class="hero-buttons reveal reveal-delay-3">
-<a href="#offer" class="btn btn-primary"><i class="fa-solid fa-arrow-right"></i> Start Your Trading Journey</a>
-<a href="#steps" class="btn btn-outline"><i class="fa-solid fa-play"></i> How It Works</a>
+<a href="#" class="btn btn-primary" onclick="openEmailModal(); return false;"><i class="fa-solid fa-gift"></i> Claim Your $25 Funded Account</a>
+<a href="#how-it-works" class="btn btn-outline"><i class="fa-solid fa-play"></i> How It Works</a>
 </div>
 <div class="hero-stats reveal reveal-delay-4">
 <div class="hero-stat">
-<span class="num" data-count="300000">0</span>
-<span class="label">Traders Worldwide</span>
+<span class="num" data-count="100">0</span>
+<span class="label">Spots Available</span>
 </div>
 <div class="hero-stat">
-<span class="num" data-count="150" data-suffix="+">0</span>
-<span class="label">Countries Served</span>
+<span class="num" data-count="25" data-prefix="$">0</span>
+<span class="label">Funded by Me</span>
 </div>
 <div class="hero-stat">
-<span class="num" data-count="3" data-suffix="">0</span>
-<span class="label">Trading Platforms</span>
+<span class="num" data-count="600" data-prefix="$">0</span>
+<span class="label">Trading Power (24x)</span>
 </div>
 </div>
 </div>
@@ -847,92 +848,90 @@ grid-template-columns:1fr;
 </div>
 </section>
 
-<!-- ===== VALUE STACK / OFFER ===== -->
+<!-- ===== THE OFFER ===== -->
 <section class="section offer" id="offer">
 <div class="container text-center">
 <div class="reveal">
-<span class="offer-name">The Growth Identity Blueprint</span>
-<h2 class="offer-headline">Everything You Get When You Join</h2>
-<p class="offer-sub mx-auto">Most trading courses sell you videos and disappear. Here you get tools, strategies, mentorship, and a community, without paying for a course.</p>
+<span class="offer-name">The $25 Funded Start</span>
+<h2 class="offer-headline">I Put My Money Where My Mouth Is</h2>
+<p class="offer-sub mx-auto">Most people ask you to deposit first and trust them. I do the opposite. I fund your account, you keep the profits, I take the risk.</p>
 </div>
 <div class="stack">
-<div class="stack-item reveal reveal-delay-1">
-<div class="stack-icon"><i class="fa-solid fa-book-open"></i></div>
+
+<div class="stack-item stack-highlight reveal reveal-delay-1">
+<div class="stack-icon" style="background:var(--accent);color:var(--dark);"><i class="fa-solid fa-gift"></i></div>
 <div class="stack-text">
-<h4>Structured Trading Education</h4>
-<p>Risk management, market structure, technical analysis, trading psychology. You learn how to think, not what to copy.</p>
+<h4>$25 Deposited Into Your Account</h4>
+<p>I personally send $25 USDT to your verified trading account. This is real money, not demo, not credits.</p>
 </div>
-<div class="stack-value"><span class="sv-amount">$497</span><span class="sv-label">value</span></div>
+<div class="stack-value"><span class="sv-amount">$25</span><span class="sv-label">from me</span></div>
 </div>
-<div class="stack-item reveal reveal-delay-1">
-<div class="stack-icon"><i class="fa-solid fa-desktop"></i></div>
+
+<div class="stack-item stack-highlight reveal reveal-delay-1">
+<div class="stack-icon" style="background:var(--accent);color:var(--dark);"><i class="fa-solid fa-arrows-up-down"></i></div>
 <div class="stack-text">
-<h4>3 Professional Trading Platforms</h4>
-<p>MetaTrader 5, cTrader, and DX Trade. Desktop, web, and mobile. The same platforms real traders use.</p>
+<h4>24x Amplification = $600 Trading Power</h4>
+<p>Your $25 trades like $600. Connected to Sonic AI copy trading with verified 15+ month track record.</p>
 </div>
-<div class="stack-value"><span class="sv-amount">$0</span><span class="sv-label">included</span></div>
+<div class="stack-value"><span class="sv-amount">$600</span><span class="sv-label">trading power</span></div>
 </div>
-<div class="stack-item reveal reveal-delay-2">
-<div class="stack-icon"><i class="fa-solid fa-users"></i></div>
+
+<div class="stack-item stack-highlight reveal reveal-delay-2">
+<div class="stack-icon" style="background:var(--accent);color:var(--dark);"><i class="fa-solid fa-sack-dollar"></i></div>
 <div class="stack-text">
-<h4>Copy X Social Trading</h4>
-<p>Connect to experienced traders and copy their trades automatically. Start with as little as $10. Learn while you watch.</p>
+<h4>You Keep 100% of the Profits</h4>
+<p>Whatever your account makes in 30 days is yours. I don't take a cut. Your profits, your money.</p>
 </div>
-<div class="stack-value"><span class="sv-amount">$297</span><span class="sv-label">value</span></div>
+<div class="stack-value"><span class="sv-amount">100%</span><span class="sv-label">yours</span></div>
 </div>
-<div class="stack-item reveal reveal-delay-2">
-<div class="stack-icon"><i class="fa-solid fa-microchip"></i></div>
+
+<div class="stack-item stack-highlight reveal reveal-delay-2">
+<div class="stack-icon" style="background:var(--accent);color:var(--dark);"><i class="fa-solid fa-shield-halved"></i></div>
 <div class="stack-text">
-<h4>Sonic AI Automated Trading</h4>
-<p>3 real traders, 10+ years experience each, 15+ months public track record. Transparent and verifiable. No fantasy numbers.</p>
+<h4>If It Loses, I Take the Loss</h4>
+<p>If the account goes negative, that's my $25 gone, not yours. You risked nothing. Zero downside for you.</p>
 </div>
-<div class="stack-value"><span class="sv-amount">$997</span><span class="sv-label">value</span></div>
+<div class="stack-value"><span class="sv-amount">$0</span><span class="sv-label">your risk</span></div>
 </div>
+
 <div class="stack-item reveal reveal-delay-3">
-<div class="stack-icon"><i class="fa-solid fa-arrows-up-down"></i></div>
+<div class="stack-icon"><i class="fa-solid fa-lock-open"></i></div>
 <div class="stack-text">
-<h4>Amplified Accounts (12x & 24x)</h4>
-<p>Trade with more capital than your deposit. You keep the profits from the amplified position. Used carefully with proper risk rules.</p>
+<h4>After 30 Days, Full Freedom</h4>
+<p>Withdraw everything, continue trading, add your own funds, or walk away. No strings, no catch.</p>
 </div>
-<div class="stack-value"><span class="sv-amount">$0</span><span class="sv-label">free activation</span></div>
+<div class="stack-value"><span class="sv-amount">30</span><span class="sv-label">days</span></div>
 </div>
+
 <div class="stack-item reveal reveal-delay-3">
 <div class="stack-icon"><i class="fa-solid fa-headset"></i></div>
 <div class="stack-text">
-<h4>Personal Mentorship & Community</h4>
-<p>Direct access to Vambola. Live sessions, trade breakdowns, real discussions. You're not doing this alone.</p>
+<h4>Direct Support From Me</h4>
+<p>I guide you through setup, answer questions, and help you understand what's happening with your account.</p>
 </div>
-<div class="stack-value"><span class="sv-amount">$997</span><span class="sv-label">value</span></div>
-</div>
-<div class="stack-item reveal reveal-delay-4">
-<div class="stack-icon"><i class="fa-solid fa-flask"></i></div>
-<div class="stack-text">
-<h4>Risk-Free Demo Account</h4>
-<p>Practice everything with virtual money first. Take as long as you need. No pressure, no deadline.</p>
-</div>
-<div class="stack-value"><span class="sv-amount">$0</span><span class="sv-label">included</span></div>
+<div class="stack-value"><span class="sv-amount">1:1</span><span class="sv-label">support</span></div>
 </div>
 
 <div class="stack-total reveal">
-<span class="total-crossed">Total Value: $2,788</span>
-<span class="total-actual">Your Cost: $0 <span>, you only fund your own trading account</span></span>
-<p class="total-note">No course fees. No monthly subscriptions. No hidden charges. Start when you're ready.</p>
+<span class="total-crossed">Your Investment: $0</span>
+<span class="total-actual">My Investment: $25 <span>in your success</span></span>
+<p class="total-note">You bring nothing except 5 minutes to register and verify. I bring the capital and the strategy.</p>
 </div>
 
 <div class="guarantee-box reveal">
-<div class="g-icon"><i class="fa-solid fa-shield-halved"></i></div>
+<div class="g-icon"><i class="fa-solid fa-circle-check"></i></div>
 <div>
-<p><strong>Start risk-free.</strong> Use a demo account first. Practice with virtual money. When you're ready, go live with as little as $10 on Copy X or $50 on a standard account. Your money stays in your account, withdraw anytime, no lock-in, no contract.</p>
+<p><strong>Why am I doing this?</strong> Because I know what works. If you see real results with zero risk, you'll want to continue and add your own funds later. I earn from the platform as an affiliate when you trade. But first, I want to prove this works with my own money on the line.</p>
 </div>
 </div>
 
 <div class="urgency-bar reveal">
-<i class="fa-solid fa-user-group"></i>
-<span>I work with each member personally, so there's a limit to how many people I can take on.</span>
+<i class="fa-solid fa-fire"></i>
+<span><strong>Only 100 spots available.</strong> Once they're gone, this offer closes. I'm funding this from my own pocket.</span>
 </div>
 
 <div class="stack-cta reveal">
-<a href="#" class="btn btn-primary" onclick="openEmailModal(); return false;"><i class="fa-solid fa-arrow-right"></i> Get Free Access</a>
+<a href="#" class="btn btn-primary" onclick="openEmailModal(); return false;"><i class="fa-solid fa-gift"></i> Claim Your $25 Funded Account</a>
 </div>
 </div>
 </div>
@@ -1011,33 +1010,39 @@ grid-template-columns:1fr;
 </div>
 </section>
 
-<!-- ===== STEPS ===== -->
-<section class="section steps" id="steps">
+<!-- ===== HOW IT WORKS ===== -->
+<section class="section steps" id="how-it-works">
 <div class="container text-center">
-<span class="section-label reveal">Getting Started</span>
-<h2 class="section-title reveal">3 Simple Steps</h2>
-<p class="section-subtitle mx-auto reveal">No complicated setup. No confusion.</p>
-<div class="steps-grid">
+<span class="section-label reveal">How It Works</span>
+<h2 class="section-title reveal">4 Steps to Your Funded Account</h2>
+<p class="section-subtitle mx-auto reveal">Takes about 10 minutes total. Then you're set.</p>
+<div class="steps-grid" style="grid-template-columns:repeat(4,1fr);">
 <div class="step-card reveal reveal-delay-1">
 <div class="step-num">01</div>
-<h3>Join the Community</h3>
-<p>Learn first. No pressure. No rush. Get access to education, strategy breakdowns, and real support.</p>
+<h3>Register</h3>
+<p>Create your trading account using my link. Takes 2 minutes.</p>
 <i class="fa-solid fa-chevron-right step-arrow"></i>
 </div>
 <div class="step-card reveal reveal-delay-2">
 <div class="step-num">02</div>
-<h3>Open Your Trading Account</h3>
-<p>Use demo first or go live when ready. Access MT5, cTrader, or DX Trade in minutes.</p>
+<h3>Complete KYC</h3>
+<p>Verify your identity. Upload ID and proof of address. Standard process.</p>
 <i class="fa-solid fa-chevron-right step-arrow"></i>
 </div>
 <div class="step-card reveal reveal-delay-3">
 <div class="step-num">03</div>
-<h3>Choose Your Path</h3>
-<p>Trade manually. Copy experienced traders. Use Sonic AI automation. Your pace. Your choice.</p>
+<h3>Message Me</h3>
+<p>Send me a WhatsApp with your account number. I verify and deposit $25.</p>
+<i class="fa-solid fa-chevron-right step-arrow"></i>
+</div>
+<div class="step-card reveal reveal-delay-4">
+<div class="step-num">04</div>
+<h3>Start Trading</h3>
+<p>I connect you to Sonic AI with 24x amplification. Watch your $600 work.</p>
 </div>
 </div>
 <div style="margin-top:48px" class="reveal">
-<a href="#" class="btn btn-primary" onclick="openEmailModal(); return false;"><i class="fa-solid fa-arrow-right"></i> Get Free Access</a>
+<a href="#" class="btn btn-primary" onclick="openEmailModal(); return false;"><i class="fa-solid fa-gift"></i> Claim Your $25 Funded Account</a>
 </div>
 </div>
 </section>
@@ -1267,11 +1272,11 @@ Join my community. Learn the basics. When you're ready, open your trading accoun
 <!-- ===== FINAL CTA ===== -->
 <section class="section final-cta" id="start">
 <div class="container">
-<h2 class="reveal">Ready to <span style="color:var(--accent)">Start?</span></h2>
-<p class="reveal reveal-delay-1">Learn properly. Use real tools. Build skills that last longer than any market cycle.</p>
+<h2 class="reveal">Ready for Your <span style="color:var(--accent)">$25 Funded Account?</span></h2>
+<p class="reveal reveal-delay-1">100 spots. Zero risk. I fund you, you keep the profits. Once the spots are gone, this offer closes.</p>
 <div class="final-buttons reveal reveal-delay-2">
-<a href="#" class="btn btn-primary" onclick="openEmailModal(); return false;"><i class="fa-solid fa-arrow-right"></i> Get Free Access</a>
-<a href="#" class="btn btn-wa" onclick="openWhatsApp(); return false;"><i class="fa-brands fa-whatsapp"></i> Message Me on WhatsApp</a>
+<a href="#" class="btn btn-primary" onclick="openEmailModal(); return false;"><i class="fa-solid fa-gift"></i> Claim Your $25 Now</a>
+<a href="#" class="btn btn-wa" onclick="openWhatsApp(); return false;"><i class="fa-brands fa-whatsapp"></i> Questions? Message Me</a>
 </div>
 </div>
 </section>
@@ -1280,71 +1285,76 @@ Join my community. Learn the basics. When you're ready, open your trading accoun
 <div class="modal-overlay" id="emailModal">
 <div class="modal">
 <button class="modal-close" id="modalClose" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
-<h3>Get Your Free Trading Toolkit</h3>
-<p>Enter your name and email. I'll send you access to the community, tutorials, Sonic AI track record, and everything you need to get started.</p>
+<h3>Claim Your $25 Funded Account</h3>
+<p>Enter your details below. I'll send you instructions to register, complete verification, and claim your funded account.</p>
 <form class="modal-form" id="emailForm">
 <input type="text" class="modal-input" id="formName" placeholder="Your first name" required autocomplete="given-name">
 <input type="email" class="modal-input" id="formEmail" placeholder="Your best email" required autocomplete="email">
-<button type="submit" class="modal-submit"><i class="fa-solid fa-unlock"></i> Send Me the Toolkit</button>
+<button type="submit" class="modal-submit"><i class="fa-solid fa-gift"></i> Get My $25 Funded Account</button>
 </form>
 <p class="modal-note">No spam, no selling your data. Just the tools and info you need.</p>
 </div>
 </div>
 
-<!-- ===== TOOLKIT (shown after email) ===== -->
+<!-- ===== NEXT STEPS (shown after email) ===== -->
 <section class="section toolkit" id="toolkit" style="display:none">
 <div class="container">
 <div class="text-center">
-<span class="section-label">Your Toolkit</span>
-<h2 class="section-title">You're In. Here's Everything You Need</h2>
-<p class="section-subtitle mx-auto">These are the exact tools and resources I use. Bookmark this page, you'll want to come back.</p>
+<span class="section-label">Next Steps</span>
+<h2 class="section-title">You're Almost There. Do This Now.</h2>
+<p class="section-subtitle mx-auto">Complete these steps and message me on WhatsApp to receive your $25 deposit.</p>
 </div>
-<div class="toolkit-grid">
+<div class="toolkit-grid" style="grid-template-columns:repeat(3,1fr);">
 <a href="https://aitech.ibportal.io/auth/register?e=pVFvEYZVDy1cSDKyMDBjTwiZl2ra19r/Avz6A4/UKS8=&a=1" target="_blank" class="toolkit-card">
 <div class="tk-icon green"><i class="fa-solid fa-user-plus"></i></div>
 <div>
-<h4>Open Your Trading Account</h4>
-<p>Create your account, verify, and start with a demo or go live</p>
+<h4>Step 1: Register Your Account</h4>
+<p>Click here to create your trading account using my affiliate link</p>
 </div>
 </a>
+<a href="https://intercom.help/tag-markets/en/collections/10835803-guides-tutorials" target="_blank" class="toolkit-card">
+<div class="tk-icon blue"><i class="fa-solid fa-id-card"></i></div>
+<div>
+<h4>Step 2: Complete KYC</h4>
+<p>Verify your identity with ID and proof of address</p>
+</div>
+</a>
+<a href="#" onclick="openWhatsApp(); return false;" class="toolkit-card">
+<div class="tk-icon" style="background:#25d366;"><i class="fa-brands fa-whatsapp"></i></div>
+<div>
+<h4>Step 3: Message Me</h4>
+<p>Send your account number on WhatsApp, I'll deposit your $25</p>
+</div>
+</a>
+</div>
+<div style="text-align:center;margin-top:40px;padding:24px;background:rgba(184,248,71,0.1);border-radius:12px;border:1px solid rgba(184,248,71,0.3);">
+<p style="margin:0;color:#fff;font-size:16px;"><i class="fa-solid fa-clock" style="color:var(--accent);margin-right:8px;"></i> Once I verify your account, I'll deposit $25 and set up your 24x amplification on Sonic AI. You'll be trading within 24 hours.</p>
+</div>
+<div style="margin-top:32px;text-align:center;">
+<h4 style="color:#fff;margin-bottom:16px;">While You Wait, Check These Out</h4>
+</div>
+<div class="toolkit-grid">
 <a href="https://t.me/socialtradingoptions" target="_blank" class="toolkit-card">
 <div class="tk-icon blue"><i class="fa-brands fa-telegram"></i></div>
 <div>
-<h4>Join the Trading Community</h4>
-<p>Social Trading Options channel, strategies, updates, and discussions</p>
-</div>
-</a>
-<a href="https://t.me/sonicexperts" target="_blank" class="toolkit-card">
-<div class="tk-icon purple"><i class="fa-brands fa-telegram"></i></div>
-<div>
-<h4>Sonic AI Channel</h4>
-<p>Updates from the Sonic AI trading team directly</p>
+<h4>Trading Community</h4>
+<p>Join the Telegram group for updates and discussions</p>
 </div>
 </a>
 <a href="https://www.myfxbook.com/members/SonicExperts/sonic-ai/11884034" target="_blank" class="toolkit-card">
 <div class="tk-icon teal"><i class="fa-solid fa-chart-line"></i></div>
 <div>
 <h4>Sonic AI Track Record</h4>
-<p>Verified live results on Myfxbook, fully transparent</p>
+<p>See the verified live results on Myfxbook</p>
 </div>
 </a>
-<a href="https://intercom.help/tag-markets/en/collections/10835803-guides-tutorials" target="_blank" class="toolkit-card">
-<div class="tk-icon green"><i class="fa-solid fa-play-circle"></i></div>
+<a href="https://t.me/sonicexperts" target="_blank" class="toolkit-card">
+<div class="tk-icon purple"><i class="fa-brands fa-telegram"></i></div>
 <div>
-<h4>Guides & Tutorials</h4>
-<p>Official video guides for platform setup, deposits, and trading</p>
+<h4>Sonic AI Updates</h4>
+<p>Direct updates from the trading team</p>
 </div>
 </a>
-<a href="https://t.me/tagsignals" target="_blank" class="toolkit-card">
-<div class="tk-icon blue"><i class="fa-solid fa-signal"></i></div>
-<div>
-<h4>Free Trading Signals</h4>
-<p>TAG Markets free signals channel on Telegram</p>
-</div>
-</a>
-</div>
-<div style="text-align:center;margin-top:40px">
-<a href="#" class="btn btn-wa" onclick="openWhatsApp(); return false;"><i class="fa-brands fa-whatsapp"></i> Message me when you're set up, I'll help you get started</a>
 </div>
 </div>
 </section>
