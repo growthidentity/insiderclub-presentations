@@ -409,6 +409,59 @@ font-size:0.9rem;color:var(--text-secondary);
 }
 .mentor-social-proof i{color:var(--accent);font-size:1.1rem;flex-shrink:0}
 
+/* ===== TEAM VALUES ===== */
+.team-values-grid{
+display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-top:48px;
+}
+.team-value-card{
+background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);
+padding:28px;transition:all 0.3s ease;
+}
+.team-value-card:hover{border-color:var(--accent);transform:translateY(-4px)}
+.tv-icon{
+width:48px;height:48px;border-radius:12px;background:var(--accent-glow);
+display:flex;align-items:center;justify-content:center;margin-bottom:16px;
+color:var(--accent);font-size:1.2rem;
+}
+.team-value-card h4{font-size:1.1rem;font-weight:700;margin-bottom:8px;color:var(--text-primary)}
+.team-value-card p{color:var(--text-secondary);font-size:0.9rem;line-height:1.6;margin:0}
+
+.team-vibe{
+margin-top:40px;text-align:center;padding:32px;
+background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);
+}
+.team-vibe h4{
+font-size:0.8rem;font-weight:700;text-transform:uppercase;letter-spacing:2px;
+color:var(--accent);margin-bottom:20px;
+}
+.vibe-tags{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-bottom:20px}
+.vibe-tag{
+background:rgba(184,248,71,0.1);border:1px solid rgba(184,248,71,0.3);
+padding:10px 20px;border-radius:30px;font-size:0.9rem;font-weight:500;color:var(--text-primary);
+}
+.vibe-note{color:var(--text-muted);font-size:0.9rem;margin:0;font-style:italic}
+
+.team-rule{
+margin-top:32px;display:flex;align-items:flex-start;gap:20px;
+padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);
+border-left:4px solid var(--accent);
+}
+.rule-icon{
+width:48px;height:48px;border-radius:50%;background:var(--accent);
+display:flex;align-items:center;justify-content:center;flex-shrink:0;
+color:var(--dark);font-size:1.2rem;
+}
+.rule-content h4{font-size:1rem;font-weight:700;margin-bottom:8px;color:var(--text-primary)}
+.rule-content p{color:var(--text-secondary);font-size:0.9rem;line-height:1.7;margin:0}
+
+.team-countries{
+margin-top:32px;padding:20px 24px;text-align:center;
+background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);
+display:flex;align-items:center;justify-content:center;gap:12px;
+font-size:0.9rem;color:var(--text-secondary);
+}
+.team-countries i{color:var(--accent);font-size:1.1rem}
+
 /* ===== VIDEO ===== */
 .video-section{background:var(--bg-primary);position:relative;overflow:hidden}
 .video-section::before{
@@ -706,6 +759,10 @@ grid-template-columns:1fr !important;
 .stack-value{min-width:auto;text-align:left;margin-left:68px}
 .mentor-grid{grid-template-columns:1fr;text-align:center}
 .mentor-bio h3{text-align:center}
+.team-values-grid{grid-template-columns:1fr}
+.team-rule{flex-direction:column;text-align:center}
+.rule-icon{margin:0 auto}
+.vibe-tags{flex-direction:column;align-items:center}
 .mentor-diff h4{text-align:center}
 .mentor-social-proof{justify-content:center;text-align:center}
 .modal{padding:36px 24px}
@@ -954,61 +1011,57 @@ grid-template-columns:1fr !important;
 <!-- ===== ABOUT / MENTOR ===== -->
 <section class="section mentor" id="about">
 <div class="container">
-<span class="section-label reveal">Meet Vambola</span>
-<h2 class="section-title reveal">A Real Person With a Real Story</h2>
-<p class="section-subtitle reveal">Not another anonymous account on the internet. Someone you can actually talk to.</p>
-<div class="mentor-grid">
-<div class="mentor-photo-col reveal reveal-delay-1">
-<div class="mentor-photo-wrap">
-<div class="mentor-photo-ring"><div class="mentor-photo-ring-inner"></div></div>
-<div class="mentor-photo">
-<img src="vambola-tullus.png" alt="Vambola Tullus" width="280" height="280" loading="lazy">
+<span class="section-label reveal">Who We Are</span>
+<h2 class="section-title reveal">Not a Perfect Team. <span style="color:var(--accent)">A Real Team.</span></h2>
+<p class="section-subtitle reveal">People from different countries, different backgrounds, different stories, but with the same mindset: we don't quit when things get hard.</p>
+
+<div class="team-values-grid">
+<div class="team-value-card reveal reveal-delay-1">
+<div class="tv-icon"><i class="fa-solid fa-road"></i></div>
+<h4>We Think Long-Term</h4>
+<p>Not fast money, not hype. We build step by step. Even if it's slower, it's solid.</p>
+</div>
+<div class="team-value-card reveal reveal-delay-1">
+<div class="tv-icon"><i class="fa-solid fa-comments"></i></div>
+<h4>We Talk Straight</h4>
+<p>No fake positivity, no hiding problems. If something is wrong, we say it and fix it.</p>
+</div>
+<div class="team-value-card reveal reveal-delay-2">
+<div class="tv-icon"><i class="fa-solid fa-shield-heart"></i></div>
+<h4>We Protect Our People</h4>
+<p>This is not "use people and move on". If someone is stuck or stressed, we don't leave them alone.</p>
+</div>
+<div class="team-value-card reveal reveal-delay-2">
+<div class="tv-icon"><i class="fa-solid fa-bolt"></i></div>
+<h4>We Learn Fast</h4>
+<p>Mistakes don't break us, they train us. Every problem becomes experience.</p>
 </div>
 </div>
-<h3 class="mentor-name">Vambola Tullus</h3>
-<div class="mentor-origin"><i class="fa-solid fa-location-dot"></i> Estonia</div>
-<p class="mentor-tagline">"I don't sell dreams. I teach strategy."</p>
-<div class="mentor-countries">
-<span class="mentor-country">Estonia</span>
-<span class="mentor-country">Belgium</span>
-<span class="mentor-country">Thailand</span>
-<span class="mentor-country">Vietnam</span>
-<span class="mentor-country">Philippines</span>
+
+<div class="team-vibe reveal">
+<h4>The Vibe</h4>
+<div class="vibe-tags">
+<span class="vibe-tag">Calm under pressure</span>
+<span class="vibe-tag">Loyal, not loud</span>
+<span class="vibe-tag">Hungry, but disciplined</span>
+<span class="vibe-tag">Ambitious, but human</span>
+</div>
+<p class="vibe-note">Not shouting on social media. Not pretending to be rich. Just doing the work, daily.</p>
+</div>
+
+<div class="team-rule reveal">
+<div class="rule-icon"><i class="fa-solid fa-handshake-angle"></i></div>
+<div class="rule-content">
+<h4>The Unspoken Rule</h4>
+<p>If you're in this team: you grow, you take responsibility, you don't disappear when it gets uncomfortable. And if you stay long enough, you don't just make money, you become sharper as a person.</p>
 </div>
 </div>
-<div class="mentor-bio reveal reveal-delay-2">
-<h3>Entrepreneur, Community Builder, Family Man</h3>
-<p>My life didn't start easy. I faced instability and hard situations early on, and those years shaped me fast. I learned about pain, mistakes, responsibility, and consequences much earlier than most people. I don't hide that past, I use it as fuel.</p>
-<p>I've been at very low points. I've also rebuilt myself more than once. That gave me something important: strong resilience, emotional control under pressure, and a very clear sense of what actually matters.</p>
-<p>Today I focus on building real things: long-term businesses, strong communities, and practical systems that help people grow. I'm deeply involved in fintech, blockchain, trading education, and product-based businesses. My role is usually connecting people, explaining complex things simply, and creating trust between different cultures and markets, especially across Europe and Southeast Asia.</p>
-<p>I don't believe in fast money, empty hype, or fake motivation. I believe in structure, transparency, education first, and systems that work even when emotions don't.</p>
-<div class="mentor-diff">
-<h4>What I Stand For</h4>
-<ul class="mentor-diff-list">
-<li>
-<div class="diff-icon"><i class="fa-solid fa-bullseye"></i></div>
-<span>I help people avoid the same mistakes I made, not by preaching but by showing realistic paths and honest expectations</span>
-</li>
-<li>
-<div class="diff-icon"><i class="fa-solid fa-globe"></i></div>
-<span>Real international network across 5 countries with communities I personally built</span>
-</li>
-<li>
-<div class="diff-icon"><i class="fa-solid fa-handshake"></i></div>
-<span>If I give my word, I stand by it. If something is broken, I fix it or walk away</span>
-</li>
-<li>
-<div class="diff-icon"><i class="fa-solid fa-coins"></i></div>
-<span>I use the same tools I recommend. My own capital is always on the line. Long-term thinking, not quick wins</span>
-</li>
-</ul>
+
+<div class="team-countries reveal">
+<i class="fa-solid fa-globe"></i>
+<span>Active communities across Estonia, Belgium, Thailand, Vietnam, and the Philippines</span>
 </div>
-<div class="mentor-social-proof">
-<i class="fa-solid fa-users"></i>
-<span>Trusted by leaders and traders across Estonia, Belgium, Thailand, Vietnam, and the Philippines</span>
-</div>
-</div>
-</div>
+
 </div>
 </section>
 
