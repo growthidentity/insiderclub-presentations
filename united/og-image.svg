@@ -1,12 +1,13 @@
 <svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0a0a1a"/>
-      <stop offset="100%" style="stop-color:#12122a"/>
+      <stop offset="0%" style="stop-color:#0c0a06"/>
+      <stop offset="100%" style="stop-color:#161208"/>
     </linearGradient>
-    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#5046a5"/>
-      <stop offset="100%" style="stop-color:#6c5ce7"/>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#b08a30"/>
+      <stop offset="50%" style="stop-color:#d4a94b"/>
+      <stop offset="100%" style="stop-color:#e8c66a"/>
     </linearGradient>
   </defs>
 
@@ -14,20 +15,20 @@
   <rect width="1200" height="630" fill="url(#bg)"/>
 
   <!-- Accent line -->
-  <rect x="80" y="180" width="6" height="120" rx="3" fill="#4ecdc4"/>
+  <rect x="80" y="180" width="6" height="120" rx="3" fill="url(#gold)"/>
 
   <!-- Main text -->
-  <text x="110" y="230" font-family="Arial, sans-serif" font-size="64" font-weight="bold" fill="#ffffff">Your United Tokens</text>
-  <text x="110" y="300" font-family="Arial, sans-serif" font-size="64" font-weight="bold" fill="#4ecdc4">Worth 50x More</text>
+  <text x="110" y="230" font-family="Arial, sans-serif" font-size="64" font-weight="bold" fill="#f4f1e8">Your United Tokens</text>
+  <text x="110" y="300" font-family="Arial, sans-serif" font-size="64" font-weight="bold" fill="#e8c66a">Worth 50x More</text>
 
   <!-- Subtext -->
-  <text x="110" y="380" font-family="Arial, sans-serif" font-size="28" fill="#9ca3b8">Current price: ~$0.001</text>
-  <text x="110" y="420" font-family="Arial, sans-serif" font-size="28" fill="#9ca3b8">Our offer: $0.05 per token</text>
+  <text x="110" y="380" font-family="Arial, sans-serif" font-size="28" fill="#b8b0a0">Current price: ~$0.001</text>
+  <text x="110" y="420" font-family="Arial, sans-serif" font-size="28" fill="#b8b0a0">Our offer: $0.05 per token</text>
 
   <!-- Badge -->
-  <rect x="110" y="470" width="280" height="50" rx="25" fill="url(#accent)"/>
-  <text x="250" y="503" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#ffffff" text-anchor="middle">United Token Recovery</text>
+  <rect x="110" y="470" width="280" height="50" rx="25" fill="url(#gold)"/>
+  <text x="250" y="503" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#0c0a06" text-anchor="middle">United Token Recovery</text>
 
   <!-- Brand -->
-  <text x="1080" y="580" font-family="Arial, sans-serif" font-size="20" fill="#6b7280" text-anchor="end">The Growth Identity</text>
+  <text x="1080" y="580" font-family="Arial, sans-serif" font-size="20" fill="#7a7060" text-anchor="end">The Growth Identity</text>
 </svg>
