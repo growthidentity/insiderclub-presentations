@@ -947,9 +947,9 @@ const tokenValue=usdt; // same as USDT since matched
 const balance=usdt*2; // USDT + token value
 const amplified=balance*24;
 
-// 3 month compound earnings on account balance
+// 3 month compound earnings on AMPLIFIED amount
 const months=3;
-const earnings=balance*(Math.pow(1+MONTHLY_RATE,months)-1);
+const earnings=amplified*(Math.pow(1+MONTHLY_RATE,months)-1);
 
 document.getElementById('calcTokens').textContent=formatNum(tokens)+' UNITED';
 document.getElementById('calcTokenValue').textContent='$'+formatNum(tokenValue);
