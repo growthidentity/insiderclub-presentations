@@ -303,13 +303,26 @@ font-size:0.9rem;color:var(--text-secondary);margin-top:8px;
 }
 .stack-cta{text-align:center;margin-top:36px}
 .urgency-bar{
-margin-top:24px;padding:16px 24px;
+margin-top:24px;padding:20px 24px;
 background:rgba(240,185,11,0.08);border:1px solid rgba(240,185,11,0.2);
 border-radius:var(--radius);
-display:flex;align-items:center;justify-content:center;gap:12px;
+display:flex;flex-direction:column;align-items:center;gap:16px;
 font-size:0.9rem;font-weight:600;color:var(--gold);
 }
 .urgency-bar i{font-size:1rem}
+.spot-counter{width:100%;max-width:400px}
+.spot-progress{
+width:100%;height:8px;background:rgba(255,255,255,0.1);
+border-radius:4px;overflow:hidden;margin-bottom:8px;
+}
+.spot-fill{
+height:100%;background:linear-gradient(90deg,var(--accent),var(--gold));
+border-radius:4px;transition:width 0.5s ease;
+}
+.spot-text{
+font-size:0.85rem;color:var(--text-secondary);text-align:center;
+}
+.spot-text span{color:var(--accent);font-weight:700}
 .guarantee-box{
 margin-top:20px;padding:20px 24px;
 background:var(--bg-card);border:1px solid var(--border);
@@ -1058,8 +1071,15 @@ grid-template-columns:1fr !important;
 </div>
 
 <div class="urgency-bar reveal">
-<i class="fa-solid fa-fire"></i>
-<span><strong>Only 100 spots available.</strong> Once they're gone, this offer closes. We're funding this from our own pocket.</span>
+<div class="spot-counter">
+<div class="spot-progress">
+<div class="spot-fill" id="spotFill" style="width:0%"></div>
+</div>
+<div class="spot-text">
+<span id="spotsClaimed">0</span> / 100 spots claimed
+</div>
+</div>
+<span><i class="fa-solid fa-fire"></i> <strong id="spotsLeft">100</strong> spots remaining. Once they're gone, this offer closes.</span>
 </div>
 
 <div class="stack-cta reveal">
@@ -1658,6 +1678,30 @@ showThankYou();
 if (localStorage.getItem('tgi_email')) {
 thankYouSection.style.display = 'block';
 }
+
+// ===== Live Spot Counter =====
+const MAX_SPOTS = 100;
+function updateSpotCounter(count) {
+const claimed = Math.min(count, MAX_SPOTS);
+const remaining = Math.max(0, MAX_SPOTS - claimed);
+const percent = (claimed / MAX_SPOTS) * 100;
+
+document.getElementById('spotsClaimed').textContent = claimed;
+document.getElementById('spotsLeft').textContent = remaining;
+document.getElementById('spotFill').style.width = percent + '%';
+}
+
+function fetchSpotCount() {
+const proxy = 'https://script.google.com/macros/s/AKfycbxsf0RCUzyns2GjSiszw-YFy3d9qQAYRybZWxzYbiuE-QgbyInSU4LG-r9BEGhHGtaOZg/exec';
+const script = document.createElement('script');
+script.src = proxy + '?action=count&source=forex&callback=updateSpotCounter&t=' + Date.now();
+document.body.appendChild(script);
+script.onload = () => script.remove();
+script.onerror = () => script.remove();
+}
+
+// Fetch count on page load
+fetchSpotCount();
 
 // ===== Mobile Menu =====
 const hamburger = document.getElementById('hamburgerBtn');
