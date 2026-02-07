@@ -272,6 +272,135 @@ margin-bottom:20px;
 .benefit h4{font-size:1.1rem;margin-bottom:10px}
 .benefit p{font-size:0.9rem;color:var(--text-dim);line-height:1.7}
 
+/* Interactive Calculator */
+.calc-interactive{
+max-width:600px;margin:0 auto;
+background:var(--bg-card-alt);border:1px solid var(--border);
+border-radius:16px;padding:32px;
+}
+.calc-input-wrap{margin-bottom:28px}
+.calc-input-wrap label{
+display:block;font-size:0.85rem;color:var(--text-dim);
+margin-bottom:10px;font-weight:500;
+}
+.calc-input-group{
+display:flex;align-items:center;
+background:var(--bg);border:2px solid var(--border);
+border-radius:10px;overflow:hidden;
+transition:0.2s;
+}
+.calc-input-group:focus-within{border-color:var(--gold)}
+.calc-currency{
+padding:0 16px;font-size:1.5rem;font-weight:700;color:var(--gold);
+background:var(--bg-card);
+}
+.calc-input{
+flex:1;padding:16px;background:transparent;border:none;
+color:var(--text);font-size:1.5rem;font-weight:700;
+font-family:'Space Grotesk',sans-serif;
+}
+.calc-input:focus{outline:none}
+.calc-input::-webkit-inner-spin-button{-webkit-appearance:none}
+.calc-presets{display:flex;gap:8px;margin-top:12px}
+.calc-presets button{
+flex:1;padding:10px;background:var(--bg);border:1px solid var(--border);
+border-radius:8px;color:var(--text-dim);font-size:0.85rem;font-weight:600;
+cursor:pointer;transition:0.2s;
+}
+.calc-presets button:hover,.calc-presets button.active{
+background:var(--gold-glow);border-color:var(--gold);color:var(--gold);
+}
+.calc-results{
+background:var(--bg);border-radius:12px;padding:20px;margin-bottom:20px;
+}
+.calc-result-row{
+display:flex;justify-content:space-between;align-items:center;
+padding:12px 0;border-bottom:1px solid var(--border);
+}
+.calc-result-row:last-child{border-bottom:none}
+.calc-result-row.highlight{
+margin-top:8px;padding-top:16px;
+border-top:2px solid var(--gold);border-bottom:none;
+}
+.calc-result-row .lbl{color:var(--text-dim);font-size:0.9rem}
+.calc-result-row .val{font-family:'Space Grotesk',sans-serif;font-weight:600}
+.calc-result-row .val.gold{color:var(--gold-light);font-size:1.2rem}
+.calc-projection{
+background:linear-gradient(135deg,var(--gold-glow),transparent);
+border:1px solid var(--gold-dim);border-radius:12px;
+padding:20px;margin-bottom:20px;text-align:center;
+}
+.projection-header{
+display:flex;align-items:center;justify-content:center;gap:8px;
+color:var(--gold);font-size:0.9rem;margin-bottom:12px;
+}
+.projection-result{display:flex;flex-direction:column;gap:4px}
+.projection-label{font-size:0.85rem;color:var(--text-dim)}
+.projection-value{
+font-family:'Space Grotesk',sans-serif;
+font-size:2rem;font-weight:700;color:var(--gold-light);
+}
+.projection-note{font-size:0.75rem;color:var(--text-muted)}
+.calc-cta{text-align:center;margin-top:40px}
+
+/* Sonic AI Stats */
+.sonic-stats{
+max-width:800px;margin:48px auto 0;
+background:var(--bg-card);border:1px solid var(--border);
+border-radius:16px;overflow:hidden;
+}
+.sonic-header{
+display:flex;justify-content:space-between;align-items:center;
+padding:20px 24px;background:var(--bg-card-alt);
+border-bottom:1px solid var(--border);
+flex-wrap:wrap;gap:16px;
+}
+.sonic-title{display:flex;align-items:center;gap:12px}
+.sonic-title i{
+font-size:1.5rem;color:var(--gold);
+background:var(--gold-glow);padding:12px;border-radius:10px;
+}
+.sonic-title h4{font-size:1rem;margin-bottom:2px}
+.sonic-title p{font-size:0.8rem;color:var(--text-muted)}
+.sonic-link{
+display:flex;align-items:center;gap:6px;
+font-size:0.85rem;color:var(--gold);
+padding:8px 16px;background:var(--gold-glow);border-radius:8px;
+transition:0.2s;
+}
+.sonic-link:hover{background:var(--gold);color:#0c0a06}
+.sonic-grid{
+display:grid;grid-template-columns:repeat(6,1fr);
+padding:24px;gap:16px;
+}
+.sonic-stat{text-align:center;padding:12px}
+.sonic-num{
+display:block;font-family:'Space Grotesk',sans-serif;
+font-size:1.3rem;font-weight:700;margin-bottom:4px;
+}
+.sonic-num.green{color:var(--green)}
+.sonic-lbl{font-size:0.75rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.5px}
+.sonic-footer{
+display:flex;justify-content:center;gap:24px;
+padding:16px 24px;background:var(--bg);
+border-top:1px solid var(--border);flex-wrap:wrap;
+}
+.sonic-footer p{
+display:flex;align-items:center;gap:6px;
+font-size:0.8rem;color:var(--text-dim);
+}
+.sonic-footer i{color:var(--green)}
+
+@media(max-width:768px){
+.sonic-grid{grid-template-columns:repeat(3,1fr)}
+.sonic-footer{flex-direction:column;align-items:center;gap:8px}
+}
+@media(max-width:480px){
+.sonic-grid{grid-template-columns:repeat(2,1fr)}
+.calc-presets{flex-wrap:wrap}
+.calc-presets button{flex:1 1 45%}
+}
+
 /* FAQ - Minimal */
 .faq-section{background:var(--bg-card)}
 .faq-grid{
@@ -530,44 +659,110 @@ Exclusive for United Token Holders
 <!-- Calculator -->
 <section class="section calc-section" id="example">
 <div class="wrap">
-<div class="calc-wrap">
-<div class="calc-info fade-up">
-<h3>See The Math</h3>
-<p>Your United Tokens match your USDT deposit at our $0.05 rate. Combined account gets 24x amplification for serious trading power.</p>
-<ul>
-<li><i class="fa-solid fa-check"></i> Profits withdrawable daily</li>
-<li><i class="fa-solid fa-check"></i> USDT withdrawable after 30 days</li>
-<li><i class="fa-solid fa-check"></i> No minimum or maximum limits</li>
-<li><i class="fa-solid fa-check"></i> Professional copy trading</li>
-</ul>
-<a href="#" class="btn btn-gold" onclick="openModal();return false"><i class="fa-solid fa-calculator"></i> Calculate Your Value</a>
+<div class="section-head">
+<div class="section-tag">Calculator</div>
+<h2 class="section-title">See Your Potential</h2>
+<p class="section-sub">Enter your investment amount and see what you could earn</p>
 </div>
-<div class="calc-visual fade-up delay-2">
-<div class="calc-row">
-<span class="lbl">Your USDT Deposit</span>
-<span class="val">$5,000</span>
+
+<div class="calc-interactive fade-up">
+<div class="calc-input-wrap">
+<label>Your USDT Investment</label>
+<div class="calc-input-group">
+<span class="calc-currency">$</span>
+<input type="number" id="calcInput" class="calc-input" value="5000" min="100" step="100">
 </div>
-<div class="calc-row">
-<span class="lbl">United Tokens Burned</span>
-<span class="val">100,000</span>
+<div class="calc-presets">
+<button onclick="setCalcAmount(1000)">$1,000</button>
+<button onclick="setCalcAmount(5000)" class="active">$5,000</button>
+<button onclick="setCalcAmount(10000)">$10,000</button>
+<button onclick="setCalcAmount(25000)">$25,000</button>
 </div>
-<div class="calc-row">
-<span class="lbl">Token Value (market)</span>
-<span class="val strike">$100</span>
 </div>
-<div class="calc-row">
-<span class="lbl">Token Value (our rate)</span>
-<span class="val gold">$5,000</span>
+
+<div class="calc-results">
+<div class="calc-result-row">
+<span class="lbl">United Tokens Needed</span>
+<span class="val" id="calcTokens">100,000 UNITED</span>
 </div>
-<div class="calc-row">
-<span class="lbl">Account Balance</span>
-<span class="val">$10,000</span>
+<div class="calc-result-row">
+<span class="lbl">Token Value (at $0.05)</span>
+<span class="val gold" id="calcTokenValue">$5,000</span>
 </div>
-<div class="calc-row">
+<div class="calc-result-row">
+<span class="lbl">Your Account Balance</span>
+<span class="val" id="calcBalance">$10,000</span>
+</div>
+<div class="calc-result-row highlight">
 <span class="lbl">With 24x Amplification</span>
-<span class="val gold">$240,000</span>
+<span class="val gold" id="calcAmplified">$240,000</span>
 </div>
 </div>
+
+<div class="calc-projection">
+<div class="projection-header">
+<i class="fa-solid fa-clock-rotate-left"></i>
+<span>If you started 3 months ago...</span>
+</div>
+<div class="projection-result">
+<span class="projection-label">You would have earned</span>
+<span class="projection-value" id="calcEarnings">$370</span>
+<span class="projection-note">Based on Sonic AI's 1.23% monthly average</span>
+</div>
+</div>
+</div>
+
+<!-- Sonic AI Stats -->
+<div class="sonic-stats fade-up">
+<div class="sonic-header">
+<div class="sonic-title">
+<i class="fa-solid fa-robot"></i>
+<div>
+<h4>Powered by Sonic AI</h4>
+<p>Verified live trading results</p>
+</div>
+</div>
+<a href="https://www.myfxbook.com/members/SonicExperts/sonic-ai/11884034" target="_blank" class="sonic-link">
+<i class="fa-solid fa-external-link"></i> View on Myfxbook
+</a>
+</div>
+
+<div class="sonic-grid">
+<div class="sonic-stat">
+<span class="sonic-num green">+20.23%</span>
+<span class="sonic-lbl">Total Gain</span>
+</div>
+<div class="sonic-stat">
+<span class="sonic-num">1.23%</span>
+<span class="sonic-lbl">Monthly Avg</span>
+</div>
+<div class="sonic-stat">
+<span class="sonic-num green">80%</span>
+<span class="sonic-lbl">Win Rate</span>
+</div>
+<div class="sonic-stat">
+<span class="sonic-num">0.86%</span>
+<span class="sonic-lbl">Drawdown</span>
+</div>
+<div class="sonic-stat">
+<span class="sonic-num">2.76</span>
+<span class="sonic-lbl">Profit Factor</span>
+</div>
+<div class="sonic-stat">
+<span class="sonic-num">301</span>
+<span class="sonic-lbl">Total Trades</span>
+</div>
+</div>
+
+<div class="sonic-footer">
+<p><i class="fa-solid fa-circle-check"></i> Real account on TAG Markets</p>
+<p><i class="fa-solid fa-circle-check"></i> Verified by Myfxbook</p>
+<p><i class="fa-solid fa-circle-check"></i> Live since November 2024</p>
+</div>
+</div>
+
+<div class="calc-cta fade-up">
+<a href="#" class="btn btn-gold" onclick="openModal();return false"><i class="fa-solid fa-rocket"></i> Start With This Amount</a>
 </div>
 </div>
 </section>
@@ -736,6 +931,46 @@ const h=a.getAttribute('href');if(h==='#')return;
 const t=document.querySelector(h);if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'})}
 });
 });
+
+// Interactive Calculator
+const calcInput=document.getElementById('calcInput');
+const MONTHLY_RATE=0.0123; // 1.23% monthly from Sonic AI
+
+function formatNum(n){
+return n.toLocaleString('en-US',{maximumFractionDigits:0});
+}
+
+function updateCalc(){
+const usdt=parseFloat(calcInput.value)||0;
+const tokens=usdt/0.05; // tokens needed at $0.05 rate
+const tokenValue=usdt; // same as USDT since matched
+const balance=usdt*2; // USDT + token value
+const amplified=balance*24;
+
+// 3 month compound earnings on account balance
+const months=3;
+const earnings=balance*(Math.pow(1+MONTHLY_RATE,months)-1);
+
+document.getElementById('calcTokens').textContent=formatNum(tokens)+' UNITED';
+document.getElementById('calcTokenValue').textContent='$'+formatNum(tokenValue);
+document.getElementById('calcBalance').textContent='$'+formatNum(balance);
+document.getElementById('calcAmplified').textContent='$'+formatNum(amplified);
+document.getElementById('calcEarnings').textContent='$'+formatNum(earnings);
+
+// Update preset buttons
+document.querySelectorAll('.calc-presets button').forEach(btn=>{
+const val=parseInt(btn.textContent.replace(/\D/g,''));
+btn.classList.toggle('active',val===usdt);
+});
+}
+
+function setCalcAmount(amount){
+calcInput.value=amount;
+updateCalc();
+}
+
+calcInput.addEventListener('input',updateCalc);
+updateCalc(); // Initial calculation
 </script>
 
 </body>
