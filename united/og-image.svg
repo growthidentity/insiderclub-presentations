@@ -27,7 +27,7 @@
 
   <!-- Badge -->
   <rect x="110" y="470" width="280" height="50" rx="25" fill="url(#gold)"/>
-  <text x="250" y="503" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#0c0a06" text-anchor="middle">United Token Recovery</text>
+  <text x="250" y="503" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#0c0a06" text-anchor="middle">United Token Solution</text>
 
   <!-- Brand -->
   <text x="1080" y="580" font-family="Arial, sans-serif" font-size="20" fill="#7a7060" text-anchor="end">The Growth Identity</text>
