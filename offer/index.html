@@ -520,9 +520,21 @@ margin-top:24px;padding:20px;
 background:var(--accent-glow);border:1px solid rgba(184,248,71,0.3);
 border-radius:var(--radius);text-align:center;
 }
-.calc-projection .proj-label{font-size:0.85rem;color:var(--text-secondary);margin-bottom:4px}
-.calc-projection .proj-value{font-size:1.8rem;font-weight:800;color:var(--accent)}
-.calc-projection .proj-note{font-size:0.75rem;color:var(--text-muted);margin-top:4px}
+.calc-projection .proj-label{font-size:0.85rem;color:var(--text-secondary);margin-bottom:8px}
+.calc-projection .proj-value{font-size:2.5rem;font-weight:800;color:var(--accent)}
+.calc-projection .proj-transform{
+display:flex;align-items:center;justify-content:center;gap:16px;
+margin:12px 0;font-size:1.1rem;
+}
+.calc-projection .proj-before{
+color:var(--text-muted);font-weight:600;
+text-decoration:line-through;opacity:0.7;
+}
+.calc-projection .proj-transform i{color:var(--accent);font-size:0.9rem}
+.calc-projection .proj-after{
+color:var(--accent);font-weight:800;font-size:1.3rem;
+}
+.calc-projection .proj-note{font-size:0.75rem;color:var(--text-muted);margin-top:8px}
 .calc-myfxbook{
 margin-top:20px;text-align:center;
 }
@@ -1089,9 +1101,14 @@ grid-template-columns:1fr !important;
 </div>
 
 <div class="calc-projection">
-<div class="proj-label">If you started 3 months ago, you could have earned</div>
-<div class="proj-value">$22</div>
-<div class="proj-note">Based on Sonic AI's 1.23% monthly average on $600 amplified</div>
+<div class="proj-label">3 Month Potential Return</div>
+<div class="proj-value">+88%</div>
+<div class="proj-transform">
+<span class="proj-before">$25</span>
+<i class="fa-solid fa-arrow-right"></i>
+<span class="proj-after">$47</span>
+</div>
+<div class="proj-note">Based on Sonic AI's verified 1.23% monthly average</div>
 </div>
 
 <div class="calc-myfxbook">
