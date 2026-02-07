@@ -3,7 +3,8 @@ function doGet(e) {
   var API_KEY = "eo_69cf43bdd4ee7270d50775a4476ec8c1f4615ee4dda8f230c23bf8eb1dc26965";
   var LISTS = {
     event: "c556a060-0045-11f1-8b1e-cb78ec5f1248",
-    forex: "3de4bcc4-01db-11f1-8016-832fcebf2dcf"
+    forex: "3de4bcc4-01db-11f1-8016-832fcebf2dcf",
+    united: "0a671ea4-0439-11f1-b982-87e0047842aa"
   };
   var LIST_ID = LISTS[p.source] || LISTS.event;
   var props = PropertiesService.getScriptProperties();

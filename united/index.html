@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>United Token Holders | Use Your Tokens at 50x Value</title>
+<meta name="description" content="United Token holders: use your tokens at $0.05 instead of current $0.001. Deposit USDT, burn your United Tokens, and get 50x the trading credit.">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://thegrowthidentity.com/united/">
+<meta property="og:title" content="United Token Holders: 50x Value Offer">
+<meta property="og:description" content="Use your United Tokens at $0.05 instead of current $0.001. Deposit USDT, burn your tokens, get 50x trading credit.">
+<meta property="og:image" content="https://thegrowthidentity.com/united/og-image.png">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="https://thegrowthidentity.com/united/">
+<meta name="twitter:title" content="United Token Holders: 50x Value Offer">
+<meta name="twitter:description" content="Use your United Tokens at $0.05 instead of current $0.001. Deposit USDT, burn your tokens, get 50x trading credit.">
+<meta name="twitter:image" content="https://thegrowthidentity.com/united/og-image.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+--bg-primary:#0a0e17;
+--bg-secondary:#111827;
+--bg-card:#1a2035;
+--bg-card-hover:#1f2847;
+--text-primary:#f1f5f9;
+--text-secondary:#94a3b8;
+--text-muted:#64748b;
+--accent:#f0b90b;
+--accent-dim:#d4a50a;
+--accent-glow:rgba(240,185,11,0.15);
+--green:#b8f847;
+--blue:#3b82f6;
+--red-soft:#ef4444;
+--border:#1e293b;
+--radius:12px;
+--radius-lg:20px;
+--shadow:0 4px 24px rgba(0,0,0,0.3);
+--transition:0.3s cubic-bezier(0.4,0,0.2,1);
+}
+html{scroll-behavior:smooth;font-size:16px}
+body{
+font-family:'Inter',system-ui,-apple-system,sans-serif;
+background:var(--bg-primary);
+color:var(--text-primary);
+line-height:1.6;
+overflow-x:hidden;
+-webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;height:auto}
+a{color:var(--accent);text-decoration:none;transition:var(--transition)}
+a:hover{color:var(--accent-dim)}
+
+/* ===== UTILITY ===== */
+.container{max-width:1100px;margin:0 auto;padding:0 24px}
+.section{padding:100px 0}
+.section-label{
+font-size:0.75rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;
+color:var(--accent);margin-bottom:12px;display:block;
+}
+.section-title{
+font-size:clamp(1.75rem,4vw,2.75rem);font-weight:800;line-height:1.15;
+margin-bottom:20px;
+}
+.section-subtitle{
+font-size:1.05rem;color:var(--text-secondary);max-width:640px;line-height:1.7;
+}
+.text-center{text-align:center}
+.mx-auto{margin-left:auto;margin-right:auto}
+
+/* ===== BUTTONS ===== */
+.btn{
+display:inline-flex;align-items:center;gap:10px;
+padding:16px 36px;border-radius:60px;font-weight:700;font-size:1rem;
+cursor:pointer;border:none;transition:var(--transition);
+text-decoration:none;letter-spacing:0.3px;
+}
+.btn-primary{
+background:var(--accent);color:#0a0e17;
+box-shadow:0 0 30px rgba(240,185,11,0.25);
+}
+.btn-primary:hover{
+background:#ffd633;color:#0a0e17;
+transform:translateY(-2px);
+box-shadow:0 0 50px rgba(240,185,11,0.35);
+}
+.btn-outline{
+background:transparent;color:var(--accent);
+border:2px solid var(--accent);
+}
+.btn-outline:hover{
+background:var(--accent);color:#0a0e17;
+}
+.btn-wa{
+background:#25d366;color:#fff;
+}
+.btn-wa:hover{
+background:#22c55e;color:#fff;
+transform:translateY(-2px);
+}
+.btn-sm{padding:12px 24px;font-size:0.9rem}
+
+/* ===== NAV ===== */
+.nav{
+position:fixed;top:0;left:0;right:0;z-index:1000;
+padding:16px 0;
+background:rgba(10,14,23,0.9);
+backdrop-filter:blur(20px);
+border-bottom:1px solid rgba(255,255,255,0.05);
+transition:var(--transition);
+}
+.nav-inner{
+display:flex;align-items:center;justify-content:space-between;
+}
+.nav-logo{
+font-size:1.1rem;font-weight:800;color:var(--text-primary);
+display:flex;align-items:center;gap:8px;
+}
+.nav-logo span{color:var(--accent)}
+.nav-cta .btn{padding:10px 24px;font-size:0.85rem}
+
+/* ===== HERO ===== */
+.hero{
+min-height:100vh;display:flex;align-items:center;
+padding:120px 0 80px;position:relative;overflow:hidden;
+}
+.hero-bg{position:absolute;inset:0;z-index:0}
+.hero-gradient{
+position:absolute;inset:0;
+background:
+radial-gradient(ellipse 80% 50% at 50% -20%,rgba(240,185,11,0.15),transparent 60%),
+radial-gradient(ellipse 60% 40% at 80% 60%,rgba(240,185,11,0.08),transparent 50%);
+}
+.hero-content{position:relative;z-index:2;max-width:800px}
+.hero h1{
+font-size:clamp(2rem,5vw,3.2rem);font-weight:800;line-height:1.1;
+margin-bottom:24px;
+}
+.hero h1 .highlight{color:var(--accent)}
+.hero>p,.hero-content>p{
+font-size:1.15rem;color:var(--text-secondary);
+max-width:600px;line-height:1.8;margin-bottom:32px;
+}
+.hero-buttons{display:flex;flex-wrap:wrap;gap:16px;margin-bottom:48px}
+
+.hero-stats{
+display:flex;flex-wrap:wrap;gap:40px;
+padding-top:32px;border-top:1px solid var(--border);
+}
+.hero-stat{text-align:left}
+.hero-stat .num{
+font-size:2rem;font-weight:800;color:var(--accent);
+display:block;line-height:1.2;
+}
+.hero-stat .label{
+font-size:0.8rem;color:var(--text-muted);text-transform:uppercase;
+letter-spacing:1px;margin-top:4px;display:block;
+}
+
+/* ===== PRICE COMPARISON ===== */
+.price-compare{
+display:grid;grid-template-columns:1fr auto 1fr;gap:24px;align-items:center;
+margin:48px 0;
+}
+.price-box{
+background:var(--bg-card);border:1px solid var(--border);
+border-radius:var(--radius-lg);padding:32px;text-align:center;
+}
+.price-box.current{opacity:0.7}
+.price-box.offer{border-color:var(--accent);box-shadow:0 0 40px rgba(240,185,11,0.15)}
+.price-label{font-size:0.8rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px}
+.price-value{font-size:2.5rem;font-weight:800}
+.price-box.current .price-value{color:var(--red-soft);text-decoration:line-through}
+.price-box.offer .price-value{color:var(--accent)}
+.price-arrow{font-size:2rem;color:var(--accent)}
+.price-multiplier{
+background:var(--accent);color:#0a0e17;
+padding:8px 20px;border-radius:30px;font-weight:800;font-size:1.1rem;
+display:inline-block;margin-top:12px;
+}
+
+/* ===== HOW IT WORKS ===== */
+.steps-grid{
+display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:48px;
+}
+.step-card{
+background:var(--bg-card);border:1px solid var(--border);
+border-radius:var(--radius);padding:28px 24px;
+text-align:center;position:relative;
+transition:var(--transition);
+}
+.step-card:hover{border-color:var(--accent);transform:translateY(-4px)}
+.step-num{
+width:48px;height:48px;background:var(--accent);color:#0a0e17;
+border-radius:50%;display:flex;align-items:center;justify-content:center;
+font-weight:800;font-size:1.2rem;margin:0 auto 16px;
+}
+.step-card h3{font-size:1rem;font-weight:700;margin-bottom:8px}
+.step-card p{font-size:0.85rem;color:var(--text-secondary);line-height:1.6}
+.step-arrow{
+position:absolute;right:-20px;top:50%;transform:translateY(-50%);
+color:var(--accent);font-size:1.2rem;
+}
+.step-card:last-child .step-arrow{display:none}
+
+/* ===== EXAMPLE CALC ===== */
+.calc-section{background:var(--bg-secondary)}
+.calc-box{
+background:var(--bg-card);border:1px solid var(--border);
+border-radius:var(--radius-lg);padding:40px;max-width:700px;margin:40px auto 0;
+}
+.calc-row{
+display:flex;justify-content:space-between;align-items:center;
+padding:16px 0;border-bottom:1px solid var(--border);
+}
+.calc-row:last-child{border-bottom:none}
+.calc-label{color:var(--text-secondary)}
+.calc-value{font-weight:700;font-size:1.1rem}
+.calc-value.highlight{color:var(--accent);font-size:1.3rem}
+.calc-note{
+margin-top:24px;padding:16px;background:rgba(240,185,11,0.1);
+border-radius:var(--radius);font-size:0.9rem;color:var(--text-secondary);
+border-left:3px solid var(--accent);
+}
+
+/* ===== WHY ===== */
+.why-grid{
+display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px;
+}
+.why-card{
+background:var(--bg-card);border:1px solid var(--border);
+border-radius:var(--radius);padding:28px;
+transition:var(--transition);
+}
+.why-card:hover{border-color:var(--accent)}
+.why-icon{
+width:48px;height:48px;background:var(--accent-glow);
+border-radius:12px;display:flex;align-items:center;justify-content:center;
+color:var(--accent);font-size:1.2rem;margin-bottom:16px;
+}
+.why-card h4{font-size:1.05rem;font-weight:700;margin-bottom:8px}
+.why-card p{font-size:0.9rem;color:var(--text-secondary);line-height:1.6}
+
+/* ===== FAQ ===== */
+.faq-list{max-width:800px;margin:48px auto 0}
+.faq-item{
+background:var(--bg-card);border:1px solid var(--border);
+border-radius:var(--radius);margin-bottom:12px;overflow:hidden;
+}
+.faq-q{
+width:100%;padding:20px 24px;background:none;border:none;
+color:var(--text-primary);font-size:1rem;font-weight:600;
+text-align:left;cursor:pointer;display:flex;justify-content:space-between;align-items:center;
+}
+.faq-q i{color:var(--accent);transition:var(--transition)}
+.faq-item.active .faq-q i{transform:rotate(180deg)}
+.faq-a{
+max-height:0;overflow:hidden;transition:max-height 0.3s ease;
+}
+.faq-a-inner{
+padding:0 24px 20px;color:var(--text-secondary);font-size:0.95rem;line-height:1.7;
+}
+.faq-item.active .faq-a{max-height:300px}
+
+/* ===== FINAL CTA ===== */
+.final-cta{
+background:linear-gradient(180deg,var(--bg-primary) 0%,rgba(240,185,11,0.05) 100%);
+text-align:center;
+}
+.final-cta h2{font-size:clamp(1.75rem,4vw,2.5rem);margin-bottom:16px}
+.final-cta p{font-size:1.1rem;color:var(--text-secondary);margin-bottom:32px}
+.final-buttons{display:flex;flex-wrap:wrap;justify-content:center;gap:16px}
+
+/* ===== FOOTER ===== */
+.footer{
+background:var(--bg-secondary);padding:60px 0 40px;
+border-top:1px solid var(--border);
+}
+.footer-content{text-align:center}
+.footer-brand{font-size:1.2rem;font-weight:800;margin-bottom:16px}
+.footer-brand span{color:var(--accent)}
+.footer-text{color:var(--text-muted);font-size:0.85rem;max-width:600px;margin:0 auto 24px}
+.footer-links{display:flex;justify-content:center;gap:24px;margin-bottom:24px}
+.footer-links a{color:var(--text-secondary);font-size:0.9rem}
+.footer-links a:hover{color:var(--accent)}
+.footer-disclaimer{
+font-size:0.75rem;color:var(--text-muted);max-width:800px;margin:24px auto 0;
+padding-top:24px;border-top:1px solid var(--border);line-height:1.7;
+}
+
+/* ===== MODAL ===== */
+.modal-overlay{
+position:fixed;inset:0;background:rgba(0,0,0,0.8);
+display:flex;align-items:center;justify-content:center;
+z-index:2000;opacity:0;visibility:hidden;transition:var(--transition);
+padding:24px;
+}
+.modal-overlay.active{opacity:1;visibility:visible}
+.modal{
+background:var(--bg-card);border:1px solid var(--border);
+border-radius:var(--radius-lg);padding:48px;max-width:480px;width:100%;
+position:relative;transform:scale(0.9);transition:var(--transition);
+}
+.modal-overlay.active .modal{transform:scale(1)}
+.modal-close{
+position:absolute;top:16px;right:16px;background:none;border:none;
+color:var(--text-muted);font-size:1.2rem;cursor:pointer;
+padding:8px;transition:var(--transition);
+}
+.modal-close:hover{color:var(--text-primary)}
+.modal h3{font-size:1.4rem;font-weight:700;margin-bottom:12px;text-align:center}
+.modal>p{color:var(--text-secondary);font-size:0.95rem;text-align:center;margin-bottom:24px}
+.modal-form{display:flex;flex-direction:column;gap:16px}
+.modal-input{
+width:100%;padding:14px 18px;background:var(--bg-primary);
+border:1px solid var(--border);border-radius:var(--radius);
+color:var(--text-primary);font-size:1rem;
+transition:var(--transition);
+}
+.modal-input:focus{outline:none;border-color:var(--accent)}
+.modal-input::placeholder{color:var(--text-muted)}
+.modal-submit{
+width:100%;padding:16px;background:var(--accent);color:#0a0e17;
+border:none;border-radius:var(--radius);font-weight:700;font-size:1rem;
+cursor:pointer;transition:var(--transition);
+display:flex;align-items:center;justify-content:center;gap:8px;
+}
+.modal-submit:hover{background:#ffd633;transform:translateY(-1px)}
+.modal-note{font-size:0.8rem;color:var(--text-muted);text-align:center;margin-top:8px}
+
+/* ===== THANK YOU ===== */
+.thank-you{display:none;text-align:center;padding:60px 0}
+.thank-you.active{display:block}
+.thank-you-icon{
+width:80px;height:80px;background:var(--accent);border-radius:50%;
+display:flex;align-items:center;justify-content:center;margin:0 auto 24px;
+}
+.thank-you-icon i{font-size:36px;color:#0a0e17}
+
+/* ===== REVEAL ===== */
+.reveal{opacity:0;transform:translateY(30px);transition:all 0.6s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-delay-1{transition-delay:0.1s}
+.reveal-delay-2{transition-delay:0.2s}
+.reveal-delay-3{transition-delay:0.3s}
+.reveal-delay-4{transition-delay:0.4s}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:1024px){
+.steps-grid{grid-template-columns:repeat(2,1fr)}
+.step-arrow{display:none}
+.why-grid{grid-template-columns:1fr}
+}
+@media(max-width:768px){
+.nav-cta{display:none}
+.hero h1{font-size:1.8rem}
+.hero-stats{gap:28px}
+.hero-stat .num{font-size:1.5rem}
+.section{padding:72px 0}
+.steps-grid{grid-template-columns:1fr}
+.price-compare{grid-template-columns:1fr;gap:16px}
+.price-arrow{transform:rotate(90deg)}
+.hero-buttons{flex-direction:column;align-items:stretch}
+.hero-buttons .btn{justify-content:center}
+.final-buttons{flex-direction:column;align-items:center}
+.modal{padding:36px 24px}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== NAV ===== -->
+<nav class="nav" id="nav">
+<div class="container">
+<div class="nav-inner">
+<a href="#" class="nav-logo">United <span>Token</span> Recovery</a>
+<div class="nav-cta">
+<a href="#" class="btn btn-primary btn-sm" onclick="openModal(); return false;">Claim Your Value</a>
+</div>
+</div>
+</div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="hero">
+<div class="hero-bg">
+<div class="hero-gradient"></div>
+</div>
+<div class="container">
+<div class="hero-content">
+<span class="section-label reveal">United Token Holders Only</span>
+<h1 class="reveal reveal-delay-1">Your United Tokens Are Worth <span class="highlight">50x More</span> Here</h1>
+<p class="reveal reveal-delay-2">We know the price dropped. We were there too. Now we're giving United Token holders a way to recover value. Deposit USDT, burn your United Tokens, and we credit them at $0.05 instead of the current market price.</p>
+<div class="hero-buttons reveal reveal-delay-3">
+<a href="#" class="btn btn-primary" onclick="openModal(); return false;"><i class="fa-solid fa-coins"></i> Claim Your Token Value</a>
+<a href="#how-it-works" class="btn btn-outline"><i class="fa-solid fa-circle-question"></i> How It Works</a>
+</div>
+<div class="hero-stats reveal reveal-delay-4">
+<div class="hero-stat">
+<span class="num">$0.05</span>
+<span class="label">Our Value Per Token</span>
+</div>
+<div class="hero-stat">
+<span class="num">~$0.001</span>
+<span class="label">Current Market Price</span>
+</div>
+<div class="hero-stat">
+<span class="num">50x</span>
+<span class="label">Value Multiplier</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ===== PRICE COMPARISON ===== -->
+<section class="section" id="compare">
+<div class="container text-center">
+<span class="section-label reveal">The Difference</span>
+<h2 class="section-title reveal">Current Price vs Our Offer</h2>
+<p class="section-subtitle mx-auto reveal">United Token is trading at around $0.001. We're valuing your tokens at $0.05 when you use them with us.</p>
+
+<div class="price-compare reveal">
+<div class="price-box current">
+<div class="price-label">Current Market Price</div>
+<div class="price-value">$0.001</div>
+<p style="color:var(--text-muted);font-size:0.85rem;margin-top:8px">What your tokens are worth today</p>
+</div>
+<div class="price-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+<div class="price-box offer">
+<div class="price-label">Our Offer Price</div>
+<div class="price-value">$0.05</div>
+<div class="price-multiplier">50x VALUE</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ===== HOW IT WORKS ===== -->
+<section class="section" id="how-it-works" style="background:var(--bg-secondary)">
+<div class="container text-center">
+<span class="section-label reveal">How It Works</span>
+<h2 class="section-title reveal">4 Simple Steps</h2>
+<p class="section-subtitle mx-auto reveal">Quick process to convert your United Tokens to real trading value</p>
+
+<div class="steps-grid">
+<div class="step-card reveal reveal-delay-1">
+<div class="step-num">1</div>
+<h3>Open Trading Account</h3>
+<p>Register and verify your account on our partner platform</p>
+<i class="fa-solid fa-chevron-right step-arrow"></i>
+</div>
+<div class="step-card reveal reveal-delay-2">
+<div class="step-num">2</div>
+<h3>Deposit USDT</h3>
+<p>Deposit any amount of USDT to your trading account</p>
+<i class="fa-solid fa-chevron-right step-arrow"></i>
+</div>
+<div class="step-card reveal reveal-delay-3">
+<div class="step-num">3</div>
+<h3>Burn Your Tokens</h3>
+<p>Send your United Tokens to the burn address and share the transaction hash with us</p>
+<i class="fa-solid fa-chevron-right step-arrow"></i>
+</div>
+<div class="step-card reveal reveal-delay-4">
+<div class="step-num">4</div>
+<h3>Get Credit</h3>
+<p>We add trading credit equal to your tokens valued at $0.05 each</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ===== EXAMPLE CALCULATION ===== -->
+<section class="section calc-section">
+<div class="container text-center">
+<span class="section-label reveal">Example</span>
+<h2 class="section-title reveal">See How It Works</h2>
+<p class="section-subtitle mx-auto reveal">Let's say you have 100,000 United Tokens</p>
+
+<div class="calc-box reveal">
+<div class="calc-row">
+<span class="calc-label">Your United Tokens</span>
+<span class="calc-value">100,000 UNITED</span>
+</div>
+<div class="calc-row">
+<span class="calc-label">Current market value (~$0.001)</span>
+<span class="calc-value" style="color:var(--red-soft)">~$100</span>
+</div>
+<div class="calc-row">
+<span class="calc-label">Our value ($0.05 per token)</span>
+<span class="calc-value highlight">$5,000</span>
+</div>
+<div class="calc-row">
+<span class="calc-label">You deposit USDT</span>
+<span class="calc-value">$5,000 USDT</span>
+</div>
+<div class="calc-row">
+<span class="calc-label">Your total trading credit</span>
+<span class="calc-value highlight">$10,000</span>
+</div>
+<div class="calc-note">
+<strong>How it works:</strong> You deposit $5,000 USDT. You burn 100,000 United Tokens and share the hash. We credit you $5,000 extra (100,000 × $0.05). Total: $10,000 trading power.
+</div>
+</div>
+</div>
+</section>
+
+<!-- ===== WHY WE'RE DOING THIS ===== -->
+<section class="section" id="why">
+<div class="container text-center">
+<span class="section-label reveal">Why This Offer</span>
+<h2 class="section-title reveal">We Were in United Too</h2>
+<p class="section-subtitle mx-auto reveal">This isn't a random promotion. We're part of the community that believed in United Token. When the price dropped, we all lost. This is our way of giving value back.</p>
+
+<div class="why-grid">
+<div class="why-card reveal reveal-delay-1">
+<div class="why-icon"><i class="fa-solid fa-handshake"></i></div>
+<h4>Community First</h4>
+<p>We're not outsiders. We held United Tokens too. This offer is for our own community.</p>
+</div>
+<div class="why-card reveal reveal-delay-2">
+<div class="why-icon"><i class="fa-solid fa-rotate"></i></div>
+<h4>Recovery Path</h4>
+<p>Instead of your tokens sitting worthless, put them to work with real trading value.</p>
+</div>
+<div class="why-card reveal reveal-delay-3">
+<div class="why-icon"><i class="fa-solid fa-fire"></i></div>
+<h4>Real Burn</h4>
+<p>Tokens go to a burn address. They're gone forever. This is a one-way conversion.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="section" id="faq" style="background:var(--bg-secondary)">
+<div class="container">
+<div class="text-center">
+<span class="section-label reveal">Questions</span>
+<h2 class="section-title reveal">Frequently Asked</h2>
+</div>
+<div class="faq-list">
+<div class="faq-item reveal">
+<button class="faq-q">
+What happens to my United Tokens?
+<i class="fa-solid fa-chevron-down"></i>
+</button>
+<div class="faq-a"><div class="faq-a-inner">
+You send them to a burn address. They are permanently destroyed. In exchange, you get trading credit at $0.05 per token.
+</div></div>
+</div>
+<div class="faq-item reveal">
+<button class="faq-q">
+Is there a minimum or maximum?
+<i class="fa-solid fa-chevron-down"></i>
+</button>
+<div class="faq-a"><div class="faq-a-inner">
+No minimum and no maximum. You can use any amount of United Tokens and deposit any amount of USDT.
+</div></div>
+</div>
+<div class="faq-item reveal">
+<button class="faq-q">
+Why do I need to deposit USDT too?
+<i class="fa-solid fa-chevron-down"></i>
+</button>
+<div class="faq-a"><div class="faq-a-inner">
+You deposit USDT as your base trading capital. The United Token value is added on top as extra credit, matching your USDT deposit in value.
+</div></div>
+</div>
+<div class="faq-item reveal">
+<button class="faq-q">
+Where does the trading credit go?
+<i class="fa-solid fa-chevron-down"></i>
+</button>
+<div class="faq-a"><div class="faq-a-inner">
+The credit is added to your trading account on TAG Markets. You can use it for manual trading, copy trading, or with Sonic AI automation.
+</div></div>
+</div>
+<div class="faq-item reveal">
+<button class="faq-q">
+How do I prove I burned my tokens?
+<i class="fa-solid fa-chevron-down"></i>
+</button>
+<div class="faq-a"><div class="faq-a-inner">
+After sending your tokens to the burn address, you share the transaction hash with us on WhatsApp. We verify on the blockchain and credit your account.
+</div></div>
+</div>
+<div class="faq-item reveal">
+<button class="faq-q">
+Can I withdraw the credit?
+<i class="fa-solid fa-chevron-down"></i>
+</button>
+<div class="faq-a"><div class="faq-a-inner">
+The credit is for trading, not direct withdrawal. However, any profits you make from trading can be withdrawn normally.
+</div></div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ===== FINAL CTA ===== -->
+<section class="section final-cta" id="start">
+<div class="container">
+<h2 class="reveal">Ready to Recover Your <span style="color:var(--accent)">Token Value?</span></h2>
+<p class="reveal reveal-delay-1">Your United Tokens can finally be worth something again. Don't let them sit at $0.001 when we value them at $0.05.</p>
+<div class="final-buttons reveal reveal-delay-2">
+<a href="#" class="btn btn-primary" onclick="openModal(); return false;"><i class="fa-solid fa-coins"></i> Start Now</a>
+<a href="#" class="btn btn-wa" onclick="openWhatsApp(); return false;"><i class="fa-brands fa-whatsapp"></i> Questions? Message Us</a>
+</div>
+</div>
+</section>
+
+<!-- ===== EMAIL MODAL ===== -->
+<div class="modal-overlay" id="emailModal">
+<div class="modal">
+<button class="modal-close" id="modalClose" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+<h3>Claim Your United Token Value</h3>
+<p>Enter your details. We'll send you the registration link, burn address, and step-by-step instructions.</p>
+<form class="modal-form" id="emailForm">
+<input type="text" class="modal-input" id="formName" placeholder="Your name" required>
+<input type="email" class="modal-input" id="formEmail" placeholder="Your email" required>
+<button type="submit" class="modal-submit"><i class="fa-solid fa-paper-plane"></i> Send Me Instructions</button>
+</form>
+<p class="modal-note">We'll also reach out on WhatsApp to help you through the process.</p>
+</div>
+</div>
+
+<!-- ===== THANK YOU ===== -->
+<section class="section thank-you" id="thankYou">
+<div class="container text-center">
+<div class="thank-you-icon">
+<i class="fa-solid fa-check"></i>
+</div>
+<h2 class="section-title">Check Your Email</h2>
+<p class="section-subtitle mx-auto">We sent you the registration link, burn address, and full instructions. Check your inbox now.</p>
+<div style="margin-top:32px">
+<a href="#" class="btn btn-wa" onclick="openWhatsApp(); return false;"><i class="fa-brands fa-whatsapp"></i> Message Us on WhatsApp</a>
+</div>
+</div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+<div class="container">
+<div class="footer-content">
+<div class="footer-brand">United <span>Token</span> Recovery</div>
+<p class="footer-text">A special offer for the United Token community by The Growth Identity. Convert your tokens to real trading value.</p>
+<div class="footer-links">
+<a href="https://thegrowthidentity.com/offer/">Main Offer</a>
+<a href="#" onclick="openWhatsApp(); return false;">Contact Us</a>
+</div>
+<div class="footer-disclaimer">
+<p><strong>Disclaimer:</strong> This is an independent offer, not affiliated with United Token project. Trading involves risk. The token credit is for trading purposes only, profits can be withdrawn. By participating, you agree to permanently burn your United Tokens.</p>
+</div>
+</div>
+</div>
+</footer>
+
+<!-- ===== WHATSAPP FLOAT ===== -->
+<a href="#" onclick="openWhatsApp(); return false;" style="position:fixed;bottom:24px;right:24px;width:56px;height:56px;background:#25d366;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.5rem;box-shadow:0 4px 20px rgba(37,211,102,0.4);z-index:999;transition:transform 0.3s ease;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+<i class="fa-brands fa-whatsapp"></i>
+</a>
+
+<script>
+// ===== WhatsApp =====
+const WA_NUMBER = '639953538545';
+function openWhatsApp() {
+window.open('https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent('Hi, I want to use my United Tokens with the 50x value offer'), '_blank');
+}
+
+// ===== Modal =====
+const emailModal = document.getElementById('emailModal');
+const modalCloseBtn = document.getElementById('modalClose');
+const emailForm = document.getElementById('emailForm');
+const thankYou = document.getElementById('thankYou');
+
+function openModal() {
+if (localStorage.getItem('united_email')) {
+showThankYou();
+return;
+}
+emailModal.classList.add('active');
+document.body.style.overflow = 'hidden';
+setTimeout(() => document.getElementById('formName').focus(), 200);
+}
+
+function closeModal() {
+emailModal.classList.remove('active');
+document.body.style.overflow = '';
+}
+
+function showThankYou() {
+thankYou.style.display = 'block';
+thankYou.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+modalCloseBtn.addEventListener('click', closeModal);
+emailModal.addEventListener('click', (e) => {
+if (e.target === emailModal) closeModal();
+});
+document.addEventListener('keydown', (e) => {
+if (e.key === 'Escape' && emailModal.classList.contains('active')) closeModal();
+});
+
+emailForm.addEventListener('submit', (e) => {
+e.preventDefault();
+const name = document.getElementById('formName').value.trim();
+const email = document.getElementById('formEmail').value.trim();
+if (!name || !email) return;
+
+localStorage.setItem('united_name', name);
+localStorage.setItem('united_email', email);
+
+// Send to EmailOctopus via proxy
+var proxy = 'https://script.google.com/macros/s/AKfycbxsf0RCUzyns2GjSiszw-YFy3d9qQAYRybZWxzYbiuE-QgbyInSU4LG-r9BEGhHGtaOZg/exec';
+var img = new Image();
+img.src = proxy
+  + '?email=' + encodeURIComponent(email)
+  + '&name=' + encodeURIComponent(name)
+  + '&source=united'
+  + '&tag=United'
+  + '&t=' + Date.now();
+
+closeModal();
+showThankYou();
+});
+
+if (localStorage.getItem('united_email')) {
+thankYou.style.display = 'block';
+}
+
+// ===== FAQ Accordion =====
+document.querySelectorAll('.faq-q').forEach(btn => {
+btn.addEventListener('click', () => {
+const item = btn.parentElement;
+const wasActive = item.classList.contains('active');
+document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+if (!wasActive) item.classList.add('active');
+});
+});
+
+// ===== Scroll Reveal =====
+const revealElements = document.querySelectorAll('.reveal');
+const revealObserver = new IntersectionObserver((entries) => {
+entries.forEach(entry => {
+if (entry.isIntersecting) {
+entry.target.classList.add('visible');
+}
+});
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+revealElements.forEach(el => revealObserver.observe(el));
+
+// ===== Smooth scroll for anchor links =====
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+anchor.addEventListener('click', function(e) {
+const href = this.getAttribute('href');
+if (href === '#') return;
+e.preventDefault();
+const target = document.querySelector(href);
+if (target) {
+target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+});
+});
+</script>
+
+</body>
+</html>
