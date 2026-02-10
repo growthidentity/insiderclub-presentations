@@ -168,10 +168,102 @@ line-height:1.7;
 }
 .hero-sub strong{color:var(--text)}
 
+/* Decorative SVG Elements */
+.hero-deco{
+position:absolute;
+width:250px;height:250px;
+opacity:0.7;
+pointer-events:none;
+}
+.hero-deco-left{
+left:5%;top:20%;
+animation:float-rotate 20s ease-in-out infinite;
+}
+.hero-deco-right{
+right:5%;bottom:10%;
+animation:float-rotate 25s ease-in-out infinite reverse;
+}
+@keyframes float-rotate{
+0%,100%{transform:translate(0,0) rotate(0deg)}
+25%{transform:translate(10px,15px) rotate(5deg)}
+50%{transform:translate(-5px,25px) rotate(-3deg)}
+75%{transform:translate(-15px,10px) rotate(3deg)}
+}
+
+/* Section Decorations */
+.section-deco{
+position:absolute;
+pointer-events:none;
+z-index:0;
+}
+.deco-water{
+width:120px;height:180px;
+right:10%;top:50%;
+transform:translateY(-50%);
+animation:float 8s ease-in-out infinite;
+}
+.deco-chart-left{
+width:180px;height:120px;
+left:3%;top:15%;
+animation:float 10s ease-in-out infinite;
+}
+.deco-chart-right{
+width:120px;height:120px;
+right:5%;bottom:20%;
+animation:spin-slow 30s linear infinite;
+}
+@keyframes float{
+0%,100%{transform:translateY(-50%)}
+50%{transform:translateY(-55%)}
+}
+@keyframes spin-slow{
+100%{transform:rotate(360deg)}
+}
+.deco-ai{
+width:100px;height:100px;
+left:5%;top:50%;
+transform:translateY(-50%);
+animation:pulse-bob 4s ease-in-out infinite;
+}
+@keyframes pulse-bob{
+0%,100%{transform:translateY(-50%) scale(1)}
+50%{transform:translateY(-55%) scale(1.05)}
+}
+.deco-coins{
+width:150px;height:100px;
+right:5%;top:30%;
+animation:float-coins 6s ease-in-out infinite;
+}
+@keyframes float-coins{
+0%,100%{transform:translateY(0) rotate(0deg)}
+50%{transform:translateY(-10px) rotate(3deg)}
+}
+.deco-sparkle-left{
+width:60px;height:60px;
+left:10%;top:30%;
+animation:twinkle 3s ease-in-out infinite;
+}
+.deco-sparkle-right{
+width:50px;height:50px;
+right:10%;top:40%;
+animation:twinkle 3s ease-in-out infinite 1s;
+}
+.deco-sparkle-top{
+width:40px;height:40px;
+left:30%;top:15%;
+animation:twinkle 2s ease-in-out infinite 0.5s;
+}
+@keyframes twinkle{
+0%,100%{transform:scale(1) rotate(0deg);opacity:0.4}
+50%{transform:scale(1.2) rotate(15deg);opacity:0.8}
+}
+
 /* The Big Idea Section */
 .big-idea{
 padding:80px 24px;
 background:var(--bg-dark);
+position:relative;
+overflow:hidden;
 }
 .big-idea h2{
 text-align:center;font-size:2rem;margin-bottom:48px;
@@ -497,6 +589,8 @@ margin-top:12px;font-style:italic;
 /* Sonic AI Stats */
 .sonic{
 padding:80px 24px;
+position:relative;
+overflow:hidden;
 }
 .sonic h2{
 text-align:center;font-size:2rem;margin-bottom:8px;
@@ -597,6 +691,8 @@ border-color:var(--gold);color:var(--gold);
 .examples{
 padding:80px 24px;
 background:var(--bg-dark);
+position:relative;
+overflow:hidden;
 }
 .examples h2{
 text-align:center;font-size:2rem;margin-bottom:8px;
@@ -663,6 +759,8 @@ margin-top:4px;
 .cta{
 padding:80px 24px;
 text-align:center;
+position:relative;
+overflow:hidden;
 }
 .cta h2{
 font-size:2.5rem;font-weight:900;
@@ -736,6 +834,7 @@ margin-bottom:20px;
 .timeline-grid{grid-template-columns:repeat(2,1fr)}
 .sonic-stats{grid-template-columns:repeat(2,1fr)}
 .example-cards{grid-template-columns:1fr}
+.section-deco,.hero-deco{display:none}
 }
 @media(max-width:640px){
 .cta-buttons{flex-direction:column;align-items:center}
@@ -764,6 +863,19 @@ margin-bottom:20px;
 
 <section class="hero">
 <div class="hero-bg"></div>
+<!-- Decorative SVG Elements -->
+<svg class="hero-deco hero-deco-left" viewBox="0 0 200 200" fill="none">
+<circle cx="100" cy="100" r="80" stroke="url(#grad1)" stroke-width="2" opacity="0.3"/>
+<circle cx="100" cy="100" r="60" stroke="url(#grad1)" stroke-width="1" opacity="0.2"/>
+<path d="M60 120 L80 100 L100 110 L120 80 L140 90" stroke="url(#grad1)" stroke-width="3" stroke-linecap="round" opacity="0.5"/>
+<defs><linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#C9A227"/><stop offset="100%" stop-color="#b8f847"/></linearGradient></defs>
+</svg>
+<svg class="hero-deco hero-deco-right" viewBox="0 0 200 200" fill="none">
+<path d="M40 160 Q70 140 90 150 T140 130 T180 100" stroke="#b8f847" stroke-width="2" opacity="0.3" fill="none"/>
+<path d="M40 140 Q80 100 120 120 T180 60" stroke="#C9A227" stroke-width="2" opacity="0.4" fill="none"/>
+<circle cx="180" cy="60" r="8" fill="#b8f847" opacity="0.6"/>
+<circle cx="140" cy="130" r="5" fill="#C9A227" opacity="0.5"/>
+</svg>
 <div class="hero-content">
 <div class="badge"><i class="fa-solid fa-gift"></i> Exclusive INJOI Bonus</div>
 <h1>Your INJOI Product<br>Becomes <span class="free">FREE</span></h1>
@@ -772,6 +884,12 @@ margin-bottom:20px;
 </section>
 
 <section class="big-idea">
+<!-- Water drop decorative element -->
+<svg class="section-deco deco-water" viewBox="0 0 100 150" fill="none">
+<path d="M50 10 Q20 60 20 90 Q20 130 50 140 Q80 130 80 90 Q80 60 50 10Z" fill="url(#waterGrad)" opacity="0.15"/>
+<path d="M50 30 Q35 60 35 85 Q35 110 50 115 Q65 110 65 85 Q65 60 50 30Z" fill="url(#waterGrad)" opacity="0.1"/>
+<defs><linearGradient id="waterGrad" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#b8f847"/><stop offset="100%" stop-color="#22c55e"/></linearGradient></defs>
+</svg>
 <div class="container">
 <h2>The Difference Is Massive</h2>
 <div class="comparison">
@@ -824,6 +942,21 @@ margin-bottom:20px;
 </section>
 
 <section class="calc-section">
+<!-- Trading chart decoration -->
+<svg class="section-deco deco-chart-left" viewBox="0 0 150 100" fill="none">
+<rect x="10" y="60" width="12" height="30" fill="#C9A227" opacity="0.3" rx="2"/>
+<rect x="30" y="40" width="12" height="50" fill="#C9A227" opacity="0.4" rx="2"/>
+<rect x="50" y="50" width="12" height="40" fill="#b8f847" opacity="0.3" rx="2"/>
+<rect x="70" y="25" width="12" height="65" fill="#b8f847" opacity="0.5" rx="2"/>
+<rect x="90" y="35" width="12" height="55" fill="#b8f847" opacity="0.4" rx="2"/>
+<rect x="110" y="15" width="12" height="75" fill="#22c55e" opacity="0.5" rx="2"/>
+<path d="M16 55 L36 35 L56 45 L76 20 L96 30 L116 10" stroke="#b8f847" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+</svg>
+<svg class="section-deco deco-chart-right" viewBox="0 0 100 100" fill="none">
+<circle cx="50" cy="50" r="40" stroke="#C9A227" stroke-width="8" stroke-dasharray="60 200" opacity="0.3"/>
+<circle cx="50" cy="50" r="40" stroke="#b8f847" stroke-width="8" stroke-dasharray="100 200" stroke-dashoffset="-60" opacity="0.4"/>
+<circle cx="50" cy="50" r="25" fill="none" stroke="#22c55e" stroke-width="4" opacity="0.2"/>
+</svg>
 <div class="container">
 <h2>Calculate Your Bonus</h2>
 <p class="calc-sub">Enter your INJOI purchase amount and see the potential</p>
@@ -915,6 +1048,17 @@ margin-bottom:20px;
 </section>
 
 <section class="sonic">
+<!-- AI/Robot decoration -->
+<svg class="section-deco deco-ai" viewBox="0 0 100 100" fill="none">
+<rect x="25" y="30" width="50" height="40" rx="8" stroke="#b8f847" stroke-width="2" opacity="0.4"/>
+<circle cx="40" cy="50" r="6" fill="#b8f847" opacity="0.5"/>
+<circle cx="60" cy="50" r="6" fill="#b8f847" opacity="0.5"/>
+<path d="M35 62 Q50 70 65 62" stroke="#b8f847" stroke-width="2" stroke-linecap="round" opacity="0.4"/>
+<line x1="50" y1="20" x2="50" y2="30" stroke="#C9A227" stroke-width="2" opacity="0.5"/>
+<circle cx="50" cy="15" r="5" fill="#C9A227" opacity="0.4"/>
+<line x1="15" y1="50" x2="25" y2="50" stroke="#b8f847" stroke-width="2" opacity="0.3"/>
+<line x1="75" y1="50" x2="85" y2="50" stroke="#b8f847" stroke-width="2" opacity="0.3"/>
+</svg>
 <div class="container">
 <h2>Powered by Sonic AI</h2>
 <p class="sonic-sub">Verified trading performance since November 2024</p>
@@ -972,6 +1116,17 @@ margin-bottom:20px;
 </section>
 
 <section class="examples">
+<!-- Money/coins decoration -->
+<svg class="section-deco deco-coins" viewBox="0 0 120 80" fill="none">
+<ellipse cx="30" cy="60" rx="25" ry="10" fill="#C9A227" opacity="0.2"/>
+<ellipse cx="30" cy="55" rx="25" ry="10" fill="#C9A227" opacity="0.25"/>
+<ellipse cx="30" cy="50" rx="25" ry="10" fill="#C9A227" opacity="0.3"/>
+<ellipse cx="70" cy="45" rx="20" ry="8" fill="#b8f847" opacity="0.2"/>
+<ellipse cx="70" cy="40" rx="20" ry="8" fill="#b8f847" opacity="0.25"/>
+<ellipse cx="70" cy="35" rx="20" ry="8" fill="#b8f847" opacity="0.3"/>
+<ellipse cx="100" cy="55" rx="15" ry="6" fill="#22c55e" opacity="0.25"/>
+<ellipse cx="100" cy="50" rx="15" ry="6" fill="#22c55e" opacity="0.3"/>
+</svg>
 <div class="container">
 <h2>See It With Different Products</h2>
 <p class="examples-sub">Based on Sonic AI's 1.23% monthly average (past performance)</p>
@@ -1047,6 +1202,20 @@ margin-bottom:20px;
 </section>
 
 <section class="cta">
+<!-- Celebration/sparkles decoration -->
+<svg class="section-deco deco-sparkle-left" viewBox="0 0 50 50" fill="none">
+<path d="M25 5 L27 20 L42 25 L27 30 L25 45 L23 30 L8 25 L23 20 Z" fill="#b8f847" opacity="0.4"/>
+</svg>
+<svg class="section-deco deco-sparkle-right" viewBox="0 0 50 50" fill="none">
+<path d="M25 10 L26 22 L38 25 L26 28 L25 40 L24 28 L12 25 L24 22 Z" fill="#C9A227" opacity="0.4"/>
+</svg>
+<svg class="section-deco deco-sparkle-top" viewBox="0 0 30 30" fill="none">
+<circle cx="15" cy="15" r="3" fill="#b8f847" opacity="0.5"/>
+<line x1="15" y1="5" x2="15" y2="10" stroke="#b8f847" stroke-width="2" opacity="0.4"/>
+<line x1="15" y1="20" x2="15" y2="25" stroke="#b8f847" stroke-width="2" opacity="0.4"/>
+<line x1="5" y1="15" x2="10" y2="15" stroke="#b8f847" stroke-width="2" opacity="0.4"/>
+<line x1="20" y1="15" x2="25" y2="15" stroke="#b8f847" stroke-width="2" opacity="0.4"/>
+</svg>
 <div class="container">
 <h2>Get Your INJOI Product<br><span class="green">+ Free Trading Bonus</span></h2>
 <p class="cta-sub">Buy any INJOI product. Send us your receipt. We fund your trading account with 10% bonus + 24x amplification. You keep 100% of profits.</p>
