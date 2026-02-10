@@ -32,10 +32,81 @@ font-family:'Inter',system-ui,sans-serif;
 background:var(--bg);
 color:var(--text);
 line-height:1.6;
+overflow-x:hidden;
+}
+
+/* Animated Background */
+.bg-glow{
+position:fixed;inset:0;pointer-events:none;z-index:0;
+overflow:hidden;
+}
+.bg-glow::before,.bg-glow::after{
+content:'';position:absolute;
+border-radius:50%;
+filter:blur(100px);
+opacity:0.4;
+animation:float 20s ease-in-out infinite;
+}
+.bg-glow::before{
+width:600px;height:600px;
+background:radial-gradient(circle,rgba(184,248,71,0.15),transparent 70%);
+top:-200px;right:-200px;
+}
+.bg-glow::after{
+width:500px;height:500px;
+background:radial-gradient(circle,rgba(201,162,39,0.12),transparent 70%);
+bottom:-150px;left:-150px;
+animation-delay:-10s;
+}
+@keyframes float{
+0%,100%{transform:translate(0,0) scale(1)}
+25%{transform:translate(30px,30px) scale(1.05)}
+50%{transform:translate(-20px,50px) scale(0.95)}
+75%{transform:translate(-40px,-20px) scale(1.02)}
+}
+
+/* Floating Particles */
+.particles{
+position:fixed;inset:0;pointer-events:none;z-index:0;
+}
+.particle{
+position:absolute;
+width:4px;height:4px;
+background:var(--accent);
+border-radius:50%;
+opacity:0;
+animation:particle 15s linear infinite;
+}
+.particle:nth-child(1){left:10%;animation-delay:0s}
+.particle:nth-child(2){left:20%;animation-delay:2s}
+.particle:nth-child(3){left:35%;animation-delay:4s}
+.particle:nth-child(4){left:50%;animation-delay:1s}
+.particle:nth-child(5){left:65%;animation-delay:3s}
+.particle:nth-child(6){left:80%;animation-delay:5s}
+.particle:nth-child(7){left:90%;animation-delay:2.5s}
+.particle:nth-child(8){left:5%;animation-delay:6s}
+.particle:nth-child(9){left:45%;animation-delay:7s}
+.particle:nth-child(10){left:75%;animation-delay:8s}
+@keyframes particle{
+0%{transform:translateY(100vh) scale(0);opacity:0}
+10%{opacity:0.6}
+90%{opacity:0.6}
+100%{transform:translateY(-100vh) scale(1);opacity:0}
+}
+
+/* Decorative Grid */
+.grid-bg{
+position:fixed;inset:0;pointer-events:none;z-index:0;
+background-image:
+linear-gradient(rgba(184,248,71,0.03) 1px,transparent 1px),
+linear-gradient(90deg,rgba(184,248,71,0.03) 1px,transparent 1px);
+background-size:60px 60px;
+mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black,transparent);
 }
 a{color:var(--gold);text-decoration:none}
 a:hover{color:var(--gold-light)}
 .container{max-width:1000px;margin:0 auto;padding:0 24px}
+section,.footer{position:relative;z-index:1}
 
 /* Hero - Big impact for Zoom */
 .hero{
@@ -58,6 +129,11 @@ padding:10px 20px;border-radius:30px;
 font-size:0.9rem;font-weight:700;color:var(--accent);
 margin-bottom:32px;
 text-transform:uppercase;letter-spacing:1px;
+animation:pulse-glow 3s ease-in-out infinite;
+}
+@keyframes pulse-glow{
+0%,100%{box-shadow:0 0 20px rgba(184,248,71,0.2)}
+50%{box-shadow:0 0 40px rgba(184,248,71,0.4)}
 }
 h1{
 font-size:clamp(2.5rem,6vw,4rem);
@@ -67,12 +143,23 @@ margin-bottom:24px;
 h1 .free{
 color:var(--accent);
 position:relative;
+text-shadow:0 0 40px rgba(184,248,71,0.5);
+animation:glow-text 2s ease-in-out infinite alternate;
+}
+@keyframes glow-text{
+0%{text-shadow:0 0 20px rgba(184,248,71,0.3)}
+100%{text-shadow:0 0 40px rgba(184,248,71,0.6),0 0 80px rgba(184,248,71,0.3)}
 }
 h1 .free::after{
 content:'';position:absolute;
 left:0;right:0;bottom:0;height:8px;
 background:var(--accent);opacity:0.3;
 border-radius:4px;
+animation:width-pulse 2s ease-in-out infinite;
+}
+@keyframes width-pulse{
+0%,100%{transform:scaleX(1)}
+50%{transform:scaleX(1.05)}
 }
 .hero-sub{
 font-size:1.3rem;color:var(--text-dim);
@@ -106,6 +193,17 @@ opacity:0.7;
 .compare-box.bonus{
 border:2px solid var(--accent);
 box-shadow:0 0 60px rgba(184,248,71,0.15);
+position:relative;
+overflow:hidden;
+}
+.compare-box.bonus::before{
+content:'';position:absolute;
+top:-50%;left:-50%;width:200%;height:200%;
+background:conic-gradient(from 0deg,transparent,rgba(184,248,71,0.1),transparent 30%);
+animation:rotate 8s linear infinite;
+}
+@keyframes rotate{
+100%{transform:rotate(360deg)}
 }
 .compare-label{
 font-size:0.8rem;font-weight:700;
@@ -126,6 +224,11 @@ text-decoration:line-through;
 .compare-sub{color:var(--text-muted);font-size:0.95rem}
 .compare-arrow{
 font-size:2.5rem;color:var(--gold);
+animation:bounce-right 1.5s ease-in-out infinite;
+}
+@keyframes bounce-right{
+0%,100%{transform:translateX(0)}
+50%{transform:translateX(10px)}
 }
 .compare-details{
 margin-top:24px;text-align:left;
@@ -179,6 +282,19 @@ text-transform:uppercase;letter-spacing:1px;
 }
 .flow-arrow{
 font-size:1.5rem;color:var(--gold);
+animation:bounce-right 1.5s ease-in-out infinite;
+}
+.flow-step.highlight{
+border-color:var(--gold);
+background:linear-gradient(135deg,rgba(201,162,39,0.1),rgba(184,248,71,0.05));
+position:relative;
+}
+.flow-step.highlight::after{
+content:'';position:absolute;inset:-2px;
+border-radius:18px;
+background:linear-gradient(135deg,var(--gold),var(--accent));
+z-index:-1;opacity:0.5;
+filter:blur(15px);
 }
 
 /* Calculator Section */
@@ -263,6 +379,41 @@ font-size:1.3rem;margin-bottom:8px;
 .timeline-header p{
 color:var(--text-dim);font-size:0.95rem;
 }
+/* Growth Chart */
+.growth-chart{
+height:80px;margin-bottom:24px;
+position:relative;
+background:linear-gradient(180deg,rgba(184,248,71,0.05) 0%,transparent 100%);
+border-radius:12px;
+overflow:hidden;
+}
+.growth-line{
+position:absolute;bottom:10px;left:0;right:0;
+height:60px;
+}
+.growth-line svg{
+width:100%;height:100%;
+}
+.growth-line path{
+fill:none;
+stroke:url(#chartGradient);
+stroke-width:3;
+stroke-linecap:round;
+stroke-dasharray:500;
+stroke-dashoffset:500;
+animation:draw-line 2s ease-out forwards;
+}
+@keyframes draw-line{
+to{stroke-dashoffset:0}
+}
+.growth-line .glow{
+fill:url(#areaGradient);
+opacity:0;
+animation:fade-in 1s ease-out 1s forwards;
+}
+@keyframes fade-in{
+to{opacity:1}
+}
 .timeline-grid{
 display:grid;grid-template-columns:repeat(4,1fr);
 gap:16px;margin-bottom:32px;
@@ -270,6 +421,12 @@ gap:16px;margin-bottom:32px;
 .timeline-item{
 text-align:center;padding:20px;
 background:var(--bg);border-radius:12px;
+transition:all 0.3s ease;
+border:1px solid transparent;
+}
+.timeline-item:hover{
+transform:translateY(-3px);
+border-color:var(--gold);
 }
 .timeline-item .month{
 font-size:0.75rem;color:var(--text-muted);
@@ -294,9 +451,27 @@ background:linear-gradient(135deg,rgba(184,248,71,0.15),rgba(34,197,94,0.1));
 border:2px solid var(--accent);
 border-radius:16px;padding:32px;
 text-align:center;
+position:relative;
+overflow:hidden;
+}
+.payback::before{
+content:'';position:absolute;
+top:0;left:-100%;width:100%;height:100%;
+background:linear-gradient(90deg,transparent,rgba(255,255,255,0.1),transparent);
+animation:shimmer 3s ease-in-out infinite;
+}
+@keyframes shimmer{
+0%{left:-100%}
+100%{left:100%}
 }
 .payback-icon{
 font-size:3rem;margin-bottom:16px;
+color:var(--accent);
+animation:pulse-scale 2s ease-in-out infinite;
+}
+@keyframes pulse-scale{
+0%,100%{transform:scale(1)}
+50%{transform:scale(1.1)}
 }
 .payback h4{
 font-size:1.5rem;font-weight:800;
@@ -335,6 +510,12 @@ background:var(--bg-card);
 border-radius:16px;padding:28px 20px;
 text-align:center;
 border:1px solid var(--border);
+transition:all 0.3s ease;
+}
+.sonic-stat:hover{
+transform:translateY(-5px);
+border-color:var(--accent);
+box-shadow:0 10px 40px rgba(184,248,71,0.15);
 }
 .sonic-stat .val{
 font-size:2rem;font-weight:900;
@@ -441,10 +622,30 @@ padding:20px 40px;border-radius:14px;
 font-weight:800;font-size:1.1rem;
 transition:all 0.2s;
 }
-.btn-gold{background:var(--gold);color:var(--bg)}
-.btn-gold:hover{background:var(--gold-light);transform:translateY(-3px)}
-.btn-green{background:var(--accent);color:var(--bg)}
-.btn-green:hover{background:#c8ff5c;transform:translateY(-3px)}
+.btn-gold{
+background:var(--gold);color:var(--bg);
+position:relative;overflow:hidden;
+}
+.btn-gold::before{
+content:'';position:absolute;
+top:0;left:-100%;width:100%;height:100%;
+background:linear-gradient(90deg,transparent,rgba(255,255,255,0.3),transparent);
+transition:0.5s;
+}
+.btn-gold:hover::before{left:100%}
+.btn-gold:hover{background:var(--gold-light);transform:translateY(-3px);box-shadow:0 10px 30px rgba(201,162,39,0.3)}
+.btn-green{
+background:var(--accent);color:var(--bg);
+position:relative;overflow:hidden;
+}
+.btn-green::before{
+content:'';position:absolute;
+top:0;left:-100%;width:100%;height:100%;
+background:linear-gradient(90deg,transparent,rgba(255,255,255,0.3),transparent);
+transition:0.5s;
+}
+.btn-green:hover::before{left:100%}
+.btn-green:hover{background:#c8ff5c;transform:translateY(-3px);box-shadow:0 10px 30px rgba(184,248,71,0.3)}
 .btn-outline{
 background:transparent;color:var(--text);
 border:2px solid var(--border);
@@ -484,6 +685,22 @@ margin-bottom:20px;
 </style>
 </head>
 <body>
+
+<!-- Animated Background Elements -->
+<div class="bg-glow"></div>
+<div class="grid-bg"></div>
+<div class="particles">
+<div class="particle"></div>
+<div class="particle"></div>
+<div class="particle"></div>
+<div class="particle"></div>
+<div class="particle"></div>
+<div class="particle"></div>
+<div class="particle"></div>
+<div class="particle"></div>
+<div class="particle"></div>
+<div class="particle"></div>
+</div>
 
 <section class="hero">
 <div class="hero-bg"></div>
@@ -582,6 +799,24 @@ margin-bottom:20px;
 <div class="timeline-header">
 <h3>Your Bonus Growth Projection</h3>
 <p>Based on Sonic AI's verified 1.23% monthly average</p>
+</div>
+<div class="growth-chart">
+<div class="growth-line">
+<svg viewBox="0 0 400 60" preserveAspectRatio="none">
+<defs>
+<linearGradient id="chartGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+<stop offset="0%" stop-color="#C9A227"/>
+<stop offset="100%" stop-color="#b8f847"/>
+</linearGradient>
+<linearGradient id="areaGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+<stop offset="0%" stop-color="#b8f847" stop-opacity="0.3"/>
+<stop offset="100%" stop-color="#b8f847" stop-opacity="0"/>
+</linearGradient>
+</defs>
+<path class="glow" d="M0,55 Q100,50 150,40 T250,25 T400,5 L400,60 L0,60 Z"/>
+<path d="M0,55 Q100,50 150,40 T250,25 T400,5"/>
+</svg>
+</div>
 </div>
 <div class="timeline-grid">
 <div class="timeline-item">
