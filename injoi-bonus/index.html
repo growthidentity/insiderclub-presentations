@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>INJOI + Trading Bonus | Get 10% Extra Value</title>
+<meta name="description" content="Buy INJOI products and receive 10% of your purchase as a funded trading account with 24x amplification.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+--bg:#0B1426;
+--bg-card:#1a2744;
+--gold:#C9A227;
+--gold-light:#e8d5a3;
+--accent:#b8f847;
+--text:#f1f5f9;
+--text-dim:#94a3b8;
+--text-muted:#64748b;
+--border:#2a3a54;
+}
+html{scroll-behavior:smooth}
+body{
+font-family:'Inter',system-ui,sans-serif;
+background:var(--bg);
+color:var(--text);
+line-height:1.6;
+min-height:100vh;
+}
+a{color:var(--gold);text-decoration:none}
+a:hover{color:var(--gold-light)}
+
+.container{max-width:900px;margin:0 auto;padding:0 24px}
+
+/* Hero */
+.hero{
+padding:80px 24px 60px;
+text-align:center;
+position:relative;
+}
+.hero-bg{
+position:absolute;inset:0;
+background:radial-gradient(ellipse 60% 50% at 50% 20%,rgba(201,162,39,0.1),transparent 60%);
+}
+.hero-content{position:relative;z-index:2}
+.badge{
+display:inline-flex;align-items:center;gap:8px;
+background:rgba(201,162,39,0.15);border:1px solid rgba(201,162,39,0.3);
+padding:8px 16px;border-radius:30px;
+font-size:0.8rem;font-weight:600;color:var(--gold);
+margin-bottom:24px;
+}
+h1{
+font-size:clamp(2rem,5vw,3rem);
+font-weight:800;line-height:1.15;
+margin-bottom:16px;
+}
+h1 .gold{color:var(--gold)}
+h1 .green{color:var(--accent)}
+.hero-sub{
+font-size:1.1rem;color:var(--text-dim);
+max-width:600px;margin:0 auto;
+}
+
+/* Offer Box */
+.offer-box{
+background:var(--bg-card);
+border:2px solid var(--gold);
+border-radius:20px;
+padding:40px;
+margin:48px auto;
+max-width:700px;
+}
+.offer-header{
+text-align:center;margin-bottom:32px;
+}
+.offer-header h2{
+font-size:1.5rem;font-weight:700;margin-bottom:8px;
+}
+.offer-header p{
+color:var(--text-dim);font-size:0.95rem;
+}
+
+.example{
+background:var(--bg);
+border-radius:12px;
+padding:24px;
+margin-bottom:24px;
+}
+.example-title{
+font-size:0.8rem;font-weight:600;
+color:var(--gold);text-transform:uppercase;
+letter-spacing:1px;margin-bottom:16px;
+text-align:center;
+}
+.example-row{
+display:flex;justify-content:space-between;align-items:center;
+padding:12px 0;border-bottom:1px solid var(--border);
+}
+.example-row:last-child{border-bottom:none}
+.example-row.highlight{
+padding-top:16px;margin-top:8px;
+border-top:2px solid var(--gold);border-bottom:none;
+}
+.example-row .label{color:var(--text-dim);font-size:0.9rem}
+.example-row .value{font-weight:700}
+.example-row .value.gold{color:var(--gold);font-size:1.1rem}
+.example-row .value.green{color:var(--accent);font-size:1.3rem}
+
+.offer-note{
+background:rgba(184,248,71,0.1);
+border:1px solid rgba(184,248,71,0.3);
+border-radius:10px;
+padding:16px;
+text-align:center;
+font-size:0.9rem;
+color:var(--text-dim);
+}
+.offer-note strong{color:var(--accent)}
+
+/* How it works */
+.how{
+padding:60px 24px;
+}
+.how h2{
+text-align:center;font-size:1.5rem;
+margin-bottom:40px;
+}
+.steps{
+display:grid;grid-template-columns:repeat(3,1fr);
+gap:24px;
+}
+.step{
+text-align:center;
+padding:24px;
+background:var(--bg-card);
+border:1px solid var(--border);
+border-radius:12px;
+}
+.step-num{
+width:40px;height:40px;
+background:var(--gold);color:var(--bg);
+border-radius:50%;
+display:flex;align-items:center;justify-content:center;
+font-weight:800;font-size:1.1rem;
+margin:0 auto 16px;
+}
+.step h3{font-size:1rem;margin-bottom:8px}
+.step p{font-size:0.85rem;color:var(--text-dim)}
+
+/* CTA */
+.cta{
+padding:60px 24px;
+text-align:center;
+}
+.cta-buttons{
+display:flex;flex-wrap:wrap;justify-content:center;gap:16px;
+margin-top:32px;
+}
+.btn{
+display:inline-flex;align-items:center;gap:10px;
+padding:16px 32px;border-radius:10px;
+font-weight:700;font-size:1rem;
+transition:all 0.2s;
+}
+.btn-gold{
+background:var(--gold);color:var(--bg);
+}
+.btn-gold:hover{
+background:var(--gold-light);color:var(--bg);
+transform:translateY(-2px);
+}
+.btn-green{
+background:var(--accent);color:var(--bg);
+}
+.btn-green:hover{
+background:#c8ff5c;color:var(--bg);
+transform:translateY(-2px);
+}
+.btn-outline{
+background:transparent;color:var(--text);
+border:1px solid var(--border);
+}
+.btn-outline:hover{
+border-color:var(--gold);color:var(--gold);
+}
+
+/* Footer */
+.footer{
+padding:32px 24px;
+text-align:center;
+border-top:1px solid var(--border);
+}
+.footer p{font-size:0.8rem;color:var(--text-muted)}
+.footer-links{
+display:flex;justify-content:center;gap:24px;
+margin-bottom:16px;
+}
+.footer-links a{color:var(--text-dim);font-size:0.85rem}
+
+/* Responsive */
+@media(max-width:768px){
+.steps{grid-template-columns:1fr}
+.cta-buttons{flex-direction:column;align-items:center}
+.btn{width:100%;max-width:300px;justify-content:center}
+}
+</style>
+</head>
+<body>
+
+<section class="hero">
+<div class="hero-bg"></div>
+<div class="hero-content">
+<div class="badge"><i class="fa-solid fa-gift"></i> Limited Time Bonus</div>
+<h1>Buy INJOI. Get <span class="green">Free Trading</span> Bonus.</h1>
+<p class="hero-sub">Purchase any INJOI product and receive 10% of your purchase value as a funded trading account with 24x amplification.</p>
+</div>
+</section>
+
+<div class="container">
+<div class="offer-box">
+<div class="offer-header">
+<h2>How the 10% Bonus Works</h2>
+<p>Your INJOI purchase unlocks a real funded trading account</p>
+</div>
+
+<div class="example">
+<div class="example-title">Example: Water Machine (€699)</div>
+<div class="example-row">
+<span class="label">Your INJOI Purchase</span>
+<span class="value">€699</span>
+</div>
+<div class="example-row">
+<span class="label">10% Trading Bonus</span>
+<span class="value gold">€70</span>
+</div>
+<div class="example-row">
+<span class="label">24x Amplification</span>
+<span class="value">24x</span>
+</div>
+<div class="example-row highlight">
+<span class="label">Your Trading Power</span>
+<span class="value green">€1,680</span>
+</div>
+</div>
+
+<div class="offer-note">
+<strong>You invest €0 in trading.</strong> We fund your account based on your INJOI purchase. Keep 100% of profits.
+</div>
+</div>
+</div>
+
+<section class="how">
+<div class="container">
+<h2>3 Simple Steps</h2>
+<div class="steps">
+<div class="step">
+<div class="step-num">1</div>
+<h3>Buy INJOI Product</h3>
+<p>Purchase any INJOI water system or package</p>
+</div>
+<div class="step">
+<div class="step-num">2</div>
+<h3>Show Your Receipt</h3>
+<p>Send us proof of your INJOI purchase</p>
+</div>
+<div class="step">
+<div class="step-num">3</div>
+<h3>Get Funded</h3>
+<p>We deposit 10% into your trading account with 24x amplification</p>
+</div>
+</div>
+</div>
+</section>
+
+<section class="cta">
+<div class="container">
+<h2>Ready to Get Your Bonus?</h2>
+<p style="color:var(--text-dim);margin-top:8px">Explore INJOI products or contact us to claim your trading bonus</p>
+<div class="cta-buttons">
+<a href="/injoiest2/" class="btn btn-gold"><i class="fa-solid fa-droplet"></i> View INJOI Products</a>
+<a href="https://wa.me/639953538545?text=Hi%2C%20I%20want%20to%20claim%20my%20INJOI%20trading%20bonus" class="btn btn-green"><i class="fa-brands fa-whatsapp"></i> Claim Bonus</a>
+<a href="/offer/" class="btn btn-outline"><i class="fa-solid fa-gift"></i> $25 Free Offer</a>
+</div>
+</div>
+</section>
+
+<footer class="footer">
+<div class="footer-links">
+<a href="/">The Growth Identity</a>
+<a href="/offer/">Trading Offer</a>
+<a href="/injoiest2/">INJOI Products</a>
+</div>
+<p>Trading involves risk. The 10% bonus is funded by The Growth Identity based on verified INJOI purchases.</p>
+</footer>
+
+</body>
+</html>
