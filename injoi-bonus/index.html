@@ -529,6 +529,32 @@ margin-bottom:4px;
 font-size:0.75rem;color:var(--text-muted);
 text-transform:uppercase;letter-spacing:1px;
 }
+.sonic-note{
+font-size:0.7rem;color:var(--text-muted);
+margin-top:4px;font-style:italic;
+}
+.amplification-note{
+display:flex;align-items:center;gap:20px;
+background:linear-gradient(135deg,rgba(184,248,71,0.1),rgba(201,162,39,0.1));
+border:1px solid var(--accent);
+border-radius:16px;padding:24px 32px;
+max-width:600px;margin:32px auto;
+}
+.amp-icon{
+font-size:2.5rem;color:var(--accent);
+animation:pulse-scale 2s ease-in-out infinite;
+}
+.amp-title{
+font-size:1.1rem;font-weight:700;
+color:var(--accent);margin-bottom:4px;
+}
+.amp-text{
+font-size:0.95rem;color:var(--text-dim);
+line-height:1.6;
+}
+.amp-text strong{
+color:var(--accent);font-size:1.1rem;
+}
 .sonic-link{
 text-align:center;
 }
@@ -861,6 +887,7 @@ margin-bottom:20px;
 <div class="sonic-stat">
 <div class="val">+20%</div>
 <div class="lbl">Total Gain</div>
+<div class="sonic-note">Since Nov 2024</div>
 </div>
 <div class="sonic-stat">
 <div class="val">80%</div>
@@ -875,6 +902,15 @@ margin-bottom:20px;
 <div class="lbl">Max Drawdown</div>
 </div>
 </div>
+
+<div class="amplification-note">
+<div class="amp-icon"><i class="fa-solid fa-bolt"></i></div>
+<div class="amp-content">
+<div class="amp-title">With 24x Amplification</div>
+<div class="amp-text">The +20% base gain becomes <strong>+480% effective return</strong> on your bonus. That's the power of amplified trading.</div>
+</div>
+</div>
+
 <div class="sonic-link">
 <a href="https://www.myfxbook.com/members/SonicExperts/sonic-ai/11884034" target="_blank">
 <i class="fa-solid fa-chart-line"></i> Verify on Myfxbook
