@@ -489,6 +489,10 @@ margin:16px 0 8px;
 .payback .months-label{
 color:var(--text);font-size:1.1rem;
 }
+.payback-note{
+font-size:0.75rem;color:var(--text-muted);
+margin-top:12px;font-style:italic;
+}
 
 /* Sonic AI Stats */
 .sonic{
@@ -555,6 +559,26 @@ line-height:1.6;
 .amp-text strong{
 color:var(--accent);font-size:1.1rem;
 }
+.sonic-extra{
+display:flex;justify-content:center;gap:40px;
+margin-top:24px;flex-wrap:wrap;
+}
+.sonic-stat-small{
+text-align:center;
+}
+.sonic-stat-small .val-sm{
+font-size:1.2rem;font-weight:700;color:var(--text);
+display:block;
+}
+.sonic-stat-small .lbl-sm{
+font-size:0.7rem;color:var(--text-muted);
+text-transform:uppercase;letter-spacing:0.5px;
+}
+.sonic-disclaimer{
+text-align:center;
+font-size:0.8rem;color:var(--text-muted);
+margin-top:24px;font-style:italic;
+}
 .sonic-link{
 text-align:center;
 }
@@ -575,7 +599,17 @@ padding:80px 24px;
 background:var(--bg-dark);
 }
 .examples h2{
-text-align:center;font-size:2rem;margin-bottom:48px;
+text-align:center;font-size:2rem;margin-bottom:8px;
+}
+.examples-sub{
+text-align:center;color:var(--text-dim);
+font-size:0.95rem;margin-bottom:40px;
+}
+.examples-disclaimer{
+text-align:center;
+font-size:0.8rem;color:var(--text-muted);
+margin-top:32px;font-style:italic;
+max-width:600px;margin-left:auto;margin-right:auto;
 }
 .example-cards{
 display:grid;grid-template-columns:repeat(3,1fr);
@@ -824,7 +858,7 @@ margin-bottom:20px;
 <div class="timeline">
 <div class="timeline-header">
 <h3>Your Bonus Growth Projection</h3>
-<p>Based on Sonic AI's verified 1.23% monthly average</p>
+<p>Based on Sonic AI's 1.23% monthly average (past performance since Nov 2024)</p>
 </div>
 <div class="growth-chart">
 <div class="growth-line">
@@ -870,9 +904,10 @@ margin-bottom:20px;
 <div class="payback">
 <div class="payback-icon"><i class="fa-solid fa-circle-check"></i></div>
 <h4>Product Pays For Itself</h4>
-<div class="months" id="paybackMonths">~60</div>
-<div class="months-label">months to full payback</div>
-<p style="margin-top:16px">Your €70 bonus grows until it equals your €699 purchase. <strong>Then everything after is pure profit.</strong></p>
+<div class="months" id="paybackMonths">~26</div>
+<div class="months-label">months to full payback*</div>
+<p style="margin-top:16px">Your bonus + earnings grow until they equal your purchase price. <strong>Then everything after is pure profit.</strong></p>
+<p class="payback-note">*Based on 1.23% monthly returns from past performance. Not guaranteed.</p>
 </div>
 </div>
 </div>
@@ -885,7 +920,7 @@ margin-bottom:20px;
 <p class="sonic-sub">Verified trading performance since November 2024</p>
 <div class="sonic-stats">
 <div class="sonic-stat">
-<div class="val">+20%</div>
+<div class="val">+20.23%</div>
 <div class="lbl">Total Gain</div>
 <div class="sonic-note">Since Nov 2024</div>
 </div>
@@ -903,13 +938,30 @@ margin-bottom:20px;
 </div>
 </div>
 
+<div class="sonic-extra">
+<div class="sonic-stat-small">
+<span class="val-sm">301</span>
+<span class="lbl-sm">Trades</span>
+</div>
+<div class="sonic-stat-small">
+<span class="val-sm">2.76</span>
+<span class="lbl-sm">Profit Factor</span>
+</div>
+<div class="sonic-stat-small">
+<span class="val-sm">$23,705</span>
+<span class="lbl-sm">Total Profit</span>
+</div>
+</div>
+
 <div class="amplification-note">
 <div class="amp-icon"><i class="fa-solid fa-bolt"></i></div>
 <div class="amp-content">
 <div class="amp-title">With 24x Amplification</div>
-<div class="amp-text">The +20% base gain becomes <strong>+480% effective return</strong> on your bonus. That's the power of amplified trading.</div>
+<div class="amp-text">The +20.23% base gain becomes <strong>+485% effective return</strong> on your bonus. That's the power of amplified trading.</div>
 </div>
 </div>
+
+<p class="sonic-disclaimer">*All projections based on past performance. Past results do not guarantee future returns. Trading involves risk.</p>
 
 <div class="sonic-link">
 <a href="https://www.myfxbook.com/members/SonicExperts/sonic-ai/11884034" target="_blank">
@@ -922,6 +974,7 @@ margin-bottom:20px;
 <section class="examples">
 <div class="container">
 <h2>See It With Different Products</h2>
+<p class="examples-sub">Based on Sonic AI's 1.23% monthly average (past performance)</p>
 <div class="example-cards">
 <div class="example-card">
 <div class="product">Starter Package</div>
@@ -936,12 +989,12 @@ margin-bottom:20px;
 <span class="val">€720</span>
 </div>
 <div class="example-row">
-<span class="label">12-Month Growth</span>
-<span class="val green">€35</span>
+<span class="label">12-Month Earnings*</span>
+<span class="val green">+€114</span>
 </div>
 <div class="potential">
-<div class="big">~72 mo</div>
-<div class="sub">to full payback</div>
+<div class="big">€144</div>
+<div class="sub">projected value after 1 year</div>
 </div>
 </div>
 
@@ -958,12 +1011,12 @@ margin-bottom:20px;
 <span class="val">€1,680</span>
 </div>
 <div class="example-row">
-<span class="label">12-Month Growth</span>
-<span class="val green">€81</span>
+<span class="label">12-Month Earnings*</span>
+<span class="val green">+€265</span>
 </div>
 <div class="potential">
-<div class="big">~60 mo</div>
-<div class="sub">to full payback</div>
+<div class="big">€335</div>
+<div class="sub">projected value after 1 year</div>
 </div>
 </div>
 
@@ -980,15 +1033,16 @@ margin-bottom:20px;
 <span class="val">€3,600</span>
 </div>
 <div class="example-row">
-<span class="label">12-Month Growth</span>
-<span class="val green">€174</span>
+<span class="label">12-Month Earnings*</span>
+<span class="val green">+€568</span>
 </div>
 <div class="potential">
-<div class="big">~60 mo</div>
-<div class="sub">to full payback</div>
+<div class="big">€718</div>
+<div class="sub">projected value after 1 year</div>
 </div>
 </div>
 </div>
+<p class="examples-disclaimer">*Earnings calculated from 24x amplified amount at 1.23% monthly compound rate. Based on past performance, not guaranteed.</p>
 </div>
 </section>
 
