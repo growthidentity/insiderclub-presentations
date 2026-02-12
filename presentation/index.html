@@ -619,9 +619,132 @@ text-transform:uppercase;
 margin-top:4px;
 }
 
+/* Slide 9B: Member Results */
+.slide-member{
+background:var(--bg-dark);
+}
+.member-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:48px;
+margin-top:48px;
+align-items:center;
+}
+.member-info{}
+.member-badge{
+display:inline-flex;
+align-items:center;gap:10px;
+background:rgba(34,197,94,0.15);
+border:1px solid rgba(34,197,94,0.3);
+border-radius:30px;
+padding:8px 16px;
+font-size:0.85rem;
+font-weight:600;
+color:var(--green);
+margin-bottom:16px;
+}
+.member-info h3{
+font-size:1.8rem;
+font-weight:800;
+margin-bottom:12px;
+}
+.member-info p{
+color:var(--text-dim);
+font-size:1rem;
+line-height:1.6;
+margin-bottom:16px;
+}
+.member-link{
+display:inline-flex;
+align-items:center;gap:8px;
+color:var(--accent);
+font-size:0.9rem;
+font-weight:600;
+}
+.member-stats{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:16px;
+}
+.member-stat{
+background:var(--bg-card);
+border:1px solid var(--border);
+border-radius:16px;
+padding:24px;
+text-align:center;
+}
+.member-stat.highlight{
+border-color:var(--green);
+background:rgba(34,197,94,0.1);
+}
+.member-stat .value{
+font-size:2rem;
+font-weight:900;
+color:var(--accent);
+}
+.member-stat.highlight .value{color:var(--green)}
+.member-stat .label{
+font-size:0.75rem;
+color:var(--text-muted);
+text-transform:uppercase;
+margin-top:4px;
+}
+.member-stat .note{
+font-size:0.7rem;
+color:var(--text-muted);
+font-style:italic;
+}
+.member-details{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:20px;
+margin-top:40px;
+}
+.member-detail{
+display:flex;
+align-items:center;
+gap:16px;
+background:var(--bg-card);
+border:1px solid var(--border);
+border-radius:12px;
+padding:20px;
+}
+.detail-icon{
+width:48px;height:48px;
+background:rgba(184,248,71,0.15);
+border-radius:12px;
+display:flex;align-items:center;justify-content:center;
+color:var(--accent);
+font-size:1.2rem;
+}
+.detail-value{
+font-size:1.3rem;
+font-weight:800;
+}
+.detail-label{
+font-size:0.75rem;
+color:var(--text-muted);
+}
+.member-note{
+margin-top:32px;
+background:var(--bg-card);
+border:1px solid var(--border);
+border-radius:12px;
+padding:16px 24px;
+display:flex;
+align-items:center;
+gap:12px;
+font-size:0.9rem;
+color:var(--text-dim);
+}
+.member-note i{
+color:var(--accent);
+font-size:1.2rem;
+}
+
 /* Slide 10: The Math */
 .slide-math{
-background:var(--bg-dark);
+background:var(--bg);
 }
 .math-calculator{
 background:var(--bg-card);
@@ -837,10 +960,10 @@ color:var(--accent);
 section{padding:80px 24px 40px}
 .problem-stats,.broker-comparison,.forex-grid,.tag-hero,.sonic-intro,
 .amplified-visual,.copyx-features,.start-steps,.math-results,.proof-stats,
-.math-projection-grid{
+.math-projection-grid,.member-grid,.member-details{
 grid-template-columns:1fr;
 }
-.problem-list,.amp-options,.sonic-stats-grid,.tag-stats{
+.problem-list,.amp-options,.sonic-stats-grid,.tag-stats,.member-stats{
 grid-template-columns:1fr;
 }
 .nav-links{display:none}
@@ -855,11 +978,12 @@ grid-template-columns:1fr;
 <nav class="nav">
 <div class="nav-logo">The Growth <span>Identity</span></div>
 <div class="nav-links">
-<a href="#problem">The Problem</a>
+<a href="#problem">Problem</a>
 <a href="#solution">TAG Markets</a>
 <a href="#sonic">Sonic AI</a>
-<a href="#proof">Results</a>
-<a href="#start">Get Started</a>
+<a href="#proof">Proof</a>
+<a href="#member">Member</a>
+<a href="#start">Start</a>
 </div>
 </nav>
 
@@ -1156,8 +1280,8 @@ grid-template-columns:1fr;
 <p class="section-subtitle">Don't trust screenshots. Verify the results yourself on Myfxbook - an independent tracking platform.</p>
 
 <div class="proof-box">
-<h2><i class="fa-solid fa-circle-check"></i> Myfxbook Verified</h2>
-<p>This is a third-party verification site. The results are tracked automatically. Anyone can check them.</p>
+<h2><i class="fa-solid fa-circle-check"></i> Sonic AI Master Account</h2>
+<p>The main Sonic AI trading account - results tracked since November 2024.</p>
 <div class="proof-link">myfxbook.com/members/SonicExperts/sonic-ai/11884034</div>
 <div class="proof-stats">
 <div class="proof-stat">
@@ -1177,6 +1301,85 @@ grid-template-columns:1fr;
 <div class="label">Total Profit</div>
 </div>
 </div>
+</div>
+</div>
+</section>
+
+<!-- Slide 9B: Real Member Results -->
+<section class="slide-member" id="member">
+<div class="container">
+<div class="section-label">Real Member Account</div>
+<h1 class="section-title">24x Amplified Copy Account</h1>
+<p class="section-subtitle">This is a real member's account copying Sonic AI with 24x amplification. Verified on Myfxbook.</p>
+
+<div class="member-grid">
+<div class="member-info">
+<div class="member-badge">
+<i class="fa-solid fa-user-check"></i>
+<span>Live Member Account</span>
+</div>
+<h3>SONIC AI SINCE OCTOBER</h3>
+<p>Real account copying Sonic AI trades with 24x amplification. Started October 2025. Trading Gold (XAUUSD).</p>
+<div class="member-link">
+<i class="fa-solid fa-link"></i>
+<span>Verified on Myfxbook</span>
+</div>
+</div>
+<div class="member-stats">
+<div class="member-stat highlight">
+<div class="value">+3.73%</div>
+<div class="label">Total Gain</div>
+<div class="note">Since Oct 2025</div>
+</div>
+<div class="member-stat">
+<div class="value">8.49</div>
+<div class="label">Profit Factor</div>
+</div>
+<div class="member-stat">
+<div class="value">0.04%</div>
+<div class="label">Max Drawdown</div>
+</div>
+<div class="member-stat">
+<div class="value">$6,146</div>
+<div class="label">Profit</div>
+</div>
+</div>
+</div>
+
+<div class="member-details">
+<div class="member-detail">
+<div class="detail-icon"><i class="fa-solid fa-wallet"></i></div>
+<div class="detail-info">
+<div class="detail-value">$144,433</div>
+<div class="detail-label">Current Balance</div>
+</div>
+</div>
+<div class="member-detail">
+<div class="detail-icon"><i class="fa-solid fa-chart-simple"></i></div>
+<div class="detail-info">
+<div class="detail-value">104</div>
+<div class="detail-label">Total Trades</div>
+</div>
+</div>
+<div class="member-detail">
+<div class="detail-icon"><i class="fa-solid fa-bullseye"></i></div>
+<div class="detail-info">
+<div class="detail-value">86%</div>
+<div class="detail-label">Win Rate</div>
+</div>
+</div>
+<div class="member-detail">
+<div class="detail-icon"><i class="fa-solid fa-clock"></i></div>
+<div class="detail-info">
+<div class="detail-value">25 min</div>
+<div class="detail-label">Avg Trade</div>
+</div>
+</div>
+</div>
+
+<div class="member-note">
+<i class="fa-solid fa-info-circle"></i>
+<span>This is a 24x amplified account - profits are multiplied 24x compared to the base deposit. Real member, real results, fully verified.</span>
 </div>
 </div>
 </section>
