@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Growth Identity - Your $25 Funded Trading Offer</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+@page {
+  size: A4;
+  margin: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #0a0e17;
+  color: #f1f5f9;
+  min-height: 100vh;
+  padding: 40px;
+}
+
+.container {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Header */
+.header {
+  text-align: center;
+  margin-bottom: 32px;
+  padding-bottom: 24px;
+  border-bottom: 2px solid #1e293b;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.logo span { color: #b8f847; }
+
+.tagline {
+  color: #94a3b8;
+  font-size: 0.9rem;
+}
+
+/* Hero Offer */
+.hero-offer {
+  background: linear-gradient(135deg, rgba(184,248,71,0.1), rgba(34,197,94,0.05));
+  border: 2px solid #b8f847;
+  border-radius: 16px;
+  padding: 32px;
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.hero-offer h1 {
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin-bottom: 16px;
+}
+
+.hero-offer h1 span { color: #b8f847; }
+
+.hero-offer p {
+  color: #94a3b8;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.big-number {
+  font-size: 3.5rem;
+  font-weight: 900;
+  color: #b8f847;
+  margin: 16px 0;
+}
+
+.big-number small {
+  font-size: 1rem;
+  color: #94a3b8;
+  display: block;
+  font-weight: 500;
+}
+
+/* Stats Grid */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.stat {
+  background: #111827;
+  border: 1px solid #1e293b;
+  border-radius: 12px;
+  padding: 16px;
+  text-align: center;
+}
+
+.stat .value {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #b8f847;
+}
+
+.stat .label {
+  font-size: 0.7rem;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 4px;
+}
+
+/* How It Works */
+.section-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #1e293b;
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.step {
+  background: #111827;
+  border-radius: 12px;
+  padding: 20px 16px;
+  text-align: center;
+}
+
+.step-num {
+  width: 32px;
+  height: 32px;
+  background: #b8f847;
+  color: #0a0e17;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 0.9rem;
+  margin: 0 auto 12px;
+}
+
+.step h3 {
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.step p {
+  font-size: 0.75rem;
+  color: #94a3b8;
+  line-height: 1.4;
+}
+
+/* What You Get */
+.benefits {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.benefit {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #111827;
+  border-radius: 8px;
+  padding: 12px 16px;
+}
+
+.benefit-icon {
+  width: 24px;
+  height: 24px;
+  background: rgba(184,248,71,0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #b8f847;
+  font-size: 0.8rem;
+  flex-shrink: 0;
+}
+
+.benefit span {
+  font-size: 0.85rem;
+}
+
+/* Verification Box */
+.verify-box {
+  background: #111827;
+  border: 1px solid #1e293b;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 32px;
+}
+
+.verify-box h3 {
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.verify-box h3::before {
+  content: "✓";
+  background: #22c55e;
+  color: #0a0e17;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  font-weight: 800;
+}
+
+.verify-link {
+  background: #0a0e17;
+  border-radius: 8px;
+  padding: 12px 16px;
+  font-family: monospace;
+  font-size: 0.8rem;
+  color: #b8f847;
+  word-break: break-all;
+}
+
+/* CTA */
+.cta {
+  background: linear-gradient(135deg, #b8f847, #22c55e);
+  border-radius: 12px;
+  padding: 24px;
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.cta h2 {
+  color: #0a0e17;
+  font-size: 1.3rem;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.cta p {
+  color: #0a0e17;
+  opacity: 0.8;
+  font-size: 0.9rem;
+  margin-bottom: 16px;
+}
+
+.cta-link {
+  background: #0a0e17;
+  color: #b8f847;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  display: inline-block;
+}
+
+/* Contact */
+.contact {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  padding-top: 24px;
+  border-top: 1px solid #1e293b;
+}
+
+.contact-item {
+  text-align: center;
+}
+
+.contact-item .label {
+  font-size: 0.7rem;
+  color: #64748b;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.contact-item .value {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #b8f847;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px solid #1e293b;
+}
+
+.footer p {
+  font-size: 0.65rem;
+  color: #64748b;
+  line-height: 1.5;
+}
+
+/* Print Styles */
+@media print {
+  body {
+    background: white;
+    color: #1a1a1a;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .hero-offer {
+    background: #f0f9f0 !important;
+    border-color: #22c55e !important;
+  }
+
+  .stat, .step, .benefit, .verify-box {
+    background: #f5f5f5 !important;
+  }
+
+  .cta {
+    background: #22c55e !important;
+  }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<header class="header">
+<div class="logo">The Growth <span>Identity</span></div>
+<p class="tagline">Professional Trading Education & Funded Accounts</p>
+</header>
+
+<section class="hero-offer">
+<h1>Get <span>$25 Funded</span> Into Your Account</h1>
+<div class="big-number">
+$0
+<small>Your Risk</small>
+</div>
+<p>I deposit $25 of my own money into your trading account. You get 24x amplification. Connected to professional traders. You keep 100% of profits.</p>
+</section>
+
+<div class="stats-grid">
+<div class="stat">
+<div class="value">+20.23%</div>
+<div class="label">Total Gain</div>
+</div>
+<div class="stat">
+<div class="value">80%</div>
+<div class="label">Win Rate</div>
+</div>
+<div class="stat">
+<div class="value">1.23%</div>
+<div class="label">Monthly Avg</div>
+</div>
+<div class="stat">
+<div class="value">0.86%</div>
+<div class="label">Drawdown</div>
+</div>
+</div>
+
+<h2 class="section-title">How It Works</h2>
+<div class="steps">
+<div class="step">
+<div class="step-num">1</div>
+<h3>Sign Up</h3>
+<p>Create free TAG Markets account & complete KYC verification</p>
+</div>
+<div class="step">
+<div class="step-num">2</div>
+<h3>Get Funded</h3>
+<p>I deposit $25 into your account + 24x amplification activated</p>
+</div>
+<div class="step">
+<div class="step-num">3</div>
+<h3>Earn Profits</h3>
+<p>Automatic trading via Sonic AI. Withdraw profits anytime.</p>
+</div>
+</div>
+
+<h2 class="section-title">What You Get</h2>
+<div class="benefits">
+<div class="benefit">
+<div class="benefit-icon">✓</div>
+<span>$25 funded by me (not a loan)</span>
+</div>
+<div class="benefit">
+<div class="benefit-icon">✓</div>
+<span>24x amplification = $600 trading power</span>
+</div>
+<div class="benefit">
+<div class="benefit-icon">✓</div>
+<span>Connected to Sonic AI traders</span>
+</div>
+<div class="benefit">
+<div class="benefit-icon">✓</div>
+<span>Keep 100% of your profits</span>
+</div>
+<div class="benefit">
+<div class="benefit-icon">✓</div>
+<span>Withdraw anytime - no lock-ups</span>
+</div>
+<div class="benefit">
+<div class="benefit-icon">✓</div>
+<span>Zero risk to you</span>
+</div>
+</div>
+
+<div class="verify-box">
+<h3>Verify Results Yourself</h3>
+<p style="font-size:0.8rem;color:#94a3b8;margin-bottom:12px;">Third-party verified on Myfxbook. Not screenshots - real data anyone can check:</p>
+<div class="verify-link">myfxbook.com/members/SonicExperts/sonic-ai/11884034</div>
+</div>
+
+<div class="cta">
+<h2>Ready to Get Started?</h2>
+<p>Sign up with my link, complete KYC, and message me on WhatsApp</p>
+<div class="cta-link">thegrowthidentity.com/offer</div>
+</div>
+
+<div class="contact">
+<div class="contact-item">
+<div class="label">Your Contact</div>
+<div class="value">Vambola Tullus</div>
+</div>
+<div class="contact-item">
+<div class="label">WhatsApp</div>
+<div class="value">+63 995 353 8545</div>
+</div>
+<div class="contact-item">
+<div class="label">Website</div>
+<div class="value">thegrowthidentity.com</div>
+</div>
+</div>
+
+<footer class="footer">
+<p>Trading involves risk. Past performance does not guarantee future results. The $25 funded offer is provided by The Growth Identity, not TAG Markets. TAG Markets is licensed by Mauritius FSC. Always trade responsibly and never invest more than you can afford to lose.</p>
+</footer>
+
+</div>
+</body>
+</html>
