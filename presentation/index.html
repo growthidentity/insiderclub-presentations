@@ -818,42 +818,90 @@ color:var(--text-muted);
 text-transform:uppercase;
 margin-top:4px;
 }
-.math-projection{
-background:linear-gradient(135deg,rgba(184,248,71,0.1),rgba(34,197,94,0.05));
-border:1px solid var(--accent);
+.projection-comparison{
+display:grid;
+grid-template-columns:1fr auto 1fr;
+gap:24px;
+align-items:stretch;
+}
+.projection-box{
+background:var(--bg);
+border:2px solid var(--border);
 border-radius:16px;
-padding:32px;
+padding:24px;
+}
+.projection-box.compound{
+border-color:var(--accent);
+background:linear-gradient(135deg,rgba(184,248,71,0.05),rgba(34,197,94,0.03));
+}
+.projection-header{
 text-align:center;
+margin-bottom:20px;
+padding-bottom:16px;
+border-bottom:1px solid var(--border);
 }
-.math-projection h3{
-font-size:1.2rem;
+.projection-header h3{
+font-size:1.1rem;
 font-weight:700;
-margin-bottom:16px;
-color:var(--accent);
+display:flex;
+align-items:center;
+justify-content:center;
+gap:8px;
+margin-bottom:4px;
 }
-.math-projection-grid{
+.projection-box.compound .projection-header h3{color:var(--accent)}
+.projection-header p{
+font-size:0.8rem;
+color:var(--text-muted);
+}
+.projection-grid{
 display:grid;
 grid-template-columns:repeat(4,1fr);
-gap:16px;
+gap:12px;
 }
-.math-projection-item{
+.projection-item{
 background:var(--bg-card);
 border-radius:10px;
-padding:16px;
+padding:14px 10px;
+text-align:center;
 }
-.math-projection-item .month{
-font-size:0.7rem;
+.projection-item .month{
+font-size:0.65rem;
 color:var(--text-muted);
 text-transform:uppercase;
+letter-spacing:0.5px;
 }
-.math-projection-item .value{
-font-size:1.3rem;
+.projection-item .value{
+font-size:1.1rem;
 font-weight:800;
 margin-top:4px;
 }
-.math-projection-item .growth{
-font-size:0.8rem;
+.projection-box.compound .projection-item .value{color:var(--accent)}
+.projection-item .growth{
+font-size:0.75rem;
 color:var(--green);
+margin-top:2px;
+}
+.projection-vs{
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:1rem;
+font-weight:800;
+color:var(--gold);
+background:var(--bg-card);
+border-radius:50%;
+width:48px;
+height:48px;
+align-self:center;
+}
+.projection-note{
+margin-top:20px;
+text-align:center;
+}
+.projection-note p{
+font-size:0.8rem;
+color:var(--text-muted);
 }
 
 /* Slide 11: Get Started */
@@ -960,11 +1008,17 @@ color:var(--accent);
 section{padding:80px 24px 40px}
 .problem-stats,.broker-comparison,.forex-grid,.tag-hero,.sonic-intro,
 .amplified-visual,.copyx-features,.start-steps,.math-results,.proof-stats,
-.math-projection-grid,.member-grid,.member-details{
+.member-grid,.member-details,.projection-comparison{
 grid-template-columns:1fr;
 }
 .problem-list,.amp-options,.sonic-stats-grid,.tag-stats,.member-stats{
 grid-template-columns:1fr;
+}
+.projection-grid{grid-template-columns:repeat(2,1fr)}
+.projection-vs{
+width:100%;height:auto;
+border-radius:8px;
+padding:8px;
 }
 .nav-links{display:none}
 .amp-arrow{transform:rotate(90deg)}
@@ -1419,30 +1473,68 @@ grid-template-columns:1fr;
 </div>
 </div>
 
-<div class="math-projection">
-<h3>Projected Growth (Based on 1.23% Monthly)</h3>
-<div class="math-projection-grid">
-<div class="math-projection-item">
+<div class="projection-comparison">
+<div class="projection-box">
+<div class="projection-header">
+<h3><i class="fa-solid fa-arrow-trend-up"></i> Simple Growth</h3>
+<p>Withdraw profits monthly</p>
+</div>
+<div class="projection-grid">
+<div class="projection-item">
 <div class="month">Start</div>
-<div class="value" id="p0">$500</div>
+<div class="value" id="s0">$500</div>
 </div>
-<div class="math-projection-item">
-<div class="month">6 Months</div>
-<div class="value" id="p6">$589</div>
-<div class="growth" id="g6">+17.8%</div>
+<div class="projection-item">
+<div class="month">6 Mo</div>
+<div class="value" id="s6">$1,240</div>
+<div class="growth" id="sg6">+148%</div>
 </div>
-<div class="math-projection-item">
-<div class="month">12 Months</div>
-<div class="value" id="p12">$693</div>
-<div class="growth" id="g12">+38.6%</div>
+<div class="projection-item">
+<div class="month">12 Mo</div>
+<div class="value" id="s12">$1,980</div>
+<div class="growth" id="sg12">+296%</div>
 </div>
-<div class="math-projection-item">
-<div class="month">24 Months</div>
-<div class="value" id="p24">$960</div>
-<div class="growth" id="g24">+92.0%</div>
+<div class="projection-item">
+<div class="month">24 Mo</div>
+<div class="value" id="s24">$3,460</div>
+<div class="growth" id="sg24">+592%</div>
 </div>
 </div>
-<p style="font-size:0.8rem;color:var(--text-muted);margin-top:16px;">*Based on Sonic AI's historical 1.23% monthly average. Past performance does not guarantee future results.</p>
+</div>
+
+<div class="projection-vs">VS</div>
+
+<div class="projection-box compound">
+<div class="projection-header">
+<h3><i class="fa-solid fa-rocket"></i> Compound Growth</h3>
+<p>Reinvest profits monthly</p>
+</div>
+<div class="projection-grid">
+<div class="projection-item">
+<div class="month">Start</div>
+<div class="value" id="c0">$500</div>
+</div>
+<div class="projection-item">
+<div class="month">6 Mo</div>
+<div class="value" id="c6">$1,389</div>
+<div class="growth" id="cg6">+178%</div>
+</div>
+<div class="projection-item">
+<div class="month">12 Mo</div>
+<div class="value" id="c12">$2,683</div>
+<div class="growth" id="cg12">+437%</div>
+</div>
+<div class="projection-item">
+<div class="month">24 Mo</div>
+<div class="value" id="c24">$8,230</div>
+<div class="growth" id="cg24">+1546%</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="projection-note">
+<p>*Based on 1.23% monthly on 24x amplified amount, 70% profit share. Past performance does not guarantee future results.</p>
 </div>
 </div>
 </div>
@@ -1511,6 +1603,7 @@ Trading involves risk. Past performance does not guarantee future results. Never
 
 <script>
 const MONTHLY_RATE = 0.0123;
+const PROFIT_SHARE = 0.7; // 70% kept
 const depositInput = document.getElementById('depositInput');
 
 function formatNum(n) {
@@ -1520,27 +1613,45 @@ function formatNum(n) {
 function updateCalc() {
   const deposit = parseFloat(depositInput.value) || 0;
   const amplified = deposit * 24;
-  const monthlyProfit = amplified * MONTHLY_RATE * 0.7; // 70% kept
-  const yearlyProfit = deposit * (Math.pow(1 + (MONTHLY_RATE * 24 * 0.7 / deposit * deposit / amplified * 24), 12) - 1);
+  const monthlyProfit = amplified * MONTHLY_RATE * PROFIT_SHARE;
 
-  // Simpler projection: deposit + earnings from amplified amount
-  const m6 = deposit + amplified * (Math.pow(1 + MONTHLY_RATE, 6) - 1) * 0.7;
-  const m12 = deposit + amplified * (Math.pow(1 + MONTHLY_RATE, 12) - 1) * 0.7;
-  const m24 = deposit + amplified * (Math.pow(1 + MONTHLY_RATE, 24) - 1) * 0.7;
+  // Simple growth (withdraw monthly - no compounding)
+  // Monthly profit stays constant based on original deposit
+  const s6 = deposit + (monthlyProfit * 6);
+  const s12 = deposit + (monthlyProfit * 12);
+  const s24 = deposit + (monthlyProfit * 24);
 
+  // Compound growth (reinvest profits)
+  // Each month, the amplified amount grows by the profit
+  // Effective monthly return on deposit = 24 * 1.23% * 70% = 20.66%
+  const effectiveRate = 24 * MONTHLY_RATE * PROFIT_SHARE;
+  const c6 = deposit * Math.pow(1 + effectiveRate, 6);
+  const c12 = deposit * Math.pow(1 + effectiveRate, 12);
+  const c24 = deposit * Math.pow(1 + effectiveRate, 24);
+
+  // Update main stats
   document.getElementById('depositAmt').textContent = formatNum(deposit);
   document.getElementById('amplifiedAmt').textContent = formatNum(amplified);
   document.getElementById('monthlyProfit').textContent = formatNum(monthlyProfit);
-  document.getElementById('yearlyProfit').textContent = formatNum(m12 - deposit);
+  document.getElementById('yearlyProfit').textContent = formatNum(s12 - deposit);
 
-  document.getElementById('p0').textContent = formatNum(deposit);
-  document.getElementById('p6').textContent = formatNum(m6);
-  document.getElementById('p12').textContent = formatNum(m12);
-  document.getElementById('p24').textContent = formatNum(m24);
+  // Simple growth
+  document.getElementById('s0').textContent = formatNum(deposit);
+  document.getElementById('s6').textContent = formatNum(s6);
+  document.getElementById('s12').textContent = formatNum(s12);
+  document.getElementById('s24').textContent = formatNum(s24);
+  document.getElementById('sg6').textContent = '+' + Math.round((s6 - deposit) / deposit * 100) + '%';
+  document.getElementById('sg12').textContent = '+' + Math.round((s12 - deposit) / deposit * 100) + '%';
+  document.getElementById('sg24').textContent = '+' + Math.round((s24 - deposit) / deposit * 100) + '%';
 
-  document.getElementById('g6').textContent = '+' + ((m6 - deposit) / deposit * 100).toFixed(1) + '%';
-  document.getElementById('g12').textContent = '+' + ((m12 - deposit) / deposit * 100).toFixed(1) + '%';
-  document.getElementById('g24').textContent = '+' + ((m24 - deposit) / deposit * 100).toFixed(1) + '%';
+  // Compound growth
+  document.getElementById('c0').textContent = formatNum(deposit);
+  document.getElementById('c6').textContent = formatNum(c6);
+  document.getElementById('c12').textContent = formatNum(c12);
+  document.getElementById('c24').textContent = formatNum(c24);
+  document.getElementById('cg6').textContent = '+' + Math.round((c6 - deposit) / deposit * 100) + '%';
+  document.getElementById('cg12').textContent = '+' + Math.round((c12 - deposit) / deposit * 100) + '%';
+  document.getElementById('cg24').textContent = '+' + Math.round((c24 - deposit) / deposit * 100) + '%';
 }
 
 depositInput.addEventListener('input', updateCalc);
