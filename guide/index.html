@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TAG Markets & Sonic CopyX Guide | The Growth Identity</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+--bg:#0a0e17;
+--bg-card:#111827;
+--bg-dark:#060b12;
+--accent:#b8f847;
+--accent-dim:#8bc634;
+--gold:#d4a94b;
+--text:#f1f5f9;
+--text-dim:#94a3b8;
+--text-muted:#64748b;
+--border:#1e293b;
+--green:#22c55e;
+--red:#ef4444;
+}
+html{scroll-behavior:smooth}
+body{
+font-family:'Inter',system-ui,sans-serif;
+background:var(--bg);
+color:var(--text);
+line-height:1.6;
+}
+
+/* Navigation */
+.nav{
+position:fixed;top:0;left:0;right:0;
+background:rgba(10,14,23,0.95);
+backdrop-filter:blur(10px);
+border-bottom:1px solid var(--border);
+z-index:100;
+padding:16px 24px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+.nav-logo{
+font-weight:800;font-size:1.1rem;
+text-decoration:none;color:var(--text);
+}
+.nav-logo span{color:var(--accent)}
+.nav-links{
+display:flex;gap:24px;
+}
+.nav-links a{
+color:var(--text-dim);
+text-decoration:none;
+font-size:0.85rem;
+font-weight:500;
+transition:color 0.2s;
+}
+.nav-links a:hover{color:var(--accent)}
+
+/* Hero */
+.hero{
+min-height:60vh;
+padding:120px 48px 60px;
+display:flex;
+flex-direction:column;
+justify-content:center;
+text-align:center;
+background:linear-gradient(180deg,var(--bg) 0%,var(--bg-dark) 100%);
+}
+.hero .logo{
+font-size:1.5rem;
+font-weight:800;
+margin-bottom:48px;
+}
+.hero .logo span{color:var(--accent)}
+.hero h1{
+font-size:clamp(2rem,5vw,3.5rem);
+font-weight:900;
+margin-bottom:16px;
+line-height:1.1;
+}
+.hero h1 .highlight{color:var(--accent)}
+.hero p{
+font-size:1.2rem;
+color:var(--text-dim);
+max-width:700px;
+margin:0 auto 32px;
+}
+.hero-badges{
+display:flex;justify-content:center;flex-wrap:wrap;gap:12px;
+}
+.hero-badge{
+background:var(--bg-card);
+border:1px solid var(--border);
+border-radius:30px;
+padding:10px 20px;
+font-size:0.85rem;
+font-weight:600;
+display:flex;align-items:center;gap:8px;
+}
+.hero-badge i{color:var(--accent)}
+
+/* Main content */
+.guide-content{
+max-width:900px;
+margin:0 auto;
+padding:0 24px 80px;
+}
+
+/* Part headers */
+.part-header{
+text-align:center;
+padding:80px 0 48px;
+}
+.part-label{
+font-size:0.8rem;
+font-weight:700;
+text-transform:uppercase;
+letter-spacing:2px;
+color:var(--accent);
+margin-bottom:12px;
+}
+.part-title{
+font-size:clamp(1.8rem,4vw,2.8rem);
+font-weight:900;
+line-height:1.15;
+}
+
+/* Step cards */
+.step-card{
+background:var(--bg-card);
+border:1px solid var(--border);
+border-radius:24px;
+padding:40px;
+margin-bottom:32px;
+transition:border-color 0.3s;
+}
+.step-card:hover{
+border-color:rgba(184,248,71,0.3);
+}
+.step-header{
+display:flex;
+align-items:center;
+gap:16px;
+margin-bottom:20px;
+}
+.step-num{
+width:48px;height:48px;
+background:var(--accent);
+color:var(--bg);
+border-radius:50%;
+display:flex;align-items:center;justify-content:center;
+font-weight:900;font-size:1.2rem;
+flex-shrink:0;
+}
+.step-title{
+font-size:1.3rem;
+font-weight:800;
+}
+.step-desc{
+color:var(--text-dim);
+font-size:1rem;
+line-height:1.7;
+margin-bottom:24px;
+}
+.step-desc strong{
+color:var(--text);
+font-weight:700;
+}
+.step-note{
+background:rgba(184,248,71,0.08);
+border:1px solid rgba(184,248,71,0.2);
+border-radius:12px;
+padding:16px 20px;
+margin-bottom:24px;
+display:flex;
+align-items:flex-start;
+gap:12px;
+font-size:0.9rem;
+color:var(--text-dim);
+}
+.step-note i{
+color:var(--accent);
+font-size:1.1rem;
+margin-top:2px;
+flex-shrink:0;
+}
+.step-note.warning{
+background:rgba(239,68,68,0.08);
+border-color:rgba(239,68,68,0.2);
+}
+.step-note.warning i{
+color:var(--red);
+}
+.step-image{
+border-radius:16px;
+overflow:hidden;
+border:1px solid var(--border);
+}
+.step-image img{
+width:100%;
+height:auto;
+display:block;
+}
+
+/* Progress bar */
+.progress-bar{
+position:fixed;
+top:65px;left:0;right:0;
+height:3px;
+background:var(--border);
+z-index:99;
+}
+.progress-fill{
+height:100%;
+background:var(--accent);
+width:0%;
+transition:width 0.3s;
+}
+
+/* Table of contents */
+.toc{
+background:var(--bg-card);
+border:1px solid var(--border);
+border-radius:24px;
+padding:40px;
+margin-bottom:48px;
+}
+.toc h2{
+font-size:1.3rem;
+font-weight:800;
+margin-bottom:20px;
+display:flex;align-items:center;gap:10px;
+}
+.toc h2 i{color:var(--accent)}
+.toc-list{
+list-style:none;
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:8px;
+}
+.toc-list a{
+display:flex;
+align-items:center;
+gap:10px;
+color:var(--text-dim);
+text-decoration:none;
+font-size:0.9rem;
+padding:8px 12px;
+border-radius:8px;
+transition:all 0.2s;
+}
+.toc-list a:hover{
+color:var(--accent);
+background:rgba(184,248,71,0.05);
+}
+.toc-list .toc-num{
+width:28px;height:28px;
+background:var(--bg);
+border:1px solid var(--border);
+border-radius:50%;
+display:flex;align-items:center;justify-content:center;
+font-size:0.75rem;
+font-weight:700;
+color:var(--accent);
+flex-shrink:0;
+}
+.toc-part{
+grid-column:1/-1;
+font-size:0.8rem;
+font-weight:700;
+text-transform:uppercase;
+letter-spacing:2px;
+color:var(--accent);
+padding:16px 0 4px;
+border-top:1px solid var(--border);
+margin-top:8px;
+}
+.toc-part:first-child{
+border-top:none;
+margin-top:0;
+padding-top:0;
+}
+
+/* Footer */
+.guide-footer{
+text-align:center;
+padding:60px 24px;
+background:var(--bg-dark);
+}
+.footer-card{
+background:var(--bg-card);
+border:1px solid var(--border);
+border-radius:24px;
+padding:48px;
+max-width:600px;
+margin:0 auto;
+}
+.footer-icon{
+font-size:3rem;
+margin-bottom:16px;
+}
+.footer-card h2{
+font-size:1.8rem;
+font-weight:900;
+margin-bottom:8px;
+}
+.footer-card h2 span{color:var(--accent)}
+.footer-card p{
+color:var(--text-dim);
+font-size:1rem;
+margin-bottom:24px;
+line-height:1.7;
+}
+.footer-links{
+display:flex;justify-content:center;gap:16px;
+flex-wrap:wrap;
+}
+.footer-link{
+display:flex;align-items:center;gap:10px;
+background:var(--bg);
+border:1px solid var(--border);
+border-radius:12px;
+padding:14px 24px;
+color:var(--text);
+text-decoration:none;
+font-weight:600;
+font-size:0.9rem;
+transition:all 0.2s;
+}
+.footer-link:hover{
+border-color:var(--accent);
+color:var(--accent);
+}
+.footer-link i{color:var(--accent)}
+
+/* Responsive */
+@media(max-width:900px){
+.hero{padding:100px 24px 40px}
+.step-card{padding:24px}
+.toc-list{grid-template-columns:1fr}
+.nav-links{display:none}
+.hero-badges{flex-direction:column;align-items:center}
+}
+</style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="nav">
+<a href="/" class="nav-logo">The Growth <span>Identity</span></a>
+<div class="nav-links">
+<a href="#part1">Registration</a>
+<a href="#part2">Deposit</a>
+<a href="#part3">CopyX</a>
+</div>
+</nav>
+
+<!-- Progress Bar -->
+<div class="progress-bar">
+<div class="progress-fill" id="progressFill"></div>
+</div>
+
+<!-- Hero -->
+<section class="hero">
+<div class="logo">The Growth <span>Identity</span></div>
+<h1>Tag Markets & <span class="highlight">Sonic CopyX</span></h1>
+<p>Complete step-by-step guide from registration to connecting with CopyX</p>
+<div class="hero-badges">
+<div class="hero-badge"><i class="fa-solid fa-list-check"></i> 30 Steps</div>
+<div class="hero-badge"><i class="fa-solid fa-clock"></i> ~15 minutes</div>
+<div class="hero-badge"><i class="fa-solid fa-shield-check"></i> KYC Verification</div>
+</div>
+</section>
+
+<!-- Guide Content -->
+<div class="guide-content">
+
+<!-- Table of Contents -->
+<div class="toc">
+<h2><i class="fa-solid fa-list"></i> Table of Contents</h2>
+<ul class="toc-list">
+<li class="toc-part">Part 1: Registration & KYC Verification</li>
+<li><a href="#step1"><span class="toc-num">1</span> Register on AITECH IB Portal</a></li>
+<li><a href="#step2"><span class="toc-num">2</span> Verify email (IB Portal)</a></li>
+<li><a href="#step3"><span class="toc-num">3</span> Email confirmed</a></li>
+<li><a href="#step4"><span class="toc-num">4</span> Log in to AITECH Portal</a></li>
+<li><a href="#step5"><span class="toc-num">5</span> Register TAG Markets</a></li>
+<li><a href="#step6"><span class="toc-num">6</span> Sync your account</a></li>
+<li><a href="#step7"><span class="toc-num">7</span> Sync in progress</a></li>
+<li><a href="#step8"><span class="toc-num">8</span> Sync successful</a></li>
+<li><a href="#step9"><span class="toc-num">9</span> Verify TAG Markets email</a></li>
+<li><a href="#step10"><span class="toc-num">10</span> TAG Markets dashboard</a></li>
+<li><a href="#step11"><span class="toc-num">11</span> Start KYC verification</a></li>
+<li><a href="#step12"><span class="toc-num">12</span> Begin verification</a></li>
+<li><a href="#step13"><span class="toc-num">13</span> Choose document type</a></li>
+<li><a href="#step14"><span class="toc-num">14</span> Biometric verification</a></li>
+<li><a href="#step15"><span class="toc-num">15</span> KYC approved</a></li>
+<li><a href="#step16"><span class="toc-num">16</span> Dashboard after KYC</a></li>
+<li class="toc-part">Part 2: Making a Deposit</li>
+<li><a href="#step17"><span class="toc-num">17</span> Choose deposit amount</a></li>
+<li><a href="#step18"><span class="toc-num">18</span> Choose payment method</a></li>
+<li><a href="#step19"><span class="toc-num">19</span> Confirm crypto payment</a></li>
+<li><a href="#step20"><span class="toc-num">20</span> Choose cryptocurrency</a></li>
+<li><a href="#step21"><span class="toc-num">21</span> Choose USDT network</a></li>
+<li><a href="#step22"><span class="toc-num">22</span> Send payment</a></li>
+<li><a href="#step23"><span class="toc-num">23</span> Payment detected</a></li>
+<li class="toc-part">Part 3: Connecting to Sonic CopyX</li>
+<li><a href="#step24"><span class="toc-num">24</span> Find CopyX</a></li>
+<li><a href="#step25"><span class="toc-num">25</span> Browse traders</a></li>
+<li><a href="#step26"><span class="toc-num">26</span> Copy Strategy overview</a></li>
+<li><a href="#step27"><span class="toc-num">27</span> Enter investment</a></li>
+<li><a href="#step28"><span class="toc-num">28</span> Community Token</a></li>
+<li><a href="#step29"><span class="toc-num">29</span> HASH/GU-ID & Copy Now</a></li>
+<li><a href="#step30"><span class="toc-num">30</span> CopyX account created!</a></li>
+</ul>
+</div>
+
+<!-- ============================================ -->
+<!-- PART 1: Registration & KYC Verification      -->
+<!-- ============================================ -->
+
+<div class="part-header" id="part1">
+<div class="part-label">Part 1</div>
+<div class="part-title">Registration & KYC Verification</div>
+</div>
+
+<!-- Step 1 -->
+<div class="step-card" id="step1">
+<div class="step-header">
+<div class="step-num">1</div>
+<div class="step-title">Register on AITECH IB Portal</div>
+</div>
+<div class="step-desc">
+<a href="https://my.aitechsolutions.group/register?ref=VAMBOLA" target="_blank" style="color:var(--accent);font-weight:700;text-decoration:underline;">CLICK HERE</a> and fill out the registration form: <strong>first name, last name, email, password, country</strong> and phone number. Check both risk warning boxes and click <strong>Register</strong>.
+</div>
+<div class="step-image">
+<img src="images/image14.png" alt="AITECH IB Portal registration form" loading="lazy">
+</div>
+</div>
+
+<!-- Step 2 -->
+<div class="step-card" id="step2">
+<div class="step-header">
+<div class="step-num">2</div>
+<div class="step-title">Verify Email (IB Portal)</div>
+</div>
+<div class="step-desc">
+You will receive an email from the IB Portal. Click the <strong>"Verify Account"</strong> button to confirm your email address. The link expires after <strong>4320 minutes</strong>.
+</div>
+<div class="step-image">
+<img src="images/image21.png" alt="Email verification link" loading="lazy">
+</div>
+</div>
+
+<!-- Step 3 -->
+<div class="step-card" id="step3">
+<div class="step-header">
+<div class="step-num">3</div>
+<div class="step-title">Email Confirmed</div>
+</div>
+<div class="step-desc">
+After clicking the link, you will see the <strong>"emailVerified"</strong> confirmation message. Click <strong>"continueToLogin"</strong>.
+</div>
+<div class="step-image">
+<img src="images/image3.png" alt="Email confirmed" loading="lazy">
+</div>
+</div>
+
+<!-- Step 4 -->
+<div class="step-card" id="step4">
+<div class="step-header">
+<div class="step-num">4</div>
+<div class="step-title">Log In to AITECH Portal</div>
+</div>
+<div class="step-desc">
+Enter your <strong>email and password</strong> and click <strong>"Login"</strong>.
+</div>
+<div class="step-image">
+<img src="images/image7.png" alt="AITECH Portal login" loading="lazy">
+</div>
+</div>
+
+<!-- Step 5 -->
+<div class="step-card" id="step5">
+<div class="step-header">
+<div class="step-num">5</div>
+<div class="step-title">Register TAG Markets from IB Portal</div>
+</div>
+<div class="step-desc">
+After logging in, scroll down until you find the <strong>"Tag Markets Registration"</strong> banner. Click <strong>"Register TagMarkets"</strong>.
+</div>
+<div class="step-note warning">
+<i class="fa-solid fa-triangle-exclamation"></i>
+<span><strong>Important!</strong> Do not register directly on the TAG Markets platform — it must be done through the IB Portal so the accounts sync properly.</span>
+</div>
+<div class="step-image">
+<img src="images/image6.png" alt="TAG Markets registration from IB Portal" loading="lazy">
+</div>
+</div>
+
+<!-- Step 6 -->
+<div class="step-card" id="step6">
+<div class="step-header">
+<div class="step-num">6</div>
+<div class="step-title">Sync Your Account</div>
+</div>
+<div class="step-desc">
+A popup will appear: <strong>"Welcome to TAG Broker"</strong>. Enter a password if desired and click <strong>"Sync Account"</strong>.
+</div>
+<div class="step-image">
+<img src="images/image11.png" alt="Account sync" loading="lazy">
+</div>
+</div>
+
+<!-- Step 7 -->
+<div class="step-card" id="step7">
+<div class="step-header">
+<div class="step-num">7</div>
+<div class="step-title">Sync in Progress</div>
+</div>
+<div class="step-desc">
+Wait while the system verifies your data and syncs your accounts.
+</div>
+<div class="step-image">
+<img src="images/image5.png" alt="Sync in progress" loading="lazy">
+</div>
+</div>
+
+<!-- Step 8 -->
+<div class="step-card" id="step8">
+<div class="step-header">
+<div class="step-num">8</div>
+<div class="step-title">Sync Successful</div>
+</div>
+<div class="step-desc">
+You will see the <strong>"Sync Successful!"</strong> confirmation. TAG Broker will send you an email with further instructions. Click <strong>"Close"</strong>.
+</div>
+<div class="step-image">
+<img src="images/image8.png" alt="Sync successful" loading="lazy">
+</div>
+</div>
+
+<!-- Step 9 -->
+<div class="step-card" id="step9">
+<div class="step-header">
+<div class="step-num">9</div>
+<div class="step-title">Verify TAG Markets Email</div>
+</div>
+<div class="step-desc">
+Open the TAG Markets email. It contains your login credentials and a <strong>"Confirm Email Address"</strong> button — click it to activate your TAG Markets account.
+</div>
+<div class="step-image">
+<img src="images/image18.png" alt="TAG Markets email verification" loading="lazy">
+</div>
+</div>
+
+<!-- Step 10 -->
+<div class="step-card" id="step10">
+<div class="step-header">
+<div class="step-num">10</div>
+<div class="step-title">TAG Markets Dashboard</div>
+</div>
+<div class="step-desc">
+You are now on the TAG Markets dashboard. You will see a notification at the top to complete KYC verification.
+</div>
+<div class="step-image">
+<img src="images/image15.png" alt="TAG Markets dashboard" loading="lazy">
+</div>
+</div>
+
+<!-- Step 11 -->
+<div class="step-card" id="step11">
+<div class="step-header">
+<div class="step-num">11</div>
+<div class="step-title">Start KYC Verification — Sumsub</div>
+</div>
+<div class="step-desc">
+Click the <strong>"upload documents"</strong> link on the dashboard. The Sumsub verification popup will appear. Click <strong>"Continue"</strong>.
+</div>
+<div class="step-image">
+<img src="images/image4.png" alt="Start KYC verification — Sumsub" loading="lazy">
+</div>
+</div>
+
+<!-- Step 12 -->
+<div class="step-card" id="step12">
+<div class="step-header">
+<div class="step-num">12</div>
+<div class="step-title">Begin Verification</div>
+</div>
+<div class="step-desc">
+Click <strong>"Start verification"</strong>. The process consists of two steps: submitting an identity document and completing a biometric verification.
+</div>
+<div class="step-image">
+<img src="images/image2.png" alt="Begin verification" loading="lazy">
+</div>
+</div>
+
+<!-- Step 13 -->
+<div class="step-card" id="step13">
+<div class="step-header">
+<div class="step-num">13</div>
+<div class="step-title">Choose Document Type</div>
+</div>
+<div class="step-desc">
+Select the issuing country and document type <strong>(ID card, passport, etc.)</strong>, then click <strong>"Continue"</strong>.
+</div>
+<div class="step-image">
+<img src="images/image1.png" alt="Choose document type" loading="lazy">
+</div>
+</div>
+
+<!-- Step 14 -->
+<div class="step-card" id="step14">
+<div class="step-header">
+<div class="step-num">14</div>
+<div class="step-title">Biometric Verification</div>
+</div>
+<div class="step-desc">
+Follow the on-screen instructions to complete the biometric verification. Wait while the system reviews your submission.
+</div>
+<div class="step-image">
+<img src="images/image13.png" alt="Biometric verification" loading="lazy">
+</div>
+</div>
+
+<!-- Step 15 -->
+<div class="step-card" id="step15">
+<div class="step-header">
+<div class="step-num">15</div>
+<div class="step-title">KYC Approved</div>
+</div>
+<div class="step-desc">
+You will see the message <strong>"Your profile has been verified"</strong>. KYC is successfully completed — you can now make deposits.
+</div>
+<div class="step-image">
+<img src="images/image10.png" alt="KYC approved" loading="lazy">
+</div>
+</div>
+
+<!-- Step 16 -->
+<div class="step-card" id="step16">
+<div class="step-header">
+<div class="step-num">16</div>
+<div class="step-title">Dashboard After KYC</div>
+</div>
+<div class="step-desc">
+After KYC approval, your trading account <strong>(MT5, account no. 50627155)</strong> is visible on the dashboard. Click <strong>"Deposit"</strong> to fund your account.
+</div>
+<div class="step-image">
+<img src="images/image9.png" alt="Dashboard after KYC" loading="lazy">
+</div>
+</div>
+
+<!-- ============================================ -->
+<!-- PART 2: Making a Deposit                     -->
+<!-- ============================================ -->
+
+<div class="part-header" id="part2">
+<div class="part-label">Part 2</div>
+<div class="part-title">Making a Deposit</div>
+</div>
+
+<!-- Step 17 -->
+<div class="step-card" id="step17">
+<div class="step-header">
+<div class="step-num">17</div>
+<div class="step-title">Choose Deposit Amount</div>
+</div>
+<div class="step-desc">
+Select the currency <strong>(USD)</strong> and enter your desired amount (e.g. <strong>$777</strong>) or choose a preset amount ($100, $500, $1000). Click <strong>"Next"</strong>.
+</div>
+<div class="step-image">
+<img src="images/image12.png" alt="Choose deposit amount" loading="lazy">
+</div>
+</div>
+
+<!-- Step 18 -->
+<div class="step-card" id="step18">
+<div class="step-header">
+<div class="step-num">18</div>
+<div class="step-title">Choose Payment Method</div>
+</div>
+<div class="step-desc">
+Select a payment method: <strong>Crypto</strong> (Bitcoin, Ethereum, USDT, etc.) or <strong>card/bank transfer</strong> (Visa/Mastercard). Click your preferred option.
+</div>
+<div class="step-image">
+<img src="images/image25.png" alt="Choose payment method" loading="lazy">
+</div>
+</div>
+
+<!-- Step 19 -->
+<div class="step-card" id="step19">
+<div class="step-header">
+<div class="step-num">19</div>
+<div class="step-title">Confirm Crypto Payment</div>
+</div>
+<div class="step-desc">
+If you chose crypto, the deposit amount <strong>($777)</strong> will be displayed. Click <strong>"Submit"</strong> to continue.
+</div>
+<div class="step-image">
+<img src="images/image17.png" alt="Confirm crypto payment" loading="lazy">
+</div>
+</div>
+
+<!-- Step 20 -->
+<div class="step-card" id="step20">
+<div class="step-header">
+<div class="step-num">20</div>
+<div class="step-title">Choose Cryptocurrency</div>
+</div>
+<div class="step-desc">
+Select a cryptocurrency: Bitcoin, Ethereum, Tether (USDT), USD Coin, Binance Coin, or Solana.
+</div>
+<div class="step-note">
+<i class="fa-solid fa-lightbulb"></i>
+<span>We recommend using <strong>USDT (Tether)</strong> due to low transaction fees.</span>
+</div>
+<div class="step-image">
+<img src="images/image16.png" alt="Choose cryptocurrency" loading="lazy">
+</div>
+</div>
+
+<!-- Step 21 -->
+<div class="step-card" id="step21">
+<div class="step-header">
+<div class="step-num">21</div>
+<div class="step-title">Choose USDT Network</div>
+</div>
+<div class="step-desc">
+For USDT, we recommend selecting the <strong>BSC BEP-20</strong> network due to low fees.
+</div>
+<div class="step-image">
+<img src="images/image26.png" alt="Choose USDT network" loading="lazy">
+</div>
+</div>
+
+<!-- Step 22 -->
+<div class="step-card" id="step22">
+<div class="step-header">
+<div class="step-num">22</div>
+<div class="step-title">Send Payment via QR Code or Address</div>
+</div>
+<div class="step-desc">
+A payment address and QR code will be displayed. Open your crypto wallet and send the exact amount <strong>(777.225395 USDT)</strong> to the address shown. The payment expires in approximately <strong>15 minutes</strong>.
+</div>
+<div class="step-image">
+<img src="images/image23.png" alt="Payment QR code and address" loading="lazy">
+</div>
+</div>
+
+<!-- Step 23 -->
+<div class="step-card" id="step23">
+<div class="step-header">
+<div class="step-num">23</div>
+<div class="step-title">Payment Detected</div>
+</div>
+<div class="step-desc">
+The system will detect your payment and display the message <strong>"Payment found! Awaiting network confirmations"</strong>. Wait for network confirmations.
+</div>
+<div class="step-image">
+<img src="images/image30.png" alt="Payment detected" loading="lazy">
+</div>
+</div>
+
+<!-- ============================================ -->
+<!-- PART 3: Connecting to Sonic CopyX            -->
+<!-- ============================================ -->
+
+<div class="part-header" id="part3">
+<div class="part-label">Part 3</div>
+<div class="part-title">Connecting to Sonic CopyX Strategy</div>
+</div>
+
+<!-- Step 24 -->
+<div class="step-card" id="step24">
+<div class="step-header">
+<div class="step-num">24</div>
+<div class="step-title">Find CopyX & Browse Traders</div>
+</div>
+<div class="step-desc">
+On the dashboard, click <strong>"CopyX"</strong> in the left menu.
+</div>
+<div class="step-image">
+<img src="images/image22.png" alt="CopyX menu" loading="lazy">
+</div>
+</div>
+
+<!-- Step 25 -->
+<div class="step-card" id="step25">
+<div class="step-header">
+<div class="step-num">25</div>
+<div class="step-title">Browse Traders</div>
+</div>
+<div class="step-desc">
+The <strong>"Browse Pro Traders"</strong> page will open, showing all active strategies. Find and click on the <strong>"SONIC"</strong> strategy.
+</div>
+<div class="step-image">
+<img src="images/image24.png" alt="Browse Pro Traders page" loading="lazy">
+</div>
+</div>
+
+<!-- Step 26 -->
+<div class="step-card" id="step26">
+<div class="step-header">
+<div class="step-num">26</div>
+<div class="step-title">Copy Strategy — Overview</div>
+</div>
+<div class="step-desc">
+The <strong>"Copy Strategy"</strong> window will open. Enter your investment amount <strong>(min $10)</strong>. The account type is automatically set to <strong>"Amplify"</strong>.
+</div>
+<div class="step-note warning">
+<i class="fa-solid fa-triangle-exclamation"></i>
+<span><strong>Important!</strong> If the trader loses more than 10% of the initial balance, your account will be liquidated.</span>
+</div>
+<div class="step-image">
+<img src="images/image29.png" alt="Copy Strategy overview" loading="lazy">
+</div>
+</div>
+
+<!-- Step 27 -->
+<div class="step-card" id="step27">
+<div class="step-header">
+<div class="step-num">27</div>
+<div class="step-title">Copy Strategy — Enter Investment</div>
+</div>
+<div class="step-desc">
+The <strong>"Copy Strategy"</strong> window will open. Enter your investment amount <strong>(min $10)</strong>. The account type is automatically set to <strong>"Amplify"</strong>.
+</div>
+<div class="step-note warning">
+<i class="fa-solid fa-triangle-exclamation"></i>
+<span><strong>Important!</strong> If the trader loses more than 10% of the initial balance, your account will be liquidated.</span>
+</div>
+<div class="step-image">
+<img src="images/image19.png" alt="Copy Strategy — enter investment" loading="lazy">
+</div>
+</div>
+
+<!-- Step 28 -->
+<div class="step-card" id="step28">
+<div class="step-header">
+<div class="step-num">28</div>
+<div class="step-title">Enter Community Token #DW</div>
+</div>
+<div class="step-desc">
+Click <strong>"Community Token"</strong> and enter the token code <strong>#DW</strong>, then click <strong>"Verify"</strong>.
+</div>
+<div class="step-note">
+<i class="fa-solid fa-info-circle"></i>
+<span>The token changes your Amplify account's drawdown limit to <strong>5%</strong> of the initial balance.</span>
+</div>
+<div class="step-image">
+<img src="images/image20.png" alt="Enter Community Token" loading="lazy">
+</div>
+</div>
+
+<!-- Step 29 -->
+<div class="step-card" id="step29">
+<div class="step-header">
+<div class="step-num">29</div>
+<div class="step-title">Enter HASH/GU-ID & Click Copy Now</div>
+</div>
+<div class="step-desc">
+After the token is verified, the <strong>HASH/GU-ID</strong> field will appear. Enter the value <strong>1000</strong> and click <strong>"Submit"</strong>. Check both consent boxes and click <strong>"Copy Now"</strong>.
+</div>
+<div class="step-image">
+<img src="images/image28.png" alt="Enter HASH/GU-ID and Copy Now" loading="lazy">
+</div>
+</div>
+
+<!-- Step 30 -->
+<div class="step-card" id="step30">
+<div class="step-header">
+<div class="step-num">30</div>
+<div class="step-title">CopyX Account Created!</div>
+</div>
+<div class="step-desc">
+You will see the message <strong>"CopyX Account Created"</strong>. Click <strong>"Continue"</strong>. The SONIC strategy will now automatically copy the trader's trades to your account.
+</div>
+<div class="step-image">
+<img src="images/image27.png" alt="CopyX account created" loading="lazy">
+</div>
+</div>
+
+<!-- Success card -->
+<div class="step-card" id="done" style="border-color:var(--accent);background:linear-gradient(135deg,rgba(184,248,71,0.05),rgba(34,197,94,0.03));">
+<div style="text-align:center">
+<div style="font-size:3rem;margin-bottom:16px">&#127881;</div>
+<h2 style="font-size:1.8rem;font-weight:900;margin-bottom:12px">Congratulations! You're All Set!</h2>
+<p style="color:var(--text-dim);font-size:1.05rem;line-height:1.7;max-width:600px;margin:0 auto 24px;">
+You have successfully connected to the SONIC CopyX strategy! From the Followers Hub you can track your strategy's growth, balance, and trades. At the bottom of the page you will also find your MetaTrader 5 login credentials (download the MT5 app from Google Play / App Store) and the server is <strong>T.M Financials</strong>.
+</p>
+<div class="step-image">
+<img src="images/image31.png" alt="Followers Hub — track your investment" loading="lazy">
+</div>
+</div>
+</div>
+
+</div>
+
+<!-- Footer -->
+<div class="guide-footer">
+<div class="footer-card">
+<div class="footer-icon">&#128172;</div>
+<h2>Need <span>help?</span></h2>
+<p>If you have any questions or need help with any step, don't hesitate to reach out.</p>
+<div class="footer-links">
+<a href="https://wa.me/639953538545" class="footer-link" target="_blank">
+<i class="fa-brands fa-whatsapp"></i> WhatsApp
+</a>
+<a href="https://thegrowthidentity.com" class="footer-link" target="_blank">
+<i class="fa-solid fa-globe"></i> Website
+</a>
+<a href="https://thegrowthidentity.com/presentation/" class="footer-link" target="_blank">
+<i class="fa-solid fa-display"></i> Presentation
+</a>
+</div>
+</div>
+<p style="color:var(--text-muted);font-size:0.8rem;margin-top:32px;max-width:600px;margin-left:auto;margin-right:auto;">
+Trading involves risk. Past performance does not guarantee future results. Never invest more than you can afford to lose. TAG Markets is licensed by Mauritius FSC.
+</p>
+</div>
+
+<script>
+// Progress bar
+window.addEventListener('scroll', function() {
+  const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+  const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  const scrolled = (winScroll / height) * 100;
+  document.getElementById('progressFill').style.width = scrolled + '%';
+});
+</script>
+</body>
+</html>
