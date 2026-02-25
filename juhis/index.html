@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TAG Markets & Sonic CopyX Juhend | The Growth Identity</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+--bg:#0a0e17;
+--bg-card:#111827;
+--bg-dark:#060b12;
+--accent:#b8f847;
+--accent-dim:#8bc634;
+--gold:#d4a94b;
+--text:#f1f5f9;
+--text-dim:#94a3b8;
+--text-muted:#64748b;
+--border:#1e293b;
+--green:#22c55e;
+--red:#ef4444;
+}
+html{scroll-behavior:smooth}
+body{
+font-family:'Inter',system-ui,sans-serif;
+background:var(--bg);
+color:var(--text);
+line-height:1.6;
+}
+
+/* Navigation */
+.nav{
+position:fixed;top:0;left:0;right:0;
+background:rgba(10,14,23,0.95);
+backdrop-filter:blur(10px);
+border-bottom:1px solid var(--border);
+z-index:100;
+padding:16px 24px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+.nav-logo{
+font-weight:800;font-size:1.1rem;
+text-decoration:none;color:var(--text);
+}
+.nav-logo span{color:var(--accent)}
+.nav-links{
+display:flex;gap:24px;
+}
+.nav-links a{
+color:var(--text-dim);
+text-decoration:none;
+font-size:0.85rem;
+font-weight:500;
+transition:color 0.2s;
+}
+.nav-links a:hover{color:var(--accent)}
+
+/* Hero */
+.hero{
+min-height:60vh;
+padding:120px 48px 60px;
+display:flex;
+flex-direction:column;
+justify-content:center;
+text-align:center;
+background:linear-gradient(180deg,var(--bg) 0%,var(--bg-dark) 100%);
+}
+.hero .logo{
+font-size:1.5rem;
+font-weight:800;
+margin-bottom:48px;
+}
+.hero .logo span{color:var(--accent)}
+.hero h1{
+font-size:clamp(2rem,5vw,3.5rem);
+font-weight:900;
+margin-bottom:16px;
+line-height:1.1;
+}
+.hero h1 .highlight{color:var(--accent)}
+.hero p{
+font-size:1.2rem;
+color:var(--text-dim);
+max-width:700px;
+margin:0 auto 32px;
+}
+.hero-badges{
+display:flex;justify-content:center;flex-wrap:wrap;gap:12px;
+}
+.hero-badge{
+background:var(--bg-card);
+border:1px solid var(--border);
+border-radius:30px;
+padding:10px 20px;
+font-size:0.85rem;
+font-weight:600;
+display:flex;align-items:center;gap:8px;
+}
+.hero-badge i{color:var(--accent)}
+
+/* Main content */
+.guide-content{
+max-width:900px;
+margin:0 auto;
+padding:0 24px 80px;
+}
+
+/* Part headers */
+.part-header{
+text-align:center;
+padding:80px 0 48px;
+}
+.part-label{
+font-size:0.8rem;
+font-weight:700;
+text-transform:uppercase;
+letter-spacing:2px;
+color:var(--accent);
+margin-bottom:12px;
+}
+.part-title{
+font-size:clamp(1.8rem,4vw,2.8rem);
+font-weight:900;
+line-height:1.15;
+}
+
+/* Step cards */
+.step-card{
+background:var(--bg-card);
+border:1px solid var(--border);
+border-radius:24px;
+padding:40px;
+margin-bottom:32px;
+transition:border-color 0.3s;
+}
+.step-card:hover{
+border-color:rgba(184,248,71,0.3);
+}
+.step-header{
+display:flex;
+align-items:center;
+gap:16px;
+margin-bottom:20px;
+}
+.step-num{
+width:48px;height:48px;
+background:var(--accent);
+color:var(--bg);
+border-radius:50%;
+display:flex;align-items:center;justify-content:center;
+font-weight:900;font-size:1.2rem;
+flex-shrink:0;
+}
+.step-title{
+font-size:1.3rem;
+font-weight:800;
+}
+.step-desc{
+color:var(--text-dim);
+font-size:1rem;
+line-height:1.7;
+margin-bottom:24px;
+}
+.step-desc strong{
+color:var(--text);
+font-weight:700;
+}
+.step-note{
+background:rgba(184,248,71,0.08);
+border:1px solid rgba(184,248,71,0.2);
+border-radius:12px;
+padding:16px 20px;
+margin-bottom:24px;
+display:flex;
+align-items:flex-start;
+gap:12px;
+font-size:0.9rem;
+color:var(--text-dim);
+}
+.step-note i{
+color:var(--accent);
+font-size:1.1rem;
+margin-top:2px;
+flex-shrink:0;
+}
+.step-note.warning{
+background:rgba(239,68,68,0.08);
+border-color:rgba(239,68,68,0.2);
+}
+.step-note.warning i{
+color:var(--red);
+}
+.step-image{
+border-radius:16px;
+overflow:hidden;
+border:1px solid var(--border);
+}
+.step-image img{
+width:100%;
+height:auto;
+display:block;
+}
+
+/* Progress bar */
+.progress-bar{
+position:fixed;
+top:65px;left:0;right:0;
+height:3px;
+background:var(--border);
+z-index:99;
+}
+.progress-fill{
+height:100%;
+background:var(--accent);
+width:0%;
+transition:width 0.3s;
+}
+
+/* Table of contents */
+.toc{
+background:var(--bg-card);
+border:1px solid var(--border);
+border-radius:24px;
+padding:40px;
+margin-bottom:48px;
+}
+.toc h2{
+font-size:1.3rem;
+font-weight:800;
+margin-bottom:20px;
+display:flex;align-items:center;gap:10px;
+}
+.toc h2 i{color:var(--accent)}
+.toc-list{
+list-style:none;
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:8px;
+}
+.toc-list a{
+display:flex;
+align-items:center;
+gap:10px;
+color:var(--text-dim);
+text-decoration:none;
+font-size:0.9rem;
+padding:8px 12px;
+border-radius:8px;
+transition:all 0.2s;
+}
+.toc-list a:hover{
+color:var(--accent);
+background:rgba(184,248,71,0.05);
+}
+.toc-list .toc-num{
+width:28px;height:28px;
+background:var(--bg);
+border:1px solid var(--border);
+border-radius:50%;
+display:flex;align-items:center;justify-content:center;
+font-size:0.75rem;
+font-weight:700;
+color:var(--accent);
+flex-shrink:0;
+}
+.toc-part{
+grid-column:1/-1;
+font-size:0.8rem;
+font-weight:700;
+text-transform:uppercase;
+letter-spacing:2px;
+color:var(--accent);
+padding:16px 0 4px;
+border-top:1px solid var(--border);
+margin-top:8px;
+}
+.toc-part:first-child{
+border-top:none;
+margin-top:0;
+padding-top:0;
+}
+
+/* Footer */
+.guide-footer{
+text-align:center;
+padding:60px 24px;
+background:var(--bg-dark);
+}
+.footer-card{
+background:var(--bg-card);
+border:1px solid var(--border);
+border-radius:24px;
+padding:48px;
+max-width:600px;
+margin:0 auto;
+}
+.footer-icon{
+font-size:3rem;
+margin-bottom:16px;
+}
+.footer-card h2{
+font-size:1.8rem;
+font-weight:900;
+margin-bottom:8px;
+}
+.footer-card h2 span{color:var(--accent)}
+.footer-card p{
+color:var(--text-dim);
+font-size:1rem;
+margin-bottom:24px;
+line-height:1.7;
+}
+.footer-links{
+display:flex;justify-content:center;gap:16px;
+flex-wrap:wrap;
+}
+.footer-link{
+display:flex;align-items:center;gap:10px;
+background:var(--bg);
+border:1px solid var(--border);
+border-radius:12px;
+padding:14px 24px;
+color:var(--text);
+text-decoration:none;
+font-weight:600;
+font-size:0.9rem;
+transition:all 0.2s;
+}
+.footer-link:hover{
+border-color:var(--accent);
+color:var(--accent);
+}
+.footer-link i{color:var(--accent)}
+
+/* Responsive */
+@media(max-width:900px){
+.hero{padding:100px 24px 40px}
+.step-card{padding:24px}
+.toc-list{grid-template-columns:1fr}
+.nav-links{display:none}
+.hero-badges{flex-direction:column;align-items:center}
+}
+</style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="nav">
+<a href="/" class="nav-logo">The Growth <span>Identity</span></a>
+<div class="nav-links">
+<a href="#osa1">Registreerimine</a>
+<a href="#osa2">Sissemakse</a>
+<a href="#osa3">CopyX</a>
+</div>
+</nav>
+
+<!-- Progress Bar -->
+<div class="progress-bar">
+<div class="progress-fill" id="progressFill"></div>
+</div>
+
+<!-- Hero -->
+<section class="hero">
+<div class="logo">The Growth <span>Identity</span></div>
+<h1>Tag Markets & <span class="highlight">Sonic CopyX</span></h1>
+<p>Täielik samm-sammult juhend registreerimisest kuni CopyX ühendamiseni</p>
+<div class="hero-badges">
+<div class="hero-badge"><i class="fa-solid fa-list-check"></i> 30 sammu</div>
+<div class="hero-badge"><i class="fa-solid fa-clock"></i> ~15 minutit</div>
+<div class="hero-badge"><i class="fa-solid fa-shield-check"></i> KYC kinnitamine</div>
+</div>
+</section>
+
+<!-- Guide Content -->
+<div class="guide-content">
+
+<!-- Table of Contents -->
+<div class="toc">
+<h2><i class="fa-solid fa-list"></i> Sisukord</h2>
+<ul class="toc-list">
+<li class="toc-part">Osa 1: Registreerimine ja KYC kinnitamine</li>
+<li><a href="#step1"><span class="toc-num">1</span> Registreeri AITECH IB Portaalis</a></li>
+<li><a href="#step2"><span class="toc-num">2</span> Kinnita e-mail (IB Portal)</a></li>
+<li><a href="#step3"><span class="toc-num">3</span> E-mail kinnitatud</a></li>
+<li><a href="#step4"><span class="toc-num">4</span> Logi sisse AITECH portaali</a></li>
+<li><a href="#step5"><span class="toc-num">5</span> Registreeri Tag Markets</a></li>
+<li><a href="#step6"><span class="toc-num">6</span> Sünkroniseeri konto</a></li>
+<li><a href="#step7"><span class="toc-num">7</span> Sünkroniseerimine käib</a></li>
+<li><a href="#step8"><span class="toc-num">8</span> Sünkroniseerimine õnnestus</a></li>
+<li><a href="#step9"><span class="toc-num">9</span> Kinnita e-mail TAG Marketsil</a></li>
+<li><a href="#step10"><span class="toc-num">10</span> TAG Marketsi juhtpaneel</a></li>
+<li><a href="#step11"><span class="toc-num">11</span> Alusta KYC kontrolli</a></li>
+<li><a href="#step12"><span class="toc-num">12</span> Alusta kinnitust</a></li>
+<li><a href="#step13"><span class="toc-num">13</span> Vali dokumendi tüüp</a></li>
+<li><a href="#step14"><span class="toc-num">14</span> Biomeetriline kontroll</a></li>
+<li><a href="#step15"><span class="toc-num">15</span> KYC kinnitatud</a></li>
+<li><a href="#step16"><span class="toc-num">16</span> Juhtpaneel pärast KYC-d</a></li>
+<li class="toc-part">Osa 2: Sissemakse tegemine</li>
+<li><a href="#step17"><span class="toc-num">17</span> Vali sissemakse summa</a></li>
+<li><a href="#step18"><span class="toc-num">18</span> Vali makseviis</a></li>
+<li><a href="#step19"><span class="toc-num">19</span> Kinnita krüptomakse</a></li>
+<li><a href="#step20"><span class="toc-num">20</span> Vali krüptoraha</a></li>
+<li><a href="#step21"><span class="toc-num">21</span> Vali USDT võrk</a></li>
+<li><a href="#step22"><span class="toc-num">22</span> Saada makse</a></li>
+<li><a href="#step23"><span class="toc-num">23</span> Makse tuvastatud</a></li>
+<li class="toc-part">Osa 3: Sonic CopyX ühendamine</li>
+<li><a href="#step24"><span class="toc-num">24</span> Leia CopyX</a></li>
+<li><a href="#step25"><span class="toc-num">25</span> Sirvi kauplejaid</a></li>
+<li><a href="#step26"><span class="toc-num">26</span> Copy Strategy</a></li>
+<li><a href="#step27"><span class="toc-num">27</span> Sisesta investeering</a></li>
+<li><a href="#step28"><span class="toc-num">28</span> Community Token</a></li>
+<li><a href="#step29"><span class="toc-num">29</span> HASH/GU-ID ja Copy Now</a></li>
+<li><a href="#step30"><span class="toc-num">30</span> CopyX konto loodud!</a></li>
+</ul>
+</div>
+
+<!-- ============================================ -->
+<!-- OSA 1: Registreerimine ja KYC kinnitamine    -->
+<!-- ============================================ -->
+
+<div class="part-header" id="osa1">
+<div class="part-label">Osa 1</div>
+<div class="part-title">Registreerimine ja KYC kinnitamine</div>
+</div>
+
+<!-- Step 1 -->
+<div class="step-card" id="step1">
+<div class="step-header">
+<div class="step-num">1</div>
+<div class="step-title">Registreeri AITECH IB Portaalis</div>
+</div>
+<div class="step-desc">
+<a href="https://my.aitechsolutions.group/register?ref=VAMBOLA" target="_blank" style="color:var(--accent);font-weight:700;text-decoration:underline;">VAJUTA SIIA</a> ja täida registreerimisvorm: <strong>eesnimi, perekonnanimi, e-mail, parool, riik (Eesti)</strong> ja telefoninumber. Märgi mõlemad riskihoiatuse kastid ning klõpsa <strong>registreeru</strong>.
+</div>
+<div class="step-image">
+<img src="images/image14.png" alt="AITECH IB Portaali registreerimisvorm" loading="lazy">
+</div>
+</div>
+
+<!-- Step 2 -->
+<div class="step-card" id="step2">
+<div class="step-header">
+<div class="step-num">2</div>
+<div class="step-title">Kinnita e-mail (IB Portal)</div>
+</div>
+<div class="step-desc">
+Saad e-kirja IB Portalilt. Klõpsa nuppu <strong>"Verify Account"</strong> oma e-postiaadressi kinnitamiseks. Link aegub <strong>4320 minuti</strong> pärast.
+</div>
+<div class="step-image">
+<img src="images/image21.png" alt="E-maili kinnituse link" loading="lazy">
+</div>
+</div>
+
+<!-- Step 3 -->
+<div class="step-card" id="step3">
+<div class="step-header">
+<div class="step-num">3</div>
+<div class="step-title">E-mail kinnitatud</div>
+</div>
+<div class="step-desc">
+Pärast lingile klõpsamist kuvatakse <strong>"emailVerified"</strong> kinnitusteade. Klõpsa <strong>"continueToLogin"</strong>.
+</div>
+<div class="step-image">
+<img src="images/image3.png" alt="E-mail kinnitatud" loading="lazy">
+</div>
+</div>
+
+<!-- Step 4 -->
+<div class="step-card" id="step4">
+<div class="step-header">
+<div class="step-num">4</div>
+<div class="step-title">Logi sisse AITECH portaali</div>
+</div>
+<div class="step-desc">
+Sisesta oma <strong>e-mail ja parool</strong> ning klõpsa <strong>"Login"</strong>.
+</div>
+<div class="step-image">
+<img src="images/image7.png" alt="AITECH portaali sisselogimine" loading="lazy">
+</div>
+</div>
+
+<!-- Step 5 -->
+<div class="step-card" id="step5">
+<div class="step-header">
+<div class="step-num">5</div>
+<div class="step-title">Registreeri Tag Markets IB Portaalist</div>
+</div>
+<div class="step-desc">
+Pärast sisselogimist keri alla, kuni leiad <strong>"Tag Markets Registration"</strong> riba. Klõpsa <strong>"Register TagMarkets"</strong>.
+</div>
+<div class="step-note warning">
+<i class="fa-solid fa-triangle-exclamation"></i>
+<span><strong>NB!</strong> Ära registreeru otse Tag Markets platvormil – see tuleb teha IB Portaali kaudu, et kontod sünkroniseeruksid.</span>
+</div>
+<div class="step-image">
+<img src="images/image6.png" alt="Tag Markets registreerimine IB Portaalist" loading="lazy">
+</div>
+</div>
+
+<!-- Step 6 -->
+<div class="step-card" id="step6">
+<div class="step-header">
+<div class="step-num">6</div>
+<div class="step-title">Sünkroniseeri konto</div>
+</div>
+<div class="step-desc">
+Avaneb hüpikaken <strong>"Welcome to TAG Broker"</strong>. Sisesta soovi korral parool ja klõpsa <strong>"Sync Account"</strong>.
+</div>
+<div class="step-image">
+<img src="images/image11.png" alt="Konto sünkroniseerimine" loading="lazy">
+</div>
+</div>
+
+<!-- Step 7 -->
+<div class="step-card" id="step7">
+<div class="step-header">
+<div class="step-num">7</div>
+<div class="step-title">Sünkroniseerimine käib</div>
+</div>
+<div class="step-desc">
+Oota, kuni süsteem sinu andmeid kontrollib ja kontosid sünkroniseerib.
+</div>
+<div class="step-image">
+<img src="images/image5.png" alt="Sünkroniseerimine käib" loading="lazy">
+</div>
+</div>
+
+<!-- Step 8 -->
+<div class="step-card" id="step8">
+<div class="step-header">
+<div class="step-num">8</div>
+<div class="step-title">Sünkroniseerimine õnnestus</div>
+</div>
+<div class="step-desc">
+Kuvatakse <strong>"Sync Successful!"</strong> kinnitus. TAG Broker saadab sulle e-kirja edasiste juhistega. Klõpsa <strong>"Close"</strong>.
+</div>
+<div class="step-image">
+<img src="images/image8.png" alt="Sünkroniseerimine õnnestus" loading="lazy">
+</div>
+</div>
+
+<!-- Step 9 -->
+<div class="step-card" id="step9">
+<div class="step-header">
+<div class="step-num">9</div>
+<div class="step-title">Kinnita e-mail TAG Marketsil</div>
+</div>
+<div class="step-desc">
+Ava TAG Marketsi e-kiri. See sisaldab sinu sisselogimisandmeid ja nuppu <strong>"Confirm Email Address"</strong> – klõpsa sellel, et aktiveerida TAG Marketsi konto.
+</div>
+<div class="step-image">
+<img src="images/image18.png" alt="TAG Markets e-maili kinnitus" loading="lazy">
+</div>
+</div>
+
+<!-- Step 10 -->
+<div class="step-card" id="step10">
+<div class="step-header">
+<div class="step-num">10</div>
+<div class="step-title">TAG Marketsi juhtpaneel</div>
+</div>
+<div class="step-desc">
+Oled nüüd TAG Marketsi juhtpaneelil. Näed üleval teadet KYC kinnituse lõpetamiseks.
+</div>
+<div class="step-image">
+<img src="images/image15.png" alt="TAG Marketsi juhtpaneel" loading="lazy">
+</div>
+</div>
+
+<!-- Step 11 -->
+<div class="step-card" id="step11">
+<div class="step-header">
+<div class="step-num">11</div>
+<div class="step-title">Alusta KYC kontrolli – Sumsub</div>
+</div>
+<div class="step-desc">
+Klõpsa juhtpaneelil <strong>"upload documents"</strong> lingil. Avaneb Sumsubi kinnituse hüpikaken. Klõpsa <strong>"Continue"</strong>.
+</div>
+<div class="step-image">
+<img src="images/image4.png" alt="KYC kontrolli alustamine – Sumsub" loading="lazy">
+</div>
+</div>
+
+<!-- Step 12 -->
+<div class="step-card" id="step12">
+<div class="step-header">
+<div class="step-num">12</div>
+<div class="step-title">Alusta kinnitust</div>
+</div>
+<div class="step-desc">
+Klõpsa <strong>"Start verification"</strong>. Protsess koosneb kahest sammust: isikut tõendava dokumendi esitamine ja biomeetriline kontroll.
+</div>
+<div class="step-image">
+<img src="images/image2.png" alt="Kinnituse alustamine" loading="lazy">
+</div>
+</div>
+
+<!-- Step 13 -->
+<div class="step-card" id="step13">
+<div class="step-header">
+<div class="step-num">13</div>
+<div class="step-title">Vali dokumendi tüüp</div>
+</div>
+<div class="step-desc">
+Vali väljastav riik <strong>(Eesti)</strong> ja dokumendi tüüp <strong>(ID-kaart, pass jne)</strong>, seejärel klõpsa <strong>"Continue"</strong>.
+</div>
+<div class="step-image">
+<img src="images/image1.png" alt="Dokumendi tüübi valimine" loading="lazy">
+</div>
+</div>
+
+<!-- Step 14 -->
+<div class="step-card" id="step14">
+<div class="step-header">
+<div class="step-num">14</div>
+<div class="step-title">Biomeetriline kontroll</div>
+</div>
+<div class="step-desc">
+Järgi ekraanil olevaid juhiseid biomeetrilise kontrolli lõpetamiseks. Oota, kuni süsteem sinu esitust kontrollib.
+</div>
+<div class="step-image">
+<img src="images/image13.png" alt="Biomeetriline kontroll" loading="lazy">
+</div>
+</div>
+
+<!-- Step 15 -->
+<div class="step-card" id="step15">
+<div class="step-header">
+<div class="step-num">15</div>
+<div class="step-title">KYC kinnitatud</div>
+</div>
+<div class="step-desc">
+Kuvatakse teade <strong>"Your profile has been verified"</strong>. KYC on edukalt lõpetatud – saad nüüd teha sissemakseid.
+</div>
+<div class="step-image">
+<img src="images/image10.png" alt="KYC kinnitatud" loading="lazy">
+</div>
+</div>
+
+<!-- Step 16 -->
+<div class="step-card" id="step16">
+<div class="step-header">
+<div class="step-num">16</div>
+<div class="step-title">TAG Marketsi juhtpaneel pärast KYC-d</div>
+</div>
+<div class="step-desc">
+Pärast KYC kinnitust on juhtpaneelil näha sinu kauplemiskonto <strong>(MT5, konto nr 50627155)</strong>. Klõpsa <strong>"Deposit"</strong>, et teha sissemakse (raha kontole kanda).
+</div>
+<div class="step-image">
+<img src="images/image9.png" alt="Juhtpaneel pärast KYC kinnitust" loading="lazy">
+</div>
+</div>
+
+<!-- ============================================ -->
+<!-- OSA 2: Sissemakse tegemine                   -->
+<!-- ============================================ -->
+
+<div class="part-header" id="osa2">
+<div class="part-label">Osa 2</div>
+<div class="part-title">Sissemakse tegemine</div>
+</div>
+
+<!-- Step 17 -->
+<div class="step-card" id="step17">
+<div class="step-header">
+<div class="step-num">17</div>
+<div class="step-title">Vali sissemakse summa</div>
+</div>
+<div class="step-desc">
+Vali valuuta <strong>(USD)</strong> ja sisesta soovitud summa (nt <strong>$777</strong>) või vali eelseadistatud summa ($100, $500, $1000). Klõpsa <strong>"Next"</strong>.
+</div>
+<div class="step-image">
+<img src="images/image12.png" alt="Sissemakse summa valimine" loading="lazy">
+</div>
+</div>
+
+<!-- Step 18 -->
+<div class="step-card" id="step18">
+<div class="step-header">
+<div class="step-num">18</div>
+<div class="step-title">Vali makseviis</div>
+</div>
+<div class="step-desc">
+Vali makseviis: <strong>krüptoraha</strong> (Bitcoin, Ethereum, USDT jne) või <strong>kaart/pangaülekanne</strong> (Visa/Mastercard). Klõpsa oma eelistatud makseviisile.
+</div>
+<div class="step-image">
+<img src="images/image25.png" alt="Makseviisi valimine" loading="lazy">
+</div>
+</div>
+
+<!-- Step 19 -->
+<div class="step-card" id="step19">
+<div class="step-header">
+<div class="step-num">19</div>
+<div class="step-title">Kinnita krüptomakse</div>
+</div>
+<div class="step-desc">
+Krüptoraha valiku korral kuvatakse sissemakse summa <strong>($777)</strong>. Klõpsa <strong>"Submit"</strong> jätkamiseks.
+</div>
+<div class="step-image">
+<img src="images/image17.png" alt="Krüptomakse kinnitamine" loading="lazy">
+</div>
+</div>
+
+<!-- Step 20 -->
+<div class="step-card" id="step20">
+<div class="step-header">
+<div class="step-num">20</div>
+<div class="step-title">Vali krüptoraha</div>
+</div>
+<div class="step-desc">
+Vali krüptoraha: Bitcoin, Ethereum, Tether (USDT), USD Coin, Binance Coin või Solana.
+</div>
+<div class="step-note">
+<i class="fa-solid fa-lightbulb"></i>
+<span>Soovitatav on kasutada <strong>USDT (Tether)</strong> madalate tehingutasude tõttu.</span>
+</div>
+<div class="step-image">
+<img src="images/image16.png" alt="Krüptoraha valimine" loading="lazy">
+</div>
+</div>
+
+<!-- Step 21 -->
+<div class="step-card" id="step21">
+<div class="step-header">
+<div class="step-num">21</div>
+<div class="step-title">Vali USDT võrk</div>
+</div>
+<div class="step-desc">
+USDT puhul soovitan valida võrguks <strong>BSC BEP-20</strong> madalate tasude tõttu.
+</div>
+<div class="step-image">
+<img src="images/image26.png" alt="USDT võrgu valimine" loading="lazy">
+</div>
+</div>
+
+<!-- Step 22 -->
+<div class="step-card" id="step22">
+<div class="step-header">
+<div class="step-num">22</div>
+<div class="step-title">Saada makse QR-koodi või aadressi kaudu</div>
+</div>
+<div class="step-desc">
+Kuvatakse makseaadress ja QR-kood. Ava oma krüptokott ja saada täpne summa <strong>(777.225395 USDT)</strong> näidatud aadressile. Makse aegub <strong>~15 minuti</strong> jooksul.
+</div>
+<div class="step-image">
+<img src="images/image23.png" alt="Makse QR-kood ja aadress" loading="lazy">
+</div>
+</div>
+
+<!-- Step 23 -->
+<div class="step-card" id="step23">
+<div class="step-header">
+<div class="step-num">23</div>
+<div class="step-title">Makse tuvastatud</div>
+</div>
+<div class="step-desc">
+Süsteem tuvastab sinu makse ja kuvab teate <strong>"Payment found! Awaiting network confirmations"</strong>. Oota võrgu kinnitusi.
+</div>
+<div class="step-image">
+<img src="images/image30.png" alt="Makse tuvastatud" loading="lazy">
+</div>
+</div>
+
+<!-- ============================================ -->
+<!-- OSA 3: SONIC CopyX strateegiale ühendamine   -->
+<!-- ============================================ -->
+
+<div class="part-header" id="osa3">
+<div class="part-label">Osa 3</div>
+<div class="part-title">SONIC CopyX strateegiale ühendamine</div>
+</div>
+
+<!-- Step 24 -->
+<div class="step-card" id="step24">
+<div class="step-header">
+<div class="step-num">24</div>
+<div class="step-title">Leia CopyX ja sirvi kauplejaid</div>
+</div>
+<div class="step-desc">
+Juhtpaneelil klõpsa vasakul menüüs <strong>"CopyX"</strong>.
+</div>
+<div class="step-image">
+<img src="images/image22.png" alt="CopyX menüü" loading="lazy">
+</div>
+</div>
+
+<!-- Step 25 -->
+<div class="step-card" id="step25">
+<div class="step-header">
+<div class="step-num">25</div>
+<div class="step-title">Sirvi kauplejaid</div>
+</div>
+<div class="step-desc">
+Avaneb <strong>"Browse Pro Traders"</strong> leht, kus on näha kõik aktiivsed strateegiad. Leia ja klõpsa strateegia <strong>"SONIC"</strong> peale.
+</div>
+<div class="step-image">
+<img src="images/image24.png" alt="Browse Pro Traders leht" loading="lazy">
+</div>
+</div>
+
+<!-- Step 26 -->
+<div class="step-card" id="step26">
+<div class="step-header">
+<div class="step-num">26</div>
+<div class="step-title">Copy Strategy – vaata ülevaadet</div>
+</div>
+<div class="step-desc">
+Avaneb <strong>"Copy Strategy"</strong> aken. Sisesta investeeringu summa <strong>(min $10)</strong>. Konto tüüp on automaatselt <strong>"Amplify"</strong>.
+</div>
+<div class="step-note warning">
+<i class="fa-solid fa-triangle-exclamation"></i>
+<span><strong>NB!</strong> Kui kaupleja kaotab üle 10% algsaldost, likvideeritakse sinu konto.</span>
+</div>
+<div class="step-image">
+<img src="images/image29.png" alt="Copy Strategy ülevaade" loading="lazy">
+</div>
+</div>
+
+<!-- Step 27 -->
+<div class="step-card" id="step27">
+<div class="step-header">
+<div class="step-num">27</div>
+<div class="step-title">Copy Strategy – sisesta investeering</div>
+</div>
+<div class="step-desc">
+Avaneb <strong>"Copy Strategy"</strong> aken. Sisesta investeeringu summa <strong>(min $10)</strong>. Konto tüüp on automaatselt <strong>"Amplify"</strong>.
+</div>
+<div class="step-note warning">
+<i class="fa-solid fa-triangle-exclamation"></i>
+<span><strong>NB!</strong> Kui kaupleja kaotab üle 10% algsaldost, likvideeritakse sinu konto.</span>
+</div>
+<div class="step-image">
+<img src="images/image19.png" alt="Copy Strategy investeeringu sisestamine" loading="lazy">
+</div>
+</div>
+
+<!-- Step 28 -->
+<div class="step-card" id="step28">
+<div class="step-header">
+<div class="step-num">28</div>
+<div class="step-title">Sisesta Community Token #DW</div>
+</div>
+<div class="step-desc">
+Klõpsa <strong>"Community Token"</strong> ja sisesta tokeni kood <strong>#DW</strong>, seejärel klõpsa <strong>"Verify"</strong>.
+</div>
+<div class="step-note">
+<i class="fa-solid fa-info-circle"></i>
+<span>Token muudab sinu Amplify konto kahjulimiiti <strong>5%-ni</strong> algsaldost.</span>
+</div>
+<div class="step-image">
+<img src="images/image20.png" alt="Community Token sisestamine" loading="lazy">
+</div>
+</div>
+
+<!-- Step 29 -->
+<div class="step-card" id="step29">
+<div class="step-header">
+<div class="step-num">29</div>
+<div class="step-title">Sisesta HASH/GU-ID ja klõpsa Copy Now</div>
+</div>
+<div class="step-desc">
+Pärast tokeni kinnitamist kuvatakse <strong>HASH/GU-ID</strong> väli. Sisesta sinna väärtus <strong>1000</strong> ja klõpsa <strong>"Submit"</strong>. Märgi mõlemad nõusoleku kastid ning klõpsa <strong>"Copy Now"</strong>.
+</div>
+<div class="step-image">
+<img src="images/image28.png" alt="HASH/GU-ID sisestamine ja Copy Now" loading="lazy">
+</div>
+</div>
+
+<!-- Step 30 -->
+<div class="step-card" id="step30">
+<div class="step-header">
+<div class="step-num">30</div>
+<div class="step-title">CopyX konto loodud!</div>
+</div>
+<div class="step-desc">
+Kuvatakse teade <strong>"CopyX Account Created"</strong>. Klõpsa <strong>"Continue"</strong>. SONIC strateegia kopeerib nüüd automaatselt kaupleja tehinguid sinu kontole.
+</div>
+<div class="step-image">
+<img src="images/image27.png" alt="CopyX konto loodud" loading="lazy">
+</div>
+</div>
+
+<!-- Success card -->
+<div class="step-card" id="done" style="border-color:var(--accent);background:linear-gradient(135deg,rgba(184,248,71,0.05),rgba(34,197,94,0.03));">
+<div style="text-align:center">
+<div style="font-size:3rem;margin-bottom:16px">&#127881;</div>
+<h2 style="font-size:1.8rem;font-weight:900;margin-bottom:12px">Palju õnne! Kõik on valmis!</h2>
+<p style="color:var(--text-dim);font-size:1.05rem;line-height:1.7;max-width:600px;margin:0 auto 24px;">
+Oled edukalt ühendatud SONIC CopyX strateegiaga! Followers Hub'ist saad jälgida oma strateegia kasvu, saldot ja tehinguid. Lehe alaosas leiad ka MetaTrader 5 sisselogimisandmed (MT5 rakenduse leiad Google Play'st / App Store'ist) ja server on <strong>T.M Financials</strong>.
+</p>
+<div class="step-image">
+<img src="images/image31.png" alt="Followers hub – jälgi oma investeeringut" loading="lazy">
+</div>
+</div>
+</div>
+
+</div>
+
+<!-- Footer -->
+<div class="guide-footer">
+<div class="footer-card">
+<div class="footer-icon">&#128172;</div>
+<h2>Vajad <span>abi?</span></h2>
+<p>Kui sul tekib küsimusi või vajad abi mõne sammuga, võta julgelt ühendust.</p>
+<div class="footer-links">
+<a href="https://wa.me/639953538545" class="footer-link" target="_blank">
+<i class="fa-brands fa-whatsapp"></i> WhatsApp
+</a>
+<a href="https://thegrowthidentity.com" class="footer-link" target="_blank">
+<i class="fa-solid fa-globe"></i> Veebileht
+</a>
+<a href="https://thegrowthidentity.com/presentation/" class="footer-link" target="_blank">
+<i class="fa-solid fa-display"></i> Esitlus
+</a>
+</div>
+</div>
+<p style="color:var(--text-muted);font-size:0.8rem;margin-top:32px;max-width:600px;margin-left:auto;margin-right:auto;">
+Kauplemine on seotud riskidega. Varasemad tulemused ei garanteeri tulevaid tulemusi. Ära investeeri rohkem, kui saad endale lubada kaotada. TAG Markets on litsentseeritud Mauritiuse FSC poolt.
+</p>
+</div>
+
+<script>
+// Progress bar
+window.addEventListener('scroll', function() {
+  const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+  const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  const scrolled = (winScroll / height) * 100;
+  document.getElementById('progressFill').style.width = scrolled + '%';
+});
+</script>
+</body>
+</html>
