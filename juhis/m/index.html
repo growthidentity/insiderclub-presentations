@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="et">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TAG Markets & Sonic CopyX Guide | The Growth Identity</title>
+<title>TAG Markets & Sonic CopyX Juhend | Manfred Muuga</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -123,10 +123,10 @@ display:flex;align-items:center;gap:8px;
 /* Layout */
 .layout{
 display:flex;
-max-width:1300px;
-margin:0 auto;
-padding:0 24px;
 gap:40px;
+max-width:1280px;
+margin:0 auto;
+padding:0 40px;
 }
 
 /* Sidebar */
@@ -165,7 +165,6 @@ font-size:0.8rem;
 font-weight:500;
 transition:all 0.2s;
 border-left:2px solid transparent;
-margin-left:2px;
 }
 .sidebar-item:hover{
 color:var(--text-dim);
@@ -206,12 +205,9 @@ min-width:0;
 padding:0 0 80px;
 }
 
-/* Part headers */
-.part-header{
-text-align:center;
-padding:80px 0 48px;
-position:relative;
-}
+/* Part sections */
+.part-section{padding:80px 0 40px}
+.part-header{text-align:center}
 .part-divider{
 display:flex;
 align-items:center;
@@ -239,34 +235,32 @@ font-weight:700;
 text-transform:uppercase;
 letter-spacing:2px;
 color:var(--accent);
-margin-bottom:8px;
+margin-bottom:12px;
 }
 .part-title{
 font-size:clamp(1.8rem,4vw,2.8rem);
 font-weight:900;
 line-height:1.15;
-margin-bottom:8px;
 }
 .part-time{
-font-size:0.85rem;
 color:var(--text-muted);
+font-size:0.85rem;
+margin-top:12px;
 display:flex;align-items:center;justify-content:center;gap:6px;
 }
-.part-time i{color:var(--accent);font-size:0.8rem}
 
-/* Timeline connector */
+/* Timeline */
 .timeline{
 position:relative;
-padding-left:28px;
+padding-left:24px;
 }
 .timeline::before{
 content:'';
 position:absolute;
-left:10px;
-top:0;
-bottom:0;
+left:0;top:0;bottom:0;
 width:2px;
-background:var(--border);
+background:linear-gradient(180deg,var(--accent),var(--border),var(--accent));
+border-radius:2px;
 }
 
 /* Step cards */
@@ -300,7 +294,6 @@ background:var(--bg);
 border:2px solid var(--border);
 border-radius:50%;
 transition:all 0.3s;
-z-index:1;
 }
 .step-card.visible::before{
 background:var(--accent);
@@ -322,7 +315,7 @@ display:flex;align-items:center;justify-content:center;
 font-weight:900;font-size:1.2rem;
 flex-shrink:0;
 }
-.step-title{
+.step-header h3{
 font-size:1.3rem;
 font-weight:800;
 }
@@ -332,38 +325,24 @@ font-size:1rem;
 line-height:1.7;
 margin-bottom:24px;
 }
-.step-desc strong{
-color:var(--text);
-font-weight:700;
-}
+.step-desc strong{color:var(--text);font-weight:700}
 .step-note{
 background:rgba(184,248,71,0.08);
 border:1px solid rgba(184,248,71,0.2);
 border-radius:12px;
 padding:16px 20px;
 margin-bottom:24px;
-display:flex;
-align-items:flex-start;
-gap:12px;
+display:flex;align-items:flex-start;gap:12px;
 font-size:0.9rem;
 color:var(--text-dim);
 }
-.step-note i{
-color:var(--accent);
-font-size:1.1rem;
-margin-top:2px;
-flex-shrink:0;
-}
-.step-note.warning{
-background:rgba(239,68,68,0.08);
-border-color:rgba(239,68,68,0.2);
-}
+.step-note i{color:var(--accent);font-size:1.1rem;margin-top:2px;flex-shrink:0}
+.step-note.warning{background:rgba(239,68,68,0.08);border-color:rgba(239,68,68,0.2)}
 .step-note.warning i{color:var(--red)}
 .step-image{
 border-radius:16px;
 overflow:hidden;
 border:1px solid var(--border);
-box-shadow:0 8px 32px rgba(0,0,0,0.3);
 transition:transform 0.3s,box-shadow 0.3s;
 }
 .step-image:hover{
@@ -609,49 +588,49 @@ background:var(--green);border-color:var(--green);color:#fff;
 <nav class="nav">
 <a href="/" class="nav-logo">The Growth <span>Identity</span></a>
 <div class="nav-links">
-<a href="#part1">Registration</a>
-<a href="#part2">Deposit</a>
-<a href="#part3">CopyX</a>
+<a href="#osa1">Registreerimine</a>
+<a href="#osa2">Sissemakse</a>
+<a href="#osa3">CopyX</a>
 </div>
-<button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open menu"><i class="fa-solid fa-bars"></i></button>
+<button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Ava menüü"><i class="fa-solid fa-bars"></i></button>
 </nav>
 
 <!-- Mobile Drawer -->
 <div class="mobile-drawer-overlay" id="drawerOverlay"></div>
 <div class="mobile-drawer" id="mobileDrawer">
-<div class="sidebar-part">Part 1: Registration & KYC</div>
-<a href="#step1" class="sidebar-item mobile-nav-link" data-step="1"><span class="sidebar-num">1</span> Register</a>
-<a href="#step2" class="sidebar-item mobile-nav-link" data-step="2"><span class="sidebar-num">2</span> Verify email</a>
-<a href="#step3" class="sidebar-item mobile-nav-link" data-step="3"><span class="sidebar-num">3</span> Email confirmed</a>
-<a href="#step4" class="sidebar-item mobile-nav-link" data-step="4"><span class="sidebar-num">4</span> Log in</a>
+<div class="sidebar-part">Osa 1: Registreerimine ja KYC</div>
+<a href="#step1" class="sidebar-item mobile-nav-link" data-step="1"><span class="sidebar-num">1</span> Registreeru</a>
+<a href="#step2" class="sidebar-item mobile-nav-link" data-step="2"><span class="sidebar-num">2</span> Kinnita e-mail</a>
+<a href="#step3" class="sidebar-item mobile-nav-link" data-step="3"><span class="sidebar-num">3</span> E-mail kinnitatud</a>
+<a href="#step4" class="sidebar-item mobile-nav-link" data-step="4"><span class="sidebar-num">4</span> Logi sisse</a>
 <a href="#step5" class="sidebar-item mobile-nav-link" data-step="5"><span class="sidebar-num">5</span> TAG Markets</a>
-<a href="#step6" class="sidebar-item mobile-nav-link" data-step="6"><span class="sidebar-num">6</span> Country & phone</a>
-<a href="#step7" class="sidebar-item mobile-nav-link" data-step="7"><span class="sidebar-num">7</span> Personal info</a>
-<a href="#step8" class="sidebar-item mobile-nav-link" data-step="8"><span class="sidebar-num">8</span> Address</a>
-<a href="#step9" class="sidebar-item mobile-nav-link" data-step="9"><span class="sidebar-num">9</span> Biometric KYC</a>
-<a href="#step10" class="sidebar-item mobile-nav-link" data-step="10"><span class="sidebar-num">10</span> KYC done</a>
-<a href="#step11" class="sidebar-item mobile-nav-link" data-step="11"><span class="sidebar-num">11</span> Back to dashboard</a>
-<a href="#step12" class="sidebar-item mobile-nav-link" data-step="12"><span class="sidebar-num">12</span> Trading account</a>
-<div class="sidebar-part">Part 2: Deposit</div>
-<a href="#step13" class="sidebar-item mobile-nav-link" data-step="13"><span class="sidebar-num">13</span> Add funds</a>
-<a href="#step14" class="sidebar-item mobile-nav-link" data-step="14"><span class="sidebar-num">14</span> Crypto deposit</a>
-<a href="#step15" class="sidebar-item mobile-nav-link" data-step="15"><span class="sidebar-num">15</span> Select USDT</a>
-<a href="#step16" class="sidebar-item mobile-nav-link" data-step="16"><span class="sidebar-num">16</span> Copy address</a>
-<a href="#step17" class="sidebar-item mobile-nav-link" data-step="17"><span class="sidebar-num">17</span> Send USDT</a>
-<a href="#step18" class="sidebar-item mobile-nav-link" data-step="18"><span class="sidebar-num">18</span> Confirm</a>
-<a href="#step19" class="sidebar-item mobile-nav-link" data-step="19"><span class="sidebar-num">19</span> Verify deposit</a>
-<div class="sidebar-part">Part 3: Connect CopyX</div>
-<a href="#step20" class="sidebar-item mobile-nav-link" data-step="20"><span class="sidebar-num">20</span> Sonic CopyX</a>
-<a href="#step21" class="sidebar-item mobile-nav-link" data-step="21"><span class="sidebar-num">21</span> Create account</a>
-<a href="#step22" class="sidebar-item mobile-nav-link" data-step="22"><span class="sidebar-num">22</span> Fill details</a>
-<a href="#step23" class="sidebar-item mobile-nav-link" data-step="23"><span class="sidebar-num">23</span> Download app</a>
-<a href="#step24" class="sidebar-item mobile-nav-link" data-step="24"><span class="sidebar-num">24</span> Token code</a>
-<a href="#step25" class="sidebar-item mobile-nav-link" data-step="25"><span class="sidebar-num">25</span> Enter token</a>
-<a href="#step26" class="sidebar-item mobile-nav-link" data-step="26"><span class="sidebar-num">26</span> Connect TAG</a>
-<a href="#step27" class="sidebar-item mobile-nav-link" data-step="27"><span class="sidebar-num">27</span> API settings</a>
-<a href="#step28" class="sidebar-item mobile-nav-link" data-step="28"><span class="sidebar-num">28</span> Create API key</a>
-<a href="#step29" class="sidebar-item mobile-nav-link" data-step="29"><span class="sidebar-num">29</span> Copy API key</a>
-<a href="#step30" class="sidebar-item mobile-nav-link" data-step="30"><span class="sidebar-num">30</span> Set drawdown</a>
+<a href="#step6" class="sidebar-item mobile-nav-link" data-step="6"><span class="sidebar-num">6</span> Sünkroniseeri</a>
+<a href="#step7" class="sidebar-item mobile-nav-link" data-step="7"><span class="sidebar-num">7</span> Sünkr. käib</a>
+<a href="#step8" class="sidebar-item mobile-nav-link" data-step="8"><span class="sidebar-num">8</span> Sünkr. õnnestus</a>
+<a href="#step9" class="sidebar-item mobile-nav-link" data-step="9"><span class="sidebar-num">9</span> TAG e-mail</a>
+<a href="#step10" class="sidebar-item mobile-nav-link" data-step="10"><span class="sidebar-num">10</span> Juhtpaneel</a>
+<a href="#step11" class="sidebar-item mobile-nav-link" data-step="11"><span class="sidebar-num">11</span> Alusta KYC</a>
+<a href="#step12" class="sidebar-item mobile-nav-link" data-step="12"><span class="sidebar-num">12</span> Alusta kinnitust</a>
+<a href="#step13" class="sidebar-item mobile-nav-link" data-step="13"><span class="sidebar-num">13</span> Dokumendi tüüp</a>
+<a href="#step14" class="sidebar-item mobile-nav-link" data-step="14"><span class="sidebar-num">14</span> Biomeetria</a>
+<a href="#step15" class="sidebar-item mobile-nav-link" data-step="15"><span class="sidebar-num">15</span> KYC kinnitatud</a>
+<a href="#step16" class="sidebar-item mobile-nav-link" data-step="16"><span class="sidebar-num">16</span> Juhtpaneel (KYC)</a>
+<div class="sidebar-part">Osa 2: Sissemakse</div>
+<a href="#step17" class="sidebar-item mobile-nav-link" data-step="17"><span class="sidebar-num">17</span> Summa</a>
+<a href="#step18" class="sidebar-item mobile-nav-link" data-step="18"><span class="sidebar-num">18</span> Makseviis</a>
+<a href="#step19" class="sidebar-item mobile-nav-link" data-step="19"><span class="sidebar-num">19</span> Kinnita makse</a>
+<a href="#step20" class="sidebar-item mobile-nav-link" data-step="20"><span class="sidebar-num">20</span> Vali krüpto</a>
+<a href="#step21" class="sidebar-item mobile-nav-link" data-step="21"><span class="sidebar-num">21</span> USDT võrk</a>
+<a href="#step22" class="sidebar-item mobile-nav-link" data-step="22"><span class="sidebar-num">22</span> Saada makse</a>
+<a href="#step23" class="sidebar-item mobile-nav-link" data-step="23"><span class="sidebar-num">23</span> Makse tuvastatud</a>
+<div class="sidebar-part">Osa 3: CopyX</div>
+<a href="#step24" class="sidebar-item mobile-nav-link" data-step="24"><span class="sidebar-num">24</span> Leia CopyX</a>
+<a href="#step25" class="sidebar-item mobile-nav-link" data-step="25"><span class="sidebar-num">25</span> Sirvi kauplejaid</a>
+<a href="#step26" class="sidebar-item mobile-nav-link" data-step="26"><span class="sidebar-num">26</span> Copy Strategy</a>
+<a href="#step27" class="sidebar-item mobile-nav-link" data-step="27"><span class="sidebar-num">27</span> Investeering</a>
+<a href="#step28" class="sidebar-item mobile-nav-link" data-step="28"><span class="sidebar-num">28</span> Community Token</a>
+<a href="#step29" class="sidebar-item mobile-nav-link" data-step="29"><span class="sidebar-num">29</span> HASH & Copy Now</a>
+<a href="#step30" class="sidebar-item mobile-nav-link" data-step="30"><span class="sidebar-num">30</span> Konto loodud!</a>
 </div>
 
 <!-- Progress Bar -->
@@ -663,11 +642,11 @@ background:var(--green);border-color:var(--green);color:#fff;
 <section class="hero">
 <div class="logo">The Growth <span>Identity</span></div>
 <h1>Tag Markets & <span class="highlight">Sonic CopyX</span></h1>
-<p>Complete step-by-step guide from registration to connecting with CopyX</p>
+<p>Täielik samm-sammult juhend registreerimisest kuni CopyX ühendamiseni</p>
 <div class="hero-badges">
-<div class="hero-badge"><i class="fa-solid fa-list-check"></i> 30 Steps</div>
-<div class="hero-badge"><i class="fa-solid fa-clock"></i> ~15 minutes</div>
-<div class="hero-badge"><i class="fa-solid fa-shield-check"></i> KYC Verification</div>
+<div class="hero-badge"><i class="fa-solid fa-list-check"></i> 30 sammu</div>
+<div class="hero-badge"><i class="fa-solid fa-clock"></i> ~15 minutit</div>
+<div class="hero-badge"><i class="fa-solid fa-shield-check"></i> KYC kinnitamine</div>
 </div>
 </section>
 
@@ -676,57 +655,57 @@ background:var(--green);border-color:var(--green);color:#fff;
 
 <!-- Sticky Sidebar -->
 <aside class="sidebar" id="sidebar">
-<div class="sidebar-part">Part 1: Registration & KYC</div>
-<a href="#step1" class="sidebar-item" data-step="1"><span class="sidebar-num">1</span> Register</a>
-<a href="#step2" class="sidebar-item" data-step="2"><span class="sidebar-num">2</span> Verify email</a>
-<a href="#step3" class="sidebar-item" data-step="3"><span class="sidebar-num">3</span> Email confirmed</a>
-<a href="#step4" class="sidebar-item" data-step="4"><span class="sidebar-num">4</span> Log in</a>
-<a href="#step5" class="sidebar-item" data-step="5"><span class="sidebar-num">5</span> Register TAG Markets</a>
-<a href="#step6" class="sidebar-item" data-step="6"><span class="sidebar-num">6</span> Sync account</a>
-<a href="#step7" class="sidebar-item" data-step="7"><span class="sidebar-num">7</span> Sync in progress</a>
-<a href="#step8" class="sidebar-item" data-step="8"><span class="sidebar-num">8</span> Sync successful</a>
-<a href="#step9" class="sidebar-item" data-step="9"><span class="sidebar-num">9</span> Verify TAG email</a>
-<a href="#step10" class="sidebar-item" data-step="10"><span class="sidebar-num">10</span> Dashboard</a>
-<a href="#step11" class="sidebar-item" data-step="11"><span class="sidebar-num">11</span> Start KYC</a>
-<a href="#step12" class="sidebar-item" data-step="12"><span class="sidebar-num">12</span> Begin verification</a>
-<a href="#step13" class="sidebar-item" data-step="13"><span class="sidebar-num">13</span> Document type</a>
-<a href="#step14" class="sidebar-item" data-step="14"><span class="sidebar-num">14</span> Biometric check</a>
-<a href="#step15" class="sidebar-item" data-step="15"><span class="sidebar-num">15</span> KYC approved</a>
-<a href="#step16" class="sidebar-item" data-step="16"><span class="sidebar-num">16</span> Dashboard after KYC</a>
-<div class="sidebar-part">Part 2: Deposit</div>
-<a href="#step17" class="sidebar-item" data-step="17"><span class="sidebar-num">17</span> Deposit amount</a>
-<a href="#step18" class="sidebar-item" data-step="18"><span class="sidebar-num">18</span> Payment method</a>
-<a href="#step19" class="sidebar-item" data-step="19"><span class="sidebar-num">19</span> Confirm crypto</a>
-<a href="#step20" class="sidebar-item" data-step="20"><span class="sidebar-num">20</span> Choose crypto</a>
-<a href="#step21" class="sidebar-item" data-step="21"><span class="sidebar-num">21</span> USDT network</a>
-<a href="#step22" class="sidebar-item" data-step="22"><span class="sidebar-num">22</span> Send payment</a>
-<a href="#step23" class="sidebar-item" data-step="23"><span class="sidebar-num">23</span> Payment detected</a>
-<div class="sidebar-part">Part 3: CopyX</div>
-<a href="#step24" class="sidebar-item" data-step="24"><span class="sidebar-num">24</span> Find CopyX</a>
-<a href="#step25" class="sidebar-item" data-step="25"><span class="sidebar-num">25</span> Browse traders</a>
+<div class="sidebar-part">Osa 1: Registreerimine ja KYC</div>
+<a href="#step1" class="sidebar-item" data-step="1"><span class="sidebar-num">1</span> Registreeru</a>
+<a href="#step2" class="sidebar-item" data-step="2"><span class="sidebar-num">2</span> Kinnita e-mail</a>
+<a href="#step3" class="sidebar-item" data-step="3"><span class="sidebar-num">3</span> E-mail kinnitatud</a>
+<a href="#step4" class="sidebar-item" data-step="4"><span class="sidebar-num">4</span> Logi sisse</a>
+<a href="#step5" class="sidebar-item" data-step="5"><span class="sidebar-num">5</span> TAG Markets</a>
+<a href="#step6" class="sidebar-item" data-step="6"><span class="sidebar-num">6</span> Sünkroniseeri</a>
+<a href="#step7" class="sidebar-item" data-step="7"><span class="sidebar-num">7</span> Sünkr. käib</a>
+<a href="#step8" class="sidebar-item" data-step="8"><span class="sidebar-num">8</span> Sünkr. õnnestus</a>
+<a href="#step9" class="sidebar-item" data-step="9"><span class="sidebar-num">9</span> TAG e-mail</a>
+<a href="#step10" class="sidebar-item" data-step="10"><span class="sidebar-num">10</span> Juhtpaneel</a>
+<a href="#step11" class="sidebar-item" data-step="11"><span class="sidebar-num">11</span> Alusta KYC</a>
+<a href="#step12" class="sidebar-item" data-step="12"><span class="sidebar-num">12</span> Alusta kinnitust</a>
+<a href="#step13" class="sidebar-item" data-step="13"><span class="sidebar-num">13</span> Dokumendi tüüp</a>
+<a href="#step14" class="sidebar-item" data-step="14"><span class="sidebar-num">14</span> Biomeetria</a>
+<a href="#step15" class="sidebar-item" data-step="15"><span class="sidebar-num">15</span> KYC kinnitatud</a>
+<a href="#step16" class="sidebar-item" data-step="16"><span class="sidebar-num">16</span> Juhtpaneel (KYC)</a>
+<div class="sidebar-part">Osa 2: Sissemakse</div>
+<a href="#step17" class="sidebar-item" data-step="17"><span class="sidebar-num">17</span> Summa</a>
+<a href="#step18" class="sidebar-item" data-step="18"><span class="sidebar-num">18</span> Makseviis</a>
+<a href="#step19" class="sidebar-item" data-step="19"><span class="sidebar-num">19</span> Kinnita makse</a>
+<a href="#step20" class="sidebar-item" data-step="20"><span class="sidebar-num">20</span> Vali krüpto</a>
+<a href="#step21" class="sidebar-item" data-step="21"><span class="sidebar-num">21</span> USDT võrk</a>
+<a href="#step22" class="sidebar-item" data-step="22"><span class="sidebar-num">22</span> Saada makse</a>
+<a href="#step23" class="sidebar-item" data-step="23"><span class="sidebar-num">23</span> Makse tuvastatud</a>
+<div class="sidebar-part">Osa 3: CopyX</div>
+<a href="#step24" class="sidebar-item" data-step="24"><span class="sidebar-num">24</span> Leia CopyX</a>
+<a href="#step25" class="sidebar-item" data-step="25"><span class="sidebar-num">25</span> Sirvi kauplejaid</a>
 <a href="#step26" class="sidebar-item" data-step="26"><span class="sidebar-num">26</span> Copy Strategy</a>
-<a href="#step27" class="sidebar-item" data-step="27"><span class="sidebar-num">27</span> Enter investment</a>
+<a href="#step27" class="sidebar-item" data-step="27"><span class="sidebar-num">27</span> Investeering</a>
 <a href="#step28" class="sidebar-item" data-step="28"><span class="sidebar-num">28</span> Community Token</a>
 <a href="#step29" class="sidebar-item" data-step="29"><span class="sidebar-num">29</span> HASH & Copy Now</a>
-<a href="#step30" class="sidebar-item" data-step="30"><span class="sidebar-num">30</span> Account created!</a>
+<a href="#step30" class="sidebar-item" data-step="30"><span class="sidebar-num">30</span> Konto loodud!</a>
 </aside>
 
 <!-- Main Content -->
 <main class="guide-content">
 
 <!-- ============================================ -->
-<!-- PART 1: Registration & KYC Verification      -->
+<!-- OSA 1: Registreerimine ja KYC kinnitamine    -->
 <!-- ============================================ -->
 
-<div class="part-header" id="part1">
+<div class="part-header" id="osa1">
 <div class="part-divider">
 <div class="part-divider-line"></div>
 <div class="part-icon"><i class="fa-solid fa-user-plus"></i></div>
 <div class="part-divider-line"></div>
 </div>
-<div class="part-label">Part 1</div>
-<div class="part-title">Registration & KYC Verification</div>
-<div class="part-time"><i class="fa-solid fa-clock"></i> ~5 minutes</div>
+<div class="part-label">Osa 1</div>
+<div class="part-title">Registreerimine ja KYC kinnitamine</div>
+<div class="part-time"><i class="fa-solid fa-clock"></i> ~5 minutit</div>
 </div>
 
 <div class="timeline">
@@ -735,23 +714,23 @@ background:var(--green);border-color:var(--green);color:#fff;
 <div class="step-card" id="step1">
 <div class="step-header">
 <div class="step-num">1</div>
-<div class="step-title">Register on AITECH IB Portal</div>
+<h3>Registreeru AITECH IB Portaalis</h3>
 </div>
 <div class="step-split">
 <div class="step-split-text">
 <div class="step-desc">
-Open the <strong>registration link provided by your referrer</strong> and fill out the registration form: <strong>first name, last name, email, password, country</strong> and phone number. Check both risk warning boxes and click <strong>Register</strong>.
+Ava <strong><a href="https://aitech.ibportal.io/auth/register?e=27I8HZeMt1RvTqvz5w1RV1sHvY1nWmKmHMlMGEPDlUA=&a=2" target="_blank" style="color:var(--accent);text-decoration:underline">registreerimislink</a></strong> ja täida registreerimisvorm: <strong>eesnimi, perekonnanimi, e-mail, parool, riik (Eesti)</strong> ja telefoninumber. Märgi mõlemad riskihoiatuse kastid ning klõpsa <strong>registreeru</strong>.
 </div>
 </div>
 <div class="step-split-image">
 <div class="step-image">
-<img src="images/image14.png" alt="AITECH IB Portal registration form" loading="lazy">
+<img src="../images/image14.png" alt="AITECH IB Portaali registreerimisvorm" loading="lazy">
 </div>
 </div>
 </div>
 <div class="step-nav">
 <span></span>
-<a href="#step2">Next: Verify email <i class="fa-solid fa-arrow-right"></i></a>
+<a href="#step2">Järgmine: Kinnita e-mail <i class="fa-solid fa-arrow-right"></i></a>
 </div>
 </div>
 
@@ -759,23 +738,23 @@ Open the <strong>registration link provided by your referrer</strong> and fill o
 <div class="step-card" id="step2">
 <div class="step-header">
 <div class="step-num">2</div>
-<div class="step-title">Verify Email (IB Portal)</div>
+<h3>Kinnita e-mail (IB Portal)</h3>
 </div>
 <div class="step-split reverse">
 <div class="step-split-text">
 <div class="step-desc">
-You will receive an email from the IB Portal. Click the <strong>"Verify Account"</strong> button to confirm your email address. The link expires after <strong>4320 minutes</strong>.
+Saad e-kirja IB Portalilt. Klõpsa nuppu <strong>"Verify Account"</strong> oma e-postiaadressi kinnitamiseks. Link aegub <strong>4320 minuti</strong> pärast.
 </div>
 </div>
 <div class="step-split-image">
 <div class="step-image">
-<img src="images/image21.png" alt="Email verification link" loading="lazy">
+<img src="../images/image21.png" alt="E-maili kinnituse link" loading="lazy">
 </div>
 </div>
 </div>
 <div class="step-nav">
-<a href="#step1"><i class="fa-solid fa-arrow-left"></i> Prev</a>
-<a href="#step3">Next: Email confirmed <i class="fa-solid fa-arrow-right"></i></a>
+<a href="#step1"><i class="fa-solid fa-arrow-left"></i> Eelmine</a>
+<a href="#step3">Järgmine: E-mail kinnitatud <i class="fa-solid fa-arrow-right"></i></a>
 </div>
 </div>
 
@@ -783,17 +762,17 @@ You will receive an email from the IB Portal. Click the <strong>"Verify Account"
 <div class="step-card" id="step3">
 <div class="step-header">
 <div class="step-num">3</div>
-<div class="step-title">Email Confirmed</div>
+<h3>E-mail kinnitatud</h3>
 </div>
 <div class="step-desc">
-After clicking the link, you will see the <strong>"emailVerified"</strong> confirmation message. Click <strong>"continueToLogin"</strong>.
+Pärast lingile klõpsamist kuvatakse <strong>"emailVerified"</strong> kinnitusteade. Klõpsa <strong>"continueToLogin"</strong>.
 </div>
 <div class="step-image">
-<img src="images/image3.png" alt="Email confirmed" loading="lazy">
+<img src="../images/image3.png" alt="E-mail kinnitatud" loading="lazy">
 </div>
 <div class="step-nav">
-<a href="#step2"><i class="fa-solid fa-arrow-left"></i> Prev</a>
-<a href="#step4">Next: Log in <i class="fa-solid fa-arrow-right"></i></a>
+<a href="#step2"><i class="fa-solid fa-arrow-left"></i> Eelmine</a>
+<a href="#step4">Järgmine: Logi sisse <i class="fa-solid fa-arrow-right"></i></a>
 </div>
 </div>
 
@@ -801,17 +780,17 @@ After clicking the link, you will see the <strong>"emailVerified"</strong> confi
 <div class="step-card" id="step4">
 <div class="step-header">
 <div class="step-num">4</div>
-<div class="step-title">Log In to AITECH Portal</div>
+<h3>Logi sisse AITECH portaali</h3>
 </div>
 <div class="step-desc">
-Enter your <strong>email and password</strong> and click <strong>"Login"</strong>.
+Sisesta oma <strong>e-mail ja parool</strong> ning klõpsa <strong>"Login"</strong>.
 </div>
 <div class="step-image">
-<img src="images/image7.png" alt="AITECH Portal login" loading="lazy">
+<img src="../images/image7.png" alt="AITECH portaali sisselogimine" loading="lazy">
 </div>
 <div class="step-nav">
-<a href="#step3"><i class="fa-solid fa-arrow-left"></i> Prev</a>
-<a href="#step5">Next: Register TAG Markets <i class="fa-solid fa-arrow-right"></i></a>
+<a href="#step3"><i class="fa-solid fa-arrow-left"></i> Eelmine</a>
+<a href="#step5">Järgmine: TAG Markets <i class="fa-solid fa-arrow-right"></i></a>
 </div>
 </div>
 
@@ -819,27 +798,27 @@ Enter your <strong>email and password</strong> and click <strong>"Login"</strong
 <div class="step-card" id="step5">
 <div class="step-header">
 <div class="step-num">5</div>
-<div class="step-title">Register TAG Markets from IB Portal</div>
+<h3>Registreeri Tag Markets IB Portaalist</h3>
 </div>
 <div class="step-split">
 <div class="step-split-text">
 <div class="step-desc">
-After logging in, scroll down until you find the <strong>"Tag Markets Registration"</strong> banner. Click <strong>"Register TagMarkets"</strong>.
+Pärast sisselogimist keri alla, kuni leiad <strong>"Tag Markets Registration"</strong> riba. Klõpsa <strong>"Register TagMarkets"</strong>.
 </div>
 <div class="step-note warning">
 <i class="fa-solid fa-triangle-exclamation"></i>
-<span><strong>Important!</strong> Do not register directly on the TAG Markets platform — it must be done through the IB Portal so the accounts sync properly.</span>
+<span><strong>NB!</strong> Ära registreeru otse Tag Markets platvormil – see tuleb teha IB Portaali kaudu, et kontod sünkroniseeruksid.</span>
 </div>
 </div>
 <div class="step-split-image">
 <div class="step-image">
-<img src="images/image6.png" alt="TAG Markets registration from IB Portal" loading="lazy">
+<img src="../images/image6.png" alt="Tag Markets registreerimine IB Portaalist" loading="lazy">
 </div>
 </div>
 </div>
 <div class="step-nav">
-<a href="#step4"><i class="fa-solid fa-arrow-left"></i> Prev</a>
-<a href="#step6">Next: Sync account <i class="fa-solid fa-arrow-right"></i></a>
+<a href="#step4"><i class="fa-solid fa-arrow-left"></i> Eelmine</a>
+<a href="#step6">Järgmine: Sünkroniseeri <i class="fa-solid fa-arrow-right"></i></a>
 </div>
 </div>
 
@@ -847,17 +826,17 @@ After logging in, scroll down until you find the <strong>"Tag Markets Registrati
 <div class="step-card" id="step6">
 <div class="step-header">
 <div class="step-num">6</div>
-<div class="step-title">Sync Your Account</div>
+<h3>Sünkroniseeri konto</h3>
 </div>
 <div class="step-desc">
-A popup will appear: <strong>"Welcome to TAG Broker"</strong>. Enter a password if desired and click <strong>"Sync Account"</strong>.
+Avaneb hüpikaken <strong>"Welcome to TAG Broker"</strong>. Sisesta soovi korral parool ja klõpsa <strong>"Sync Account"</strong>.
 </div>
 <div class="step-image">
-<img src="images/image11.png" alt="Account sync" loading="lazy">
+<img src="../images/image11.png" alt="Konto sünkroniseerimine" loading="lazy">
 </div>
 <div class="step-nav">
-<a href="#step5"><i class="fa-solid fa-arrow-left"></i> Prev</a>
-<a href="#step7">Next: Sync in progress <i class="fa-solid fa-arrow-right"></i></a>
+<a href="#step5"><i class="fa-solid fa-arrow-left"></i> Eelmine</a>
+<a href="#step7">Järgmine: Sünkr. käib <i class="fa-solid fa-arrow-right"></i></a>
 </div>
 </div>
 
@@ -865,17 +844,17 @@ A popup will appear: <strong>"Welcome to TAG Broker"</strong>. Enter a password 
 <div class="step-card" id="step7">
 <div class="step-header">
 <div class="step-num">7</div>
-<div class="step-title">Sync in Progress</div>
+<h3>Sünkroniseerimine käib</h3>
 </div>
 <div class="step-desc">
-Wait while the system verifies your data and syncs your accounts.
+Oota, kuni süsteem sinu andmeid kontrollib ja kontosid sünkroniseerib.
 </div>
 <div class="step-image">
-<img src="images/image5.png" alt="Sync in progress" loading="lazy">
+<img src="../images/image5.png" alt="Sünkroniseerimine käib" loading="lazy">
 </div>
 <div class="step-nav">
-<a href="#step6"><i class="fa-solid fa-arrow-left"></i> Prev</a>
-<a href="#step8">Next: Sync successful <i class="fa-solid fa-arrow-right"></i></a>
+<a href="#step6"><i class="fa-solid fa-arrow-left"></i> Eelmine</a>
+<a href="#step8">Järgmine: Sünkr. õnnestus <i class="fa-solid fa-arrow-right"></i></a>
 </div>
 </div>
 
@@ -883,17 +862,17 @@ Wait while the system verifies your data and syncs your accounts.
 <div class="step-card" id="step8">
 <div class="step-header">
 <div class="step-num">8</div>
-<div class="step-title">Sync Successful</div>
+<h3>Sünkroniseerimine õnnestus</h3>
 </div>
 <div class="step-desc">
-You will see the <strong>"Sync Successful!"</strong> confirmation. TAG Broker will send you an email with further instructions. Click <strong>"Close"</strong>.
+Kuvatakse <strong>"Sync Successful!"</strong> kinnitus. TAG Broker saadab sulle e-kirja edasiste juhistega. Klõpsa <strong>"Close"</strong>.
 </div>
 <div class="step-image">
-<img src="images/image8.png" alt="Sync successful" loading="lazy">
+<img src="../images/image8.png" alt="Sünkroniseerimine õnnestus" loading="lazy">
 </div>
 <div class="step-nav">
-<a href="#step7"><i class="fa-solid fa-arrow-left"></i> Prev</a>
-<a href="#step9">Next: Verify TAG email <i class="fa-solid fa-arrow-right"></i></a>
+<a href="#step7"><i class="fa-solid fa-arrow-left"></i> Eelmine</a>
+<a href="#step9">Järgmine: TAG e-mail <i class="fa-solid fa-arrow-right"></i></a>
 </div>
 </div>
 
@@ -901,23 +880,23 @@ You will see the <strong>"Sync Successful!"</strong> confirmation. TAG Broker wi
 <div class="step-card" id="step9">
 <div class="step-header">
 <div class="step-num">9</div>
-<div class="step-title">Verify TAG Markets Email</div>
+<h3>Kinnita e-mail TAG Marketsil</h3>
 </div>
 <div class="step-split reverse">
 <div class="step-split-text">
 <div class="step-desc">
-Open the TAG Markets email. It contains your login credentials and a <strong>"Confirm Email Address"</strong> button — click it to activate your TAG Markets account.
+Ava TAG Marketsi e-kiri. See sisaldab sinu sisselogimisandmeid ja nuppu <strong>"Confirm Email Address"</strong> – klõpsa sellel, et aktiveerida TAG Marketsi konto.
 </div>
 </div>
 <div class="step-split-image">
 <div class="step-image">
-<img src="images/image18.png" alt="TAG Markets email verification" loading="lazy">
+<img src="../images/image18.png" alt="TAG Markets e-maili kinnitus" loading="lazy">
 </div>
 </div>
 </div>
 <div class="step-nav">
-<a href="#step8"><i class="fa-solid fa-arrow-left"></i> Prev</a>
-<a href="#step10">Next: Dashboard <i class="fa-solid fa-arrow-right"></i></a>
+<a href="#step8"><i class="fa-solid fa-arrow-left"></i> Eelmine</a>
+<a href="#step10">Järgmine: Juhtpaneel <i class="fa-solid fa-arrow-right"></i></a>
 </div>
 </div>
 
@@ -925,17 +904,17 @@ Open the TAG Markets email. It contains your login credentials and a <strong>"Co
 <div class="step-card" id="step10">
 <div class="step-header">
 <div class="step-num">10</div>
-<div class="step-title">TAG Markets Dashboard</div>
+<h3>TAG Marketsi juhtpaneel</h3>
 </div>
 <div class="step-desc">
-You are now on the TAG Markets dashboard. You will see a notification at the top to complete KYC verification.
+Oled nüüd TAG Marketsi juhtpaneelil. Näed üleval teadet KYC kinnituse lõpetamiseks.
 </div>
 <div class="step-image">
-<img src="images/image15.png" alt="TAG Markets dashboard" loading="lazy">
+<img src="../images/image15.png" alt="TAG Marketsi juhtpaneel" loading="lazy">
 </div>
 <div class="step-nav">
-<a href="#step9"><i class="fa-solid fa-arrow-left"></i> Prev</a>
-<a href="#step11">Next: Start KYC <i class="fa-solid fa-arrow-right"></i></a>
+<a href="#step9"><i class="fa-solid fa-arrow-left"></i> Eelmine</a>
+<a href="#step11">Järgmine: Alusta KYC <i class="fa-solid fa-arrow-right"></i></a>
 </div>
 </div>
 
@@ -943,17 +922,17 @@ You are now on the TAG Markets dashboard. You will see a notification at the top
 <div class="step-card" id="step11">
 <div class="step-header">
 <div class="step-num">11</div>
-<div class="step-title">Start KYC Verification — Sumsub</div>
+<h3>Alusta KYC kontrolli – Sumsub</h3>
 </div>
 <div class="step-desc">
-Click the <strong>"upload documents"</strong> link on the dashboard. The Sumsub verification popup will appear. Click <strong>"Continue"</strong>.
+Klõpsa juhtpaneelil <strong>"upload documents"</strong> lingil. Avaneb Sumsubi kinnituse hüpikaken. Klõpsa <strong>"Continue"</strong>.
 </div>
 <div class="step-image">
-<img src="images/image4.png" alt="Start KYC verification — Sumsub" loading="lazy">
+<img src="../images/image4.png" alt="KYC kontrolli alustamine – Sumsub" loading="lazy">
 </div>
 <div class="step-nav">
-<a href="#step10"><i class="fa-solid fa-arrow-left"></i> Prev</a>
-<a href="#step12">Next: Begin verification <i class="fa-solid fa-arrow-right"></i></a>
+<a href="#step10"><i class="fa-solid fa-arrow-left"></i> Eelmine</a>
+<a href="#step12">Järgmine: Alusta kinnitust <i class="fa-solid fa-arrow-right"></i></a>
 </div>
 </div>
 
@@ -961,17 +940,17 @@ Click the <strong>"upload documents"</strong> link on the dashboard. The Sumsub 
 <div class="step-card" id="step12">
 <div class="step-header">
 <div class="step-num">12</div>
-<div class="step-title">Begin Verification</div>
+<h3>Alusta kinnitust</h3>
 </div>
 <div class="step-desc">
-Click <strong>"Start verification"</strong>. The process consists of two steps: submitting an identity document and completing a biometric verification.
+Klõpsa <strong>"Start verification"</strong>. Protsess koosneb kahest sammust: isikut tõendava dokumendi esitamine ja biomeetriline kontroll.
 </div>
 <div class="step-image">
-<img src="images/image2.png" alt="Begin verification" loading="lazy">
+<img src="../images/image2.png" alt="Kinnituse alustamine" loading="lazy">
 </div>
 <div class="step-nav">
-<a href="#step11"><i class="fa-solid fa-arrow-left"></i> Prev</a>
-<a href="#step13">Next: Document type <i class="fa-solid fa-arrow-right"></i></a>
+<a href="#step11"><i class="fa-solid fa-arrow-left"></i> Eelmine</a>
+<a href="#step13">Järgmine: Dokumendi tüüp <i class="fa-solid fa-arrow-right"></i></a>
 </div>
 </div>
 
@@ -979,17 +958,17 @@ Click <strong>"Start verification"</strong>. The process consists of two steps: 
 <div class="step-card" id="step13">
 <div class="step-header">
 <div class="step-num">13</div>
-<div class="step-title">Choose Document Type</div>
+<h3>Vali dokumendi tüüp</h3>
 </div>
 <div class="step-desc">
-Select the issuing country and document type <strong>(ID card, passport, etc.)</strong>, then click <strong>"Continue"</strong>.
+Vali väljastav riik <strong>(Eesti)</strong> ja dokumendi tüüp <strong>(ID-kaart, pass jne)</strong>, seejärel klõpsa <strong>"Continue"</strong>.
 </div>
 <div class="step-image">
-<img src="images/image1.png" alt="Choose document type" loading="lazy">
+<img src="../images/image1.png" alt="Dokumendi tüübi valimine" loading="lazy">
 </div>
 <div class="step-nav">
-<a href="#step12"><i class="fa-solid fa-arrow-left"></i> Prev</a>
-<a href="#step14">Next: Biometric check <i class="fa-solid fa-arrow-right"></i></a>
+<a href="#step12"><i class="fa-solid fa-arrow-left"></i> Eelmine</a>
+<a href="#step14">Järgmine: Biomeetria <i class="fa-solid fa-arrow-right"></i></a>
 </div>
 </div>
 
@@ -997,17 +976,17 @@ Select the issuing country and document type <strong>(ID card, passport, etc.)</
 <div class="step-card" id="step14">
 <div class="step-header">
 <div class="step-num">14</div>
-<div class="step-title">Biometric Verification</div>
+<h3>Biomeetriline kontroll</h3>
 </div>
 <div class="step-desc">
-Follow the on-screen instructions to complete the biometric verification. Wait while the system reviews your submission.
+Järgi ekraanil olevaid juhiseid biomeetrilise kontrolli lõpetamiseks. Oota, kuni süsteem sinu esitust kontrollib.
 </div>
 <div class="step-image">
-<img src="images/image13.png" alt="Biometric verification" loading="lazy">
+<img src="../images/image13.png" alt="Biomeetriline kontroll" loading="lazy">
 </div>
 <div class="step-nav">
-<a href="#step13"><i class="fa-solid fa-arrow-left"></i> Prev</a>
-<a href="#step15">Next: KYC approved <i class="fa-solid fa-arrow-right"></i></a>
+<a href="#step13"><i class="fa-solid fa-arrow-left"></i> Eelmine</a>
+<a href="#step15">Järgmine: KYC kinnitatud <i class="fa-solid fa-arrow-right"></i></a>
 </div>
 </div>
 
@@ -1015,17 +994,17 @@ Follow the on-screen instructions to complete the biometric verification. Wait w
 <div class="step-card" id="step15">
 <div class="step-header">
 <div class="step-num">15</div>
-<div class="step-title">KYC Approved</div>
+<h3>KYC kinnitatud</h3>
 </div>
 <div class="step-desc">
-You will see the message <strong>"Your profile has been verified"</strong>. KYC is successfully completed — you can now make deposits.
+Kuvatakse teade <strong>"Your profile has been verified"</strong>. KYC on edukalt lõpetatud – saad nüüd teha sissemakseid.
 </div>
 <div class="step-image">
-<img src="images/image10.png" alt="KYC approved" loading="lazy">
+<img src="../images/image10.png" alt="KYC kinnitatud" loading="lazy">
 </div>
 <div class="step-nav">
-<a href="#step14"><i class="fa-solid fa-arrow-left"></i> Prev</a>
-<a href="#step16">Next: Dashboard after KYC <i class="fa-solid fa-arrow-right"></i></a>
+<a href="#step14"><i class="fa-solid fa-arrow-left"></i> Eelmine</a>
+<a href="#step16">Järgmine: Juhtpaneel <i class="fa-solid fa-arrow-right"></i></a>
 </div>
 </div>
 
@@ -1033,41 +1012,41 @@ You will see the message <strong>"Your profile has been verified"</strong>. KYC 
 <div class="step-card" id="step16">
 <div class="step-header">
 <div class="step-num">16</div>
-<div class="step-title">Dashboard After KYC</div>
+<h3>TAG Marketsi juhtpaneel pärast KYC-d</h3>
 </div>
 <div class="step-split">
 <div class="step-split-text">
 <div class="step-desc">
-After KYC approval, your trading account <strong>(MT5, account no. 50627155)</strong> is visible on the dashboard. Click <strong>"Deposit"</strong> to fund your account.
+Pärast KYC kinnitust on juhtpaneelil näha sinu kauplemiskonto <strong>(MT5, konto nr 50627155)</strong>. Klõpsa <strong>"Deposit"</strong>, et teha sissemakse (raha kontole kanda).
 </div>
 </div>
 <div class="step-split-image">
 <div class="step-image">
-<img src="images/image9.png" alt="Dashboard after KYC" loading="lazy">
+<img src="../images/image9.png" alt="Juhtpaneel pärast KYC kinnitust" loading="lazy">
 </div>
 </div>
 </div>
 <div class="step-nav">
-<a href="#step15"><i class="fa-solid fa-arrow-left"></i> Prev</a>
-<a href="#step17">Next: Deposit amount <i class="fa-solid fa-arrow-right"></i></a>
+<a href="#step15"><i class="fa-solid fa-arrow-left"></i> Eelmine</a>
+<a href="#step17">Järgmine: Sissemakse summa <i class="fa-solid fa-arrow-right"></i></a>
 </div>
 </div>
 
 </div><!-- /timeline -->
 
 <!-- ============================================ -->
-<!-- PART 2: Making a Deposit                     -->
+<!-- OSA 2: Sissemakse tegemine                   -->
 <!-- ============================================ -->
 
-<div class="part-header" id="part2">
+<div class="part-header" id="osa2">
 <div class="part-divider">
 <div class="part-divider-line"></div>
 <div class="part-icon"><i class="fa-solid fa-wallet"></i></div>
 <div class="part-divider-line"></div>
 </div>
-<div class="part-label">Part 2</div>
-<div class="part-title">Making a Deposit</div>
-<div class="part-time"><i class="fa-solid fa-clock"></i> ~5 minutes</div>
+<div class="part-label">Osa 2</div>
+<div class="part-title">Sissemakse tegemine</div>
+<div class="part-time"><i class="fa-solid fa-clock"></i> ~5 minutit</div>
 </div>
 
 <div class="timeline">
@@ -1076,17 +1055,17 @@ After KYC approval, your trading account <strong>(MT5, account no. 50627155)</st
 <div class="step-card" id="step17">
 <div class="step-header">
 <div class="step-num">17</div>
-<div class="step-title">Choose Deposit Amount</div>
+<h3>Vali sissemakse summa</h3>
 </div>
 <div class="step-desc">
-Select the currency <strong>(USD)</strong> and enter your desired amount (e.g. <strong>$777</strong>) or choose a preset amount ($100, $500, $1000). Click <strong>"Next"</strong>.
+Vali valuuta <strong>(USD)</strong> ja sisesta soovitud summa (nt <strong>$777</strong>) või vali eelseadistatud summa ($100, $500, $1000). Klõpsa <strong>"Next"</strong>.
 </div>
 <div class="step-image">
-<img src="images/image12.png" alt="Choose deposit amount" loading="lazy">
+<img src="../images/image12.png" alt="Sissemakse summa valimine" loading="lazy">
 </div>
 <div class="step-nav">
-<a href="#step16"><i class="fa-solid fa-arrow-left"></i> Prev</a>
-<a href="#step18">Next: Payment method <i class="fa-solid fa-arrow-right"></i></a>
+<a href="#step16"><i class="fa-solid fa-arrow-left"></i> Eelmine</a>
+<a href="#step18">Järgmine: Makseviis <i class="fa-solid fa-arrow-right"></i></a>
 </div>
 </div>
 
@@ -1094,23 +1073,23 @@ Select the currency <strong>(USD)</strong> and enter your desired amount (e.g. <
 <div class="step-card" id="step18">
 <div class="step-header">
 <div class="step-num">18</div>
-<div class="step-title">Choose Payment Method</div>
+<h3>Vali makseviis</h3>
 </div>
 <div class="step-split reverse">
 <div class="step-split-text">
 <div class="step-desc">
-Select a payment method: <strong>Crypto</strong> (Bitcoin, Ethereum, USDT, etc.) or <strong>card/bank transfer</strong> (Visa/Mastercard). Click your preferred option.
+Vali makseviis: <strong>krüptoraha</strong> (Bitcoin, Ethereum, USDT jne) või <strong>kaart/pangaülekanne</strong> (Visa/Mastercard). Klõpsa oma eelistatud makseviisile.
 </div>
 </div>
 <div class="step-split-image">
 <div class="step-image">
-<img src="images/image25.png" alt="Choose payment method" loading="lazy">
+<img src="../images/image25.png" alt="Makseviisi valimine" loading="lazy">
 </div>
 </div>
 </div>
 <div class="step-nav">
-<a href="#step17"><i class="fa-solid fa-arrow-left"></i> Prev</a>
-<a href="#step19">Next: Confirm crypto <i class="fa-solid fa-arrow-right"></i></a>
+<a href="#step17"><i class="fa-solid fa-arrow-left"></i> Eelmine</a>
+<a href="#step19">Järgmine: Kinnita makse <i class="fa-solid fa-arrow-right"></i></a>
 </div>
 </div>
 
@@ -1118,17 +1097,17 @@ Select a payment method: <strong>Crypto</strong> (Bitcoin, Ethereum, USDT, etc.)
 <div class="step-card" id="step19">
 <div class="step-header">
 <div class="step-num">19</div>
-<div class="step-title">Confirm Crypto Payment</div>
+<h3>Kinnita krüptomakse</h3>
 </div>
 <div class="step-desc">
-If you chose crypto, the deposit amount <strong>($777)</strong> will be displayed. Click <strong>"Submit"</strong> to continue.
+Krüptoraha valiku korral kuvatakse sissemakse summa <strong>($777)</strong>. Klõpsa <strong>"Submit"</strong> jätkamiseks.
 </div>
 <div class="step-image">
-<img src="images/image17.png" alt="Confirm crypto payment" loading="lazy">
+<img src="../images/image17.png" alt="Krüptomakse kinnitamine" loading="lazy">
 </div>
 <div class="step-nav">
-<a href="#step18"><i class="fa-solid fa-arrow-left"></i> Prev</a>
-<a href="#step20">Next: Choose crypto <i class="fa-solid fa-arrow-right"></i></a>
+<a href="#step18"><i class="fa-solid fa-arrow-left"></i> Eelmine</a>
+<a href="#step20">Järgmine: Vali krüpto <i class="fa-solid fa-arrow-right"></i></a>
 </div>
 </div>
 
@@ -1136,21 +1115,21 @@ If you chose crypto, the deposit amount <strong>($777)</strong> will be displaye
 <div class="step-card" id="step20">
 <div class="step-header">
 <div class="step-num">20</div>
-<div class="step-title">Choose Cryptocurrency</div>
+<h3>Vali krüptoraha</h3>
 </div>
 <div class="step-desc">
-Select a cryptocurrency: Bitcoin, Ethereum, Tether (USDT), USD Coin, Binance Coin, or Solana.
+Vali krüptoraha: Bitcoin, Ethereum, Tether (USDT), USD Coin, Binance Coin või Solana.
 </div>
 <div class="step-note">
 <i class="fa-solid fa-lightbulb"></i>
-<span>We recommend using <strong>USDT (Tether)</strong> due to low transaction fees.</span>
+<span>Soovitatav on kasutada <strong>USDT (Tether)</strong> madalate tehingutasude tõttu.</span>
 </div>
 <div class="step-image">
-<img src="images/image16.png" alt="Choose cryptocurrency" loading="lazy">
+<img src="../images/image16.png" alt="Krüptoraha valimine" loading="lazy">
 </div>
 <div class="step-nav">
-<a href="#step19"><i class="fa-solid fa-arrow-left"></i> Prev</a>
-<a href="#step21">Next: USDT network <i class="fa-solid fa-arrow-right"></i></a>
+<a href="#step19"><i class="fa-solid fa-arrow-left"></i> Eelmine</a>
+<a href="#step21">Järgmine: USDT võrk <i class="fa-solid fa-arrow-right"></i></a>
 </div>
 </div>
 
@@ -1158,17 +1137,17 @@ Select a cryptocurrency: Bitcoin, Ethereum, Tether (USDT), USD Coin, Binance Coi
 <div class="step-card" id="step21">
 <div class="step-header">
 <div class="step-num">21</div>
-<div class="step-title">Choose USDT Network</div>
+<h3>Vali USDT võrk</h3>
 </div>
 <div class="step-desc">
-For USDT, we recommend selecting the <strong>BSC BEP-20</strong> network due to low fees.
+USDT puhul soovitan valida võrguks <strong>BSC BEP-20</strong> madalate tasude tõttu.
 </div>
 <div class="step-image">
-<img src="images/image26.png" alt="Choose USDT network" loading="lazy">
+<img src="../images/image26.png" alt="USDT võrgu valimine" loading="lazy">
 </div>
 <div class="step-nav">
-<a href="#step20"><i class="fa-solid fa-arrow-left"></i> Prev</a>
-<a href="#step22">Next: Send payment <i class="fa-solid fa-arrow-right"></i></a>
+<a href="#step20"><i class="fa-solid fa-arrow-left"></i> Eelmine</a>
+<a href="#step22">Järgmine: Saada makse <i class="fa-solid fa-arrow-right"></i></a>
 </div>
 </div>
 
@@ -1176,23 +1155,23 @@ For USDT, we recommend selecting the <strong>BSC BEP-20</strong> network due to 
 <div class="step-card" id="step22">
 <div class="step-header">
 <div class="step-num">22</div>
-<div class="step-title">Send Payment via QR Code or Address</div>
+<h3>Saada makse QR-koodi või aadressi kaudu</h3>
 </div>
 <div class="step-split">
 <div class="step-split-text">
 <div class="step-desc">
-A payment address and QR code will be displayed. Open your crypto wallet and send the exact amount <strong>(777.225395 USDT)</strong> to the address shown. The payment expires in approximately <strong>15 minutes</strong>.
+Kuvatakse makseaadress ja QR-kood. Ava oma krüptokott ja saada täpne summa <strong>(777.225395 USDT)</strong> näidatud aadressile. Makse aegub <strong>~15 minuti</strong> jooksul.
 </div>
 </div>
 <div class="step-split-image">
 <div class="step-image">
-<img src="images/image23.png" alt="Payment QR code and address" loading="lazy">
+<img src="../images/image23.png" alt="Makse QR-kood ja aadress" loading="lazy">
 </div>
 </div>
 </div>
 <div class="step-nav">
-<a href="#step21"><i class="fa-solid fa-arrow-left"></i> Prev</a>
-<a href="#step23">Next: Payment detected <i class="fa-solid fa-arrow-right"></i></a>
+<a href="#step21"><i class="fa-solid fa-arrow-left"></i> Eelmine</a>
+<a href="#step23">Järgmine: Makse tuvastatud <i class="fa-solid fa-arrow-right"></i></a>
 </div>
 </div>
 
@@ -1200,35 +1179,35 @@ A payment address and QR code will be displayed. Open your crypto wallet and sen
 <div class="step-card" id="step23">
 <div class="step-header">
 <div class="step-num">23</div>
-<div class="step-title">Payment Detected</div>
+<h3>Makse tuvastatud</h3>
 </div>
 <div class="step-desc">
-The system will detect your payment and display the message <strong>"Payment found! Awaiting network confirmations"</strong>. Wait for network confirmations.
+Süsteem tuvastab sinu makse ja kuvab teate <strong>"Payment found! Awaiting network confirmations"</strong>. Oota võrgu kinnitusi.
 </div>
 <div class="step-image">
-<img src="images/image30.png" alt="Payment detected" loading="lazy">
+<img src="../images/image30.png" alt="Makse tuvastatud" loading="lazy">
 </div>
 <div class="step-nav">
-<a href="#step22"><i class="fa-solid fa-arrow-left"></i> Prev</a>
-<a href="#step24">Next: Find CopyX <i class="fa-solid fa-arrow-right"></i></a>
+<a href="#step22"><i class="fa-solid fa-arrow-left"></i> Eelmine</a>
+<a href="#step24">Järgmine: Leia CopyX <i class="fa-solid fa-arrow-right"></i></a>
 </div>
 </div>
 
 </div><!-- /timeline -->
 
 <!-- ============================================ -->
-<!-- PART 3: Connecting to Sonic CopyX            -->
+<!-- OSA 3: SONIC CopyX strateegiale ühendamine   -->
 <!-- ============================================ -->
 
-<div class="part-header" id="part3">
+<div class="part-header" id="osa3">
 <div class="part-divider">
 <div class="part-divider-line"></div>
 <div class="part-icon"><i class="fa-solid fa-robot"></i></div>
 <div class="part-divider-line"></div>
 </div>
-<div class="part-label">Part 3</div>
-<div class="part-title">Connecting to Sonic CopyX</div>
-<div class="part-time"><i class="fa-solid fa-clock"></i> ~5 minutes</div>
+<div class="part-label">Osa 3</div>
+<div class="part-title">SONIC CopyX strateegiale ühendamine</div>
+<div class="part-time"><i class="fa-solid fa-clock"></i> ~5 minutit</div>
 </div>
 
 <div class="timeline">
@@ -1237,17 +1216,17 @@ The system will detect your payment and display the message <strong>"Payment fou
 <div class="step-card" id="step24">
 <div class="step-header">
 <div class="step-num">24</div>
-<div class="step-title">Find CopyX & Browse Traders</div>
+<h3>Leia CopyX ja sirvi kauplejaid</h3>
 </div>
 <div class="step-desc">
-On the dashboard, click <strong>"CopyX"</strong> in the left menu.
+Juhtpaneelil klõpsa vasakul menüüs <strong>"CopyX"</strong>.
 </div>
 <div class="step-image">
-<img src="images/image22.png" alt="CopyX menu" loading="lazy">
+<img src="../images/image22.png" alt="CopyX menüü" loading="lazy">
 </div>
 <div class="step-nav">
-<a href="#step23"><i class="fa-solid fa-arrow-left"></i> Prev</a>
-<a href="#step25">Next: Browse traders <i class="fa-solid fa-arrow-right"></i></a>
+<a href="#step23"><i class="fa-solid fa-arrow-left"></i> Eelmine</a>
+<a href="#step25">Järgmine: Sirvi kauplejaid <i class="fa-solid fa-arrow-right"></i></a>
 </div>
 </div>
 
@@ -1255,17 +1234,17 @@ On the dashboard, click <strong>"CopyX"</strong> in the left menu.
 <div class="step-card" id="step25">
 <div class="step-header">
 <div class="step-num">25</div>
-<div class="step-title">Browse Traders</div>
+<h3>Sirvi kauplejaid</h3>
 </div>
 <div class="step-desc">
-The <strong>"Browse Pro Traders"</strong> page will open, showing all active strategies. Find and click on the <strong>"SONIC"</strong> strategy.
+Avaneb <strong>"Browse Pro Traders"</strong> leht, kus on näha kõik aktiivsed strateegiad. Leia ja klõpsa strateegia <strong>"SONIC"</strong> peale.
 </div>
 <div class="step-image">
-<img src="images/image24.png" alt="Browse Pro Traders page" loading="lazy">
+<img src="../images/image24.png" alt="Browse Pro Traders leht" loading="lazy">
 </div>
 <div class="step-nav">
-<a href="#step24"><i class="fa-solid fa-arrow-left"></i> Prev</a>
-<a href="#step26">Next: Copy Strategy <i class="fa-solid fa-arrow-right"></i></a>
+<a href="#step24"><i class="fa-solid fa-arrow-left"></i> Eelmine</a>
+<a href="#step26">Järgmine: Copy Strategy <i class="fa-solid fa-arrow-right"></i></a>
 </div>
 </div>
 
@@ -1273,27 +1252,27 @@ The <strong>"Browse Pro Traders"</strong> page will open, showing all active str
 <div class="step-card" id="step26">
 <div class="step-header">
 <div class="step-num">26</div>
-<div class="step-title">Copy Strategy — Overview</div>
+<h3>Copy Strategy – vaata ülevaadet</h3>
 </div>
 <div class="step-split reverse">
 <div class="step-split-text">
 <div class="step-desc">
-The <strong>"Copy Strategy"</strong> window will open. Enter your investment amount <strong>(min $10)</strong>. The account type is automatically set to <strong>"Amplify"</strong>.
+Avaneb <strong>"Copy Strategy"</strong> aken. Sisesta investeeringu summa <strong>(min $10)</strong>. Konto tüüp on automaatselt <strong>"Amplify"</strong>.
 </div>
 <div class="step-note warning">
 <i class="fa-solid fa-triangle-exclamation"></i>
-<span><strong>Important!</strong> If the trader loses more than 10% of the initial balance, your account will be liquidated.</span>
+<span><strong>NB!</strong> Kui kaupleja kaotab üle 10% algsaldost, likvideeritakse sinu konto.</span>
 </div>
 </div>
 <div class="step-split-image">
 <div class="step-image">
-<img src="images/image29.png" alt="Copy Strategy overview" loading="lazy">
+<img src="../images/image29.png" alt="Copy Strategy ülevaade" loading="lazy">
 </div>
 </div>
 </div>
 <div class="step-nav">
-<a href="#step25"><i class="fa-solid fa-arrow-left"></i> Prev</a>
-<a href="#step27">Next: Enter investment <i class="fa-solid fa-arrow-right"></i></a>
+<a href="#step25"><i class="fa-solid fa-arrow-left"></i> Eelmine</a>
+<a href="#step27">Järgmine: Investeering <i class="fa-solid fa-arrow-right"></i></a>
 </div>
 </div>
 
@@ -1301,27 +1280,27 @@ The <strong>"Copy Strategy"</strong> window will open. Enter your investment amo
 <div class="step-card" id="step27">
 <div class="step-header">
 <div class="step-num">27</div>
-<div class="step-title">Copy Strategy — Enter Investment</div>
+<h3>Copy Strategy – sisesta investeering</h3>
 </div>
 <div class="step-split">
 <div class="step-split-text">
 <div class="step-desc">
-The <strong>"Copy Strategy"</strong> window will open. Enter your investment amount <strong>(min $10)</strong>. The account type is automatically set to <strong>"Amplify"</strong>.
+Avaneb <strong>"Copy Strategy"</strong> aken. Sisesta investeeringu summa <strong>(min $10)</strong>. Konto tüüp on automaatselt <strong>"Amplify"</strong>.
 </div>
 <div class="step-note warning">
 <i class="fa-solid fa-triangle-exclamation"></i>
-<span><strong>Important!</strong> If the trader loses more than 10% of the initial balance, your account will be liquidated.</span>
+<span><strong>NB!</strong> Kui kaupleja kaotab üle 10% algsaldost, likvideeritakse sinu konto.</span>
 </div>
 </div>
 <div class="step-split-image">
 <div class="step-image">
-<img src="images/image19.png" alt="Copy Strategy — enter investment" loading="lazy">
+<img src="../images/image19.png" alt="Copy Strategy investeeringu sisestamine" loading="lazy">
 </div>
 </div>
 </div>
 <div class="step-nav">
-<a href="#step26"><i class="fa-solid fa-arrow-left"></i> Prev</a>
-<a href="#step28">Next: Community Token <i class="fa-solid fa-arrow-right"></i></a>
+<a href="#step26"><i class="fa-solid fa-arrow-left"></i> Eelmine</a>
+<a href="#step28">Järgmine: Community Token <i class="fa-solid fa-arrow-right"></i></a>
 </div>
 </div>
 
@@ -1329,21 +1308,21 @@ The <strong>"Copy Strategy"</strong> window will open. Enter your investment amo
 <div class="step-card" id="step28">
 <div class="step-header">
 <div class="step-num">28</div>
-<div class="step-title">Enter Community Token #DW</div>
+<h3>Sisesta Community Token #DW</h3>
 </div>
 <div class="step-desc">
-Click <strong>"Community Token"</strong> and enter the token code <strong>#DW</strong>, then click <strong>"Verify"</strong>.
+Klõpsa <strong>"Community Token"</strong> ja sisesta tokeni kood <strong>#DW</strong>, seejärel klõpsa <strong>"Verify"</strong>.
 </div>
 <div class="step-note">
 <i class="fa-solid fa-info-circle"></i>
-<span>The token changes your Amplify account's drawdown limit to <strong>5%</strong> of the initial balance.</span>
+<span>Token muudab sinu Amplify konto kahjulimiiti <strong>5%-ni</strong> algsaldost.</span>
 </div>
 <div class="step-image">
-<img src="images/image20.png" alt="Enter Community Token" loading="lazy">
+<img src="../images/image20.png" alt="Community Token sisestamine" loading="lazy">
 </div>
 <div class="step-nav">
-<a href="#step27"><i class="fa-solid fa-arrow-left"></i> Prev</a>
-<a href="#step29">Next: HASH & Copy Now <i class="fa-solid fa-arrow-right"></i></a>
+<a href="#step27"><i class="fa-solid fa-arrow-left"></i> Eelmine</a>
+<a href="#step29">Järgmine: HASH & Copy Now <i class="fa-solid fa-arrow-right"></i></a>
 </div>
 </div>
 
@@ -1351,17 +1330,17 @@ Click <strong>"Community Token"</strong> and enter the token code <strong>#DW</s
 <div class="step-card" id="step29">
 <div class="step-header">
 <div class="step-num">29</div>
-<div class="step-title">Enter HASH/GU-ID & Click Copy Now</div>
+<h3>Sisesta HASH/GU-ID ja klõpsa Copy Now</h3>
 </div>
 <div class="step-desc">
-After the token is verified, the <strong>HASH/GU-ID</strong> field will appear. Enter the value <strong>1000</strong> and click <strong>"Submit"</strong>. Check both consent boxes and click <strong>"Copy Now"</strong>.
+Pärast tokeni kinnitamist kuvatakse <strong>HASH/GU-ID</strong> väli. Sisesta sinna väärtus <strong>1000</strong> ja klõpsa <strong>"Submit"</strong>. Märgi mõlemad nõusoleku kastid ning klõpsa <strong>"Copy Now"</strong>.
 </div>
 <div class="step-image">
-<img src="images/image28.png" alt="Enter HASH/GU-ID and Copy Now" loading="lazy">
+<img src="../images/image28.png" alt="HASH/GU-ID sisestamine ja Copy Now" loading="lazy">
 </div>
 <div class="step-nav">
-<a href="#step28"><i class="fa-solid fa-arrow-left"></i> Prev</a>
-<a href="#step30">Next: Account created! <i class="fa-solid fa-arrow-right"></i></a>
+<a href="#step28"><i class="fa-solid fa-arrow-left"></i> Eelmine</a>
+<a href="#step30">Järgmine: Konto loodud! <i class="fa-solid fa-arrow-right"></i></a>
 </div>
 </div>
 
@@ -1369,17 +1348,17 @@ After the token is verified, the <strong>HASH/GU-ID</strong> field will appear. 
 <div class="step-card" id="step30">
 <div class="step-header">
 <div class="step-num">30</div>
-<div class="step-title">CopyX Account Created!</div>
+<h3>CopyX konto loodud!</h3>
 </div>
 <div class="step-desc">
-You will see the message <strong>"CopyX Account Created"</strong>. Click <strong>"Continue"</strong>. The SONIC strategy will now automatically copy the trader's trades to your account.
+Kuvatakse teade <strong>"CopyX Account Created"</strong>. Klõpsa <strong>"Continue"</strong>. SONIC strateegia kopeerib nüüd automaatselt kaupleja tehinguid sinu kontole.
 </div>
 <div class="step-image">
-<img src="images/image27.png" alt="CopyX account created" loading="lazy">
+<img src="../images/image27.png" alt="CopyX konto loodud" loading="lazy">
 </div>
 <div class="step-nav">
-<a href="#step29"><i class="fa-solid fa-arrow-left"></i> Prev</a>
-<a href="#done">Finish <i class="fa-solid fa-arrow-right"></i></a>
+<a href="#step29"><i class="fa-solid fa-arrow-left"></i> Eelmine</a>
+<a href="#done">Lõpeta <i class="fa-solid fa-arrow-right"></i></a>
 </div>
 </div>
 
@@ -1389,12 +1368,12 @@ You will see the message <strong>"CopyX Account Created"</strong>. Click <strong
 <div class="step-card" id="done" style="border-color:var(--accent);background:linear-gradient(135deg,rgba(184,248,71,0.05),rgba(34,197,94,0.03));">
 <div style="text-align:center">
 <div style="font-size:4rem;margin-bottom:16px">&#127881;</div>
-<h2 style="font-size:2rem;font-weight:900;margin-bottom:12px">Congratulations! You're All Set!</h2>
+<h2 style="font-size:2rem;font-weight:900;margin-bottom:12px">Palju õnne! Kõik on valmis!</h2>
 <p style="color:var(--text-dim);font-size:1.05rem;line-height:1.7;max-width:600px;margin:0 auto 24px;">
-You have successfully connected to the SONIC CopyX strategy! From the Followers Hub you can track your strategy's growth, balance, and trades. At the bottom of the page you will also find your MetaTrader 5 login credentials (download the MT5 app from Google Play / App Store) and the server is <strong>T.M Financials</strong>.
+Oled edukalt ühendatud SONIC CopyX strateegiaga! Followers Hub'ist saad jälgida oma strateegia kasvu, saldot ja tehinguid. Lehe alaosas leiad ka MetaTrader 5 sisselogimisandmed (MT5 rakenduse leiad Google Play'st / App Store'ist) ja server on <strong>T.M Financials</strong>.
 </p>
 <div class="step-image">
-<img src="images/image31.png" alt="Followers Hub — track your investment" loading="lazy">
+<img src="../images/image31.png" alt="Followers hub – jälgi oma investeeringut" loading="lazy">
 </div>
 </div>
 </div>
@@ -1406,16 +1385,28 @@ You have successfully connected to the SONIC CopyX strategy! From the Followers 
 <div class="guide-footer">
 <div class="footer-card">
 <div class="footer-icon">&#128172;</div>
-<h2>Need <span>help?</span></h2>
-<p>If you have any questions or need help with any step, don't hesitate to reach out.</p>
+<h2>Vajad <span>abi?</span></h2>
+<p>Kui sul tekib küsimusi või vajad abi mõne sammuga, võta julgelt ühendust Manfrediga.</p>
 <div class="footer-links">
-<span class="footer-link">
-<i class="fa-solid fa-user"></i> Contact your referrer
-</span>
+<a href="https://wa.me/37251985325" target="_blank" class="footer-link">
+<i class="fa-brands fa-whatsapp"></i> WhatsApp
+</a>
+<a href="https://t.me/manfredmuuga" target="_blank" class="footer-link">
+<i class="fa-brands fa-telegram"></i> Telegram
+</a>
+<a href="https://www.facebook.com/profile.php?id=61572194014335" target="_blank" class="footer-link">
+<i class="fa-brands fa-facebook"></i> Facebook
+</a>
+<a href="https://www.instagram.com/manfredmuuga2/" target="_blank" class="footer-link">
+<i class="fa-brands fa-instagram"></i> Instagram
+</a>
+<a href="https://www.tiktok.com/@manfredmuuga?is_from_webapp=1&sender_device=pc" target="_blank" class="footer-link">
+<i class="fa-brands fa-tiktok"></i> TikTok
+</a>
 </div>
 </div>
 <p style="color:var(--text-muted);font-size:0.8rem;margin-top:32px;max-width:600px;margin-left:auto;margin-right:auto;">
-Trading involves risk. Past performance does not guarantee future results. Never invest more than you can afford to lose. TAG Markets is licensed by Mauritius FSC.
+Kauplemine on seotud riskidega. Varasemad tulemused ei garanteeri tulevaid tulemusi. Ära investeeri rohkem, kui saad endale lubada kaotada. TAG Markets on litsentseeritud Mauritiuse FSC poolt.
 </p>
 </div>
 
@@ -1519,7 +1510,7 @@ mobileNavLinks.forEach(link => {
   link.addEventListener('click', closeDrawer);
 });
 
-// Sync mobile drawer active states with sidebar
+// Sync mobile drawer active states
 const mobileSidebarItems = mobileDrawer.querySelectorAll('.sidebar-item');
 const mobileObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
