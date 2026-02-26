@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ettevõtjate Koda | Eesti Forexi Kogukond</title>
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ========================================
+         ESTONIAN-OPTIMIZED CONVERSION FLOW
+
+         Estonian mindset: skeptical, direct, no-BS,
+         risk-aware, community-oriented, hates hype.
+         Trust > Hype. Honesty > Promises.
+
+         Flow:
+         1. HERO      — Community-first, concrete, no hype
+         2. TRUST BAR — Hard numbers
+         3. HONEST HOOK — Brief pain acknowledgment + bridge
+         4. WHAT IS IT — Concrete: what the Telegram looks like
+         5. WHO       — Manfred short + honest
+         6. WHAT YOU GET — Specifics with examples
+         7. PROOF     — Real Telegram screenshots
+         8. COURSE    — Concrete topics
+         9. RISK NOTE — Honest risk disclaimer (trust builder)
+        10. FAQ       — Brutally honest answers
+        11. CTA       — Simple, low-pressure
+         ======================================== -->
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-inner">
+            <a href="#" class="nav-logo">
+                <img src="images/logo_transparent.png" alt="Ettevõtjate Koda">
+                <span>Ettevõtjate Koda</span>
+            </a>
+            <button class="nav-toggle" id="navToggle" aria-label="Menüü">
+                <span></span>
+                <span></span>
+            </button>
+            <div class="nav-menu" id="navMenu">
+                <a href="#what">Mis see on?</a>
+                <a href="#offer">Mida saad</a>
+                <a href="#course">Kursus</a>
+                <a href="#proof">Tagasisided</a>
+                <a href="#faq">KKK</a>
+                <a href="#start" class="nav-btn">Liitu tasuta</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ======================
+         1. HERO — Community-first, concrete
+         Estonian reads: "Ok, eestikeelne kogukond, päris inimesed, tasuta — vaatan edasi"
+         ====================== -->
+    <section class="hero">
+        <div class="hero-grain"></div>
+        <div class="hero-inner">
+            <div class="hero-left">
+                <p class="hero-tag">Eestikeelne Forexi Kogukond</p>
+                <h1>Õpi kauplema koos <span class="gold">200+ eestlasega</span></h1>
+                <p class="hero-desc">Tasuta Telegram kogukond, kus saad forexi signaalid, eestikeelse videokursuse, automaatsed kauplemistööriistad ja reaalse kogemuse jagamise — kõik ühes kohas.</p>
+                <div class="hero-actions">
+                    <a href="#start" class="btn-gold">Liitu tasuta Telegramiga</a>
+                    <a href="#what" class="btn-ghost">Vaata mis sees on <span class="arrow-down">↓</span></a>
+                </div>
+                <div class="hero-micro-proof">
+                    <div class="micro-avatars">
+                        <img src="images/small_photo.jpg" alt="">
+                        <img src="images/forex_banner.png" alt="">
+                    </div>
+                    <span>200+ liiget juba sees</span>
+                </div>
+            </div>
+            <div class="hero-right">
+                <div class="hero-photo-stack">
+                    <img src="images/forex_banner.png" alt="Manfred Muuga — Ettevõtjate Koda" class="hero-main-photo zoomable">
+                    <div class="hero-stat-pill">
+                        <span class="pill-number">7+</span>
+                        <span class="pill-label">aastat Forexis</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-hint" id="scrollHint">
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- ======================
+         2. TRUST BAR — Hard numbers, no fluff
+         ====================== -->
+    <section class="trust-bar">
+        <div class="container">
+            <div class="trust-items">
+                <div class="trust-item">
+                    <span class="trust-num">200+</span>
+                    <span class="trust-label">Liiget kogukonnas</span>
+                </div>
+                <div class="trust-item">
+                    <span class="trust-num">7+</span>
+                    <span class="trust-label">Aastat kogemust</span>
+                </div>
+                <div class="trust-item">
+                    <span class="trust-num">0€</span>
+                    <span class="trust-label">Liitumistasu</span>
+                </div>
+                <div class="trust-item">
+                    <span class="trust-num">15+</span>
+                    <span class="trust-label">Videotundi kursuses</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================
+         3. HONEST HOOK — Brief, not dramatic
+         Estonian reads: "Ok, ta saab aru minu olukorrast, pole üle dramatiseeritud"
+         ====================== -->
+    <section class="hook" id="hook">
+        <div class="container">
+            <div class="hook-inner" data-anim>
+                <h2>Enamik eestlasi pole kunagi Forexist kuulnud.<br>Need kes on — ei tea kust alustada.</h2>
+                <p>Infot on palju, aga usaldusväärset eestikeelset materjali praktiliselt pole. Ingliskeelsed kursused maksavad sadu eurosid. Ja üksi katsetamine tähendab raha kaotamist.</p>
+                <p>Me lõime selle kogukonna, et sul <strong>ei peaks üksi katsetama.</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================
+         4. WHAT IS IT — Show, don't tell
+         Estonian reads: "Ahah, nii see välja näeb. Päris Telegrami grupp. Päris sisu."
+         ====================== -->
+    <section class="what" id="what">
+        <div class="container">
+            <div class="what-layout">
+                <div class="what-visual" data-anim>
+                    <img src="images/section_bg1.png" alt="Telegrami kogukond" class="what-screenshot zoomable">
+                    <img src="images/section_bg2.png" alt="Kogukonna vestlus" class="what-screenshot-2 zoomable">
+                </div>
+                <div class="what-text" data-anim>
+                    <p class="section-tag">Mis see on?</p>
+                    <h2>Päris Telegram kogukond, mitte müügileht</h2>
+                    <p>Ettevõtjate Koda on Telegrami grupp, kus:</p>
+                    <ul class="what-list">
+                        <li>Kogenud kauplejad jagavad iga päev <strong>signaale</strong> — sa kopeeri ja sisestad oma platvormile</li>
+                        <li>Liikmed jagavad oma <strong>tulemusi ja küsimusi</strong> — keegi ei jää üksi</li>
+                        <li>Sul on ligipääs <strong>videokursusele</strong>, mis viib sind nullist kauplemiseni</li>
+                        <li>Saadaval on <strong>automaatsed süsteemid</strong> (PAMM/Copytrading), kus ei pea ise kauplema</li>
+                    </ul>
+                    <p class="what-note">Pole müügisurvet. Pole kohustusi. Vaata järgi ja otsusta ise.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================
+         5. WHO — Manfred, honest and short
+         Estonian reads: "Ok, tavaline eesti mees, mitte mingi guru. Aus lugu."
+         ====================== -->
+    <section class="who" id="who">
+        <div class="container">
+            <div class="who-layout">
+                <div class="who-text" data-anim>
+                    <p class="section-tag">Kes selle taga on</p>
+                    <h2>Manfred Muuga</h2>
+                    <p>Töötasin 7 aastat välismaal restoranides. Koroona ajal kaotasin töö ja elukoha, tulin tagasi Eestisse ja pidin kiiresti leidma alternatiivi.</p>
+                    <p>Leidsin Forexi. Alustasin nullist, tegin vigu, õppisin. Tänaseks olen tegutsenud Forexis <strong>7+ aastat</strong> ja teen koostööd paljude kauplejatega.</p>
+                    <p>Lõin selle kogukonna, sest eestikeelset ja usaldusväärset kohta forexi õppimiseks <strong>lihtsalt polnud olemas</strong>.</p>
+                </div>
+                <div class="who-photos" data-anim>
+                    <div class="who-before">
+                        <img src="images/small_photo.jpg" alt="Manfred tööl" class="zoomable">
+                        <span class="who-label">Restoran, välismaal</span>
+                    </div>
+                    <div class="who-after">
+                        <img src="images/forex_banner.png" alt="Manfred täna" class="zoomable">
+                        <span class="who-label gold-tag">Täna</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================
+         6. WHAT YOU GET — Specifics, no hype
+         Estonian reads: "Ok, konkreetsed asjad. Signaalid, kursus, raamatud. Mõistlik."
+         ====================== -->
+    <section class="offer" id="offer">
+        <div class="container">
+            <div class="offer-header" data-anim>
+                <p class="section-tag">Mida sa täpselt saad</p>
+                <h2>Kõik on ühes Telegrami grupis</h2>
+            </div>
+
+            <div class="offer-grid" data-anim>
+                <div class="offer-card">
+                    <span class="offer-icon">📊</span>
+                    <h3>Kauplemissignaalid</h3>
+                    <p>Mitme kogenud kaupleja signaalid iga päev. Kopeeri signaal ja sisesta oma MT4/MT5 platvormile. Ei pea ise graafikuid analüüsima.</p>
+                </div>
+                <div class="offer-card">
+                    <span class="offer-icon">🎓</span>
+                    <h3>Eestikeelne videokursus</h3>
+                    <p>15+ videotundi nullist kauplemiseni. Õpid mõistma turge, riskijuhtimist, küünlamustreid, strateegiaid — kõik eesti keeles.</p>
+                </div>
+                <div class="offer-card">
+                    <span class="offer-icon">🤖</span>
+                    <h3>Automaatsed süsteemid</h3>
+                    <p>PAMM ja Copytrading lahendused, kus kogenud kaupleja kaupleb sinu eest. Sina valid, kui palju riskida.</p>
+                </div>
+                <div class="offer-card">
+                    <span class="offer-icon">📚</span>
+                    <h3>12+ e-raamatut</h3>
+                    <p>Kauplemise raamatud ja juhendid, mida saad omas tempos läbi töötada.</p>
+                </div>
+                <div class="offer-card">
+                    <span class="offer-icon">🔧</span>
+                    <h3>Tööriistad ja lingid</h3>
+                    <p>Kauplemiskalkulaatorid, brokkerite võrdlused, uudiste kanalid — kogu vajalik ühes kohas.</p>
+                </div>
+                <div class="offer-card">
+                    <span class="offer-icon">🤝</span>
+                    <h3>Eestikeelne kogukond</h3>
+                    <p>200+ inimest, kes jagavad kogemusi, küsivad küsimusi ja aitavad üksteist. Pole rumalaid küsimusi.</p>
+                </div>
+            </div>
+
+            <div class="offer-cta" data-anim>
+                <a href="#start" class="btn-gold">Liitu ja vaata ise →</a>
+                <span class="offer-note">Saad kohe ligipääsu. Lahkud millal tahad.</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================
+         7. PROOF — Real Telegram screenshots
+         Estonian reads: "Need on päris vestlused. Need inimesed on rahul."
+         ====================== -->
+    <section class="proof" id="proof">
+        <div class="container">
+            <div class="proof-header" data-anim>
+                <p class="section-tag">Päris tagasiside</p>
+                <h2>Mida kogukonna liikmed ise ütlevad</h2>
+            </div>
+
+            <div class="proof-cards">
+                <div class="proof-card" data-anim>
+                    <div class="proof-screenshot">
+                        <img src="images/section_bg1.png" alt="Andro Punder tagasiside" class="zoomable">
+                    </div>
+                    <div class="proof-text">
+                        <p class="proof-quote">"Pika aja peale toob asi vilja ka. On vaja tegutseda. Aga tänud et juhtisid elu sinna maani mida mul vaja oli."</p>
+                        <div class="proof-author">
+                            <strong>Andro Punder</strong>
+                            <span>Kogukonna liige</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="proof-card" data-anim>
+                    <div class="proof-screenshot">
+                        <img src="images/section_bg2.png" alt="Kogukonna tagasiside" class="zoomable">
+                    </div>
+                    <div class="proof-text">
+                        <p class="proof-quote">"Õppisin ära... Tänu sinule kõik."</p>
+                        <div class="proof-author">
+                            <strong>Kogukonna liige</strong>
+                            <span>Ettevõtjate Koda</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================
+         8. COURSE — Concrete topics
+         Estonian reads: "Päris kursus, konkreetsed teemad, mitte mingi üldine jutt"
+         ====================== -->
+    <section class="course" id="course">
+        <div class="container">
+            <div class="course-header" data-anim>
+                <span class="new-badge">Sisaldub tasuta</span>
+                <p class="section-tag">Videokursus</p>
+                <h2>Forexi baaskursus eesti keeles</h2>
+                <p class="course-sub">Samm-sammult videokursus, mis viib sind nullist päris kauplemiseni</p>
+            </div>
+
+            <div class="course-columns">
+                <div class="course-col" data-anim>
+                    <h3>Algajatele</h3>
+                    <ol class="topic-list">
+                        <li>Mis on Forex ja kuidas turg töötab</li>
+                        <li>Kauplemisplatvormi seadistamine (MT4)</li>
+                        <li>Kuidas sisestada signaale</li>
+                        <li>Riskijuhtimine ja RRR</li>
+                        <li>Kuidas edasi — järgmised sammud</li>
+                    </ol>
+                </div>
+                <div class="course-col featured" data-anim>
+                    <h3>Edasijõudnutele</h3>
+                    <ol class="topic-list">
+                        <li>Jaapani küünlamustrid</li>
+                        <li>Fibonacci kasutamine SL/TP jaoks</li>
+                        <li>Backtesting ehk FXReplay</li>
+                        <li>Iseseisev kauplemisstrateegia</li>
+                        <li>Kauplemise psühholoogia</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================
+         9. RISK NOTE — Honest disclaimer (trust builder!)
+         Estonian reads: "Ohhoo, nad räägivad riskidest ausalt. See on teistmoodi kui need tavapetised."
+         ====================== -->
+    <section class="risk-note" id="risk">
+        <div class="container">
+            <div class="risk-box" data-anim>
+                <h3>Aus sõna riskidest</h3>
+                <p>Forex ei ole kiiresti rikkaks saamise skeem. Statistiliselt kaotab enamik jaeinvestoreid raha, sest nad alustavad ilma teadmiste ja strateegiata.</p>
+                <p>Me ei luba sulle garanteeritud kasumit — seda ei saa keegi lubada. Mida me pakume, on <strong>teadmised, tööriistad ja kogukond</strong>, mis annavad sulle parema lähtepositsiooni kui üksi katsetamine.</p>
+                <p>Alusta väikeste summadega. Õpi enne kui riskid. Kasuta demo-kontot. Ja ära investeeri kunagi raha, mida sa ei saa endale lubada kaotada.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================
+         10. FAQ — Brutally honest
+         Estonian reads: "Need vastused on ausad, mitte müügijutud. Ok."
+         ====================== -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <div class="faq-header" data-anim>
+                <p class="section-tag">Korduma kippuvad küsimused</p>
+                <h2>Küsimused ja ausad vastused</h2>
+            </div>
+
+            <div class="faq-list" data-anim>
+                <details class="faq-item">
+                    <summary>Miks see tasuta on? Mis on konks?</summary>
+                    <p>Kogukond, kursus ja tööriistad on tasuta ning jäävad tasuta. Konks puudub. Teenime läbi selle, et osa kogukonna liikmeid kasutab meie soovitatud brokkereid (kust me saame partnerluskomisjoni) ja osa valib hiljem vabatahtlikult premium-teenuseid nagu mentorikõne. Aga kõik põhiline — signaalid, kursus, kogukond — on igavesti tasuta.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>Kas mul peab olema kogemus?</summary>
+                    <p>Ei. Enamik meie liikmeid alustas ilma igasuguse taustata. Kursus algab absoluutsest nullist. Ja signaalide kasutamiseks piisab copy-paste oskusest — need on nii lihtsad.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>Kui palju raha on vaja alustamiseks?</summary>
+                    <p>Alustada saab 50–100 euroga. Soovitame kõigepealt kasutada demo-kontot (päriselt rahata), kuni tunned end kindlalt. Mitte keegi ei sunni sind päris rahaga riskima enne kui oled valmis.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>Kas ma saan oma raha kaotada?</summary>
+                    <p>Jah. Forex on riskantne ja kaotusi tuleb ette ka kogenud kauplejatel. Vahe on selles, et haritud kaupleja teab kuidas riski juhtida — kui palju riskida, millal väljuda, kuidas kaitsta oma kapitali. Seda me siin õpetamegi. Aga garantiisid ei anna keegi.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>Kas see pole lihtsalt hasartmäng?</summary>
+                    <p>Ilma teadmisteta — jah, siis on. Samamoodi nagu aktsiaturul või kinnisvaraturul pimesi tegutsedes. Aga strateegia, riskijuhtimise ja haridusega on see ärimudel, mitte hasart. Just sellepärast paneme nii suurt rõhku haridusele.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>Kuidas signaalid töötavad?</summary>
+                    <p>Kogenud kaupleja analüüsib turgu ja saadab Telegramis signaali: millist valuutapaari kaubelda, mis suunas, kuhu panna stop-loss ja take-profit. Sina kopeerid selle info oma kauplemisplatvormile (nt MT4). Kogu protsess võtab umbes 2 minutit.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>Kas saan igal ajal lahkuda?</summary>
+                    <p>Jah, ühe klikiga. See on Telegrami grupp — kui ei meeldi, lahkud. Pole lepinguid, pole kohustusi, pole meililoendeid millest on raske lahkuda. Sa ei kaota midagi proovides.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================
+         11. FINAL CTA — Low pressure, simple
+         Estonian reads: "Ok, proovimisega ma midagi ei kaota. Vaatan."
+         ====================== -->
+    <section class="final-cta" id="start">
+        <div class="container">
+            <div class="cta-box" data-anim>
+                <img src="images/logo_transparent.png" alt="Ettevõtjate Koda" class="cta-logo">
+                <h2>Proovi ise ja otsusta</h2>
+                <p>Liitu Telegrami grupiga, vaata sisu ja otsusta kas see on sinu jaoks. Kui pole — lahku ühe klikiga.</p>
+                <form class="cta-form" id="joinForm">
+                    <input type="text" placeholder="Sinu nimi" required>
+                    <input type="email" placeholder="Sinu e-mail" required>
+                    <button type="submit" class="btn-gold btn-full">Liitu kogukonnaga →</button>
+                </form>
+                <div class="cta-reassurance">
+                    <span>✓ Tasuta, igavesti</span>
+                    <span>✓ Pole kohustusi</span>
+                    <span>✓ Lahku millal tahad</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <img src="images/logo_footer.png" alt="Ettevõtjate Koda">
+                    <p>Eestikeelne forexi kauplejate kogukond.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Navigatsioon</h4>
+                    <a href="#what">Mis see on</a>
+                    <a href="#offer">Mida saad</a>
+                    <a href="#course">Kursus</a>
+                    <a href="#faq">KKK</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Juriidiline</h4>
+                    <a href="#">Privaatsuspoliitika</a>
+                    <a href="#">Kasutustingimused</a>
+                    <a href="#">Riskihoiatus</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Kontakt</h4>
+                    <a href="mailto:info@ettevotjatekoda.ee">info@ettevotjatekoda.ee</a>
+                    <a href="tel:+37251985325">+372 5198 5325</a>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Facebook">FB</a>
+                        <a href="#" aria-label="TikTok">TT</a>
+                        <a href="#" aria-label="Instagram">IG</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2024 Ettevõtjate Koda. Kõik õigused kaitstud. Forex kauplemine on riskantne. Kauple vastutustundlikult.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lightboxClose" aria-label="Sulge">&times;</button>
+        <img src="" alt="" id="lightboxImg">
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
