@@ -467,6 +467,87 @@ transform:translateY(-2px);
 box-shadow:0 6px 24px rgba(184,248,71,0.4);
 }
 
+/* Referrer card */
+.referrer-section{
+max-width:800px;
+margin:-40px auto 40px;
+padding:0 24px;
+position:relative;
+z-index:10;
+}
+.referrer-card{
+background:var(--bg-card);
+border:2px solid rgba(184,248,71,0.3);
+border-radius:24px;
+padding:40px;
+text-align:center;
+box-shadow:0 8px 40px rgba(184,248,71,0.08);
+}
+.referrer-label{
+font-size:0.75rem;
+font-weight:700;
+text-transform:uppercase;
+letter-spacing:2px;
+color:var(--accent);
+margin-bottom:16px;
+}
+.referrer-name{
+font-size:1.8rem;
+font-weight:900;
+margin-bottom:8px;
+}
+.referrer-desc{
+color:var(--text-dim);
+font-size:0.95rem;
+margin-bottom:24px;
+line-height:1.6;
+}
+.referrer-cta{
+display:inline-flex;
+align-items:center;
+gap:10px;
+background:var(--accent);
+color:var(--bg);
+text-decoration:none;
+font-weight:800;
+font-size:1.05rem;
+padding:16px 36px;
+border-radius:14px;
+transition:all 0.2s;
+box-shadow:0 4px 20px rgba(184,248,71,0.3);
+margin-bottom:24px;
+}
+.referrer-cta:hover{
+transform:translateY(-2px);
+box-shadow:0 8px 32px rgba(184,248,71,0.4);
+}
+.referrer-cta i{font-size:1.1rem}
+.referrer-socials{
+display:flex;
+justify-content:center;
+gap:12px;
+flex-wrap:wrap;
+}
+.referrer-social{
+display:flex;
+align-items:center;
+gap:8px;
+background:var(--bg);
+border:1px solid var(--border);
+border-radius:10px;
+padding:10px 18px;
+color:var(--text-dim);
+text-decoration:none;
+font-size:0.85rem;
+font-weight:600;
+transition:all 0.2s;
+}
+.referrer-social:hover{
+border-color:var(--accent);
+color:var(--accent);
+}
+.referrer-social i{color:var(--accent);font-size:1rem}
+
 /* Mobile menu */
 .mobile-menu-btn{
 display:none;
@@ -537,6 +618,13 @@ background:var(--green);border-color:var(--green);color:#fff;
 .hero p{font-size:0.95rem}
 .hero-badges{flex-direction:column;align-items:center;gap:8px}
 .hero-badge{font-size:0.8rem;padding:8px 16px}
+.referrer-section{margin:-20px auto 32px;padding:0 16px}
+.referrer-card{padding:28px 20px;border-radius:16px}
+.referrer-name{font-size:1.4rem}
+.referrer-desc{font-size:0.9rem}
+.referrer-cta{font-size:0.95rem;padding:14px 28px;width:100%}
+.referrer-socials{gap:8px}
+.referrer-social{padding:8px 14px;font-size:0.8rem}
 .layout{padding:0 16px}
 .step-card{padding:20px;border-radius:16px;margin-bottom:24px}
 .step-split{grid-template-columns:1fr;gap:20px}
@@ -649,6 +737,25 @@ background:var(--green);border-color:var(--green);color:#fff;
 <div class="hero-badge"><i class="fa-solid fa-shield-check"></i> KYC kinnitamine</div>
 </div>
 </section>
+
+<!-- Referrer Info -->
+<div class="referrer-section">
+<div class="referrer-card">
+<div class="referrer-label">Sinu soovitaja</div>
+<div class="referrer-name">Manfred Muuga</div>
+<div class="referrer-desc">Alusta siit — kasuta allolevat registreerimislinki, et sinu konto oleks õigesti ühendatud. Küsimuste korral võta julgelt ühendust!</div>
+<a href="https://aitech.ibportal.io/auth/register?e=27I8HZeMt1RvTqvz5w1RV1sHvY1nWmKmHMlMGEPDlUA=&a=2" target="_blank" class="referrer-cta">
+<i class="fa-solid fa-rocket"></i> Registreeru siin
+</a>
+<div class="referrer-socials">
+<a href="https://wa.me/37251985325" target="_blank" class="referrer-social"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+<a href="https://t.me/manfredmuuga" target="_blank" class="referrer-social"><i class="fa-brands fa-telegram"></i> Telegram</a>
+<a href="https://www.facebook.com/profile.php?id=61572194014335" target="_blank" class="referrer-social"><i class="fa-brands fa-facebook"></i> Facebook</a>
+<a href="https://www.instagram.com/manfredmuuga2/" target="_blank" class="referrer-social"><i class="fa-brands fa-instagram"></i> Instagram</a>
+<a href="https://www.tiktok.com/@manfredmuuga?is_from_webapp=1&sender_device=pc" target="_blank" class="referrer-social"><i class="fa-brands fa-tiktok"></i> TikTok</a>
+</div>
+</div>
+</div>
 
 <!-- Layout: Sidebar + Content -->
 <div class="layout">
